@@ -8,7 +8,12 @@ Alle Inhalte – Karten, Länder, Szenarien, Grafik, Mechanik, Zeichensatz – s
 eigenständig entwickelt. Es werden keine geschützten Inhalte anderer Spiele
 verwendet.
 
-## Starten
+## [▶ Direkt im Browser spielen](https://paradoksfinans.github.io/empire-tactics/)
+
+Keine Installation nötig. Der Spielstand liegt im Browser des Geräts, auf dem
+gespielt wird.
+
+## Selbst starten
 
 ```bash
 npm install
