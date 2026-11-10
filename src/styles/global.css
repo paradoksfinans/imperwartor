@@ -1,0 +1,518 @@
+/* ==================================================================
+   Empire Tactics - Designsystem
+   Leitbild: Admiralitäts-Kartentisch. Das Meer ist Tinte, das Land
+   ist Papier. Alle Bedienelemente treten hinter die Karte zurück.
+   ================================================================== */
+
+/* Schriften werden lokal gebündelt, damit das Spiel offline läuft. */
+@import '@fontsource/spectral/400.css';
+@import '@fontsource/spectral/400-italic.css';
+@import '@fontsource/spectral/600.css';
+@import '@fontsource/spectral/700.css';
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+
+:root {
+  /* --- Grundpalette --- */
+  --ink: #0e1a24;
+  --ink-deep: #081219;
+  --chart: #15242f;
+  --chart-raised: #1b2e3b;
+  --chart-sunk: #101d26;
+  --linen: #e7dcc6;
+  --linen-dim: #cdc1a8;
+  --brass: #c9a227;
+  --brass-bright: #e3bd48;
+  --verdigris: #4e9a8f;
+  --vermilion: #b5422f;
+  --vermilion-bright: #d2583f;
+  --indigo: #2b4c6f;
+
+  /* --- Semantische Zuordnung (dunkles Design) --- */
+  --surface: var(--chart);
+  --surface-raised: var(--chart-raised);
+  --surface-sunk: var(--chart-sunk);
+  --page: var(--ink);
+  --sea: var(--ink-deep);
+  --rule: #2a4252;
+  --rule-strong: #3d5c70;
+  --text: #e8e2d4;
+  --text-muted: #a4b2bd;
+  --text-faint: #71838f;
+  --accent: var(--brass);
+  --accent-text: #12202a;
+  --positive: #5fb79a;
+  --negative: #d2705c;
+  --warning: #d9a33f;
+
+  /* --- Maß und Rhythmus --- */
+  --rail: 2.75rem;
+  --dossier: 23.5rem;
+  --tap: 2.75rem;
+  --r-sm: 3px;
+  --r: 5px;
+  --r-lg: 9px;
+  --hair: 1px;
+
+  --shadow-panel: 0 1.5rem 3rem -1.5rem rgba(4, 10, 14, 0.75);
+  --shadow-float: 0 0.75rem 2rem -0.5rem rgba(4, 10, 14, 0.7);
+
+  /* Papiergrund für Flächen, die Karte zitieren */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+
+  color-scheme: dark;
+}
+
+/* --- Helles Design: dieselbe Karte bei Tageslicht --- */
+:root[data-theme='light'] {
+  --surface: #f3ecda;
+  --surface-raised: #fbf6e8;
+  --surface-sunk: #e6dcc3;
+  --page: #ded2b6;
+  --sea: #b9ccd4;
+  --rule: #b7a683;
+  --rule-strong: #8d7a55;
+  --text: #1d2b33;
+  --text-muted: #4e5f69;
+  --text-faint: #7a8992;
+  --accent: #8a6a12;
+  --accent-text: #fbf6e8;
+  --positive: #2f7d63;
+  --negative: #9d3722;
+  --warning: #8a6410;
+  --shadow-panel: 0 1.25rem 2.5rem -1.5rem rgba(60, 48, 24, 0.4);
+  --shadow-float: 0 0.5rem 1.5rem -0.5rem rgba(60, 48, 24, 0.35);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--page);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ------------------------------------------------------------------ */
+/* Typografie                                                          */
+/* ------------------------------------------------------------------ */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Spectral, Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  margin: 0 0 0.35em;
+  line-height: 1.18;
+  letter-spacing: 0.002em;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 1.4rem + 2.2vw, 3.1rem);
+  font-weight: 700;
+}
+h2 {
+  font-size: 1.35rem;
+}
+h3 {
+  font-size: 1.05rem;
+}
+h4 {
+  font-size: 0.95rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 0.7em;
+  max-width: 68ch;
+}
+
+.lede {
+  font-family: Spectral, Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.62;
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+.serif {
+  font-family: Spectral, Georgia, serif;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.faint {
+  color: var(--text-faint);
+  font-size: 0.85rem;
+}
+
+.positive {
+  color: var(--positive);
+}
+.negative {
+  color: var(--negative);
+}
+.warning {
+  color: var(--warning);
+}
+
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------ */
+/* Bedienelemente                                                      */
+/* ------------------------------------------------------------------ */
+
+button {
+  font: inherit;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--surface-raised), var(--surface));
+  border: var(--hair) solid var(--rule-strong);
+  border-radius: var(--r);
+  padding: 0.5rem 0.85rem;
+  min-height: var(--tap);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  transition: border-color 120ms ease, background 120ms ease, color 120ms ease;
+  touch-action: manipulation;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+button:active:not(:disabled) {
+  background: var(--surface-sunk);
+}
+
+button:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: linear-gradient(180deg, var(--brass-bright), var(--brass));
+  border-color: #8d7117;
+  color: #16242e;
+  font-weight: 600;
+}
+
+:root[data-theme='light'] button.primary {
+  background: linear-gradient(180deg, #b58b1c, #8a6a12);
+  color: #fbf6e8;
+  border-color: #6d5410;
+}
+
+button.danger {
+  border-color: var(--vermilion);
+  color: var(--negative);
+  background: transparent;
+}
+
+button.danger:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--vermilion) 18%, transparent);
+  border-color: var(--vermilion-bright);
+}
+
+button.quiet {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-muted);
+}
+
+button.quiet:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--rule);
+}
+
+button.small {
+  min-height: 2rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.85rem;
+  border-radius: var(--r-sm);
+}
+
+button.block {
+  width: 100%;
+}
+
+button.selected {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brass-bright);
+  outline-offset: 2px;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  background: var(--surface-sunk);
+  border: var(--hair) solid var(--rule);
+  border-radius: var(--r-sm);
+  padding: 0.4rem 0.55rem;
+  width: 100%;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  height: 1.75rem;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) var(--fill, 50%), var(--rule) var(--fill, 50%));
+  border-radius: 2px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: -0.5rem;
+  border-radius: 50%;
+  background: var(--brass-bright);
+  border: 2px solid var(--ink);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+input[type='range']::-moz-range-track {
+  height: 3px;
+  background: var(--rule);
+  border-radius: 2px;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--brass-bright);
+  border: 2px solid var(--ink);
+}
+
+input[type='checkbox'] {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Flächen und Struktur                                               */
+/* ------------------------------------------------------------------ */
+
+.panel {
+  background: var(--surface);
+  background-image: var(--grain);
+  border: var(--hair) solid var(--rule);
+  border-radius: var(--r);
+}
+
+.panel.sunk {
+  background: var(--surface-sunk);
+}
+
+/* Linierte Liste statt gekachelter Karten */
+.ruled > * {
+  padding: 0.5rem 0;
+  border-bottom: var(--hair) solid var(--rule);
+}
+
+.ruled > *:last-child {
+  border-bottom: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.row.tight {
+  gap: 0.3rem;
+}
+
+.row.between {
+  justify-content: space-between;
+}
+
+.row.nowrap {
+  flex-wrap: nowrap;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.stack.tight {
+  gap: 0.3rem;
+}
+
+.grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+}
+
+/* Schlüssel-Wert-Zeile im Ledger-Stil */
+.kv {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 0.18rem 0;
+}
+
+.kv > span:first-child {
+  color: var(--text-muted);
+}
+
+.kv > span:last-child {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.kv.lined {
+  border-bottom: var(--hair) dotted var(--rule);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.1rem 0.45rem;
+  border: var(--hair) solid var(--rule-strong);
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.tag.war {
+  border-color: var(--vermilion);
+  color: var(--negative);
+}
+
+.tag.ally {
+  border-color: var(--verdigris);
+  color: var(--positive);
+}
+
+.tag.brass {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-strong) transparent;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: var(--rule-strong);
+  border-radius: 5px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+hr.rule {
+  border: none;
+  border-top: var(--hair) solid var(--rule);
+  margin: 0.7rem 0;
+}
+
+/* Abschnittstitel mit Linie, ohne Kapitälchen */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: Spectral, Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0.2rem 0 0.5rem;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: var(--hair);
+  background: var(--rule);
+}
+
+.app-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--page);
+}
+
+/* Reduzierte Bewegung respektieren */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

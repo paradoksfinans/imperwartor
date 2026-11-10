@@ -1,0 +1,348 @@
+[
+  {
+    "id": "economic_crisis",
+    "name": "Leere Staatskasse",
+    "description": "Beamte und Soldaten warten seit Wochen auf ihren Sold. In den Städten wird offen über den Hof gespottet.",
+    "icon": "coin",
+    "category": "economy",
+    "probability": 0.4,
+    "once": false,
+    "conditions": { "goldBelow": 220, "minTurn": 3 },
+    "choices": [
+      { "text": "Ausgaben kürzen", "effects": { "gold": 220, "stability": -8 }, "resultText": "Die Kasse erholt sich, doch die Bevölkerung ist unzufrieden." },
+      { "text": "Sonderabgabe erheben", "effects": { "gold": 480, "stability": -16, "unrest": 10 }, "resultText": "Die Abgabe füllt die Kasse und erzeugt offenen Unmut.", "followUp": "tax_revolt" },
+      { "text": "Kronschatz verpfänden", "effects": { "gold": 650, "prestige": -10 }, "resultText": "Händler strecken das Geld vor - zu einem hohen Preis an Ansehen." }
+    ]
+  },
+  {
+    "id": "tax_revolt",
+    "name": "Steueraufstand",
+    "description": "Die Sonderabgabe hat Bauern und Zünfte gegen den Hof aufgebracht. In mehreren Gebieten verweigern sie die Zahlung.",
+    "icon": "fire",
+    "category": "politics",
+    "probability": 1,
+    "once": false,
+    "chainOnly": true,
+    "conditions": {},
+    "choices": [
+      { "text": "Mit Truppen durchgreifen", "effects": { "unrest": -20, "stability": -6, "army": -8 }, "resultText": "Die Unruhen werden niedergeschlagen, aber der Hass bleibt." },
+      { "text": "Abgabe zurücknehmen", "effects": { "gold": -300, "stability": 10, "unrest": -25 }, "resultText": "Der Hof gibt nach. Die Ruhe kehrt zurück." }
+    ]
+  },
+  {
+    "id": "good_harvest",
+    "name": "Reiche Ernte",
+    "description": "Ein außergewöhnlich gutes Jahr füllt die Speicher des ganzen Landes.",
+    "icon": "wheat",
+    "category": "nature",
+    "probability": 0.3,
+    "once": false,
+    "conditions": { "minTurn": 2 },
+    "choices": [
+      { "text": "Überschuss verkaufen", "effects": { "gold": 360 }, "resultText": "Händler zahlen gute Preise für den Überschuss." },
+      { "text": "Speicher füllen", "effects": { "resources": { "grain": 30 } }, "resultText": "Die Vorratslager sind bis unter das Dach gefüllt." },
+      { "text": "An das Volk verteilen", "effects": { "stability": 12, "population": 600 }, "resultText": "Die Bevölkerung dankt es mit Zufriedenheit und Zuwachs." }
+    ]
+  },
+  {
+    "id": "border_incident",
+    "name": "Grenzzwischenfall",
+    "description": "An der Grenze kommt es zu einem Gefecht zwischen Patrouillen. Beide Seiten beschuldigen einander.",
+    "icon": "sword",
+    "category": "military",
+    "probability": 0.3,
+    "once": false,
+    "conditions": { "minTurn": 3 },
+    "choices": [
+      { "text": "Scharf reagieren", "effects": { "relations": -12, "stability": 6, "politicalPower": 2 }, "resultText": "Die harte Linie stärkt das Ansehen im Inneren und schadet den Beziehungen." },
+      { "text": "Diplomatisch beilegen", "effects": { "relations": 9, "stability": -4 }, "resultText": "Der Konflikt wird beigelegt, im Land gilt das als Schwäche." },
+      { "text": "Anspruch anmelden", "effects": { "politicalPower": -6, "relations": -18 }, "resultText": "Der Hof erhebt öffentlich Anspruch auf das Grenzland." }
+    ]
+  },
+  {
+    "id": "scientific_breakthrough",
+    "name": "Wissenschaftlicher Durchbruch",
+    "description": "Gelehrte des Landes melden eine unerwartete Entdeckung.",
+    "icon": "book",
+    "category": "culture",
+    "probability": 0.24,
+    "once": false,
+    "conditions": { "minTurn": 4 },
+    "choices": [
+      { "text": "Forschung fördern", "effects": { "research": 60, "gold": -140 }, "resultText": "Die Entdeckung wird sofort weiterentwickelt." },
+      { "text": "Für das Militär nutzen", "effects": { "research": 25, "army": 14 }, "resultText": "Neue Ausrüstung erreicht die Truppen in der Hauptstadt." },
+      { "text": "Geheim halten", "effects": { "research": 35, "politicalPower": 3 }, "resultText": "Nur der engste Kreis erfährt davon." }
+    ]
+  },
+  {
+    "id": "war_weariness",
+    "name": "Kriegsmüdigkeit",
+    "description": "Der andauernde Krieg belastet die Bevölkerung spürbar. Die Rekrutierungslisten werden länger, die Zustimmung kleiner.",
+    "icon": "fire",
+    "category": "military",
+    "probability": 0.42,
+    "once": false,
+    "conditions": { "atWar": true, "minTurn": 4 },
+    "choices": [
+      { "text": "Propaganda verstärken", "effects": { "gold": -180, "warExhaustion": -12, "stability": 5 }, "resultText": "Die Stimmung stabilisiert sich vorerst." },
+      { "text": "Truppen teilweise entlassen", "effects": { "army": -12, "warExhaustion": -20, "stability": 7 }, "resultText": "Die Heimkehrer beruhigen das Land, die Armee schrumpft." },
+      { "text": "Krieg fortsetzen", "effects": { "stability": -10, "warExhaustion": 6, "politicalPower": 2 }, "resultText": "Der Krieg geht weiter, der Unmut wächst." }
+    ]
+  },
+  {
+    "id": "plague",
+    "name": "Seuche",
+    "description": "Eine Krankheit breitet sich in den dicht besiedelten Gebieten aus. Die Ärzte sind ratlos.",
+    "icon": "skull",
+    "category": "nature",
+    "probability": 0.18,
+    "once": false,
+    "conditions": { "minTurn": 7 },
+    "choices": [
+      { "text": "Gebiete abriegeln", "effects": { "gold": -260, "population": -400, "stability": -5 }, "resultText": "Die Ausbreitung wird eingedämmt, der Handel leidet." },
+      { "text": "Ärzte bezahlen", "effects": { "gold": -480, "population": -150, "stability": 4 }, "resultText": "Teuer, aber wirksam. Das Volk rechnet es dem Hof hoch an." },
+      { "text": "Nichts unternehmen", "effects": { "population": -1200, "stability": -14 }, "resultText": "Die Seuche fordert viele Opfer." }
+    ]
+  },
+  {
+    "id": "resource_find",
+    "name": "Ressourcenfund",
+    "description": "In einer Grenzregion wird ein ergiebiges Vorkommen entdeckt.",
+    "icon": "gem",
+    "category": "economy",
+    "probability": 0.22,
+    "once": true,
+    "conditions": { "minTurn": 5 },
+    "choices": [
+      { "text": "Sofort ausbeuten", "effects": { "gold": 560, "unrest": 12 }, "resultText": "Der schnelle Abbau bringt viel Gold, überlastet aber die Region." },
+      { "text": "Geordnet erschließen", "effects": { "resources": { "iron": 25, "luxury": 15 }, "stability": 3 }, "resultText": "Der Abbau läuft nachhaltig an." }
+    ]
+  },
+  {
+    "id": "general_ambition",
+    "name": "Ehrgeiziger Feldherr",
+    "description": "Ein siegreicher Feldherr sammelt Anhänger um sich. Am Hof spricht man bereits von einem Rivalen des Herrschers.",
+    "icon": "sword",
+    "category": "politics",
+    "probability": 0.25,
+    "once": false,
+    "conditions": { "minTurn": 8, "stabilityBelow": 55 },
+    "choices": [
+      { "text": "Mit Gold und Titeln binden", "effects": { "gold": -400, "stability": 5 }, "resultText": "Der Feldherr bleibt loyal - vorerst." },
+      { "text": "Absetzen", "effects": { "stability": -8, "army": -10, "politicalPower": 4 }, "resultText": "Der Hof setzt sich durch, das Heer verliert einen fähigen Kopf." },
+      { "text": "Gewähren lassen", "effects": { "stability": -14, "prestige": 5 }, "resultText": "Der Feldherr gewinnt weiter an Einfluss.", "followUp": "coup_attempt" }
+    ]
+  },
+  {
+    "id": "coup_attempt",
+    "name": "Putschversuch",
+    "description": "Der Feldherr marschiert mit seinen treuesten Verbänden auf die Hauptstadt.",
+    "icon": "fire",
+    "category": "politics",
+    "probability": 1,
+    "once": false,
+    "chainOnly": true,
+    "conditions": {},
+    "choices": [
+      { "text": "Garde aufbieten", "effects": { "gold": -500, "army": -18, "stability": -6 }, "resultText": "Der Putsch wird blutig niedergeschlagen." },
+      { "text": "Verhandeln und Macht teilen", "effects": { "stability": 4, "politicalPower": -10, "prestige": -12 }, "resultText": "Der Herrscher bleibt - als Erster unter Gleichen." }
+    ]
+  },
+  {
+    "id": "religious_dispute",
+    "name": "Glaubensstreit",
+    "description": "Prediger im Land widersprechen der offiziellen Lehre. Der Streit greift auf die Städte über.",
+    "icon": "temple",
+    "category": "culture",
+    "probability": 0.26,
+    "once": false,
+    "conditions": { "minTurn": 6 },
+    "choices": [
+      { "text": "Lehre durchsetzen", "effects": { "unrest": 14, "stability": 6, "politicalPower": 3 }, "resultText": "Die Einheit ist gewahrt, der Widerstand geht in den Untergrund." },
+      { "text": "Duldung gewähren", "effects": { "unrest": -12, "stability": -4, "gold": 180 }, "resultText": "Die Händler der Minderheit kehren zurück." }
+    ]
+  },
+  {
+    "id": "foreign_scholars",
+    "name": "Ausländische Gelehrte",
+    "description": "Eine Gruppe vertriebener Gelehrter bittet um Aufnahme an eurem Hof.",
+    "icon": "book",
+    "category": "culture",
+    "probability": 0.22,
+    "once": false,
+    "conditions": { "minTurn": 5 },
+    "choices": [
+      { "text": "Aufnehmen und ausstatten", "effects": { "gold": -260, "research": 70, "prestige": 6 }, "resultText": "Der Hof wird zum Anziehungspunkt für Wissen." },
+      { "text": "Abweisen", "effects": { "stability": 3, "relations": -5 }, "resultText": "Die konservativen Kreise sind zufrieden." }
+    ]
+  },
+  {
+    "id": "mercenary_offer",
+    "name": "Söldnerangebot",
+    "description": "Ein Söldnerführer bietet seine erfahrene Truppe an - gegen sofortige Bezahlung.",
+    "icon": "sword",
+    "category": "military",
+    "probability": 0.3,
+    "once": false,
+    "conditions": { "minTurn": 3, "goldAbove": 600 },
+    "choices": [
+      { "text": "Anwerben", "effects": { "gold": -520, "army": 26 }, "resultText": "Die Söldner treffen in der Hauptstadt ein." },
+      { "text": "Ablehnen", "effects": { "politicalPower": 1 }, "resultText": "Der Hof bleibt bei den eigenen Aufgeboten." },
+      { "text": "An einen Rivalen verweisen", "effects": { "relations": -8, "gold": 120 }, "resultText": "Die Söldner ziehen weiter - mit einer Empfehlung und einer Rechnung." }
+    ]
+  },
+  {
+    "id": "trade_boom",
+    "name": "Handelsblüte",
+    "description": "Neue Routen bringen ungewöhnlich viele Händler in eure Häfen.",
+    "icon": "coin",
+    "category": "economy",
+    "probability": 0.26,
+    "once": false,
+    "conditions": { "minTurn": 4 },
+    "choices": [
+      { "text": "Zölle erheben", "effects": { "gold": 420, "relations": -6 }, "resultText": "Die Staatskasse profitiert, die Nachbarn murren." },
+      { "text": "Freien Handel gewähren", "effects": { "gold": 180, "relations": 10, "resources": { "luxury": 12 } }, "resultText": "Der gute Ruf eurer Häfen verbreitet sich." }
+    ]
+  },
+  {
+    "id": "succession_doubt",
+    "name": "Zweifel an der Thronfolge",
+    "description": "Es gibt keinen unumstrittenen Erben. Die großen Häuser bringen sich in Stellung.",
+    "icon": "crown",
+    "category": "politics",
+    "probability": 0.2,
+    "once": false,
+    "conditions": { "minTurn": 10 },
+    "choices": [
+      { "text": "Nachfolge per Erlass regeln", "effects": { "politicalPower": -12, "stability": 10 }, "resultText": "Der Hof schafft Klarheit." },
+      { "text": "Die Häuser entscheiden lassen", "effects": { "stability": -10, "politicalPower": 6 }, "resultText": "Die Adelsfamilien gewinnen an Einfluss." }
+    ]
+  },
+  {
+    "id": "fortress_sabotage",
+    "name": "Sabotage an den Mauern",
+    "description": "In einer Grenzfestung wurden Vorräte vernichtet und Tore beschädigt.",
+    "icon": "shield",
+    "category": "military",
+    "probability": 0.22,
+    "once": false,
+    "conditions": { "minTurn": 6, "atWar": true },
+    "choices": [
+      { "text": "Sofort instand setzen", "effects": { "gold": -300, "resources": { "iron": -8 } }, "resultText": "Die Festung ist wieder einsatzbereit." },
+      { "text": "Spione jagen", "effects": { "politicalPower": -5, "stability": 4 }, "resultText": "Mehrere Agenten werden gefasst." }
+    ]
+  },
+  {
+    "id": "population_boom",
+    "name": "Bevölkerungszuwachs",
+    "description": "Milde Winter und gute Ernten lassen die Dörfer wachsen.",
+    "icon": "wheat",
+    "category": "nature",
+    "probability": 0.24,
+    "once": false,
+    "conditions": { "minTurn": 5, "stabilityAbove": 55 },
+    "choices": [
+      { "text": "Neue Siedlungen fördern", "effects": { "gold": -200, "population": 1400 }, "resultText": "Neue Höfe entstehen am Rand der Wälder." },
+      { "text": "Überschuss ausheben", "effects": { "army": 18, "population": -400 }, "resultText": "Die jungen Männer ziehen in die Kasernen." }
+    ]
+  },
+  {
+    "id": "vassal_unrest",
+    "name": "Unruhe im Vasallenstaat",
+    "description": "Euer Vasall beklagt zu hohe Tribute und zu wenig Schutz.",
+    "icon": "crown",
+    "category": "politics",
+    "probability": 0.3,
+    "once": false,
+    "conditions": { "hasVassal": true, "minTurn": 5 },
+    "choices": [
+      { "text": "Tribut senken", "effects": { "gold": -260, "relations": 16 }, "resultText": "Der Vasall ist besänftigt." },
+      { "text": "Auf Gehorsam bestehen", "effects": { "relations": -14, "politicalPower": 3 }, "resultText": "Der Vasall fügt sich - widerwillig." }
+    ]
+  },
+  {
+    "id": "coalition_warning",
+    "name": "Warnung der Nachbarn",
+    "description": "Mehrere Höfe äussern offen Sorge vor eurer wachsenden Macht.",
+    "icon": "flag",
+    "category": "politics",
+    "probability": 0.3,
+    "once": false,
+    "conditions": { "minTurn": 8, "minTerritories": 8 },
+    "choices": [
+      { "text": "Beschwichtigen", "effects": { "gold": -350, "relations": 14 }, "resultText": "Geschenke und Zusicherungen beruhigen die Höfe." },
+      { "text": "Stärke demonstrieren", "effects": { "relations": -12, "stability": 6, "prestige": 8 }, "resultText": "Eure Truppen paradieren an den Grenzen." }
+    ]
+  },
+  {
+    "id": "famine",
+    "name": "Hungersnot",
+    "description": "Missernten und Krieg leeren die Speicher. In den Städten wird Brot zugeteilt.",
+    "icon": "skull",
+    "category": "nature",
+    "probability": 0.22,
+    "once": false,
+    "conditions": { "minTurn": 6, "stabilityBelow": 50 },
+    "choices": [
+      { "text": "Getreide einkaufen", "effects": { "gold": -420, "resources": { "grain": 20 }, "stability": 5 }, "resultText": "Die Lage entspannt sich." },
+      { "text": "Rationen kürzen", "effects": { "population": -800, "unrest": 18 }, "resultText": "Die Not trifft vor allem die Ärmsten." }
+    ]
+  },
+  {
+    "id": "spy_caught",
+    "name": "Fremder Agent gefasst",
+    "description": "Die Wache fasst einen ausländischen Agenten mit Plänen eurer Festungen.",
+    "icon": "eye",
+    "category": "politics",
+    "probability": 0.24,
+    "once": false,
+    "conditions": { "minTurn": 6 },
+    "choices": [
+      { "text": "Öffentlich hinrichten", "effects": { "relations": -16, "stability": 5, "politicalPower": 2 }, "resultText": "Ein deutliches Zeichen an alle Höfe." },
+      { "text": "Still austauschen", "effects": { "relations": 8, "politicalPower": 4 }, "resultText": "Ein diskreter Handel bringt euch einen eigenen Mann zurück." }
+    ]
+  },
+  {
+    "id": "master_builder",
+    "name": "Baumeister am Hof",
+    "description": "Ein berühmter Baumeister bietet seine Dienste an.",
+    "icon": "hammer",
+    "category": "economy",
+    "probability": 0.2,
+    "once": true,
+    "conditions": { "minTurn": 8, "goldAbove": 800 },
+    "choices": [
+      { "text": "Anstellen", "effects": { "gold": -600, "prestige": 12, "politicalPower": 5 }, "resultText": "Seine Pläne beschleunigen alle künftigen Bauten." },
+      { "text": "Höflich ablehnen", "effects": { "gold": 0 }, "resultText": "Der Baumeister zieht weiter." }
+    ]
+  },
+  {
+    "id": "winter_storm",
+    "name": "Schwerer Winter",
+    "description": "Ein ungewöhnlich harter Winter legt Wege und Häfen lahm.",
+    "icon": "snow",
+    "category": "nature",
+    "probability": 0.26,
+    "once": false,
+    "conditions": { "minTurn": 4 },
+    "choices": [
+      { "text": "Vorräte freigeben", "effects": { "resources": { "grain": -12 }, "stability": 6 }, "resultText": "Die Speicher retten viele Dörfer." },
+      { "text": "Truppen einquartieren", "effects": { "army": -8, "gold": 160 }, "resultText": "Die Armee überwintert in den Dörfern - nicht alle kehren zurück." }
+    ]
+  },
+  {
+    "id": "triumph",
+    "name": "Triumphzug",
+    "description": "Nach den jüngsten Erfolgen fordert die Hauptstadt einen großen Festzug.",
+    "icon": "crown",
+    "category": "military",
+    "probability": 0.28,
+    "once": false,
+    "conditions": { "minTurn": 6, "stabilityAbove": 60, "minTerritories": 6 },
+    "choices": [
+      { "text": "Großen Triumph feiern", "effects": { "gold": -340, "stability": 10, "prestige": 14 }, "resultText": "Die Straßen sind voll. Das Ansehen des Herrschers wächst." },
+      { "text": "Bescheiden bleiben", "effects": { "gold": 0, "politicalPower": 4 }, "resultText": "Der Hof spart - und wirkt umso ernsthafter." }
+    ]
+  }
+]
