@@ -118,9 +118,17 @@ const wurzel = document.getElementById('app')!;
 /** Beim ersten Zeichnen einer neuen Partie auf das eigene Reich zoomen. */
 let aufReichZentrieren = false;
 
-/** true auf schmalen Geraeten - dort liegen die Bereiche in Bottom-Sheets. */
+/**
+ * true auf schmalen Geraeten - dort liegen die Bereiche in Blaettern.
+ *
+ * Die Grenze muss auf das Stylesheet passen. Sie stand hier einmal auf 900px,
+ * im Stylesheet aber auf 880px: Zwischen 881 und 900 Pixeln blendete das
+ * Stylesheet die Reiterleiste aus, waehrend der Code Schiene und Pult
+ * weggelassen hatte - es gab dort schlicht keine Bedienung mehr.
+ */
+const SCHMAL = '(max-width: 880px)';
 function istKompakt(): boolean {
-  return window.matchMedia('(max-width: 900px)').matches;
+  return window.matchMedia(SCHMAL).matches;
 }
 
 function melde(text: string, art: 'ok' | 'fehler' = 'ok'): void {
@@ -134,17 +142,56 @@ function melde(text: string, art: 'ok' | 'fehler' = 'ok'): void {
 /* Zeichnen                                                            */
 /* ------------------------------------------------------------------ */
 
+/**
+ * Zwischenspeicher der zuletzt geschriebenen Teilstücke.
+ *
+ * Früher baute jeder Tipper die gesamte Oberfläche neu auf. Das kostete auf
+ * dem Telefon spürbar Zeit und riss - schlimmer - genau das Element unter dem
+ * Finger weg. Ein Fingertipp löst nur dann einen Klick aus, wenn Nieder- und
+ * Hochgehen dasselbe Element treffen; wurde dazwischen neu gebaut, verschluckte
+ * der Browser den Tipp. Genau daher kam das "ich muss dreimal auf Schließen
+ * tippen". Jetzt steht das Gerüst fest, und jedes Teilstück wird nur angefasst,
+ * wenn sich sein HTML wirklich geändert hat.
+ */
+const teilStand = new Map<string, string>();
+let geruestSteht = false;
+
+function setzeTeil(id: string, html: string): void {
+  if (teilStand.get(id) === html) return;
+  teilStand.set(id, html);
+  const el = document.getElementById(id);
+  if (!el) return;
+  // Die Bildlaufhöhe überlebt den Austausch - sonst springt eine lange
+  // Tafel bei jeder Kleinigkeit wieder an den Anfang.
+  const lauf = el.scrollTop;
+  el.innerHTML = html;
+  if (lauf) el.scrollTop = lauf;
+}
+
+function zeigeTeil(id: string, sichtbar: boolean): void {
+  const el = document.getElementById(id);
+  if (el && el.hidden === sichtbar) el.hidden = !sichtbar;
+}
+
+/** Verwirft das Gerüst - nötig beim Wechsel des Bildschirms. */
+function geruestVerwerfen(): void {
+  teilStand.clear();
+  geruestSteht = false;
+}
+
 function zeichne(): void {
   document.documentElement.dataset.thema = app.thema === 'hell' ? 'hell' : 'dunkel';
 
   if (app.bildschirm === 'menue') {
     karte = null;
     vorschauKarte = null;
+    geruestVerwerfen();
     wurzel.innerHTML = hauptmenue() + modalHuelle();
     return;
   }
   if (app.bildschirm === 'aufbau') {
     karte = null;
+    geruestVerwerfen();
     zeichneAufbau();
     return;
   }
@@ -180,9 +227,68 @@ function zeichneAufbau(): void {
   }
 }
 
+/**
+ * Das feste Gerüst des Spielbildschirms.
+ *
+ * Alles, was nicht leer ist, bekommt eine Kennung und wird später einzeln
+ * befüllt. Welche Teile sichtbar sind, entscheidet das Stylesheet anhand der
+ * Fensterbreite - deshalb stehen Schiene, Pult und Reiterleiste immer hier,
+ * auch wenn jeweils nur eine Hälfte davon zu sehen ist.
+ */
+const SPIEL_GERUEST = `
+  <div class="spiel">
+    <header class="kopfleiste" id="t-kopf"></header>
+    <div class="arbeitsflaeche">
+      <nav class="schiene" id="t-schiene" aria-label="Bereiche"></nav>
+      <div class="karten-feld" id="karten-feld">
+        <div class="filter-leiste" id="t-filter" role="group" aria-label="Kartenansicht"></div>
+      </div>
+      <aside class="pult" id="t-pult" hidden>
+        <div class="pult-kopf">
+          <h2 id="t-pult-titel"></h2>
+          <button class="ghost small" data-panel-zu>Schließen</button>
+        </div>
+        <div class="pult-koerper" id="t-pult-koerper"></div>
+      </aside>
+    </div>
+    <section class="gebietsleiste" id="t-gebietsleiste" hidden></section>
+    <nav class="reiterleiste" id="t-reiter" aria-label="Bereiche"></nav>
+  </div>
+  <div class="sheet-schleier" id="t-blatt-schleier" data-sheet-zu hidden></div>
+  <div class="sheet" id="t-blatt" role="dialog" aria-modal="true" hidden>
+    <div class="sheet-griff"></div>
+    <div class="sheet-koerper" id="t-blatt-koerper"></div>
+  </div>
+  <div id="t-einstieg"></div>
+  <div id="t-modal"></div>
+  <div id="meldungs-platz"></div>`;
+
 function zeichneSpiel(): void {
   const s = app.spiel!;
   const kompakt = istKompakt();
+
+  if (!geruestSteht) {
+    wurzel.innerHTML = SPIEL_GERUEST;
+    geruestSteht = true;
+    teilStand.clear();
+  }
+
+  /* Karte wiederverwenden statt neu aufbauen - erhält Zoom und Position.
+     Sie wird genau einmal eingehängt: Ein SVG mit hunderten Flächen
+     umzuhängen zwingt den Browser zum vollständigen Neuzeichnen. */
+  if (!karte || karte.kartenId !== s.mapId) {
+    karte?.element.remove();
+    karte = new MapView(s, {
+      onSelect: (pid) => waehleGebiet(pid),
+      onLongPress: (pid) => { waehleGebiet(pid); karte?.zeigeAuf(pid); },
+    });
+  } else {
+    karte.setState(s);
+  }
+  if (!karte.element.isConnected) {
+    const feld = document.getElementById('karten-feld')!;
+    feld.insertBefore(karte.element, feld.firstChild);
+  }
 
   const filterLeiste = MAP_FILTERS.map((f) => `
     <button data-filter="${esc(f.id)}"
@@ -198,58 +304,38 @@ function zeichneSpiel(): void {
     thema: app.thema, tonAn: app.tonAn,
   }) : '';
 
-  wurzel.innerHTML = `
-    <div class="spiel">
-      <header class="kopfleiste">${kopfleiste(s)}</header>
-      <div class="arbeitsflaeche">
-        ${kompakt ? '' : `<nav class="schiene" aria-label="Bereiche">${schiene}</nav>`}
-        <div class="karten-feld" id="karten-feld">
-          <div class="filter-leiste" role="group" aria-label="Kartenansicht">${filterLeiste}</div>
-        </div>
-        ${!kompakt && app.panel ? `
-          <aside class="pult">
-            <div class="pult-kopf">
-              <h2>${esc(PANEL_TABS.find((t) => t.id === app.panel)?.label ?? '')}</h2>
-              <button class="ghost small" data-panel-zu>Schließen</button>
-            </div>
-            <div class="pult-koerper">${panelHtml}</div>
-          </aside>` : ''}
-      </div>
-      ${!kompakt && app.gewaehltesGebiet
-    ? `<section class="gebietsleiste">${gebietsHtml}</section>` : ''}
-      ${kompakt ? `<nav class="reiterleiste" aria-label="Bereiche">
-        <button data-sheet="gebiet" ${app.gewaehltesGebiet ? '' : 'disabled'}
-          aria-pressed="${app.sheetOffen === 'gebiet'}">
-          <span class="schienen-zeichen">◉</span>Gebiet</button>
-        ${schiene}</nav>` : ''}
-    </div>
-    ${kompakt && app.sheetOffen ? `
-      <div class="sheet-schleier" data-sheet-zu></div>
-      <div class="sheet" role="dialog" aria-modal="true">
-        <div class="sheet-griff"></div>
-        <div class="sheet-koerper">
-          ${app.sheetOffen === 'gebiet' ? gebietsHtml : panelHtml}
-        </div>
-      </div>` : ''}
-    ${/* Bei einem offenen Fenster tritt der Einstieg ganz zurueck. Bei einem
-          offenen Blatt wandert er stattdessen nach oben: Die Schritte drei
-          bis fuenf erklaeren gerade das, was im Blatt steht - er darf dort
-          nicht verschwinden, aber auch nichts verdecken. */
-    app.modal ? '' : einstiegHtml(!!app.sheetOffen)}
-    ${modalHuelle()}
-    <div id="meldungs-platz"></div>`;
+  setzeTeil('t-kopf', kopfleiste(s));
+  setzeTeil('t-filter', filterLeiste);
+  setzeTeil('t-schiene', schiene);
+  setzeTeil('t-reiter', `
+    <button data-sheet="gebiet" ${app.gewaehltesGebiet ? '' : 'disabled'}
+      aria-pressed="${app.sheetOffen === 'gebiet'}">
+      <span class="schienen-zeichen">◉</span>Gebiet</button>
+    ${schiene}`);
 
-  /* Karte wiederverwenden statt neu aufbauen - erhält Zoom und Position. */
-  const feld = document.getElementById('karten-feld')!;
-  if (!karte || karte.kartenId !== s.mapId) {
-    karte = new MapView(s, {
-      onSelect: (pid) => waehleGebiet(pid),
-      onLongPress: (pid) => { waehleGebiet(pid); karte?.zeigeAuf(pid); },
-    });
-  } else {
-    karte.setState(s);
+  /* Pult und Gebietsleiste tragen am Rechner den Inhalt, das Blatt auf dem
+     Telefon. Es wird jeweils nur die Seite befüllt, die auch zu sehen ist. */
+  zeigeTeil('t-pult', !!app.panel);
+  if (!kompakt && app.panel) {
+    setzeTeil('t-pult-titel', esc(PANEL_TABS.find((t) => t.id === app.panel)?.label ?? ''));
+    setzeTeil('t-pult-koerper', panelHtml);
   }
-  feld.insertBefore(karte.element, feld.firstChild);
+  zeigeTeil('t-gebietsleiste', !!app.gewaehltesGebiet);
+  if (!kompakt && app.gewaehltesGebiet) setzeTeil('t-gebietsleiste', gebietsHtml);
+
+  zeigeTeil('t-blatt', !!app.sheetOffen);
+  zeigeTeil('t-blatt-schleier', !!app.sheetOffen);
+  if (app.sheetOffen) {
+    setzeTeil('t-blatt-koerper', app.sheetOffen === 'gebiet' ? gebietsHtml : panelHtml);
+  }
+
+  /* Bei einem offenen Fenster tritt der Einstieg ganz zurück. Bei einem
+     offenen Blatt wandert er stattdessen nach oben: Die Schritte drei bis
+     fünf erklären gerade das, was im Blatt steht - er darf dort nicht
+     verschwinden, aber auch nichts verdecken. */
+  setzeTeil('t-einstieg', app.modal ? '' : einstiegHtml(!!app.sheetOffen));
+  setzeTeil('t-modal', modalHuelle());
+
   if (aufReichZentrieren) {
     aufReichZentrieren = false;
     // Erst nach dem Einhaengen messbar - deshalb im naechsten Bildlauf.

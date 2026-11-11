@@ -25,13 +25,17 @@ const AUSGABE = existsSync('/mnt/user-data')
   ? '/mnt/user-data/outputs'
   : path.join(import.meta.dirname, 'dist');
 const klein = process.argv.includes('--klein');
+/* Fuer die Profilmessung: unverkuerzt, sonst heissen im Profil alle
+   Funktionen nur noch "e" oder "t" und man sieht nicht, was teuer ist. */
+const profil = process.argv.includes('--profil');
 
 const ergebnis = await build({
   entryPoints: ['src/main.ts'],
   bundle: true,
   format: 'iife',
   target: ['es2020'],
-  minify: true,
+  minify: !profil,
+  keepNames: profil,
   write: false,
   outdir: 'build-tmp',
   loader: { '.json': 'json', '.css': 'css' },
@@ -61,8 +65,8 @@ if (!klein) {
   const voll = html.slice(0, stelle)
     + '    <script>window.__etLief=true;\n' + js + '\n    </script>\n  '
     + html.slice(stelle);
-  pruefe(voll);
-  const ziel = path.join(AUSGABE, 'imperwartor.html');
+  if (!profil) pruefe(voll);
+  const ziel = path.join(AUSGABE, profil ? 'imperwartor-profil.html' : 'imperwartor.html');
   await writeFile(ziel, voll, 'utf8');
   console.log(`geschrieben: ${ziel}  ${(Buffer.byteLength(voll) / 1024).toFixed(1)} kB`);
 } else {

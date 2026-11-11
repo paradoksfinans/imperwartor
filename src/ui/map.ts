@@ -156,6 +156,16 @@ export class MapView {
 
   private flaechen = new Map<string, SVGPolygonElement>();
   private beschriftungen = new Map<string, SVGGElement>();
+  /**
+   * Zuletzt geschriebene Darstellung je Gebiet.
+   *
+   * Gezeichnet wird nach jeder Handlung, auch nach solchen, die die Karte gar
+   * nicht berühren. Ein Attribut auf denselben Wert zu setzen ist im Browser
+   * nicht umsonst: Es wirft die Darstellung des Elements weg und erzwingt
+   * neues Setzen der Stile. Bei hunderten Flächen summiert sich das zu
+   * genau dem Ruckeln, das man als "hakelig" empfindet.
+   */
+  private flaechenStand = new Map<string, string>();
 
   private transform: Transform = { x: 0, y: 0, scale: 1 };
   private zeiger = new Map<number, { x: number; y: number }>();
@@ -173,6 +183,21 @@ export class MapView {
   private beobachter: ResizeObserver | null = null;
   /** true, sobald der Nutzer die Ansicht selbst veraendert hat. */
   private selbstBewegt = false;
+  /** true, solange geschoben oder gezoomt wird - siehe bewegtJetzt(). */
+  private inBewegung = false;
+  private ruheUhr = 0;
+  /**
+   * Gemerkte Groesse der Zeichenflaeche.
+   *
+   * getBoundingClientRect zwingt den Browser, das Seitenlayout sofort
+   * fertigzurechnen. Beim Zoomen wurde das je Bild mehrfach abgefragt und
+   * war im Profil der teuerste einzelne Aufruf. Die Groesse aendert sich
+   * aber nur, wenn sich das Fenster aendert - und das meldet der
+   * ResizeObserver ohnehin.
+   */
+  private masse: { width: number; height: number; left: number; top: number } | null = null;
+  /** Zuletzt gezeichneter Stand der Beschriftung. */
+  private beschriftungStand = '';
 
   constructor(state: GameState, cb: MapCallbacks) {
     this.state = state;
@@ -189,8 +214,10 @@ export class MapView {
        sich sinnvoll einpassen - danach nur noch bei Groessenwechsel. */
     if (typeof ResizeObserver !== 'undefined') {
       this.beobachter = new ResizeObserver(() => {
+        this.masse = null;
         const r = this.element.getBoundingClientRect();
         if (r.width < 2 || r.height < 2) return;
+        this.masse = { width: r.width, height: r.height, left: r.left, top: r.top };
         // Solange niemand selbst gezoomt oder geschoben hat, bleibt die
         // Karte eingepasst - auch wenn sich die Flaeche noch einmal
         // aendert, etwa weil die Kopfleiste umbricht.
@@ -487,6 +514,9 @@ export class MapView {
       if (this.zeiger.size === 1) {
         this.letzteMitte = { x: e.clientX, y: e.clientY };
         this.ziehWeg = 0;
+        // Einmal je Geste die Lage neu bestimmen: Die Flaeche kann sich seit
+        // dem letzten Mal verschoben haben, etwa weil eine Tafel aufging.
+        this.masse = null;
       }
     });
 
@@ -564,7 +594,7 @@ export class MapView {
 
   private zoomUm(faktor: number, punkt: { x: number; y: number }, relativ = false): void {
     this.selbstBewegt = true;
-    const r = this.element.getBoundingClientRect();
+    const r = this.flaechenMass();
     const px = relativ ? punkt.x : punkt.x - r.left;
     const py = relativ ? punkt.y : punkt.y - r.top;
     const neu = Math.max(0.4, Math.min(14, this.transform.scale * faktor));
@@ -577,15 +607,41 @@ export class MapView {
   }
 
   private zoomMitte(faktor: number): void {
-    const r = this.element.getBoundingClientRect();
+    const r = this.flaechenMass();
     this.zoomUm(faktor, { x: r.width / 2, y: r.height / 2 }, true);
   }
 
   private anwenden(): void {
+    this.bewegtJetzt();
     this.welt.setAttribute(
       'transform',
       `translate(${this.transform.x} ${this.transform.y}) scale(${this.transform.scale})`,
     );
+  }
+
+  /**
+   * Schaltet die teuren Filter ab, solange die Karte bewegt wird.
+   *
+   * Küstensaum und Staatsgrenzen entstehen über feMorphology. Dieser Filter
+   * rastert bei jeder Änderung der Ansicht die gesamte Fläche neu - beim
+   * Schieben und Zoomen also sechzigmal je Sekunde. Das ist der Hauptgrund,
+   * warum sich die Karte zäh anfühlt. Während der Bewegung werden die beiden
+   * Ebenen deshalb ausgeblendet und kurz nach dem Loslassen wieder gezeigt.
+   */
+  private bewegtJetzt(): void {
+    if (!this.inBewegung) {
+      this.inBewegung = true;
+      this.kuestenEbene.style.display = 'none';
+      this.grenzEbene.style.display = 'none';
+    }
+    window.clearTimeout(this.ruheUhr);
+    this.ruheUhr = window.setTimeout(() => {
+      this.inBewegung = false;
+      this.kuestenEbene.style.display = '';
+      this.grenzEbene.style.display = '';
+      // Schriftgroessen sitzen jetzt wieder richtig.
+      this.beschriftungAktualisieren();
+    }, 140);
   }
 
   /**
@@ -616,7 +672,8 @@ export class MapView {
   }
 
   einpassen(nurGebiete?: string[], ausschnittLuft = 1): void {
-    const r = this.element.getBoundingClientRect();
+    this.masse = null;           // beim Einpassen zaehlt die echte Groesse
+    const r = this.flaechenMass();
     const { w: vw, h: vh } = this.sichtfeld;
     if (!r.width || !r.height || !vw || !vh) {
       this.transform = { x: 0, y: 0, scale: 1 };
@@ -686,7 +743,7 @@ export class MapView {
     const p = this.state.provinces[provinceId];
     if (!p) return;
     this.selbstBewegt = true;
-    const r = this.element.getBoundingClientRect();
+    const r = this.flaechenMass();
     const sf = this.sichtfeld;
     const basis = Math.min(r.width / sf.w, r.height / sf.h);
     const ziel = Math.max(this.transform.scale, 2.2);
@@ -734,7 +791,7 @@ export class MapView {
       if (vorher !== undefined && vorher !== jetzt) this.blitzeAuf(pid, jetzt);
       this.letzterBesitz.set(pid, jetzt);
 
-      poly.setAttribute('fill', fuellFarbe(s, p, this.filter));
+      const fuellung = fuellFarbe(s, p, this.filter);
 
       const besitzer = p.ownerId ? s.countries[p.ownerId] : null;
       const eigen = p.ownerId === spieler;
@@ -745,14 +802,21 @@ export class MapView {
         klassen.push(this.modus === 'attack' ? 'ziel-angriff' : 'ziel-bewegen');
       }
       if (p.siege) klassen.push('belagert');
-      poly.setAttribute('class', klassen.join(' '));
+      const klasse = klassen.join(' ');
 
       // Rahmenfarbe: Besitzer erkennbar machen, auch in Sachansichten
-      if (this.filter === 'political' || this.filter === 'diplomatic' || this.filter === 'alliances') {
-        poly.setAttribute('stroke', besitzer ? abdunkeln(besitzer.color, 0.55) : '#2a333c');
-      } else {
-        poly.setAttribute('stroke', 'rgba(10,16,22,.75)');
-      }
+      const rahmen = this.filter === 'political' || this.filter === 'diplomatic'
+        || this.filter === 'alliances'
+        ? (besitzer ? abdunkeln(besitzer.color, 0.55) : '#2a333c')
+        : 'rgba(10,16,22,.75)';
+
+      // Nur anfassen, was sich wirklich geändert hat.
+      const stand = `${fuellung}|${klasse}|${rahmen}`;
+      if (this.flaechenStand.get(pid) === stand) continue;
+      this.flaechenStand.set(pid, stand);
+      poly.setAttribute('fill', fuellung);
+      poly.setAttribute('class', klasse);
+      poly.setAttribute('stroke', rahmen);
     }
 
     this.zeichneGrenzen();
@@ -885,14 +949,43 @@ export class MapView {
    * Vergroesserung gerechnet, bleibt also auf dem Bildschirm gleich gross.
    * Und ein Name erscheint erst, wenn sein Gebiet dafür Platz bietet.
    */
+  /** Lage und Groesse der Zeichenflaeche, gemerkt statt jedes Mal erfragt. */
+  private flaechenMass(): { width: number; height: number; left: number; top: number } {
+    if (!this.masse || this.masse.width < 2) {
+      const r = this.element.getBoundingClientRect();
+      if (r.width < 2 || r.height < 2) return { width: 1, height: 1, left: 0, top: 0 };
+      this.masse = { width: r.width, height: r.height, left: r.left, top: r.top };
+    }
+    return this.masse;
+  }
+
   private beschriftungAktualisieren(): void {
     const ns = 'http://www.w3.org/2000/svg';
     const s = this.state;
     const z = this.transform.scale || 1;
-    const r = this.element.getBoundingClientRect();
+    const r = this.flaechenMass();
     const sf = this.sichtfeld;
     const grundZoom = Math.min(r.width / sf.w, r.height / sf.h) || 0.25;
     const wirksam = z * grundZoom;
+
+    /* Die Beschriftung haengt nur an Zoomstufe, Auswahl und dem, was in den
+       Gebieten steht. Beim blossen Oeffnen einer Tafel aendert sich davon
+       nichts - dann braucht die Ebene auch nicht neu gebaut zu werden.
+       Die Zoomstufe wird grob gerundet: Zwischenschritte beim Zoomen
+       verschieben die Schwellen nicht, sie skalieren nur. */
+    let stand = `${z}|${this.ausgewaehlt ?? ''}`;
+    for (const pid of s.provinceOrder) {
+      const p = s.provinces[pid];
+      stand += `;${p.ownerId ?? '-'}${regimentsTotal(p.regiments)}`;
+    }
+    if (stand === this.beschriftungStand) return;
+
+    /* Während einer Geste gar nicht erst neu bauen. Die Schriften sitzen in
+       der verschobenen Ebene und wachsen deshalb beim Zoomen einfach mit -
+       etwas zu groß oder zu klein, aber ohne Ruckeln. Sobald der Finger
+       loslässt, setzt bewegtJetzt() den richtigen Stand. */
+    if (this.inBewegung) return;
+    this.beschriftungStand = stand;
 
     this.beschriftungEbene.textContent = '';
     this.beschriftungen.clear();

@@ -336,6 +336,10 @@ button.gefahr:hover:not(:disabled) { background: #3a1d1b; }
 /* Seitenbereich (Schreibtisch rechts)                                 */
 /* ------------------------------------------------------------------ */
 
+/* Teile des Geruests werden ein- und ausgeblendet statt neu gebaut. Ohne
+   das !important gewinnt jede eigene display-Regel gegen [hidden]. */
+[hidden] { display: none !important; }
+
 .schiene {
   width: 76px; flex-shrink: 0; display: flex; flex-direction: column; gap: 2px;
   padding: 8px 6px; background: var(--flaeche); border-right: 1px solid var(--linie);
