@@ -1,0 +1,379 @@
+{
+  "id": "kalifat_750",
+  "name": "Kalifat und Steppe - 750",
+  "description": "Das abbasidische Kalifat entsteht, die Karolinger steigen im Westen auf, und zwischen beiden beherrschen Turkvölker die Steppe und ihre Handelswege. Hinweis: Die Gebiete folgen heutigen Staatsgrenzen.",
+  "mapId": "welt",
+  "startYear": 750,
+  "endYear": 1050,
+  "monthsPerTurn": 12,
+  "sandbox": false,
+  "provinceOverrides": {},
+  "countries": [
+    {
+      "id": "abbasiden",
+      "name": "Abbasidisches Kalifat",
+      "color": "#5aa06a",
+      "pattern": "solid",
+      "emblem": "K",
+      "ruler": "Abu l-Abbas as-Saffah",
+      "government": "theocracy",
+      "personality": "expansionist",
+      "capital": "we59",
+      "provinces": [
+        "we01",
+        "we106",
+        "we120",
+        "we125",
+        "we127",
+        "we134",
+        "we37",
+        "we58",
+        "we59",
+        "we61",
+        "we64",
+        "we71"
+      ],
+      "gold": 1400,
+      "stability": 55,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we59": 16,
+        "we120": 3,
+        "we58": 3,
+        "we37": 2,
+        "we106": 2,
+        "we64": 2,
+        "we61": 2,
+        "we127": 2,
+        "we134": 2,
+        "we71": 2,
+        "we125": 2,
+        "we01": 2
+      },
+      "traits": {
+        "military": 1.15,
+        "economy": 1.2,
+        "defense": 1.05,
+        "research": 1.25,
+        "trade": 1.25
+      },
+      "description": "Nach dem Sturz der Umayyaden neu geordnet. Bagdad wird zum Zentrum von Handel und Wissenschaft."
+    },
+    {
+      "id": "byzanz",
+      "name": "Byzantinisches Reich",
+      "color": "#9b7fd4",
+      "pattern": "solid",
+      "emblem": "B",
+      "ruler": "Konstantin V.",
+      "government": "empire",
+      "personality": "defensive",
+      "capital": "we126",
+      "provinces": [
+        "we126",
+        "we17",
+        "we47"
+      ],
+      "gold": 800,
+      "stability": 58,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we126": 10,
+        "we47": 7,
+        "we17": 7
+      },
+      "traits": {
+        "military": 1.05,
+        "economy": 1.1,
+        "defense": 1.35,
+        "research": 1.15,
+        "trade": 1.1
+      },
+      "description": "Verkleinert, aber zäh: Mauern, Flotte und griechisches Feuer halten das Reich."
+    },
+    {
+      "id": "franken",
+      "name": "Frankenreich",
+      "color": "#4a7fd4",
+      "pattern": "solid",
+      "emblem": "F",
+      "ruler": "Pippin der Jüngere",
+      "government": "feudal",
+      "personality": "aggressive",
+      "capital": "we42",
+      "provinces": [
+        "we10",
+        "we42",
+        "we45",
+        "we86"
+      ],
+      "gold": 420,
+      "stability": 52,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we42": 9,
+        "we10": 5,
+        "we86": 4,
+        "we45": 4
+      },
+      "traits": {
+        "military": 1.2,
+        "economy": 0.95,
+        "defense": 1.05,
+        "research": 0.9,
+        "trade": 0.9
+      },
+      "description": "Unter den Karolingern zur führenden Macht des Westens aufgestiegen."
+    },
+    {
+      "id": "chasaren",
+      "name": "Chasarenreich",
+      "color": "#c98a41",
+      "pattern": "solid",
+      "emblem": "C",
+      "ruler": "Kagan Bulan",
+      "government": "tribal",
+      "personality": "diplomatic",
+      "capital": "we129",
+      "provinces": [
+        "we07",
+        "we129",
+        "we44"
+      ],
+      "gold": 520,
+      "stability": 54,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we129": 7,
+        "we44": 6,
+        "we07": 5
+      },
+      "traits": {
+        "military": 1.15,
+        "economy": 1.15,
+        "defense": 1,
+        "research": 0.95,
+        "trade": 1.3
+      },
+      "description": "Turkvolk zwischen Schwarzem und Kaspischem Meer. Kontrolliert die Handelswege nach Norden und hält die Araber vom Kaukasus fern."
+    },
+    {
+      "id": "uiguren",
+      "name": "Uigurisches Kaganat",
+      "color": "#8d8f96",
+      "pattern": "solid",
+      "emblem": "U",
+      "ruler": "Bayanchur Khan",
+      "government": "tribal",
+      "personality": "opportunistic",
+      "capital": "we80",
+      "provinces": [
+        "we80"
+      ],
+      "gold": 260,
+      "stability": 50,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we80": 16
+      },
+      "traits": {
+        "military": 1.25,
+        "economy": 0.85,
+        "defense": 0.9,
+        "research": 0.9,
+        "trade": 1.15
+      },
+      "description": "Turkvolk der Steppe, das den Göktürken folgte. Lebt vom Pferdehandel mit China und stützt die Tang-Dynastie gegen Aufstände."
+    },
+    {
+      "id": "tang",
+      "name": "Tang-Reich",
+      "color": "#d9a441",
+      "pattern": "solid",
+      "emblem": "T",
+      "ruler": "Kaiser Suzong",
+      "government": "empire",
+      "personality": "economic",
+      "capital": "we25",
+      "provinces": [
+        "we136",
+        "we25",
+        "we91"
+      ],
+      "gold": 1200,
+      "stability": 44,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we25": 13,
+        "we91": 10,
+        "we136": 9
+      },
+      "traits": {
+        "military": 1.05,
+        "economy": 1.3,
+        "defense": 1.1,
+        "research": 1.3,
+        "trade": 1.25
+      },
+      "description": "Kulturelle Blüte, aber durch den Aufstand des An Lushan schwer erschüttert."
+    },
+    {
+      "id": "tibet",
+      "name": "Tibetisches Reich",
+      "color": "#c2564a",
+      "pattern": "solid",
+      "emblem": "Y",
+      "ruler": "Trisong Detsen",
+      "government": "theocracy",
+      "personality": "aggressive",
+      "capital": "we85",
+      "provinces": [
+        "we12",
+        "we85"
+      ],
+      "gold": 280,
+      "stability": 56,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we85": 6,
+        "we12": 8
+      },
+      "traits": {
+        "military": 1.2,
+        "economy": 0.85,
+        "defense": 1.3,
+        "research": 0.95,
+        "trade": 0.85
+      },
+      "description": "Aus dem Hochland heraus expandierend, zeitweise sogar Herr der chinesischen Hauptstadt."
+    },
+    {
+      "id": "asturien",
+      "name": "Königreich Asturien",
+      "color": "#a03b3b",
+      "pattern": "solid",
+      "emblem": "A",
+      "ruler": "Alfons I.",
+      "government": "monarchy",
+      "personality": "defensive",
+      "capital": "we115",
+      "provinces": [
+        "we101",
+        "we115"
+      ],
+      "gold": 200,
+      "stability": 48,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we115": 4,
+        "we101": 6
+      },
+      "traits": {
+        "military": 1,
+        "economy": 0.85,
+        "defense": 1.25,
+        "research": 0.85,
+        "trade": 0.85
+      },
+      "description": "Christlicher Rest im Norden der Halbinsel, Ausgangspunkt der Reconquista."
+    }
+  ],
+  "relations": [],
+  "alliances": [],
+  "wars": [],
+  "events": [
+    "mit_pest",
+    "mit_kreuzzug",
+    "mit_haeresie",
+    "mit_handelsweg",
+    "mit_thronstreit",
+    "mit_burgenbau",
+    "mit_steppenreiter",
+    "mit_gelehrtenhaus",
+    "mit_hungerjahr",
+    "harvest_failure",
+    "drought",
+    "succession_dispute",
+    "epidemic_returns",
+    "mercenary_offer",
+    "tax_revolt"
+  ],
+  "victoryConditions": [
+    {
+      "type": "provinces",
+      "value": 42,
+      "description": "Beherrsche 42 der 140 Gebiete."
+    },
+    {
+      "type": "capitals",
+      "value": 3,
+      "targets": [
+        "we59",
+        "we126",
+        "we42",
+        "we129",
+        "we80",
+        "we25",
+        "we85",
+        "we115"
+      ],
+      "description": "Erobere drei fremde Hauptstädte."
+    }
+  ]
+}

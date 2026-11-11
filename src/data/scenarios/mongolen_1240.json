@@ -1,0 +1,377 @@
+{
+  "id": "mongolen_1240",
+  "name": "Die Mongolen - 1240",
+  "description": "Das größte Landreich der Geschichte wächst in alle Richtungen. Die Rus ist zersplittert, Ungarn ahnt nichts Gutes, und Song-China hält sich noch. Hinweis: Die Gebiete folgen heutigen Staatsgrenzen.",
+  "mapId": "welt",
+  "startYear": 1240,
+  "endYear": 1450,
+  "monthsPerTurn": 12,
+  "sandbox": false,
+  "provinceOverrides": {},
+  "countries": [
+    {
+      "id": "mongolen",
+      "name": "Mongolisches Reich",
+      "color": "#8d8f96",
+      "pattern": "solid",
+      "emblem": "M",
+      "ruler": "Großkhan Ögedei",
+      "government": "tribal",
+      "personality": "aggressive",
+      "capital": "we80",
+      "provinces": [
+        "we00",
+        "we121",
+        "we127",
+        "we134",
+        "we58",
+        "we65",
+        "we67",
+        "we80"
+      ],
+      "gold": 800,
+      "stability": 62,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we80": 19,
+        "we65": 5,
+        "we67": 4,
+        "we134": 4,
+        "we127": 4,
+        "we121": 4,
+        "we58": 4,
+        "we00": 4
+      },
+      "traits": {
+        "military": 1.5,
+        "economy": 0.9,
+        "defense": 0.95,
+        "research": 0.95,
+        "trade": 1.05
+      },
+      "description": "Nach Dschingis Khan in alle Richtungen ausgreifend. Beweglichkeit, Nachrichtenwesen und Belagerungstechnik aus China."
+    },
+    {
+      "id": "rus_fuerstentuemer",
+      "name": "Fürstentümer der Rus",
+      "color": "#7fb04a",
+      "pattern": "solid",
+      "emblem": "R",
+      "ruler": "Jaroslaw II.",
+      "government": "feudal",
+      "personality": "defensive",
+      "capital": "we103",
+      "provinces": [
+        "we09",
+        "we103",
+        "we129"
+      ],
+      "gold": 300,
+      "stability": 34,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we103": 7,
+        "we09": 6,
+        "we129": 5
+      },
+      "traits": {
+        "military": 0.95,
+        "economy": 0.9,
+        "defense": 1.1,
+        "research": 0.9,
+        "trade": 1
+      },
+      "description": "Zersplittert und uneinig - der mongolische Feldzug trifft sie einzeln."
+    },
+    {
+      "id": "song",
+      "name": "Song-Reich",
+      "color": "#d9a441",
+      "pattern": "solid",
+      "emblem": "C",
+      "ruler": "Kaiser Lizong",
+      "government": "empire",
+      "personality": "defensive",
+      "capital": "we25",
+      "provinces": [
+        "we25"
+      ],
+      "gold": 1600,
+      "stability": 52,
+      "politicalPower": 30,
+      "tech": {
+        "military": 3,
+        "economy": 3,
+        "administration": 3,
+        "logistics": 2,
+        "defense": 3
+      },
+      "armies": {
+        "we25": 30
+      },
+      "traits": {
+        "military": 0.9,
+        "economy": 1.4,
+        "defense": 1.25,
+        "research": 1.4,
+        "trade": 1.3
+      },
+      "description": "Reich und technisch führend, aber seit Jahrzehnten in der Defensive."
+    },
+    {
+      "id": "delhi",
+      "name": "Sultanat von Delhi",
+      "color": "#c2564a",
+      "pattern": "solid",
+      "emblem": "D",
+      "ruler": "Razia Sultana",
+      "government": "monarchy",
+      "personality": "defensive",
+      "capital": "we56",
+      "provinces": [
+        "we08",
+        "we56",
+        "we94"
+      ],
+      "gold": 700,
+      "stability": 44,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we56": 10,
+        "we94": 7,
+        "we08": 7
+      },
+      "traits": {
+        "military": 1.15,
+        "economy": 1.1,
+        "defense": 1.1,
+        "research": 1,
+        "trade": 1.1
+      },
+      "description": "Von türkischen Militärsklaven gegründet. Hält die Mongolen am Indus auf."
+    },
+    {
+      "id": "ayyubiden",
+      "name": "Ayyubiden",
+      "color": "#5aa06a",
+      "pattern": "solid",
+      "emblem": "A",
+      "ruler": "as-Salih Ayyub",
+      "government": "monarchy",
+      "personality": "defensive",
+      "capital": "we37",
+      "provinces": [
+        "we120",
+        "we37",
+        "we61",
+        "we64"
+      ],
+      "gold": 650,
+      "stability": 46,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we37": 8,
+        "we120": 4,
+        "we61": 4,
+        "we64": 4
+      },
+      "traits": {
+        "military": 1.1,
+        "economy": 1.1,
+        "defense": 1.1,
+        "research": 1.05,
+        "trade": 1.2
+      },
+      "description": "Saladins Erben, gestützt auf türkische und kiptschakische Militärsklaven."
+    },
+    {
+      "id": "byzanz_nikaia",
+      "name": "Kaiserreich Nikaia",
+      "color": "#9b7fd4",
+      "pattern": "solid",
+      "emblem": "N",
+      "ruler": "Johannes III. Vatatzes",
+      "government": "empire",
+      "personality": "opportunistic",
+      "capital": "we126",
+      "provinces": [
+        "we126",
+        "we47"
+      ],
+      "gold": 420,
+      "stability": 54,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we126": 6,
+        "we47": 8
+      },
+      "traits": {
+        "military": 1.05,
+        "economy": 1.15,
+        "defense": 1.15,
+        "research": 1.15,
+        "trade": 1.05
+      },
+      "description": "Nach dem Fall Konstantinopels an die Kreuzfahrer das byzantinische Exilreich - und auf dem Weg zurueck."
+    },
+    {
+      "id": "hre",
+      "name": "Heiliges Römisches Reich",
+      "color": "#4a5a68",
+      "pattern": "solid",
+      "emblem": "H",
+      "ruler": "Friedrich II.",
+      "government": "feudal",
+      "personality": "diplomatic",
+      "capital": "we45",
+      "provinces": [
+        "we06",
+        "we119",
+        "we31",
+        "we45",
+        "we62"
+      ],
+      "gold": 700,
+      "stability": 48,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we45": 10,
+        "we06": 4,
+        "we31": 4,
+        "we62": 3,
+        "we119": 3
+      },
+      "traits": {
+        "military": 1.1,
+        "economy": 1.1,
+        "defense": 1.1,
+        "research": 1.15,
+        "trade": 1.05
+      },
+      "description": "Im offenen Streit mit dem Papsttum, während im Osten die Mongolen stehen."
+    },
+    {
+      "id": "ungarn",
+      "name": "Königreich Ungarn",
+      "color": "#c9a227",
+      "pattern": "solid",
+      "emblem": "U",
+      "ruler": "Bela IV.",
+      "government": "monarchy",
+      "personality": "defensive",
+      "capital": "we54",
+      "provinces": [
+        "we102",
+        "we29",
+        "we54"
+      ],
+      "gold": 340,
+      "stability": 44,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we54": 6,
+        "we102": 5,
+        "we29": 5
+      },
+      "traits": {
+        "military": 1,
+        "economy": 0.95,
+        "defense": 1.05,
+        "research": 0.95,
+        "trade": 1
+      },
+      "description": "Nimmt geflüchtete Kumanen auf und steht als nächstes auf dem mongolischen Feldzugsplan."
+    }
+  ],
+  "relations": [],
+  "alliances": [],
+  "wars": [],
+  "events": [
+    "mit_pest",
+    "mit_kreuzzug",
+    "mit_haeresie",
+    "mit_handelsweg",
+    "mit_thronstreit",
+    "mit_burgenbau",
+    "mit_steppenreiter",
+    "mit_gelehrtenhaus",
+    "mit_hungerjahr",
+    "harvest_failure",
+    "drought",
+    "succession_dispute",
+    "epidemic_returns",
+    "mercenary_offer",
+    "tax_revolt"
+  ],
+  "victoryConditions": [
+    {
+      "type": "provinces",
+      "value": 45,
+      "description": "Beherrsche 45 der 140 Gebiete."
+    },
+    {
+      "type": "capitals",
+      "value": 3,
+      "targets": [
+        "we80",
+        "we103",
+        "we25",
+        "we56",
+        "we37",
+        "we126",
+        "we45",
+        "we54"
+      ],
+      "description": "Erobere drei fremde Hauptstädte."
+    }
+  ]
+}

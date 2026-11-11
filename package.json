@@ -1,26 +1,23 @@
 {
-  "name": "empire-tactics",
+  "name": "imperwartor",
+  "version": "1.0.0",
+  "description": "imperWARtor - rundenbasiertes Strategiespiel auf der Landkarte, von der Antike bis 1914. Laeuft vollstaendig im Browser.",
+  "license": "MIT",
   "private": true,
-  "version": "0.1.0",
   "type": "module",
-  "description": "Rundenbasiertes geopolitisches Strategiespiel - Version 0.1 (MVP)",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@fontsource/ibm-plex-sans": "^5.3.0",
-    "@fontsource/spectral": "^5.3.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "bauen": "node build.mjs && node build.mjs --klein && node tools/site.mjs",
+    "build": "npm run bauen",
+    "typen": "tsc --noEmit",
+    "symbol": "node tools/symbol.mjs",
+    "pruefen": "tsc --noEmit && npx tsx test/sim.ts && node test/seite.mjs"
   },
   "devDependencies": {
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.4",
-    "typescript": "^5.6.3",
-    "vite": "^5.4.11"
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "jsdom": "^29.1.1",
+    "playwright-core": "^1.64.1"
   }
 }

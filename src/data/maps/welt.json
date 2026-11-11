@@ -1,0 +1,2904 @@
+{
+  "id": "welt",
+  "name": "Welt",
+  "description": "Die Welt mit den größeren Staaten. Kleinstaaten und Inselgruppen fehlen, damit die Gebiete auf einem Telefon antippbar bleiben.",
+  "viewBox": "0 0 1800 1000",
+  "seaLinks": [
+    [
+      "we131",
+      "we132"
+    ],
+    [
+      "we131",
+      "we42"
+    ],
+    [
+      "we115",
+      "we81"
+    ],
+    [
+      "we62",
+      "we71"
+    ],
+    [
+      "we126",
+      "we129"
+    ],
+    [
+      "we132",
+      "we63"
+    ],
+    [
+      "we132",
+      "we30"
+    ],
+    [
+      "we63",
+      "we114"
+    ],
+    [
+      "we63",
+      "we25"
+    ],
+    [
+      "we57",
+      "we05"
+    ],
+    [
+      "we05",
+      "we87"
+    ],
+    [
+      "we56",
+      "we116"
+    ],
+    [
+      "we37",
+      "we106"
+    ],
+    [
+      "we16",
+      "we90"
+    ],
+    [
+      "we113",
+      "we73"
+    ],
+    [
+      "we75",
+      "we57"
+    ],
+    [
+      "we99",
+      "we25"
+    ],
+    [
+      "we78",
+      "we30"
+    ],
+    [
+      "we21",
+      "we131"
+    ],
+    [
+      "we118",
+      "we41"
+    ],
+    [
+      "we24",
+      "we87"
+    ],
+    [
+      "we03",
+      "we113"
+    ],
+    [
+      "we116",
+      "we56"
+    ],
+    [
+      "we99",
+      "we136"
+    ],
+    [
+      "we30",
+      "we52"
+    ],
+    [
+      "we47",
+      "we62"
+    ],
+    [
+      "we47",
+      "we126"
+    ],
+    [
+      "we101",
+      "we115"
+    ],
+    [
+      "we86",
+      "we131"
+    ],
+    [
+      "we34",
+      "we118"
+    ],
+    [
+      "we60",
+      "we131"
+    ],
+    [
+      "we61",
+      "we37"
+    ],
+    [
+      "we114",
+      "we25"
+    ],
+    [
+      "we30",
+      "we78"
+    ],
+    [
+      "we55",
+      "we60"
+    ]
+  ],
+  "provinces": [
+    {
+      "id": "we00",
+      "name": "Afghanistan",
+      "points": "1212,346 1226,348 1234,340 1238,350 1255,347 1236,353 1235,366 1210,390 1183,390 1188,384 1182,371 1185,356 1193,358 1212,346",
+      "center": [
+        1210,
+        367
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we121",
+        "we127",
+        "we134",
+        "we25",
+        "we58",
+        "we94"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we01",
+      "name": "Algeria",
+      "points": "918,349 913,367 924,394 922,412 935,427 891,453 831,405 831,397 868,377 863,359 881,351 918,349",
+      "center": [
+        887,
+        400
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we125",
+        "we71",
+        "we76",
+        "we77",
+        "we81",
+        "we89"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we02",
+      "name": "Angola",
+      "points": "996,628 996,640 986,640 986,659 993,667 934,665 945,629 937,600 958,599 964,611 985,607 987,629 996,628",
+      "center": [
+        964,
+        636
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we138",
+        "we27",
+        "we33",
+        "we84"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we03",
+      "name": "Argentina",
+      "points": "582,740 578,764 587,780 579,788 558,791 558,803 544,802 552,813 545,813 542,827 532,833 541,844 525,856 528,869 509,867 501,854 514,824 510,802 527,708 539,691 548,697 556,693 582,712 577,724 592,724 601,713 601,722 582,740",
+      "center": [
+        544,
+        769
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "we13",
+        "we133",
+        "we16",
+        "we24",
+        "we97"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "grain"
+    },
+    {
+      "id": "we04",
+      "name": "Armenia",
+      "points": "1102,333 1095,324 1106,326 1111,337 1102,333",
+      "center": [
+        1103,
+        330
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we07",
+        "we126",
+        "we44",
+        "we58"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we05",
+      "name": "Australia",
+      "points": "1601,634 1617,675 1652,716 1651,748 1635,783 1618,793 1610,785 1592,788 1575,764 1569,770 1574,754 1563,768 1556,754 1540,748 1473,769 1458,764 1462,749 1449,717 1454,718 1453,692 1489,679 1514,646 1532,653 1537,637 1548,635 1544,629 1567,634 1562,651 1588,667 1596,628 1601,634",
+      "center": [
+        1556,
+        714
+      ],
+      "terrain": "desert",
+      "neighbors": [],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "iron"
+    },
+    {
+      "id": "we06",
+      "name": "Austria",
+      "points": "923,288 941,287 951,278 962,284 948,293 923,288",
+      "center": [
+        947,
+        287
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we110",
+        "we119",
+        "we31",
+        "we45",
+        "we54",
+        "we62"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we07",
+      "name": "Azerbaijan",
+      "points": "1123,340 1118,333 1111,337 1103,323 1122,320 1130,329 1123,340",
+      "center": [
+        1117,
+        329
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we04",
+        "we103",
+        "we126",
+        "we44",
+        "we58"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we08",
+      "name": "Bangladesh",
+      "points": "1327,435 1323,409 1344,419 1337,426 1343,426 1343,443 1334,427 1332,437 1327,435",
+      "center": [
+        1333,
+        424
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we56",
+        "we83"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we09",
+      "name": "Belarus",
+      "points": "1036,260 1030,265 992,259 994,249 1017,237 1031,240 1041,252 1033,255 1036,260",
+      "center": [
+        1017,
+        252
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we100",
+        "we103",
+        "we129",
+        "we69",
+        "we72"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we10",
+      "name": "Belgium",
+      "points": "896,264 904,266 904,275 888,267 896,264",
+      "center": [
+        898,
+        269
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we42",
+        "we45",
+        "we86"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we11",
+      "name": "Benin",
+      "points": "883,528 879,502 889,492 894,502 888,527 883,528",
+      "center": [
+        886,
+        510
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we124",
+        "we18",
+        "we89",
+        "we90"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we12",
+      "name": "Bhutan",
+      "points": "1340,402 1341,407 1325,406 1331,399 1340,402",
+      "center": [
+        1334,
+        404
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we25",
+        "we56"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we13",
+      "name": "Bolivia",
+      "points": "522,666 522,628 543,621 545,634 568,645 569,659 579,659 583,670 580,682 561,679 557,694 548,697 539,691 531,698 522,666",
+      "center": [
+        546,
+        662
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we03",
+        "we16",
+        "we24",
+        "we97",
+        "we98"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we14",
+      "name": "Bosnia and Herz.",
+      "points": "972,310 964,314 955,301 973,302 972,310",
+      "center": [
+        965,
+        306
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we108",
+        "we29"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we15",
+      "name": "Botswana",
+      "points": "1003,668 1024,694 1004,714 992,712 980,721 976,693 981,693 981,671 1003,668",
+      "center": [
+        997,
+        693
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we113",
+        "we139",
+        "we84"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we16",
+      "name": "Brazil",
+      "points": "535,557 542,560 553,552 546,539 556,543 567,534 576,557 591,549 606,551 614,539 621,557 607,573 616,570 623,580 635,568 648,574 648,583 672,581 696,597 697,613 677,639 667,693 627,712 627,731 611,752 614,739 604,761 602,751 582,740 602,718 591,695 581,693 579,659 569,659 568,645 545,634 543,621 516,628 517,619 508,623 499,608 505,594 520,589 520,554 533,552 535,557",
+      "center": [
+        604,
+        627
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we03",
+        "we13",
+        "we133",
+        "we135",
+        "we26",
+        "we42",
+        "we51",
+        "we97",
+        "we98"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "iron"
+    },
+    {
+      "id": "we17",
+      "name": "Bulgaria",
+      "points": "1017,319 991,323 988,308 1020,309 1017,319",
+      "center": [
+        1003,
+        315
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we102",
+        "we108",
+        "we126",
+        "we47"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we18",
+      "name": "Burkina Faso",
+      "points": "879,500 860,500 861,509 847,503 854,487 871,476 886,491 879,500",
+      "center": [
+        866,
+        492
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we11",
+        "we124",
+        "we32",
+        "we46",
+        "we76",
+        "we89"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we19",
+      "name": "Cambodia",
+      "points": "1420,478 1413,501 1400,503 1394,485 1420,478",
+      "center": [
+        1407,
+        491
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we123",
+        "we136",
+        "we68"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we20",
+      "name": "Cameroon",
+      "points": "918,536 924,525 935,523 948,488 954,506 946,508 954,519 948,529 957,554 925,552 918,536",
+      "center": [
+        939,
+        531
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we22",
+        "we23",
+        "we27",
+        "we43",
+        "we90"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we21",
+      "name": "Canada",
+      "points": "215,238 187,215 177,220 159,212 159,158 188,163 217,155 199,163 225,152 238,159 243,155 291,162 296,165 290,168 316,167 330,177 327,168 338,164 325,164 380,170 374,165 380,164 388,166 389,175 390,167 400,164 385,154 395,144 417,166 428,163 431,172 444,163 441,157 462,163 456,165 461,173 443,174 449,178 411,179 433,184 428,190 399,190 414,195 394,211 404,232 457,243 459,259 472,268 477,259 470,245 486,235 476,222 482,214 478,201 501,200 522,208 516,214 523,218 519,221 528,221 524,226 540,223 547,213 567,243 583,246 568,253 583,248 592,260 570,271 538,271 514,281 521,284 513,291 455,321 456,300 426,282 392,276 250,278 241,267 227,266 232,262 226,260 232,260 230,256 225,262 222,250 213,251 215,238",
+      "center": [
+        354,
+        226
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we132"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "timber"
+    },
+    {
+      "id": "we22",
+      "name": "Central African Rep.",
+      "points": "997,514 1014,534 988,540 974,534 957,551 948,529 953,520 969,517 989,500 997,514",
+      "center": [
+        979,
+        526
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we105",
+        "we117",
+        "we20",
+        "we23",
+        "we27",
+        "we33"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we23",
+      "name": "Chad",
+      "points": "996,450 996,472 985,490 991,500 969,517 953,520 943,480 953,466 951,430 996,450",
+      "center": [
+        969,
+        476
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we117",
+        "we20",
+        "we22",
+        "we71",
+        "we89",
+        "we90"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we24",
+      "name": "Chile",
+      "points": "517,671 524,670 535,698 517,746 520,764 509,813 514,824 501,854 509,867 527,869 513,879 507,876 513,872 504,875 512,871 499,871 507,869 494,860 500,861 496,844 502,845 490,837 499,829 500,836 506,824 508,806 499,803 512,755 517,671",
+      "center": [
+        514,
+        765
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we03",
+        "we13",
+        "we98"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "fish"
+    },
+    {
+      "id": "we25",
+      "name": "China",
+      "points": "1423,439 1409,428 1391,433 1391,441 1383,439 1376,423 1370,425 1375,403 1362,392 1326,405 1274,382 1275,364 1252,347 1250,331 1282,319 1280,302 1293,301 1296,289 1308,290 1316,278 1333,286 1336,300 1358,306 1364,315 1407,321 1435,315 1442,301 1483,292 1476,284 1461,283 1467,273 1480,272 1489,253 1512,255 1522,274 1539,286 1558,283 1550,301 1539,302 1537,316 1489,338 1493,325 1472,336 1479,347 1497,346 1479,361 1493,378 1484,378 1493,383 1485,388 1494,390 1492,399 1466,430 1451,429 1435,446 1431,438 1423,439",
+      "center": [
+        1401,
+        351
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we00",
+        "we103",
+        "we12",
+        "we121",
+        "we136",
+        "we56",
+        "we65",
+        "we67",
+        "we68",
+        "we80",
+        "we83",
+        "we85",
+        "we91",
+        "we94"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "iron"
+    },
+    {
+      "id": "we26",
+      "name": "Colombia",
+      "points": "513,495 502,511 509,523 532,528 535,556 520,554 520,589 519,580 504,578 474,555 484,541 482,514 485,518 495,499 513,495",
+      "center": [
+        504,
+        542
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we135",
+        "we16",
+        "we36",
+        "we95",
+        "we98"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we27",
+      "name": "Congo",
+      "points": "931,587 934,578 948,575 942,552 956,554 959,544 968,543 955,587 936,593 931,587",
+      "center": [
+        950,
+        570
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we02",
+        "we20",
+        "we22",
+        "we33",
+        "we43"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we28",
+      "name": "Costa Rica",
+      "points": "456,508 454,517 439,501 450,500 456,508",
+      "center": [
+        449,
+        507
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we88",
+        "we95"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we29",
+      "name": "Croatia",
+      "points": "944,299 957,293 973,300 955,301 964,314 944,299",
+      "center": [
+        957,
+        300
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we108",
+        "we14",
+        "we54"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we30",
+      "name": "Cuba",
+      "points": "459,429 498,447 480,448 483,444 459,432 444,437 459,429",
+      "center": [
+        476,
+        439
+      ],
+      "terrain": "coast",
+      "neighbors": [],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we31",
+      "name": "Czechia",
+      "points": "970,275 947,281 936,271 951,266 970,275",
+      "center": [
+        952,
+        274
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we06",
+        "we100",
+        "we110",
+        "we45"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we32",
+      "name": "Côte d'Ivoire",
+      "points": "834,505 843,502 861,509 860,534 836,539 831,526 834,505",
+      "center": [
+        846,
+        520
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we18",
+        "we46",
+        "we49",
+        "we70",
+        "we76"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we33",
+      "name": "Dem. Rep. Congo",
+      "points": "1031,612 1019,618 1022,642 1012,632 988,630 985,607 964,611 958,599 937,599 956,586 973,535 988,540 1012,534 1031,543 1033,552 1021,578 1031,612",
+      "center": [
+        995,
+        581
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we02",
+        "we104",
+        "we105",
+        "we122",
+        "we128",
+        "we138",
+        "we22",
+        "we27"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "timber"
+    },
+    {
+      "id": "we34",
+      "name": "Denmark",
+      "points": "924,244 916,234 928,227 924,244",
+      "center": [
+        923,
+        235
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we45"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we35",
+      "name": "Dominican Rep.",
+      "points": "510,459 512,448 528,456 510,459",
+      "center": [
+        517,
+        454
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we52"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we36",
+      "name": "Ecuador",
+      "points": "493,565 474,593 466,590 469,559 474,556 493,565",
+      "center": [
+        476,
+        573
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we26",
+        "we98"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we37",
+      "name": "Egypt",
+      "points": "1062,436 1001,436 1002,380 1048,381 1048,402 1039,391 1062,436",
+      "center": [
+        1026,
+        410
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we117",
+        "we61",
+        "we71"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we38",
+      "name": "Eritrea",
+      "points": "1060,481 1062,465 1071,459 1077,476 1093,490 1078,480 1060,481",
+      "center": [
+        1069,
+        473
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we117",
+        "we40"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we39",
+      "name": "Estonia",
+      "points": "1013,228 998,226 994,219 1017,217 1013,228",
+      "center": [
+        1006,
+        222
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we103",
+        "we69"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we40",
+      "name": "Ethiopia",
+      "points": "1054,532 1042,518 1067,478 1082,482 1098,512 1118,518 1103,536 1075,544 1054,532",
+      "center": [
+        1076,
+        514
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we105",
+        "we111",
+        "we112",
+        "we117",
+        "we38",
+        "we66"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we41",
+      "name": "Finland",
+      "points": "997,180 995,168 979,161 1022,158 1027,192 1035,197 1016,211 991,215 982,199 1003,186 997,180",
+      "center": [
+        1008,
+        187
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we103",
+        "we118",
+        "we92"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "timber"
+    },
+    {
+      "id": "we42",
+      "name": "France",
+      "points": "913,286 905,295 913,309 885,317 867,313 869,294 850,281 868,280 865,274 877,276 887,266 916,278 913,286",
+      "center": [
+        887,
+        292
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we10",
+        "we115",
+        "we119",
+        "we16",
+        "we45",
+        "we62"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "grain"
+    },
+    {
+      "id": "we43",
+      "name": "Gabon",
+      "points": "942,552 948,575 934,578 931,587 919,568 923,558 932,558 932,551 942,552",
+      "center": [
+        934,
+        567
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we20",
+        "we27"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we44",
+      "name": "Georgia",
+      "points": "1095,324 1078,310 1107,316 1111,324 1095,324",
+      "center": [
+        1096,
+        318
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we04",
+        "we07",
+        "we103",
+        "we126"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we45",
+      "name": "Germany",
+      "points": "923,287 913,286 916,278 907,276 905,262 911,251 924,252 919,244 944,248 951,266 936,271 945,281 941,287 923,287",
+      "center": [
+        927,
+        266
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "we06",
+        "we10",
+        "we100",
+        "we119",
+        "we31",
+        "we34",
+        "we42",
+        "we86"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we46",
+      "name": "Ghana",
+      "points": "874,499 881,529 864,536 859,534 860,500 874,499",
+      "center": [
+        868,
+        518
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we124",
+        "we18",
+        "we32"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "gold"
+    },
+    {
+      "id": "we47",
+      "name": "Greece",
+      "points": "1008,321 996,331 989,328 997,344 986,350 982,343 992,342 978,335 981,326 1008,321",
+      "center": [
+        990,
+        334
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we126",
+        "we17"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we48",
+      "name": "Guatemala",
+      "points": "407,479 409,470 416,470 413,460 422,460 427,472 422,479 417,484 407,479",
+      "center": [
+        417,
+        472
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we53",
+        "we78"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we49",
+      "name": "Guinea",
+      "points": "822,515 818,506 807,511 798,501 805,490 829,492 836,515 828,522 822,515",
+      "center": [
+        818,
+        503
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we107",
+        "we109",
+        "we32",
+        "we50",
+        "we70",
+        "we76"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we50",
+      "name": "Guinea-Bissau",
+      "points": "790,492 805,490 805,496 798,500 790,492",
+      "center": [
+        799,
+        494
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we107",
+        "we49"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we51",
+      "name": "Guyana",
+      "points": "566,534 567,520 574,517 577,527 584,528 580,540 588,553 574,556 566,534",
+      "center": [
+        575,
+        537
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we135",
+        "we16"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we52",
+      "name": "Haiti",
+      "points": "510,449 510,459 497,457 507,456 503,448 510,449",
+      "center": [
+        507,
+        454
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we35"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we53",
+      "name": "Honduras",
+      "points": "453,477 433,488 421,480 430,471 453,477",
+      "center": [
+        435,
+        479
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we48",
+        "we88"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we54",
+      "name": "Hungary",
+      "points": "987,282 991,284 979,295 965,297 956,291 962,284 987,282",
+      "center": [
+        973,
+        289
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we06",
+        "we102",
+        "we108",
+        "we110",
+        "we129",
+        "we29"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we55",
+      "name": "Iceland",
+      "points": "796,178 806,185 780,194 760,192 765,187 753,186 764,182 750,182 758,176 767,183 796,178",
+      "center": [
+        779,
+        186
+      ],
+      "terrain": "plain",
+      "neighbors": [],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "fish"
+    },
+    {
+      "id": "we56",
+      "name": "India",
+      "points": "1221,425 1235,422 1227,406 1239,401 1257,376 1250,362 1269,357 1274,381 1286,388 1281,396 1294,404 1321,410 1322,401 1327,408 1341,407 1340,402 1355,393 1368,400 1348,424 1346,436 1337,427 1344,419 1323,409 1327,438 1321,434 1282,473 1280,504 1268,517 1247,468 1246,437 1241,434 1232,443 1225,434 1232,429 1221,425",
+      "center": [
+        1279,
+        430
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we08",
+        "we12",
+        "we25",
+        "we83",
+        "we85",
+        "we94"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "iron"
+    },
+    {
+      "id": "we57",
+      "name": "Indonesia",
+      "points": "1431,552 1435,559 1456,556 1462,540 1469,539 1478,558 1473,558 1457,589 1455,583 1434,581 1427,562 1431,552",
+      "center": [
+        1453,
+        564
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we75",
+        "we96"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "timber"
+    },
+    {
+      "id": "we58",
+      "name": "Iran",
+      "points": "1148,346 1165,341 1185,351 1182,367 1188,384 1183,390 1196,406 1186,418 1136,402 1105,366 1109,355 1099,343 1101,332 1109,337 1118,333 1134,350 1148,346",
+      "center": [
+        1150,
+        374
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we00",
+        "we04",
+        "we07",
+        "we126",
+        "we127",
+        "we59",
+        "we94"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil"
+    },
+    {
+      "id": "we59",
+      "name": "Iraq",
+      "points": "1090,348 1102,347 1109,355 1105,366 1121,389 1102,394 1073,377 1071,369 1083,363 1090,348",
+      "center": [
+        1096,
+        372
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we106",
+        "we120",
+        "we126",
+        "we58",
+        "we64"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil"
+    },
+    {
+      "id": "we60",
+      "name": "Ireland",
+      "points": "838,243 833,246 843,249 843,259 823,263 830,257 824,257 829,254 824,248 838,243",
+      "center": [
+        834,
+        253
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we131"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we61",
+      "name": "Israel",
+      "points": "1057,369 1052,392 1048,382 1057,369",
+      "center": [
+        1052,
+        381
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we120",
+        "we37",
+        "we64"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we62",
+      "name": "Italy",
+      "points": "910,296 944,293 938,306 968,332 961,328 954,343 954,331 926,307 913,309 910,296",
+      "center": [
+        936,
+        310
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "we06",
+        "we119",
+        "we42"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we63",
+      "name": "Japan",
+      "points": "1591,323 1595,334 1587,359 1569,360 1563,369 1558,361 1539,366 1576,347 1591,323",
+      "center": [
+        1577,
+        350
+      ],
+      "terrain": "urban",
+      "neighbors": [],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "fish"
+    },
+    {
+      "id": "we64",
+      "name": "Jordan",
+      "points": "1056,373 1071,369 1074,376 1062,380 1067,386 1057,394 1052,393 1056,373",
+      "center": [
+        1061,
+        381
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we106",
+        "we120",
+        "we59",
+        "we61"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we65",
+      "name": "Kazakhstan",
+      "points": "1235,318 1222,327 1204,309 1189,310 1172,298 1159,302 1159,323 1141,320 1130,305 1145,300 1144,291 1121,292 1113,274 1132,262 1151,269 1184,268 1187,265 1179,261 1190,255 1185,249 1225,241 1247,252 1265,246 1281,268 1298,267 1318,278 1308,290 1296,289 1293,301 1280,302 1282,318 1251,312 1235,318",
+      "center": [
+        1217,
+        283
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "we103",
+        "we127",
+        "we134",
+        "we25",
+        "we67"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil"
+    },
+    {
+      "id": "we66",
+      "name": "Kenya",
+      "points": "1047,570 1052,554 1047,540 1054,532 1068,543 1087,541 1085,574 1074,591 1047,570",
+      "center": [
+        1068,
+        561
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we105",
+        "we111",
+        "we122",
+        "we128",
+        "we40"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we67",
+      "name": "Kyrgyzstan",
+      "points": "1235,329 1246,326 1231,322 1237,315 1282,318 1249,334 1226,334 1235,329",
+      "center": [
+        1251,
+        324
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we121",
+        "we134",
+        "we25",
+        "we65"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we68",
+      "name": "Laos",
+      "points": "1393,434 1420,471 1413,483 1402,457 1387,462 1383,444 1393,434",
+      "center": [
+        1400,
+        456
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we123",
+        "we136",
+        "we19",
+        "we25",
+        "we83"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we69",
+      "name": "Latvia",
+      "points": "1010,239 982,233 1003,226 1016,230 1017,237 1010,239",
+      "center": [
+        1003,
+        233
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we09",
+        "we103",
+        "we39",
+        "we72"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we70",
+      "name": "Liberia",
+      "points": "816,524 826,515 836,539 816,524",
+      "center": [
+        826,
+        526
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we109",
+        "we32",
+        "we49"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we71",
+      "name": "Libya",
+      "points": "923,388 933,371 972,388 982,373 1001,378 1001,447 927,421 923,388",
+      "center": [
+        966,
+        406
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we01",
+        "we117",
+        "we125",
+        "we23",
+        "we37",
+        "we89"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil"
+    },
+    {
+      "id": "we72",
+      "name": "Lithuania",
+      "points": "990,247 982,242 984,236 1010,242 1005,248 990,247",
+      "center": [
+        995,
+        242
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we09",
+        "we100",
+        "we103",
+        "we69"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we73",
+      "name": "Madagascar",
+      "points": "1126,637 1130,655 1114,709 1104,713 1094,695 1098,666 1126,637",
+      "center": [
+        1112,
+        676
+      ],
+      "terrain": "coast",
+      "neighbors": [],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we74",
+      "name": "Malawi",
+      "points": "1043,646 1042,619 1050,623 1057,651 1053,664 1043,646",
+      "center": [
+        1049,
+        641
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we122",
+        "we138",
+        "we82"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we75",
+      "name": "Malaysia",
+      "points": "1471,540 1462,539 1456,556 1435,559 1431,553 1439,556 1467,523 1480,533 1471,540",
+      "center": [
+        1458,
+        542
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we123",
+        "we57"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we76",
+      "name": "Mali",
+      "points": "817,492 816,473 847,474 841,418 850,418 896,452 892,475 862,481 844,505 834,505 828,492 817,492",
+      "center": [
+        857,
+        463
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we01",
+        "we107",
+        "we18",
+        "we32",
+        "we49",
+        "we77",
+        "we89"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we77",
+      "name": "Mauritania",
+      "points": "812,478 801,467 791,472 789,440 809,440 814,412 831,412 831,405 850,418 841,418 847,474 812,478",
+      "center": [
+        821,
+        447
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we01",
+        "we107",
+        "we76"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we78",
+      "name": "Mexico",
+      "points": "280,374 335,379 351,395 360,390 372,410 382,413 378,433 388,454 410,456 416,442 433,438 429,458 413,460 416,470 409,470 407,479 396,469 385,473 350,457 301,382 291,378 293,388 316,431 291,402 296,398 280,374",
+      "center": [
+        355,
+        425
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we132",
+        "we48"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we79",
+      "name": "Moldova",
+      "points": "1010,283 1022,284 1028,293 1018,299 1010,283",
+      "center": [
+        1019,
+        290
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we102",
+        "we129"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we80",
+      "name": "Mongolia",
+      "points": "1320,277 1343,267 1369,274 1376,260 1426,276 1465,273 1461,285 1476,284 1483,291 1442,301 1435,315 1407,321 1364,315 1358,306 1336,300 1333,286 1320,277",
+      "center": [
+        1397,
+        291
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "we103",
+        "we25"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "horses"
+    },
+    {
+      "id": "we81",
+      "name": "Morocco",
+      "points": "863,359 868,377 831,397 830,406 817,407 800,439 788,439 801,411 823,393 828,374 845,355 863,359",
+      "center": [
+        832,
+        389
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we01"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we82",
+      "name": "Mozambique",
+      "points": "1033,695 1042,681 1042,662 1028,652 1049,648 1054,664 1050,632 1080,625 1080,654 1050,679 1054,707 1038,721 1033,695",
+      "center": [
+        1055,
+        664
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we113",
+        "we122",
+        "we138",
+        "we139",
+        "we74"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we83",
+      "name": "Myanmar",
+      "points": "1383,446 1369,456 1380,495 1375,506 1371,468 1366,463 1359,472 1353,471 1352,451 1342,440 1370,398 1376,408 1370,425 1376,423 1378,435 1388,437 1383,446",
+      "center": [
+        1365,
+        442
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we08",
+        "we123",
+        "we25",
+        "we56",
+        "we68"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we84",
+      "name": "Namibia",
+      "points": "993,667 1003,668 995,672 981,671 976,730 958,731 934,665 993,667",
+      "center": [
+        963,
+        693
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we02",
+        "we113",
+        "we138",
+        "we15"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we85",
+      "name": "Nepal",
+      "points": "1322,402 1318,410 1281,396 1290,387 1322,402",
+      "center": [
+        1302,
+        399
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we25",
+        "we56"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we86",
+      "name": "Netherlands",
+      "points": "905,268 892,263 909,252 905,268",
+      "center": [
+        902,
+        261
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we10",
+        "we45"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we87",
+      "name": "New Zealand",
+      "points": "1753,805 1759,808 1741,832 1719,832 1749,802 1753,805",
+      "center": [
+        1741,
+        819
+      ],
+      "terrain": "coast",
+      "neighbors": [],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we88",
+      "name": "Nicaragua",
+      "points": "453,477 450,501 440,500 430,489 453,477",
+      "center": [
+        443,
+        490
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we28",
+        "we53"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we89",
+      "name": "Niger",
+      "points": "944,484 923,489 898,484 893,496 875,480 892,475 896,452 935,427 951,430 956,445 944,484",
+      "center": [
+        922,
+        462
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we01",
+        "we11",
+        "we18",
+        "we23",
+        "we71",
+        "we76",
+        "we90"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we90",
+      "name": "Nigeria",
+      "points": "944,484 949,497 932,526 926,523 917,538 906,539 897,527 888,527 897,485 923,489 944,484",
+      "center": [
+        917,
+        509
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we11",
+        "we20",
+        "we23",
+        "we89"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "oil"
+    },
+    {
+      "id": "we91",
+      "name": "North Korea",
+      "points": "1526,339 1511,344 1506,330 1535,313 1533,326 1522,333 1526,339",
+      "center": [
+        1520,
+        330
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we103",
+        "we114",
+        "we25"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we92",
+      "name": "Norway",
+      "points": "979,161 960,168 946,190 936,193 940,206 934,220 928,215 916,225 903,222 910,211 901,216 900,208 913,207 901,207 909,203 901,201 929,194 923,192 967,159 1015,149 1031,158 979,161",
+      "center": [
+        946,
+        189
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we103",
+        "we118",
+        "we41"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "oil"
+    },
+    {
+      "id": "we93",
+      "name": "Oman",
+      "points": "1144,467 1138,453 1154,448 1161,418 1178,435 1168,453 1144,467",
+      "center": [
+        1160,
+        444
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we106",
+        "we130",
+        "we137"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we94",
+      "name": "Pakistan",
+      "points": "1264,356 1263,361 1250,362 1257,376 1253,383 1227,406 1235,422 1220,426 1211,415 1187,417 1196,406 1183,390 1211,390 1214,382 1226,378 1241,350 1256,348 1264,356",
+      "center": [
+        1226,
+        389
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we00",
+        "we25",
+        "we56",
+        "we58"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we95",
+      "name": "Panama",
+      "points": "482,514 479,522 473,512 465,522 453,516 454,508 482,514",
+      "center": [
+        465,
+        515
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we26",
+        "we28"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we96",
+      "name": "Papua New Guinea",
+      "points": "1590,617 1591,579 1623,600 1622,607 1640,624 1624,623 1604,608 1596,612 1602,616 1590,617",
+      "center": [
+        1608,
+        604
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we57"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we97",
+      "name": "Paraguay",
+      "points": "580,682 581,693 591,694 599,705 592,724 577,724 582,712 557,694 561,679 580,682",
+      "center": [
+        579,
+        700
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we03",
+        "we13",
+        "we16"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we98",
+      "name": "Peru",
+      "points": "520,589 505,594 499,608 508,623 517,619 516,628 526,637 525,660 517,671 489,650 462,591 467,584 474,593 493,564 504,578 519,580 520,589",
+      "center": [
+        497,
+        618
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we13",
+        "we16",
+        "we24",
+        "we26",
+        "we36"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "gold"
+    },
+    {
+      "id": "we99",
+      "name": "Philippines",
+      "points": "1489,456 1496,464 1493,482 1503,483 1504,491 1484,478 1489,456",
+      "center": [
+        1492,
+        473
+      ],
+      "terrain": "coast",
+      "neighbors": [],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we100",
+      "name": "Poland",
+      "points": "994,264 990,278 971,276 950,267 947,250 991,247 994,264",
+      "center": [
+        972,
+        261
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we09",
+        "we103",
+        "we110",
+        "we129",
+        "we31",
+        "we45",
+        "we72"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we101",
+      "name": "Portugal",
+      "points": "830,319 843,322 835,348 827,338 830,319",
+      "center": [
+        834,
+        332
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we115"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we102",
+      "name": "Romania",
+      "points": "1018,299 1025,300 1020,309 991,308 977,295 992,284 1010,283 1018,299",
+      "center": [
+        1001,
+        297
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we108",
+        "we129",
+        "we17",
+        "we54",
+        "we79"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we103",
+      "name": "Russia",
+      "points": "1787,185 1760,187 1779,189 1784,201 1773,198 1739,214 1704,215 1696,225 1703,236 1670,267 1666,233 1714,200 1687,210 1688,203 1672,204 1658,215 1662,219 1597,219 1561,244 1592,253 1586,282 1560,310 1538,317 1539,302 1550,301 1558,283 1539,286 1522,274 1514,256 1502,252 1484,256 1487,261 1473,275 1455,271 1426,276 1376,260 1369,274 1343,267 1318,278 1298,267 1281,268 1265,246 1247,252 1225,241 1185,249 1190,255 1179,261 1187,265 1184,268 1151,269 1132,262 1122,273 1115,270 1111,282 1125,294 1112,304 1121,320 1116,324 1061,301 1074,290 1068,288 1076,285 1078,275 1055,270 1046,259 1036,260 1033,255 1040,252 1013,228 1017,215 1028,214 1016,211 1035,197 1027,192 1022,174 1027,169 1019,165 1028,158 1083,169 1084,174 1071,179 1036,172 1065,192 1062,184 1076,187 1089,176 1098,179 1095,163 1107,165 1112,168 1102,171 1111,174 1148,162 1145,166 1178,165 1184,157 1222,165 1225,162 1214,158 1213,149 1237,139 1244,140 1239,147 1248,165 1238,175 1225,174 1240,178 1256,162 1275,170 1268,169 1269,162 1249,160 1252,152 1245,147 1254,139 1259,148 1276,150 1260,145 1273,142 1296,146 1292,152 1296,155 1299,146 1284,135 1316,133 1310,136 1314,138 1319,133 1310,129 1316,126 1380,122 1376,118 1402,111 1452,121 1408,140 1434,132 1448,133 1451,140 1453,135 1496,139 1507,134 1530,138 1531,144 1523,142 1539,151 1548,144 1585,147 1581,142 1589,139 1680,150 1691,164 1703,157 1740,163 1740,155 1787,161",
+      "center": [
+        1378,
+        205
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we07",
+        "we09",
+        "we100",
+        "we129",
+        "we25",
+        "we39",
+        "we41",
+        "we44",
+        "we65",
+        "we69",
+        "we72",
+        "we80",
+        "we91",
+        "we92"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "iron"
+    },
+    {
+      "id": "we104",
+      "name": "Rwanda",
+      "points": "1025,572 1029,570 1031,578 1021,580 1025,572",
+      "center": [
+        1027,
+        576
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we122",
+        "we128",
+        "we33"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we105",
+      "name": "S. Sudan",
+      "points": "1047,540 1031,544 1017,538 997,515 1002,504 1033,507 1043,493 1048,514 1042,518 1054,532 1047,540",
+      "center": [
+        1027,
+        521
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we117",
+        "we128",
+        "we22",
+        "we33",
+        "we40",
+        "we66"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we106",
+      "name": "Saudi Arabia",
+      "points": "1138,453 1114,465 1095,462 1092,469 1050,400 1052,393 1067,386 1062,380 1079,378 1101,394 1120,398 1141,430 1157,436 1154,448 1138,453",
+      "center": [
+        1100,
+        424
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we130",
+        "we137",
+        "we59",
+        "we64",
+        "we93"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "oil"
+    },
+    {
+      "id": "we107",
+      "name": "Senegal",
+      "points": "812,478 817,492 790,492 804,486 786,478 792,468 802,467 812,478",
+      "center": [
+        802,
+        480
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we49",
+        "we50",
+        "we76",
+        "we77"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we108",
+      "name": "Serbia",
+      "points": "990,306 984,318 972,311 970,297 977,295 990,306",
+      "center": [
+        979,
+        306
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we102",
+        "we14",
+        "we17",
+        "we29",
+        "we54"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we109",
+      "name": "Sierra Leone",
+      "points": "822,515 816,524 807,511 817,506 822,515",
+      "center": [
+        815,
+        514
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we49",
+        "we70"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we110",
+      "name": "Slovakia",
+      "points": "989,278 970,285 960,282 973,275 989,278",
+      "center": [
+        974,
+        280
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we06",
+        "we100",
+        "we129",
+        "we31",
+        "we54"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we111",
+      "name": "Somalia",
+      "points": "1085,574 1083,548 1118,518 1123,498 1135,495 1118,538 1085,574",
+      "center": [
+        1106,
+        537
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we112",
+        "we40",
+        "we66"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we112",
+      "name": "Somaliland",
+      "points": "1123,498 1118,518 1098,512 1091,502 1094,497 1100,503 1123,498",
+      "center": [
+        1108,
+        507
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we111",
+        "we40"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we113",
+      "name": "South Africa",
+      "points": "1024,694 1033,695 1037,706 1031,720 1041,721 1028,745 1004,763 968,765 960,728 972,733 976,709 985,721 992,712 1004,714 1024,694",
+      "center": [
+        1001,
+        733
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "we139",
+        "we15",
+        "we82",
+        "we84"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "gold"
+    },
+    {
+      "id": "we114",
+      "name": "South Korea",
+      "points": "1517,344 1526,339 1532,354 1517,364 1517,344",
+      "center": [
+        1523,
+        351
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "we91"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we115",
+      "name": "Spain",
+      "points": "866,311 891,319 878,326 871,345 844,353 837,345 843,322 830,320 828,312 866,311",
+      "center": [
+        857,
+        329
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we101",
+        "we42"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we116",
+      "name": "Sri Lanka",
+      "points": "1280,507 1290,522 1283,529 1280,507",
+      "center": [
+        1285,
+        519
+      ],
+      "terrain": "plain",
+      "neighbors": [],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we117",
+      "name": "Sudan",
+      "points": "1048,509 1041,493 1033,507 1010,509 1006,503 994,513 985,490 996,472 1001,436 1062,436 1071,459 1062,465 1048,509",
+      "center": [
+        1027,
+        471
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we105",
+        "we22",
+        "we23",
+        "we37",
+        "we38",
+        "we40",
+        "we71"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we118",
+      "name": "Sweden",
+      "points": "932,220 940,206 936,195 946,190 957,170 977,161 995,168 997,180 988,180 963,200 962,210 971,215 957,222 955,236 940,241 932,220",
+      "center": [
+        960,
+        197
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we41",
+        "we92"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "iron"
+    },
+    {
+      "id": "we119",
+      "name": "Switzerland",
+      "points": "923,287 926,294 905,295 910,287 923,287",
+      "center": [
+        916,
+        291
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "we06",
+        "we42",
+        "we45",
+        "we62"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we120",
+      "name": "Syria",
+      "points": "1057,355 1090,348 1083,363 1061,376 1056,373 1057,355",
+      "center": [
+        1070,
+        361
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we126",
+        "we59",
+        "we61",
+        "we64"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we121",
+      "name": "Tajikistan",
+      "points": "1218,347 1217,334 1232,325 1235,330 1226,334 1248,334 1256,346 1238,350 1234,340 1218,347",
+      "center": [
+        1235,
+        339
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we00",
+        "we134",
+        "we25",
+        "we67"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we122",
+      "name": "Tanzania",
+      "points": "1042,619 1025,601 1031,570 1047,570 1074,592 1078,627 1052,632 1042,619",
+      "center": [
+        1052,
+        601
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we104",
+        "we128",
+        "we138",
+        "we33",
+        "we66",
+        "we74",
+        "we82"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we123",
+      "name": "Thailand",
+      "points": "1383,446 1387,462 1402,457 1411,473 1408,481 1394,485 1397,496 1382,486 1378,507 1393,528 1388,531 1373,515 1380,495 1369,456 1383,446",
+      "center": [
+        1388,
+        478
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we19",
+        "we68",
+        "we75",
+        "we83"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "grain"
+    },
+    {
+      "id": "we124",
+      "name": "Togo",
+      "points": "879,500 881,529 874,502 879,500",
+      "center": [
+        878,
+        510
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we11",
+        "we18",
+        "we46"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we125",
+      "name": "Tunisia",
+      "points": "933,371 923,388 913,367 918,349 931,348 926,365 933,371",
+      "center": [
+        922,
+        366
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we01",
+        "we71"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we126",
+      "name": "Turkey",
+      "points": "1085,322 1102,333 1099,348 1025,353 1008,341 1007,331 1023,324 1085,322",
+      "center": [
+        1055,
+        337
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "we04",
+        "we07",
+        "we120",
+        "we17",
+        "we44",
+        "we47",
+        "we58",
+        "we59"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we127",
+      "name": "Turkmenistan",
+      "points": "1159,323 1172,315 1212,346 1191,359 1165,341 1148,346 1142,328 1152,325 1141,320 1159,323",
+      "center": [
+        1176,
+        337
+      ],
+      "terrain": "desert",
+      "neighbors": [
+        "we00",
+        "we134",
+        "we58",
+        "we65"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we128",
+      "name": "Uganda",
+      "points": "1047,570 1025,572 1033,542 1049,543 1047,570",
+      "center": [
+        1038,
+        557
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we104",
+        "we105",
+        "we122",
+        "we33",
+        "we66"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we129",
+      "name": "Ukraine",
+      "points": "1069,289 1052,297 1036,294 1036,289 1021,300 1028,293 1022,284 987,281 998,262 1030,265 1046,259 1055,270 1078,275 1069,289",
+      "center": [
+        1034,
+        278
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "we09",
+        "we100",
+        "we102",
+        "we103",
+        "we110",
+        "we54",
+        "we79"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain"
+    },
+    {
+      "id": "we130",
+      "name": "United Arab Emirates",
+      "points": "1160,415 1154,432 1136,423 1160,415",
+      "center": [
+        1150,
+        423
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we106",
+        "we93"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we131",
+      "name": "United Kingdom",
+      "points": "861,263 848,261 861,253 859,244 849,244 850,236 845,241 849,222 865,228 855,237 883,257 879,267 846,272 861,263",
+      "center": [
+        863,
+        251
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "we60"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none"
+    },
+    {
+      "id": "we132",
+      "name": "United States of America",
+      "points": "496,302 515,300 523,287 531,289 535,303 518,309 514,317 520,321 499,323 489,347 490,334 487,342 483,339 491,355 485,353 487,361 462,381 466,417 450,390 428,385 416,388 421,395 392,391 379,404 381,413 360,391 351,395 335,379 311,381 280,374 262,362 253,345 258,342 251,343 244,329 249,295 242,282 252,283 252,289 252,278 393,276 448,293 456,300 455,321 496,302",
+      "center": [
+        371,
+        333
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we21",
+        "we78"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "grain"
+    },
+    {
+      "id": "we133",
+      "name": "Uruguay",
+      "points": "604,761 596,768 581,765 582,740 602,751 604,761",
+      "center": [
+        591,
+        756
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we03",
+        "we16"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we134",
+      "name": "Uzbekistan",
+      "points": "1235,318 1231,322 1246,326 1227,326 1217,334 1218,347 1212,346 1172,315 1159,323 1159,302 1172,298 1189,310 1204,309 1222,327 1235,318",
+      "center": [
+        1194,
+        320
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "we00",
+        "we121",
+        "we127",
+        "we65",
+        "we67"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we135",
+      "name": "Venezuela",
+      "points": "570,514 563,530 567,536 556,543 546,539 553,551 542,560 530,548 532,528 509,523 502,511 513,495 513,511 512,501 519,493 529,503 561,502 555,503 566,510 562,514 570,514",
+      "center": [
+        538,
+        522
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we16",
+        "we26",
+        "we51"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil"
+    },
+    {
+      "id": "we136",
+      "name": "Vietnam",
+      "points": "1423,439 1411,454 1427,474 1430,491 1406,514 1405,503 1420,492 1421,475 1402,452 1405,444 1393,434 1409,428 1423,439",
+      "center": [
+        1414,
+        465
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "we19",
+        "we25",
+        "we68"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "grain"
+    },
+    {
+      "id": "we137",
+      "name": "Yemen",
+      "points": "1144,467 1095,490 1095,462 1114,465 1138,453 1144,467",
+      "center": [
+        1116,
+        471
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we106",
+        "we93"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we138",
+      "name": "Zambia",
+      "points": "1029,655 1011,669 993,667 986,659 986,640 996,640 996,628 1026,643 1019,618 1031,612 1045,626 1043,646 1029,655",
+      "center": [
+        1016,
+        644
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we02",
+        "we122",
+        "we139",
+        "we33",
+        "we74",
+        "we82",
+        "we84"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    },
+    {
+      "id": "we139",
+      "name": "Zimbabwe",
+      "points": "1033,695 1017,690 1003,668 1012,669 1025,655 1042,662 1042,681 1033,695",
+      "center": [
+        1026,
+        675
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "we113",
+        "we138",
+        "we15",
+        "we82"
+      ],
+      "basePopulation": 6000000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none"
+    }
+  ]
+}

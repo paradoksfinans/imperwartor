@@ -1,0 +1,4573 @@
+{
+  "id": "europadetail",
+  "name": "Europa (Regionen)",
+  "description": "Europa nicht als Staaten, sondern als Regionen: deutsche Bundesländer, polnische Woiwodschaften, französische Regionen.",
+  "viewBox": "0 0 1500 1200",
+  "seaLinks": [
+    [
+      "eu26",
+      "eu84"
+    ],
+    [
+      "eu26",
+      "eu82"
+    ],
+    [
+      "eu81",
+      "eu84"
+    ],
+    [
+      "eu117",
+      "eu118"
+    ],
+    [
+      "eu04",
+      "eu118"
+    ],
+    [
+      "eu138",
+      "eu147"
+    ],
+    [
+      "eu143",
+      "eu147"
+    ],
+    [
+      "eu97",
+      "eu25"
+    ],
+    [
+      "eu86",
+      "eu93"
+    ],
+    [
+      "eu210",
+      "eu161"
+    ]
+  ],
+  "provinces": [
+    {
+      "id": "eu00",
+      "name": "Sachsen",
+      "points": "729,769 702,787 693,788 689,795 682,787 696,773 687,764 688,752 701,749 706,758 717,759 735,753 740,756 740,768 736,775 729,769",
+      "center": [
+        709,
+        769
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu01",
+        "eu08",
+        "eu13",
+        "eu14",
+        "eu32",
+        "eu36",
+        "eu58",
+        "eu59"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu01",
+      "name": "Bayern",
+      "points": "685,790 694,802 691,807 696,816 716,832 718,840 698,854 703,872 688,865 669,874 654,869 649,878 645,870 637,870 648,866 645,846 655,837 655,831 642,807 633,806 635,810 629,812 626,798 636,796 648,783 659,793 661,788 670,791 671,784 685,790",
+      "center": [
+        672,
+        829
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu00",
+        "eu07",
+        "eu115",
+        "eu116",
+        "eu12",
+        "eu13",
+        "eu46",
+        "eu48",
+        "eu49",
+        "eu50",
+        "eu54",
+        "eu59"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu02",
+      "name": "Rheinland-Pfalz",
+      "points": "572,797 577,788 585,789 605,772 611,782 610,791 603,798 612,798 617,806 613,829 595,823 594,812 576,813 579,805 572,797",
+      "center": [
+        597,
+        801
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu03",
+        "eu06",
+        "eu07",
+        "eu111",
+        "eu12",
+        "eu17"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu03",
+      "name": "Saarland",
+      "points": "576,815 594,812 596,824 583,824 576,815",
+      "center": [
+        588,
+        818
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu02",
+        "eu17"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu04",
+      "name": "Schleswig-Holstein",
+      "points": "631,649 645,651 643,661 648,660 648,665 652,662 660,666 667,663 660,674 664,690 657,696 649,691 649,685 640,690 625,678 626,666 619,665 627,660 620,648 631,649",
+      "center": [
+        643,
+        671
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu05",
+        "eu09",
+        "eu11",
+        "eu117"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": true,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu05",
+      "name": "Niedersachsen",
+      "points": "593,708 596,698 590,697 591,689 607,685 612,695 613,688 618,691 617,697 620,679 632,680 643,694 659,696 676,707 660,713 666,732 657,739 658,752 640,761 637,758 639,751 634,750 636,743 627,735 628,724 614,725 617,734 607,738 607,729 602,725 589,732 583,722 589,720 593,708",
+      "center": [
+        630,
+        715
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu04",
+        "eu06",
+        "eu08",
+        "eu09",
+        "eu10",
+        "eu106",
+        "eu108",
+        "eu11",
+        "eu12",
+        "eu13",
+        "eu14"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu06",
+      "name": "Nordrhein-Westfalen",
+      "points": "586,736 600,724 607,729 607,738 617,734 614,725 628,724 627,735 636,743 635,750 620,759 621,766 610,779 604,772 585,789 577,790 567,769 574,758 569,745 584,742 586,736",
+      "center": [
+        599,
+        755
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu02",
+        "eu05",
+        "eu105",
+        "eu106",
+        "eu111",
+        "eu12"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu07",
+      "name": "Baden-Württemberg",
+      "points": "637,870 619,863 615,866 618,869 601,870 599,865 604,840 617,820 616,812 621,810 624,817 636,805 648,814 655,837 645,846 648,866 637,870",
+      "center": [
+        628,
+        841
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu01",
+        "eu02",
+        "eu115",
+        "eu116",
+        "eu12",
+        "eu17",
+        "eu48"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu08",
+      "name": "Brandenburg",
+      "points": "733,721 735,753 725,754 721,759 706,758 707,743 688,734 688,712 670,704 687,696 703,703 718,691 726,694 724,699 729,697 724,713 733,721",
+      "center": [
+        710,
+        724
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu00",
+        "eu05",
+        "eu09",
+        "eu14",
+        "eu15",
+        "eu36",
+        "eu37"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu09",
+      "name": "Mecklenburg-Vorpommern",
+      "points": "727,687 726,700 726,694 717,691 702,703 687,696 670,704 657,696 664,690 660,684 663,677 673,679 678,671 686,673 694,660 701,662 691,667 703,662 712,673 716,670 718,681 727,687",
+      "center": [
+        692,
+        685
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu04",
+        "eu05",
+        "eu08",
+        "eu37"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu10",
+      "name": "Bremen",
+      "points": "618,701 626,703 626,706 621,706 618,701",
+      "center": [
+        623,
+        704
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu05"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu11",
+      "name": "Hamburg",
+      "points": "642,691 649,685 652,694 642,691",
+      "center": [
+        648,
+        690
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu04",
+        "eu05"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu12",
+      "name": "Hessen",
+      "points": "644,758 650,764 645,771 647,784 636,796 627,796 629,814 623,817 621,810 616,812 612,798 603,798 610,791 610,776 621,766 619,761 625,755 630,756 636,750 640,752 637,759 644,758",
+      "center": [
+        628,
+        781
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu01",
+        "eu02",
+        "eu05",
+        "eu06",
+        "eu07",
+        "eu13"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu13",
+      "name": "Thüringen",
+      "points": "645,760 661,750 672,759 673,767 687,772 690,767 696,773 681,787 671,784 670,791 661,788 659,793 643,780 650,764 645,760",
+      "center": [
+        665,
+        773
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu00",
+        "eu01",
+        "eu05",
+        "eu12",
+        "eu14"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu14",
+      "name": "Sachsen-Anhalt",
+      "points": "659,750 657,739 666,732 660,713 677,706 688,712 691,738 707,743 704,751 687,753 687,772 673,767 672,759 659,750",
+      "center": [
+        678,
+        738
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu00",
+        "eu05",
+        "eu08",
+        "eu13"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu15",
+      "name": "Berlin",
+      "points": "712,718 716,728 704,726 712,718",
+      "center": [
+        711,
+        724
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu08"
+      ],
+      "basePopulation": 4000000,
+      "baseEconomy": 16,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Germany"
+    },
+    {
+      "id": "eu16",
+      "name": "Hauts-de-France",
+      "points": "514,826 488,822 489,806 482,797 488,794 486,773 493,770 504,767 509,778 515,776 526,790 536,792 533,818 525,820 522,833 514,826",
+      "center": [
+        508,
+        800
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu109",
+        "eu112",
+        "eu17",
+        "eu25",
+        "eu28"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu17",
+      "name": "Grand Est",
+      "points": "601,857 600,869 593,874 582,859 569,858 556,869 545,856 530,859 521,847 520,835 525,820 533,818 536,801 547,795 548,805 560,814 578,815 584,824 611,829 601,857",
+      "center": [
+        562,
+        837
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu02",
+        "eu03",
+        "eu07",
+        "eu109",
+        "eu110",
+        "eu116",
+        "eu16",
+        "eu22",
+        "eu28"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu18",
+      "name": "Provence-Alpes-Côte-d'Azur",
+      "points": "587,981 572,992 552,984 555,980 551,978 548,984 545,977 548,983 536,980 548,966 544,958 564,962 560,953 577,944 575,936 582,936 589,944 588,960 602,964 587,981",
+      "center": [
+        571,
+        967
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu19",
+        "eu21",
+        "eu67",
+        "eu70"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu19",
+      "name": "Auvergne-Rhône-Alpes",
+      "points": "544,959 533,958 530,946 520,941 513,949 508,941 497,950 495,940 503,929 505,912 499,901 508,893 525,892 532,908 544,905 547,908 550,899 561,906 571,901 569,909 576,902 585,901 589,915 585,920 591,933 575,936 577,944 559,955 564,962 544,959",
+      "center": [
+        542,
+        926
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu113",
+        "eu18",
+        "eu20",
+        "eu21",
+        "eu22",
+        "eu27",
+        "eu66",
+        "eu67"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu20",
+      "name": "Nouvelle-Aquitaine",
+      "points": "423,984 436,949 434,946 432,950 435,925 447,940 432,921 437,920 435,904 446,903 438,885 457,881 462,887 469,886 479,902 499,901 503,905 504,927 497,940 484,939 473,963 452,969 457,984 450,997 429,992 430,986 423,984",
+      "center": [
+        460,
+        934
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu135",
+        "eu136",
+        "eu137",
+        "eu19",
+        "eu21",
+        "eu23",
+        "eu27"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu21",
+      "name": "Occitanie",
+      "points": "472,997 461,1001 450,997 457,984 452,969 473,963 485,939 495,940 498,950 508,941 513,949 520,941 530,946 533,958 542,958 548,966 536,980 531,978 515,990 516,1007 494,1009 489,1003 472,997",
+      "center": [
+        497,
+        974
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu137",
+        "eu138",
+        "eu18",
+        "eu19",
+        "eu20"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu22",
+      "name": "Bourgogne-Franche-Comté",
+      "points": "587,874 568,905 550,899 547,908 544,905 532,908 525,892 514,892 512,852 521,845 530,859 545,856 556,869 569,858 582,859 590,865 592,871 587,874",
+      "center": [
+        547,
+        878
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu113",
+        "eu116",
+        "eu17",
+        "eu19",
+        "eu27",
+        "eu28"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu23",
+      "name": "Pays de la Loire",
+      "points": "433,904 416,890 415,878 423,879 408,874 418,866 432,863 436,843 463,844 473,853 470,863 461,868 454,884 438,885 446,903 433,904",
+      "center": [
+        441,
+        870
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu20",
+        "eu24",
+        "eu25",
+        "eu27"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu24",
+      "name": "Bretagne",
+      "points": "409,871 400,867 397,872 394,863 378,859 373,863 366,856 375,854 370,847 377,848 372,848 375,845 366,847 367,841 397,832 405,843 412,837 419,842 421,837 429,844 436,843 432,863 409,871",
+      "center": [
+        402,
+        852
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu23",
+        "eu25"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu25",
+      "name": "Normandie",
+      "points": "465,815 458,813 460,808 482,797 489,806 490,821 481,835 472,838 471,852 452,841 428,843 427,822 419,807 432,808 435,818 452,820 465,815",
+      "center": [
+        459,
+        825
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu16",
+        "eu23",
+        "eu24",
+        "eu27",
+        "eu28"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": true,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu26",
+      "name": "Corse",
+      "points": "634,1024 631,1034 624,1030 618,1012 621,1003 632,1001 635,992 634,1024",
+      "center": [
+        628,
+        1015
+      ],
+      "terrain": "plain",
+      "neighbors": [],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": true,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu27",
+      "name": "Centre-Val de Loire",
+      "points": "511,871 514,891 499,901 479,902 469,886 462,887 457,881 461,868 472,859 472,838 484,830 494,849 513,853 511,871",
+      "center": [
+        488,
+        871
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu19",
+        "eu20",
+        "eu22",
+        "eu23",
+        "eu25",
+        "eu28"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu28",
+      "name": "Île-de-France",
+      "points": "506,826 516,826 523,840 512,853 503,854 502,848 494,849 484,827 488,822 506,826",
+      "center": [
+        503,
+        837
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu16",
+        "eu17",
+        "eu22",
+        "eu25",
+        "eu27"
+      ],
+      "basePopulation": 2200000,
+      "baseEconomy": 13,
+      "isPort": false,
+      "resource": "grain",
+      "land": "France"
+    },
+    {
+      "id": "eu29",
+      "name": "Silesian",
+      "points": "825,811 816,817 808,802 798,798 809,784 811,769 832,776 835,786 822,792 818,802 825,811",
+      "center": [
+        817,
+        790
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu173",
+        "eu30",
+        "eu33",
+        "eu41",
+        "eu44",
+        "eu57"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu30",
+      "name": "Lesser Poland",
+      "points": "829,817 818,802 822,792 836,785 847,794 860,787 859,805 864,816 853,820 841,817 836,823 831,823 829,817",
+      "center": [
+        841,
+        804
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu173",
+        "eu29",
+        "eu31",
+        "eu44"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu31",
+      "name": "Subcarpathian",
+      "points": "867,817 859,805 858,792 870,775 885,782 885,789 905,790 885,813 889,829 867,817",
+      "center": [
+        877,
+        800
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu173",
+        "eu184",
+        "eu191",
+        "eu30",
+        "eu38",
+        "eu44"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu32",
+      "name": "Lower Silesian",
+      "points": "742,770 737,774 740,757 752,755 758,746 763,750 769,747 777,754 787,752 792,759 776,787 779,793 773,796 763,787 766,780 747,776 742,770",
+      "center": [
+        766,
+        767
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu00",
+        "eu33",
+        "eu36",
+        "eu43",
+        "eu56",
+        "eu58"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu33",
+      "name": "Opole",
+      "points": "777,787 789,766 810,770 809,784 798,799 790,795 792,790 787,792 777,787",
+      "center": [
+        795,
+        781
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu29",
+        "eu32",
+        "eu41",
+        "eu43",
+        "eu56",
+        "eu57"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu34",
+      "name": "Podlachian",
+      "points": "890,663 901,671 909,703 909,717 895,730 884,727 880,714 873,712 864,694 884,683 880,670 890,663",
+      "center": [
+        890,
+        699
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu192",
+        "eu195",
+        "eu203",
+        "eu35",
+        "eu38",
+        "eu40"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu35",
+      "name": "Warmian-Masurian",
+      "points": "888,664 880,670 885,678 882,684 841,705 831,705 819,690 827,681 821,676 821,667 830,662 888,664",
+      "center": [
+        850,
+        681
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu203",
+        "eu34",
+        "eu39",
+        "eu40",
+        "eu42"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu36",
+      "name": "Lubusz",
+      "points": "740,757 733,745 734,719 760,705 757,736 767,747 758,746 752,755 740,757",
+      "center": [
+        747,
+        733
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu00",
+        "eu08",
+        "eu32",
+        "eu37",
+        "eu43"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu37",
+      "name": "West Pomeranian",
+      "points": "732,719 724,713 730,700 727,686 733,689 734,681 726,678 763,667 774,657 780,682 777,689 770,694 773,701 764,709 759,704 746,709 732,719",
+      "center": [
+        752,
+        689
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu08",
+        "eu09",
+        "eu36",
+        "eu39",
+        "eu43"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu38",
+      "name": "Lublin",
+      "points": "896,730 904,736 904,760 914,774 910,775 913,783 905,790 884,788 885,782 869,771 871,755 867,751 871,750 870,740 896,730",
+      "center": [
+        890,
+        761
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu191",
+        "eu192",
+        "eu31",
+        "eu34",
+        "eu40",
+        "eu44"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu39",
+      "name": "Pomeranian",
+      "points": "828,661 821,667 821,676 827,681 819,690 796,686 786,694 777,689 774,657 779,654 803,649 813,655 805,651 811,664 828,661",
+      "center": [
+        798,
+        672
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu35",
+        "eu37",
+        "eu42",
+        "eu43"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu40",
+      "name": "Masovian",
+      "points": "864,695 873,712 880,714 884,727 894,730 890,736 870,740 871,750 867,751 871,755 870,768 864,769 845,763 847,745 834,731 822,729 829,706 864,695",
+      "center": [
+        856,
+        729
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu34",
+        "eu35",
+        "eu38",
+        "eu41",
+        "eu42",
+        "eu44"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu41",
+      "name": "Łódź",
+      "points": "824,730 834,731 848,750 844,750 844,761 831,775 801,767 798,761 817,730 824,730",
+      "center": [
+        824,
+        753
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu29",
+        "eu33",
+        "eu40",
+        "eu42",
+        "eu43",
+        "eu44"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu42",
+      "name": "Kuyavian-Pomeranian",
+      "points": "830,706 822,729 812,730 788,719 784,697 788,690 802,686 819,690 829,700 830,706",
+      "center": [
+        807,
+        707
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu35",
+        "eu39",
+        "eu40",
+        "eu41",
+        "eu43"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu43",
+      "name": "Greater Poland",
+      "points": "817,731 799,760 800,765 795,767 789,753 775,753 762,743 757,736 756,717 760,708 773,701 770,694 777,689 786,694 788,719 817,731",
+      "center": [
+        782,
+        729
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu32",
+        "eu33",
+        "eu36",
+        "eu37",
+        "eu39",
+        "eu41",
+        "eu42"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu44",
+      "name": "Świętokrzyskie",
+      "points": "845,761 850,766 870,768 866,783 847,794 830,778 836,765 845,761",
+      "center": [
+        850,
+        777
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu29",
+        "eu30",
+        "eu31",
+        "eu38",
+        "eu40",
+        "eu41"
+      ],
+      "basePopulation": 1100000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Poland"
+    },
+    {
+      "id": "eu45",
+      "name": "Niederösterreich",
+      "points": "742,829 776,837 780,854 767,860 764,873 747,862 735,864 730,855 731,850 740,851 735,840 742,829",
+      "center": [
+        755,
+        849
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu171",
+        "eu46",
+        "eu47",
+        "eu52",
+        "eu53",
+        "eu54",
+        "eu55",
+        "eu65"
+      ],
+      "basePopulation": 740000,
+      "baseEconomy": 9,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Austria"
+    },
+    {
+      "id": "eu46",
+      "name": "Oberösterreich",
+      "points": "735,840 740,851 731,851 730,855 736,860 728,868 718,865 714,872 709,857 698,855 710,846 711,841 716,842 718,835 723,840 735,840",
+      "center": [
+        721,
+        853
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu01",
+        "eu45",
+        "eu50",
+        "eu52",
+        "eu54"
+      ],
+      "basePopulation": 740000,
+      "baseEconomy": 9,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Austria"
+    },
+    {
+      "id": "eu47",
+      "name": "Burgenland",
+      "points": "780,858 780,865 767,867 773,870 768,874 769,885 760,890 760,875 766,871 767,860 779,854 780,858",
+      "center": [
+        769,
+        871
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu170",
+        "eu171",
+        "eu45",
+        "eu52",
+        "eu60",
+        "eu65"
+      ],
+      "basePopulation": 740000,
+      "baseEconomy": 9,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Austria"
+    },
+    {
+      "id": "eu48",
+      "name": "Vorarlberg",
+      "points": "643,885 637,878 642,869 650,875 648,889 643,885",
+      "center": [
+        644,
+        878
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu01",
+        "eu07",
+        "eu114",
+        "eu115",
+        "eu116",
+        "eu49"
+      ],
+      "basePopulation": 740000,
+      "baseEconomy": 9,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Austria"
+    },
+    {
+      "id": "eu49",
+      "name": "Tirol",
+      "points": "648,889 654,869 666,874 688,865 696,869 684,884 668,886 665,892 653,885 648,889",
+      "center": [
+        671,
+        878
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu01",
+        "eu114",
+        "eu48",
+        "eu50",
+        "eu69"
+      ],
+      "basePopulation": 740000,
+      "baseEconomy": 9,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Austria"
+    },
+    {
+      "id": "eu50",
+      "name": "Salzburg",
+      "points": "688,883 685,877 695,874 695,867 703,871 700,858 709,857 714,876 720,881 717,886 688,883",
+      "center": [
+        704,
+        875
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu01",
+        "eu46",
+        "eu49",
+        "eu51",
+        "eu52",
+        "eu69"
+      ],
+      "basePopulation": 740000,
+      "baseEconomy": 9,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Austria"
+    },
+    {
+      "id": "eu51",
+      "name": "Kärnten",
+      "points": "697,895 702,892 696,881 719,887 738,884 743,895 732,902 697,895",
+      "center": [
+        720,
+        892
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu170",
+        "eu50",
+        "eu52",
+        "eu73",
+        "eu74"
+      ],
+      "basePopulation": 740000,
+      "baseEconomy": 9,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Austria"
+    },
+    {
+      "id": "eu52",
+      "name": "Steiermark",
+      "points": "759,890 760,894 749,896 743,895 738,884 718,887 716,867 752,864 762,873 759,890",
+      "center": [
+        741,
+        878
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu170",
+        "eu45",
+        "eu46",
+        "eu47",
+        "eu50",
+        "eu51"
+      ],
+      "basePopulation": 740000,
+      "baseEconomy": 9,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Austria"
+    },
+    {
+      "id": "eu53",
+      "name": "Wien",
+      "points": "768,848 770,853 764,853 768,848",
+      "center": [
+        767,
+        851
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu45"
+      ],
+      "basePopulation": 740000,
+      "baseEconomy": 9,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Austria"
+    },
+    {
+      "id": "eu54",
+      "name": "Plzeňský",
+      "points": "713,830 691,807 708,796 718,802 717,814 736,811 739,820 752,826 751,831 740,828 734,841 722,840 713,830",
+      "center": [
+        720,
+        819
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu01",
+        "eu45",
+        "eu46",
+        "eu55",
+        "eu59"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Czechia"
+    },
+    {
+      "id": "eu55",
+      "name": "Vysočina",
+      "points": "752,832 752,826 738,818 750,803 774,811 781,826 791,833 782,833 777,840 752,832",
+      "center": [
+        763,
+        821
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu171",
+        "eu173",
+        "eu45",
+        "eu54",
+        "eu56",
+        "eu59"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Czechia"
+    },
+    {
+      "id": "eu56",
+      "name": "Zlínský",
+      "points": "801,820 791,833 781,826 781,819 773,812 773,800 779,793 776,787 786,791 781,804 803,814 801,820",
+      "center": [
+        786,
+        813
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu173",
+        "eu32",
+        "eu33",
+        "eu55",
+        "eu57"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Czechia"
+    },
+    {
+      "id": "eu57",
+      "name": "Moravskoslezský",
+      "points": "792,790 790,796 808,802 813,814 805,818 781,804 786,791 792,790",
+      "center": [
+        797,
+        805
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu173",
+        "eu29",
+        "eu33",
+        "eu56"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Czechia"
+    },
+    {
+      "id": "eu58",
+      "name": "Královéhradecký",
+      "points": "753,777 766,780 763,787 771,796 749,797 742,782 731,785 730,775 740,774 741,769 753,777",
+      "center": [
+        750,
+        784
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu00",
+        "eu32",
+        "eu59"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Czechia"
+    },
+    {
+      "id": "eu59",
+      "name": "Ústecký",
+      "points": "750,804 743,811 717,814 717,801 708,796 694,802 685,790 689,795 693,788 702,787 731,768 734,772 729,783 742,782 750,804",
+      "center": [
+        724,
+        794
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu00",
+        "eu01",
+        "eu54",
+        "eu55",
+        "eu58"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Czechia"
+    },
+    {
+      "id": "eu60",
+      "name": "Vas",
+      "points": "780,903 776,904 761,889 769,885 768,874 794,871 797,876 810,869 815,889 810,893 799,886 783,893 780,903",
+      "center": [
+        788,
+        884
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu168",
+        "eu170",
+        "eu47",
+        "eu61",
+        "eu62",
+        "eu64",
+        "eu65"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Hungary"
+    },
+    {
+      "id": "eu61",
+      "name": "Somogy",
+      "points": "794,918 776,905 783,893 799,886 810,893 815,889 813,915 805,920 794,918",
+      "center": [
+        798,
+        903
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu168",
+        "eu60",
+        "eu62"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Hungary"
+    },
+    {
+      "id": "eu62",
+      "name": "Bács-Kiskun",
+      "points": "836,909 813,915 816,883 837,885 838,892 849,887 854,879 861,887 867,885 857,905 836,909",
+      "center": [
+        836,
+        897
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu154",
+        "eu159",
+        "eu166",
+        "eu168",
+        "eu60",
+        "eu61",
+        "eu63",
+        "eu64"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Hungary"
+    },
+    {
+      "id": "eu63",
+      "name": "Jász-Nagykun-Szolnok",
+      "points": "836,878 829,868 835,867 843,873 850,866 843,858 852,857 851,852 836,852 844,842 878,845 889,856 864,886 854,879 849,887 838,892 836,878",
+      "center": [
+        859,
+        864
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu158",
+        "eu159",
+        "eu172",
+        "eu173",
+        "eu184",
+        "eu62",
+        "eu64"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Hungary"
+    },
+    {
+      "id": "eu64",
+      "name": "Eger",
+      "points": "814,873 810,869 815,865 813,856 828,851 852,853 852,857 843,858 850,866 845,872 835,866 829,868 838,886 822,885 821,881 816,884 814,873",
+      "center": [
+        829,
+        866
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu172",
+        "eu60",
+        "eu62",
+        "eu63",
+        "eu65"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Hungary"
+    },
+    {
+      "id": "eu65",
+      "name": "Érd",
+      "points": "806,871 797,876 794,871 773,874 767,867 780,865 782,857 794,864 814,862 806,871",
+      "center": [
+        790,
+        867
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu171",
+        "eu172",
+        "eu45",
+        "eu47",
+        "eu60",
+        "eu64"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Hungary"
+    },
+    {
+      "id": "eu66",
+      "name": "Valle d'Aosta",
+      "points": "590,916 605,914 606,923 590,927 585,919 590,916",
+      "center": [
+        596,
+        920
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu113",
+        "eu19",
+        "eu67"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu67",
+      "name": "Piemonte",
+      "points": "601,962 588,960 589,944 581,937 590,934 591,926 606,923 605,914 616,900 624,929 617,932 631,950 612,952 608,963 601,962",
+      "center": [
+        606,
+        937
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu113",
+        "eu114",
+        "eu18",
+        "eu19",
+        "eu66",
+        "eu68",
+        "eu70",
+        "eu71"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu68",
+      "name": "Lombardia",
+      "points": "637,936 631,948 620,939 617,932 624,929 619,915 622,910 627,918 632,899 648,906 650,895 658,900 654,913 656,918 662,917 659,931 673,941 637,936",
+      "center": [
+        641,
+        923
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu114",
+        "eu67",
+        "eu69",
+        "eu71",
+        "eu73"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu69",
+      "name": "Trentino-Alto Adige",
+      "points": "681,900 683,908 678,913 672,913 667,921 656,918 654,889 665,892 668,886 688,883 686,888 693,894 681,900",
+      "center": [
+        670,
+        901
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu114",
+        "eu49",
+        "eu50",
+        "eu68",
+        "eu73"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu70",
+      "name": "Liguria",
+      "points": "598,969 609,962 612,952 622,953 626,948 636,951 635,955 647,964 622,955 609,969 598,969",
+      "center": [
+        621,
+        958
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu18",
+        "eu67",
+        "eu71",
+        "eu82"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu71",
+      "name": "Emilia-Romagna",
+      "points": "692,967 685,973 673,960 663,965 644,954 635,955 631,950 634,939 689,941 690,959 698,967 696,970 692,967",
+      "center": [
+        665,
+        952
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu67",
+        "eu68",
+        "eu70",
+        "eu72",
+        "eu73",
+        "eu82"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu72",
+      "name": "Marche",
+      "points": "719,995 706,999 698,980 688,977 690,970 699,967 712,976 719,995",
+      "center": [
+        705,
+        982
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu71",
+        "eu75",
+        "eu81",
+        "eu82",
+        "eu85"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu73",
+      "name": "Veneto",
+      "points": "689,937 694,941 691,945 685,941 673,941 659,931 658,924 662,917 667,921 672,913 678,913 683,908 680,899 693,894 698,898 690,905 692,914 704,922 689,927 689,937",
+      "center": [
+        680,
+        922
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu51",
+        "eu68",
+        "eu69",
+        "eu71",
+        "eu74"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu74",
+      "name": "Friuli-Venezia Giulia",
+      "points": "715,918 718,924 713,918 704,922 702,917 694,917 690,905 698,895 716,898 710,905 715,908 711,913 715,918",
+      "center": [
+        703,
+        908
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu170",
+        "eu51",
+        "eu73"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu75",
+      "name": "Abruzzo",
+      "points": "729,1009 736,1016 731,1024 727,1021 721,1026 703,1017 710,1013 705,1004 718,995 729,1009",
+      "center": [
+        719,
+        1012
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu72",
+        "eu76",
+        "eu81"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu76",
+      "name": "Molise",
+      "points": "728,1032 721,1032 724,1022 731,1024 736,1016 743,1020 740,1031 728,1032",
+      "center": [
+        733,
+        1026
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu75",
+        "eu77",
+        "eu80",
+        "eu81"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu77",
+      "name": "Apulia",
+      "points": "802,1057 807,1065 804,1073 795,1061 785,1056 776,1059 773,1050 767,1051 757,1040 746,1041 739,1030 743,1020 762,1020 759,1032 802,1057",
+      "center": [
+        769,
+        1043
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu76",
+        "eu78",
+        "eu80"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu78",
+      "name": "Basilicata",
+      "points": "774,1062 766,1071 755,1070 748,1046 757,1040 767,1051 773,1051 774,1062",
+      "center": [
+        761,
+        1057
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu77",
+        "eu79",
+        "eu80"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu79",
+      "name": "Calabria",
+      "points": "769,1108 761,1119 752,1115 757,1101 764,1096 755,1070 766,1071 768,1065 772,1065 769,1076 781,1083 782,1092 771,1098 769,1108",
+      "center": [
+        766,
+        1092
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu78",
+        "eu83"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu80",
+      "name": "Campania",
+      "points": "752,1067 745,1068 739,1062 737,1052 728,1054 730,1050 722,1049 717,1038 719,1033 742,1033 751,1043 747,1048 755,1062 752,1067",
+      "center": [
+        737,
+        1047
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu76",
+        "eu77",
+        "eu78",
+        "eu81"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu81",
+      "name": "Lazio",
+      "points": "715,1037 703,1038 680,1017 673,1009 679,997 694,1009 708,1000 705,1007 710,1013 703,1017 721,1027 715,1037",
+      "center": [
+        697,
+        1019
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu72",
+        "eu75",
+        "eu76",
+        "eu80",
+        "eu82",
+        "eu85"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu82",
+      "name": "Toscana",
+      "points": "656,994 650,968 640,957 643,954 663,965 673,960 679,963 680,971 690,974 673,1009 667,1008 668,1004 656,994",
+      "center": [
+        667,
+        980
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu70",
+        "eu71",
+        "eu72",
+        "eu81",
+        "eu85"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu83",
+      "name": "Sicily",
+      "points": "721,1139 693,1125 698,1113 701,1117 709,1112 718,1118 753,1111 742,1129 747,1141 743,1149 721,1139",
+      "center": [
+        725,
+        1127
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu79"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu84",
+      "name": "Sardegna",
+      "points": "618,1092 611,1045 618,1048 631,1037 639,1043 636,1045 642,1055 639,1086 637,1090 627,1087 624,1096 618,1092",
+      "center": [
+        628,
+        1065
+      ],
+      "terrain": "plain",
+      "neighbors": [],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu85",
+      "name": "Umbria",
+      "points": "700,1003 694,1009 682,1000 688,976 698,980 701,993 707,997 700,1003",
+      "center": [
+        693,
+        993
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu72",
+        "eu81",
+        "eu82"
+      ],
+      "basePopulation": 1800000,
+      "baseEconomy": 11,
+      "isPort": true,
+      "resource": "none",
+      "land": "Italy"
+    },
+    {
+      "id": "eu86",
+      "name": "Northern Ireland",
+      "points": "330,673 323,663 317,672 301,661 324,637 340,636 348,650 344,656 351,654 352,664 348,657 351,666 344,673 330,673",
+      "center": [
+        329,
+        656
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu104"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu87",
+      "name": "West Wales and the Valleys",
+      "points": "396,757 388,757 400,748 384,746 387,728 382,722 397,709 392,697 405,710 397,711 400,722 395,725 400,728 397,737 406,744 406,751 396,757",
+      "center": [
+        394,
+        732
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu88",
+        "eu89",
+        "eu90",
+        "eu98"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu88",
+      "name": "North West",
+      "points": "401,702 396,695 405,697 397,690 403,668 396,674 387,659 392,647 405,637 415,661 408,672 416,679 420,691 419,701 410,709 403,708 401,702",
+      "center": [
+        405,
+        674
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu87",
+        "eu89",
+        "eu91",
+        "eu92",
+        "eu93",
+        "eu94",
+        "eu95"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu89",
+      "name": "West Midlands",
+      "points": "398,738 397,711 410,709 419,701 424,716 434,728 432,733 426,740 423,736 409,738 406,745 398,738",
+      "center": [
+        413,
+        724
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu87",
+        "eu88",
+        "eu90",
+        "eu95",
+        "eu97"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu90",
+      "name": "South West",
+      "points": "377,788 366,789 358,800 352,795 348,798 364,784 370,769 377,763 399,764 411,747 405,749 409,738 426,738 426,770 419,770 424,777 410,784 402,777 390,779 386,793 377,788",
+      "center": [
+        397,
+        769
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu87",
+        "eu89",
+        "eu97"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu91",
+      "name": "Eastern",
+      "points": "393,610 406,608 418,616 412,622 415,628 402,640 402,634 389,629 391,618 369,607 364,597 371,582 381,577 405,578 408,590 393,597 401,594 407,600 393,609 383,606 393,610",
+      "center": [
+        391,
+        603
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu100",
+        "eu88",
+        "eu92",
+        "eu93",
+        "eu99"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu92",
+      "name": "North East",
+      "points": "429,660 416,661 407,647 405,637 415,628 412,622 418,616 425,624 433,656 441,658 429,660",
+      "center": [
+        420,
+        642
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu88",
+        "eu91",
+        "eu94"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu93",
+      "name": "South Western",
+      "points": "360,642 368,628 363,620 364,612 371,612 369,607 391,618 389,629 402,636 398,644 388,643 381,651 373,646 373,654 364,648 364,655 358,646 360,642",
+      "center": [
+        378,
+        632
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu88",
+        "eu91",
+        "eu99"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu94",
+      "name": "Yorkshire and the Humber",
+      "points": "426,698 408,671 414,661 441,658 455,672 452,675 459,690 444,685 451,685 457,691 454,694 451,689 426,698",
+      "center": [
+        433,
+        677
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu88",
+        "eu92",
+        "eu95"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu95",
+      "name": "East Midlands",
+      "points": "441,734 432,740 434,728 422,712 420,691 427,699 451,689 461,695 462,705 456,711 461,716 447,719 450,725 441,734",
+      "center": [
+        441,
+        710
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu88",
+        "eu89",
+        "eu94",
+        "eu96",
+        "eu97"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu96",
+      "name": "East",
+      "points": "453,749 447,752 442,744 446,745 444,731 450,725 447,719 457,719 469,708 487,715 486,736 469,748 474,747 474,752 463,756 461,750 453,749",
+      "center": [
+        466,
+        732
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu101",
+        "eu95",
+        "eu97"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu97",
+      "name": "South East",
+      "points": "436,776 428,772 431,775 424,777 419,770 426,770 424,746 431,734 432,740 444,734 446,745 442,744 450,760 457,761 466,755 484,758 474,772 461,777 436,776",
+      "center": [
+        446,
+        761
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu101",
+        "eu89",
+        "eu90",
+        "eu95",
+        "eu96"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu98",
+      "name": "East Wales",
+      "points": "380,752 375,753 379,749 373,745 361,751 365,745 358,749 356,742 374,732 381,722 379,710 366,713 383,697 392,697 397,709 382,722 387,728 384,746 396,745 400,750 388,757 380,752",
+      "center": [
+        381,
+        729
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu87"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu99",
+      "name": "Highlands and Islands",
+      "points": "365,608 363,604 362,614 359,610 358,616 355,613 363,600 353,609 355,617 351,631 346,633 353,615 349,617 351,609 348,612 350,599 360,591 353,594 355,587 361,585 357,585 359,582 349,593 342,588 351,586 338,586 347,583 346,576 351,576 348,571 354,572 348,570 353,564 348,565 353,561 346,563 345,555 352,557 346,553 346,546 357,546 354,542 360,546 353,537 357,535 354,531 363,532 358,527 362,518 368,520 366,524 371,520 371,524 398,517 395,529 379,541 380,545 373,543 384,545 372,555 380,551 377,558 394,550 403,551 405,558 399,559 393,572 371,582 364,597 369,612 365,608",
+      "center": [
+        369,
+        561
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu100",
+        "eu91",
+        "eu93"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu100",
+      "name": "North Eastern",
+      "points": "417,570 410,585 402,576 384,578 405,558 403,551 421,554 417,570",
+      "center": [
+        407,
+        567
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu91",
+        "eu99"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu101",
+      "name": "Greater London",
+      "points": "453,759 447,751 461,750 458,761 453,759",
+      "center": [
+        455,
+        755
+      ],
+      "terrain": "urban",
+      "neighbors": [
+        "eu96",
+        "eu97"
+      ],
+      "basePopulation": 2600000,
+      "baseEconomy": 17,
+      "isPort": true,
+      "resource": "none",
+      "land": "United Kingdom"
+    },
+    {
+      "id": "eu102",
+      "name": "Offaly",
+      "points": "307,741 296,743 299,746 294,751 270,756 277,748 263,752 274,743 264,747 259,743 271,734 257,734 272,731 267,726 273,721 290,718 287,715 280,721 268,722 276,716 280,703 298,709 306,696 320,694 323,702 311,703 310,713 316,729 324,733 307,741",
+      "center": [
+        292,
+        727
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu103",
+        "eu104"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Ireland"
+    },
+    {
+      "id": "eu103",
+      "name": "Kilkenny",
+      "points": "338,719 333,728 335,733 328,731 325,735 323,730 316,729 310,709 312,703 323,702 320,694 324,687 317,683 329,679 341,690 342,709 338,719",
+      "center": [
+        327,
+        707
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu102",
+        "eu104"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Ireland"
+    },
+    {
+      "id": "eu104",
+      "name": "Louth",
+      "points": "283,700 263,695 263,690 272,689 268,684 275,680 268,680 270,672 266,669 264,673 264,668 271,665 280,666 283,671 285,667 295,669 292,664 302,655 296,658 289,653 298,649 299,638 307,639 308,635 310,640 311,634 311,645 313,634 319,631 324,636 313,652 306,653 310,656 301,661 317,672 324,663 330,675 340,676 336,675 338,685 329,679 317,683 324,687 322,693 306,696 298,709 288,709 287,701 283,700",
+      "center": [
+        298,
+        676
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu102",
+        "eu103",
+        "eu86"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Ireland"
+    },
+    {
+      "id": "eu105",
+      "name": "Limburg",
+      "points": "569,747 574,756 573,765 567,768 569,777 563,775 567,765 555,762 551,755 537,758 535,751 549,744 569,747",
+      "center": [
+        558,
+        755
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu06",
+        "eu106",
+        "eu108",
+        "eu111",
+        "eu112"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Netherlands"
+    },
+    {
+      "id": "eu106",
+      "name": "Gelderland",
+      "points": "584,736 584,742 572,742 569,747 551,745 554,740 563,741 559,731 570,719 566,714 569,713 588,725 589,732 584,736",
+      "center": [
+        572,
+        732
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu05",
+        "eu06",
+        "eu105",
+        "eu107",
+        "eu108"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Netherlands"
+    },
+    {
+      "id": "eu107",
+      "name": "Zeeland",
+      "points": "558,732 563,741 549,741 547,732 558,732",
+      "center": [
+        554,
+        737
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu106",
+        "eu108"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Netherlands"
+    },
+    {
+      "id": "eu108",
+      "name": "Drenthe",
+      "points": "534,749 529,745 542,729 546,709 552,709 570,695 586,694 593,700 589,720 566,714 570,719 566,726 554,733 547,732 553,743 534,749",
+      "center": [
+        562,
+        717
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu05",
+        "eu105",
+        "eu106",
+        "eu107"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Netherlands"
+    },
+    {
+      "id": "eu109",
+      "name": "Walloon Brabant",
+      "points": "519,784 517,776 551,777 537,792 540,801 534,800 535,791 519,784",
+      "center": [
+        533,
+        784
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu110",
+        "eu111",
+        "eu112",
+        "eu16",
+        "eu17"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Belgium"
+    },
+    {
+      "id": "eu110",
+      "name": "Namur",
+      "points": "554,808 548,805 548,795 540,801 537,792 543,790 545,781 570,790 564,803 567,812 560,814 554,808",
+      "center": [
+        555,
+        797
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu109",
+        "eu111",
+        "eu17"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Belgium"
+    },
+    {
+      "id": "eu111",
+      "name": "Liege",
+      "points": "570,795 569,789 565,791 552,783 554,772 551,768 555,762 567,765 563,775 575,781 577,790 570,795",
+      "center": [
+        563,
+        779
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu02",
+        "eu06",
+        "eu105",
+        "eu109",
+        "eu110",
+        "eu112"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Belgium"
+    },
+    {
+      "id": "eu112",
+      "name": "Flemish Brabant",
+      "points": "533,778 513,775 510,778 504,767 520,758 531,763 540,755 551,755 556,764 551,768 553,778 533,778",
+      "center": [
+        532,
+        768
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu105",
+        "eu109",
+        "eu111",
+        "eu16"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Belgium"
+    },
+    {
+      "id": "eu113",
+      "name": "Neuchâtel",
+      "points": "572,906 578,887 592,877 599,876 597,883 604,878 605,889 616,892 617,898 605,915 590,916 584,901 576,902 572,909 572,906",
+      "center": [
+        595,
+        897
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu114",
+        "eu115",
+        "eu116",
+        "eu19",
+        "eu22",
+        "eu66",
+        "eu67"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Switzerland"
+    },
+    {
+      "id": "eu114",
+      "name": "Obwalden",
+      "points": "621,910 616,906 616,892 609,891 611,886 624,888 627,880 632,888 636,883 648,889 654,887 654,898 646,898 648,906 632,899 627,918 621,910",
+      "center": [
+        632,
+        896
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu113",
+        "eu115",
+        "eu48",
+        "eu49",
+        "eu67",
+        "eu68",
+        "eu69"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Switzerland"
+    },
+    {
+      "id": "eu115",
+      "name": "Lucerne",
+      "points": "621,880 627,871 639,873 635,888 627,880 626,887 613,885 607,891 605,879 621,880",
+      "center": [
+        624,
+        881
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu01",
+        "eu07",
+        "eu113",
+        "eu114",
+        "eu116",
+        "eu48"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Switzerland"
+    },
+    {
+      "id": "eu116",
+      "name": "Thurgau",
+      "points": "591,871 618,869 618,863 637,871 627,872 621,881 600,877 597,883 599,876 586,880 591,871",
+      "center": [
+        611,
+        873
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu01",
+        "eu07",
+        "eu113",
+        "eu115",
+        "eu17",
+        "eu22",
+        "eu48"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Switzerland"
+    },
+    {
+      "id": "eu117",
+      "name": "Syddanmark",
+      "points": "631,649 620,647 621,639 617,640 621,639 620,629 610,625 611,617 631,612 643,622 636,627 640,635 635,642 641,643 641,649 638,646 631,649",
+      "center": [
+        627,
+        629
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu04",
+        "eu119"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Denmark"
+    },
+    {
+      "id": "eu118",
+      "name": "Sjaælland",
+      "points": "688,625 692,634 684,638 687,643 681,645 687,649 683,658 678,645 681,644 676,640 680,638 670,637 662,619 671,618 674,613 670,610 679,611 677,619 688,619 688,625",
+      "center": [
+        678,
+        630
+      ],
+      "terrain": "plain",
+      "neighbors": [],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Denmark"
+    },
+    {
+      "id": "eu119",
+      "name": "Hovedstaden",
+      "points": "610,610 611,616 615,613 613,607 610,609 612,585 620,594 628,582 628,591 630,587 633,592 631,578 644,573 621,577 618,590 612,583 619,572 635,570 645,555 658,549 652,575 644,573 652,576 652,585 642,588 652,586 649,594 652,589 662,592 660,605 658,602 656,606 653,600 650,615 643,615 647,618 642,621 631,612 611,617 610,610",
+      "center": [
+        637,
+        590
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu117"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Denmark"
+    },
+    {
+      "id": "eu120",
+      "name": "Orebro",
+      "points": "701,592 690,578 685,559 682,562 682,551 677,546 681,528 674,531 675,524 672,531 673,524 669,528 667,503 671,501 676,508 680,495 688,495 697,498 701,511 708,513 714,502 727,503 728,468 738,462 751,474 756,499 751,508 737,517 726,543 717,545 716,556 704,570 716,576 709,581 712,595 703,597 701,592",
+      "center": [
+        710,
+        525
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu121",
+        "eu122",
+        "eu123",
+        "eu125"
+      ],
+      "basePopulation": 900000,
+      "baseEconomy": 9,
+      "isPort": true,
+      "resource": "iron",
+      "land": "Sweden"
+    },
+    {
+      "id": "eu121",
+      "name": "Skåne",
+      "points": "732,608 726,616 729,625 725,630 699,631 704,620 692,599 699,602 697,594 706,598 712,595 709,581 716,576 704,571 716,556 717,545 726,543 730,532 733,536 741,535 743,549 753,554 750,565 757,577 751,579 747,594 739,597 732,594 732,608",
+      "center": [
+        725,
+        583
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu120",
+        "eu122"
+      ],
+      "basePopulation": 900000,
+      "baseEconomy": 9,
+      "isPort": true,
+      "resource": "iron",
+      "land": "Sweden"
+    },
+    {
+      "id": "eu122",
+      "name": "Blekinge",
+      "points": "760,602 757,607 752,603 735,604 735,610 729,598 732,594 739,597 747,594 751,579 757,578 750,565 753,554 743,549 741,535 733,536 730,532 737,517 757,504 774,517 763,518 777,523 767,523 775,529 774,536 771,533 774,543 769,540 773,549 767,544 773,559 760,602",
+      "center": [
+        755,
+        550
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu120",
+        "eu121",
+        "eu123"
+      ],
+      "basePopulation": 900000,
+      "baseEconomy": 9,
+      "isPort": true,
+      "resource": "iron",
+      "land": "Sweden"
+    },
+    {
+      "id": "eu123",
+      "name": "Södermanland",
+      "points": "790,506 774,517 753,503 755,496 765,487 778,484 787,490 790,479 805,471 809,461 813,466 813,462 818,473 814,469 811,475 818,476 803,489 798,489 802,492 807,488 810,492 803,492 805,499 795,509 791,498 790,506",
+      "center": [
+        785,
+        493
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu120",
+        "eu122"
+      ],
+      "basePopulation": 900000,
+      "baseEconomy": 9,
+      "isPort": true,
+      "resource": "iron",
+      "land": "Sweden"
+    },
+    {
+      "id": "eu124",
+      "name": "Uppsala",
+      "points": "835,90 842,77 837,65 850,66 875,93 889,98 905,120 900,144 907,147 903,160 911,177 905,200 914,223 896,223 894,229 886,219 886,226 881,221 877,226 881,236 869,228 877,236 870,236 872,242 864,243 866,250 860,245 865,258 837,247 824,253 750,198 749,192 767,165 762,147 775,122 785,113 796,119 801,90 806,88 834,100 840,93 835,90",
+      "center": [
+        837,
+        167
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu125",
+        "eu126",
+        "eu127",
+        "eu134"
+      ],
+      "basePopulation": 900000,
+      "baseEconomy": 9,
+      "isPort": true,
+      "resource": "iron",
+      "land": "Sweden"
+    },
+    {
+      "id": "eu125",
+      "name": "Västernorrland",
+      "points": "698,423 700,414 687,399 690,377 683,335 698,305 707,301 721,304 724,297 723,284 715,279 731,246 732,209 742,208 750,198 824,253 837,247 865,258 855,268 866,285 854,298 848,314 836,320 829,329 825,324 826,330 822,328 817,340 814,336 808,340 802,347 808,349 801,357 792,348 799,364 792,371 785,368 791,379 785,391 788,403 781,399 783,404 780,405 786,443 783,455 766,464 756,460 749,471 738,462 730,465 727,503 714,502 708,513 701,511 697,497 680,495 677,482 681,471 693,462 695,448 688,428 698,423",
+      "center": [
+        756,
+        344
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu120",
+        "eu124",
+        "eu127",
+        "eu128"
+      ],
+      "basePopulation": 900000,
+      "baseEconomy": 9,
+      "isPort": true,
+      "resource": "iron",
+      "land": "Sweden"
+    },
+    {
+      "id": "eu126",
+      "name": "Bouvet Island",
+      "points": "842,78 835,100 798,86 772,92 770,88 778,81 782,85 783,81 791,84 783,79 787,76 793,79 787,75 794,72 787,71 791,60 800,58 797,51 802,40 807,54 808,47 811,52 817,51 806,42 814,37 824,49 820,53 826,54 816,41 821,36 817,38 815,33 821,24 831,23 826,45 830,33 837,35 832,28 840,14 843,34 834,52 844,35 851,40 844,25 856,15 852,20 858,22 859,12 865,13 874,27 874,12 976,12 970,17 959,17 949,29 945,67 934,76 928,89 910,76 896,86 881,81 867,52 860,51 856,64 849,61 837,65 842,78",
+      "center": [
+        875,
+        50
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu124",
+        "eu127",
+        "eu134"
+      ],
+      "basePopulation": 480000,
+      "baseEconomy": 7,
+      "isPort": true,
+      "resource": "fish",
+      "land": "Norway"
+    },
+    {
+      "id": "eu127",
+      "name": "Nordland",
+      "points": "720,283 725,296 721,304 707,301 698,305 687,322 685,339 677,339 673,333 663,332 663,322 658,324 673,314 667,311 674,304 670,303 672,300 657,313 663,309 663,316 649,324 663,300 664,292 657,286 662,288 658,285 664,284 664,278 671,286 669,291 677,284 673,282 679,279 674,280 672,274 688,263 670,273 673,269 669,268 678,265 669,267 683,258 687,261 701,247 693,254 690,250 697,249 688,250 693,244 697,246 693,241 697,244 698,240 690,233 693,227 699,232 694,226 697,218 706,222 703,211 696,212 713,204 713,210 718,208 715,205 724,200 703,207 713,200 703,200 706,193 702,190 709,194 708,190 715,191 711,188 716,186 707,189 710,185 706,184 713,185 707,181 716,182 719,180 714,181 717,179 713,177 721,178 713,171 720,168 721,171 723,164 724,169 727,165 732,167 727,163 728,160 736,162 733,157 740,157 740,163 742,157 750,164 748,158 755,159 742,155 744,152 728,156 733,147 741,146 735,143 742,139 737,144 749,144 753,154 751,145 758,140 745,141 749,139 744,137 746,132 756,133 749,125 737,136 737,132 743,131 736,127 757,123 761,117 758,115 746,116 753,109 752,115 757,113 759,105 760,116 769,128 763,118 768,123 767,115 773,114 765,113 771,109 761,103 775,111 764,100 781,99 785,109 783,97 795,98 787,95 789,91 779,96 778,92 769,95 768,91 798,86 801,108 796,118 785,113 775,122 762,147 767,165 749,192 750,202 732,209 731,246 715,279 720,283",
+      "center": [
+        720,
+        222
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu124",
+        "eu125",
+        "eu126",
+        "eu128"
+      ],
+      "basePopulation": 480000,
+      "baseEconomy": 7,
+      "isPort": true,
+      "resource": "fish",
+      "land": "Norway"
+    },
+    {
+      "id": "eu128",
+      "name": "Østfold",
+      "points": "667,444 659,449 663,452 659,461 663,472 653,474 658,461 647,442 641,448 632,436 612,425 609,419 614,410 596,393 595,386 611,374 630,371 631,365 625,359 635,354 638,346 635,339 624,341 623,329 628,328 629,335 636,330 631,332 636,327 630,326 640,320 643,333 651,336 648,329 662,328 677,339 685,339 688,347 689,374 676,372 667,361 651,359 639,381 647,398 657,399 662,417 654,426 667,444",
+      "center": [
+        642,
+        387
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu125",
+        "eu127",
+        "eu129"
+      ],
+      "basePopulation": 480000,
+      "baseEconomy": 7,
+      "isPort": true,
+      "resource": "fish",
+      "land": "Norway"
+    },
+    {
+      "id": "eu129",
+      "name": "Vestfold",
+      "points": "551,432 552,425 559,428 572,423 577,428 581,421 588,425 586,431 591,433 589,424 602,419 595,417 600,409 594,412 595,422 580,419 583,412 578,424 571,420 555,424 551,417 563,414 552,415 550,412 566,410 554,408 559,405 550,403 551,399 558,392 569,395 568,399 585,393 554,393 559,388 553,381 560,388 560,381 565,385 564,381 568,381 567,388 569,383 577,386 568,379 576,373 580,384 577,373 583,370 588,384 592,384 588,384 589,378 596,377 585,369 574,370 583,368 575,364 591,362 591,367 592,363 599,368 604,365 598,365 599,361 611,360 609,356 596,360 602,356 588,359 593,355 587,351 607,348 618,361 606,347 608,343 621,355 616,349 620,348 615,348 611,342 636,339 635,354 625,359 631,365 630,371 611,374 595,386 598,398 605,399 614,410 609,419 612,425 632,436 641,448 647,441 658,461 652,472 657,483 654,485 650,477 655,493 652,502 642,505 642,488 625,461 598,462 600,441 589,438 585,430 575,431 570,427 551,432",
+      "center": [
+        606,
+        415
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu128",
+        "eu130"
+      ],
+      "basePopulation": 480000,
+      "baseEconomy": 7,
+      "isPort": true,
+      "resource": "fish",
+      "land": "Norway"
+    },
+    {
+      "id": "eu130",
+      "name": "Telemark",
+      "points": "554,485 560,476 559,485 562,479 565,481 576,472 570,476 563,472 575,462 572,462 574,455 582,451 580,464 582,452 591,447 587,447 589,444 582,450 583,447 576,452 573,449 565,467 566,459 561,460 565,452 559,462 554,453 557,446 563,450 565,439 556,445 550,436 559,442 555,437 561,433 553,435 555,431 583,429 589,438 600,441 598,462 626,462 636,485 642,488 643,503 637,499 640,506 632,508 635,512 628,513 630,516 612,536 608,532 606,537 589,540 592,537 580,536 586,530 570,526 560,513 561,503 564,509 567,505 574,510 572,505 582,502 571,507 568,501 579,492 573,494 571,490 580,483 574,484 575,480 568,491 573,486 566,484 563,489 567,491 563,493 562,489 561,494 554,485",
+      "center": [
+        595,
+        487
+      ],
+      "terrain": "mountain",
+      "neighbors": [
+        "eu129"
+      ],
+      "basePopulation": 480000,
+      "baseEconomy": 7,
+      "isPort": true,
+      "resource": "fish",
+      "land": "Norway"
+    },
+    {
+      "id": "eu131",
+      "name": "Central Finland",
+      "points": "892,463 894,453 883,459 885,451 869,448 870,442 866,448 862,444 862,409 868,407 860,391 874,389 884,376 893,377 908,368 912,374 921,368 916,345 925,342 927,331 935,322 952,328 955,349 950,351 959,358 958,367 964,374 954,383 959,403 952,403 946,396 938,409 928,409 928,417 907,425 908,430 896,428 896,437 910,444 904,459 892,463",
+      "center": [
+        911,
+        394
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu132",
+        "eu133",
+        "eu134"
+      ],
+      "basePopulation": 780000,
+      "baseEconomy": 6,
+      "isPort": false,
+      "resource": "timber",
+      "land": "Finland"
+    },
+    {
+      "id": "eu132",
+      "name": "Tavastia Proper",
+      "points": "958,450 948,448 951,454 946,451 948,457 943,453 931,461 922,461 920,467 917,464 900,468 903,464 897,473 890,474 898,466 894,469 897,465 893,463 904,459 910,444 896,437 896,428 908,430 907,425 928,417 928,409 938,409 946,396 955,402 955,413 972,422 971,430 987,441 980,449 972,444 962,451 958,448 962,442 958,450",
+      "center": [
+        937,
+        436
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu131",
+        "eu133",
+        "eu201"
+      ],
+      "basePopulation": 780000,
+      "baseEconomy": 6,
+      "isPort": false,
+      "resource": "timber",
+      "land": "Finland"
+    },
+    {
+      "id": "eu133",
+      "name": "South Karelia",
+      "points": "1022,403 987,441 971,430 972,422 955,413 959,400 954,383 964,374 958,367 959,358 950,351 955,349 951,332 954,313 962,305 978,307 992,319 997,310 1018,310 1020,317 1025,316 1048,338 1055,351 1048,368 1022,403",
+      "center": [
+        996,
+        365
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu131",
+        "eu132",
+        "eu134",
+        "eu201"
+      ],
+      "basePopulation": 780000,
+      "baseEconomy": 6,
+      "isPort": false,
+      "resource": "timber",
+      "land": "Finland"
+    },
+    {
+      "id": "eu134",
+      "name": "Kainuu",
+      "points": "860,389 861,378 856,363 863,346 867,346 864,338 871,336 873,341 879,335 879,325 881,328 884,318 888,321 890,314 900,308 900,302 904,304 921,269 932,264 937,268 934,262 939,262 934,255 936,238 924,232 925,219 915,225 905,203 911,177 903,160 907,147 900,144 905,120 889,98 875,93 847,64 849,61 856,64 856,53 866,52 881,81 896,86 910,76 928,89 934,76 945,67 948,31 959,17 987,12 995,23 1008,30 1012,41 1003,55 1005,65 995,72 1002,75 995,92 1000,109 1012,114 1025,134 1007,172 1027,228 1019,232 1017,250 1022,255 1017,261 1021,270 1027,271 1026,287 1035,295 1036,303 1025,316 1020,317 1018,310 997,310 992,319 978,307 962,305 954,313 952,328 934,322 925,342 916,345 921,368 912,374 908,368 893,377 884,376 874,389 860,389",
+      "center": [
+        955,
+        194
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu124",
+        "eu126",
+        "eu131",
+        "eu133",
+        "eu200",
+        "eu201"
+      ],
+      "basePopulation": 780000,
+      "baseEconomy": 6,
+      "isPort": false,
+      "resource": "timber",
+      "land": "Finland"
+    },
+    {
+      "id": "eu135",
+      "name": "Foral de Navarra",
+      "points": "423,985 430,986 429,992 442,995 432,1005 429,1021 420,1018 424,1013 409,1003 423,985",
+      "center": [
+        425,
+        1001
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu136",
+        "eu137",
+        "eu148",
+        "eu20"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu136",
+      "name": "País Vasco",
+      "points": "402,1002 394,996 400,994 397,988 391,986 404,981 422,982 411,1005 402,1002",
+      "center": [
+        407,
+        991
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu135",
+        "eu142",
+        "eu146",
+        "eu148",
+        "eu20"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu137",
+      "name": "Aragón",
+      "points": "435,1068 424,1061 427,1048 415,1039 421,1018 429,1020 432,1005 442,995 469,1000 461,1048 449,1052 451,1059 441,1071 435,1068",
+      "center": [
+        443,
+        1030
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu135",
+        "eu138",
+        "eu142",
+        "eu143",
+        "eu148",
+        "eu149",
+        "eu20",
+        "eu21"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu138",
+      "name": "Cataluña",
+      "points": "479,1041 470,1048 473,1051 469,1054 459,1050 462,1026 470,1011 469,997 482,1000 484,1007 504,1010 513,1006 519,1010 512,1025 479,1041",
+      "center": [
+        484,
+        1023
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu137",
+        "eu143",
+        "eu21"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu139",
+      "name": "Extremadura",
+      "points": "318,1102 324,1092 313,1076 323,1076 323,1063 338,1056 355,1062 355,1074 362,1083 367,1082 368,1089 351,1107 351,1113 339,1119 332,1117 321,1113 318,1102",
+      "center": [
+        339,
+        1088
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu140",
+        "eu142",
+        "eu149",
+        "eu151",
+        "eu152"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu140",
+      "name": "Andalucía",
+      "points": "354,1161 350,1165 342,1160 334,1147 339,1143 335,1146 326,1134 316,1137 313,1128 318,1118 325,1112 339,1119 348,1115 358,1100 375,1109 407,1105 408,1115 419,1120 425,1132 417,1146 373,1148 354,1161",
+      "center": [
+        370,
+        1130
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu139",
+        "eu144",
+        "eu149",
+        "eu151"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu141",
+      "name": "Galicia",
+      "points": "301,1015 288,1021 293,1010 288,1012 292,1007 287,1006 291,1001 285,1005 288,997 284,999 280,991 289,984 300,984 299,978 310,972 323,978 320,982 327,995 322,1005 328,1010 315,1023 301,1023 301,1015",
+      "center": [
+        306,
+        999
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu142",
+        "eu145",
+        "eu153"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu142",
+      "name": "Castilla y León",
+      "points": "367,1063 358,1066 338,1056 326,1062 325,1042 338,1029 332,1027 331,1019 324,1019 328,1009 323,1000 335,991 346,993 363,986 381,999 383,990 396,988 400,994 394,996 402,1002 397,1004 399,1016 413,1015 421,1019 417,1041 391,1037 367,1063",
+      "center": [
+        366,
+        1024
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu136",
+        "eu137",
+        "eu139",
+        "eu141",
+        "eu145",
+        "eu146",
+        "eu148",
+        "eu149",
+        "eu150",
+        "eu152",
+        "eu153"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu143",
+      "name": "Valenciana",
+      "points": "457,1096 461,1099 446,1109 441,1121 436,1108 439,1096 427,1082 433,1070 440,1072 449,1062 453,1049 466,1055 450,1080 457,1096",
+      "center": [
+        446,
+        1083
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu137",
+        "eu138",
+        "eu144",
+        "eu149"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu144",
+      "name": "Murcia",
+      "points": "442,1122 442,1127 425,1132 412,1117 417,1110 426,1109 434,1099 442,1122",
+      "center": [
+        429,
+        1118
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu140",
+        "eu143",
+        "eu149"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu145",
+      "name": "Asturias",
+      "points": "323,980 345,975 370,985 328,995 323,980",
+      "center": [
+        342,
+        984
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu141",
+        "eu142",
+        "eu146"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu146",
+      "name": "Cantabria",
+      "points": "371,982 389,979 396,984 383,990 384,997 379,999 365,990 371,982",
+      "center": [
+        379,
+        988
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu136",
+        "eu142",
+        "eu145"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu147",
+      "name": "Islas Baleares",
+      "points": "522,1075 514,1086 501,1079 516,1069 516,1074 522,1075",
+      "center": [
+        512,
+        1078
+      ],
+      "terrain": "plain",
+      "neighbors": [],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu148",
+      "name": "La Rioja",
+      "points": "411,1006 424,1013 421,1019 398,1015 398,1002 411,1006",
+      "center": [
+        409,
+        1011
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu135",
+        "eu136",
+        "eu137",
+        "eu142"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu149",
+      "name": "Castilla-La Mancha",
+      "points": "435,1100 412,1117 407,1105 373,1108 361,1100 367,1083 358,1079 354,1066 373,1061 388,1066 384,1071 397,1067 389,1039 401,1035 410,1042 419,1039 427,1048 422,1058 434,1069 427,1082 439,1096 439,1101 435,1100",
+      "center": [
+        399,
+        1079
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu137",
+        "eu139",
+        "eu140",
+        "eu142",
+        "eu143",
+        "eu144",
+        "eu150"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu150",
+      "name": "Madrid",
+      "points": "398,1064 384,1071 387,1066 369,1063 389,1039 398,1064",
+      "center": [
+        386,
+        1057
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu142",
+        "eu149"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Spain"
+    },
+    {
+      "id": "eu151",
+      "name": "Azores",
+      "points": "315,1130 316,1137 308,1141 286,1141 290,1124 287,1106 293,1107 290,1104 281,1107 287,1092 287,1099 293,1097 292,1104 300,1109 324,1112 315,1130",
+      "center": [
+        301,
+        1122
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu139",
+        "eu140",
+        "eu152"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Portugal"
+    },
+    {
+      "id": "eu152",
+      "name": "Évora",
+      "points": "318,1100 321,1113 301,1110 292,1104 293,1097 287,1099 288,1087 278,1084 287,1067 308,1067 308,1056 321,1039 327,1060 323,1064 323,1076 313,1076 324,1092 318,1100",
+      "center": [
+        306,
+        1081
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu139",
+        "eu142",
+        "eu151",
+        "eu153"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Portugal"
+    },
+    {
+      "id": "eu153",
+      "name": "Coimbra",
+      "points": "289,1065 294,1050 290,1052 290,1019 300,1014 301,1023 331,1019 332,1027 338,1029 327,1042 318,1039 308,1056 309,1066 302,1070 301,1066 297,1070 289,1065",
+      "center": [
+        307,
+        1039
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu141",
+        "eu142",
+        "eu152"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Portugal"
+    },
+    {
+      "id": "eu154",
+      "name": "Timis",
+      "points": "889,970 893,964 882,954 888,951 881,947 876,953 862,945 864,936 850,927 850,919 841,909 880,914 886,933 921,925 919,944 927,956 925,971 889,970",
+      "center": [
+        890,
+        941
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu155",
+        "eu159",
+        "eu163",
+        "eu165",
+        "eu166",
+        "eu62"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil",
+      "land": "Romania"
+    },
+    {
+      "id": "eu155",
+      "name": "Bukarest",
+      "points": "942,974 924,973 927,956 919,944 921,925 938,928 946,944 955,946 957,952 987,957 952,966 942,974",
+      "center": [
+        941,
+        952
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu154",
+        "eu156",
+        "eu158",
+        "eu159",
+        "eu162",
+        "eu163"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil",
+      "land": "Romania"
+    },
+    {
+      "id": "eu156",
+      "name": "Prahova",
+      "points": "975,965 987,957 957,952 955,946 946,944 938,928 950,927 956,918 976,929 979,926 973,912 989,910 988,924 993,931 1017,929 1018,943 1006,948 1008,941 1004,941 1002,949 1006,948 1001,950 998,973 975,965",
+      "center": [
+        979,
+        940
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu155",
+        "eu157",
+        "eu158",
+        "eu162",
+        "eu185",
+        "eu206"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil",
+      "land": "Romania"
+    },
+    {
+      "id": "eu157",
+      "name": "Vrancea",
+      "points": "977,910 973,913 979,926 976,929 956,918 951,925 941,917 942,906 949,910 955,904 946,894 945,878 962,874 951,859 955,851 968,852 989,886 989,910 977,910",
+      "center": [
+        966,
+        892
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu156",
+        "eu158",
+        "eu206"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil",
+      "land": "Romania"
+    },
+    {
+      "id": "eu158",
+      "name": "Harghita",
+      "points": "938,928 925,924 930,911 912,903 916,888 911,876 884,876 876,869 878,865 895,854 922,859 928,865 951,858 962,874 958,878 945,878 946,894 955,904 954,909 943,905 940,908 941,917 951,925 938,928",
+      "center": [
+        925,
+        883
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu155",
+        "eu156",
+        "eu157",
+        "eu159",
+        "eu184",
+        "eu63"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil",
+      "land": "Romania"
+    },
+    {
+      "id": "eu159",
+      "name": "Cluj",
+      "points": "901,932 886,933 880,914 857,913 849,908 860,901 876,869 884,876 911,876 916,888 912,903 930,911 925,924 901,932",
+      "center": [
+        892,
+        903
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu154",
+        "eu155",
+        "eu158",
+        "eu62",
+        "eu63"
+      ],
+      "basePopulation": 1200000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "oil",
+      "land": "Romania"
+    },
+    {
+      "id": "eu160",
+      "name": "Pernik",
+      "points": "891,1034 889,1018 880,1010 881,997 892,988 911,991 914,998 930,999 932,1013 936,1015 932,1023 920,1019 912,1023 912,1032 891,1034",
+      "center": [
+        905,
+        1010
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu161",
+        "eu163",
+        "eu164",
+        "eu165",
+        "eu179",
+        "eu180",
+        "eu182"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Bulgaria"
+    },
+    {
+      "id": "eu161",
+      "name": "Smolyan",
+      "points": "951,1028 951,1034 935,1038 913,1028 920,1019 932,1023 935,1020 930,999 948,998 955,991 985,996 977,1006 987,1019 969,1016 951,1028",
+      "center": [
+        951,
+        1013
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu160",
+        "eu162",
+        "eu163",
+        "eu179"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Bulgaria"
+    },
+    {
+      "id": "eu162",
+      "name": "Varna",
+      "points": "987,987 984,997 955,991 943,999 941,992 931,988 936,974 949,984 955,965 969,962 998,973 996,983 990,982 987,987",
+      "center": [
+        966,
+        981
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu155",
+        "eu156",
+        "eu161",
+        "eu163"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Bulgaria"
+    },
+    {
+      "id": "eu163",
+      "name": "Ruse",
+      "points": "930,999 914,998 911,991 890,987 883,980 881,966 886,960 893,964 890,971 936,974 932,988 941,992 942,999 930,999",
+      "center": [
+        911,
+        982
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu154",
+        "eu155",
+        "eu160",
+        "eu161",
+        "eu162",
+        "eu165"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Bulgaria"
+    },
+    {
+      "id": "eu164",
+      "name": "Zlatiborski",
+      "points": "878,1009 865,1012 869,1001 861,999 851,986 842,997 828,988 820,980 826,976 821,966 841,963 844,955 857,961 853,973 863,973 866,986 884,996 883,1007 878,1009",
+      "center": [
+        851,
+        983
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu160",
+        "eu165",
+        "eu166",
+        "eu174",
+        "eu175",
+        "eu182",
+        "eu183"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Serbia"
+    },
+    {
+      "id": "eu165",
+      "name": "Nišavski",
+      "points": "887,982 892,989 882,996 863,983 863,973 853,973 857,961 850,958 844,934 857,932 864,936 862,945 876,953 881,947 888,951 882,953 886,960 880,971 887,982",
+      "center": [
+        868,
+        963
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu154",
+        "eu160",
+        "eu163",
+        "eu164",
+        "eu166"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Serbia"
+    },
+    {
+      "id": "eu166",
+      "name": "Belgrad",
+      "points": "830,963 819,957 823,943 817,943 817,936 824,934 816,930 813,918 829,908 840,910 855,931 843,938 850,949 850,958 844,955 841,963 830,963",
+      "center": [
+        833,
+        935
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu154",
+        "eu164",
+        "eu165",
+        "eu168",
+        "eu175",
+        "eu62"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Serbia"
+    },
+    {
+      "id": "eu167",
+      "name": "Istarska",
+      "points": "755,944 790,994 768,978 759,979 743,961 751,959 739,948 738,938 744,936 755,944",
+      "center": [
+        759,
+        962
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu169",
+        "eu174",
+        "eu175"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Croatia"
+    },
+    {
+      "id": "eu168",
+      "name": "Brodsko-Posavska",
+      "points": "781,935 782,930 769,920 773,915 766,909 774,905 766,904 766,898 795,919 814,915 818,926 807,932 808,938 781,935",
+      "center": [
+        791,
+        922
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu166",
+        "eu169",
+        "eu170",
+        "eu175",
+        "eu60",
+        "eu61",
+        "eu62"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Croatia"
+    },
+    {
+      "id": "eu169",
+      "name": "Sisacko-Moslavacka",
+      "points": "741,937 728,930 726,935 724,927 733,922 737,927 747,928 745,920 753,917 753,907 762,902 774,905 766,912 773,915 769,920 782,930 781,935 770,934 765,940 756,934 751,943 741,937",
+      "center": [
+        756,
+        925
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu167",
+        "eu168",
+        "eu170",
+        "eu175"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Croatia"
+    },
+    {
+      "id": "eu170",
+      "name": "Slovenia",
+      "points": "768,898 753,907 747,927 732,922 729,927 714,926 719,923 710,906 716,898 732,902 738,896 759,894 761,889 768,898",
+      "center": [
+        736,
+        909
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu168",
+        "eu169",
+        "eu47",
+        "eu51",
+        "eu52",
+        "eu60",
+        "eu74"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Slovenia"
+    },
+    {
+      "id": "eu171",
+      "name": "Bratislavský",
+      "points": "777,840 782,832 789,839 797,840 792,863 780,856 777,840",
+      "center": [
+        787,
+        848
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu172",
+        "eu173",
+        "eu45",
+        "eu47",
+        "eu55",
+        "eu65"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Slovakia"
+    },
+    {
+      "id": "eu172",
+      "name": "Nitriansky",
+      "points": "816,855 811,863 792,863 798,837 804,843 817,832 840,832 844,844 841,850 816,855",
+      "center": [
+        817,
+        847
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu171",
+        "eu173",
+        "eu63",
+        "eu64",
+        "eu65"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Slovakia"
+    },
+    {
+      "id": "eu173",
+      "name": "Košický",
+      "points": "880,833 875,846 869,848 862,841 842,844 839,831 817,832 804,843 798,837 789,839 785,835 798,828 808,814 819,817 825,811 831,823 841,817 870,818 883,826 880,833",
+      "center": [
+        840,
+        829
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu171",
+        "eu172",
+        "eu184",
+        "eu29",
+        "eu30",
+        "eu31",
+        "eu55",
+        "eu56",
+        "eu57",
+        "eu63"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Slovakia"
+    },
+    {
+      "id": "eu174",
+      "name": "Central Bosnia",
+      "points": "804,1003 789,994 784,980 763,957 769,954 783,965 781,954 786,955 792,956 800,969 811,963 822,968 826,978 815,979 818,984 810,986 804,1003",
+      "center": [
+        796,
+        976
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu164",
+        "eu167",
+        "eu175",
+        "eu183"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Bosnia and Herz."
+    },
+    {
+      "id": "eu175",
+      "name": "Vlasenica",
+      "points": "819,953 826,967 806,963 800,969 792,956 783,954 781,964 769,954 762,956 754,945 755,935 765,940 777,932 810,937 814,943 823,943 819,953",
+      "center": [
+        791,
+        949
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu164",
+        "eu166",
+        "eu167",
+        "eu168",
+        "eu169",
+        "eu174"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Bosnia and Herz."
+    },
+    {
+      "id": "eu176",
+      "name": "Ionioi Nisoi",
+      "points": "863,1127 856,1121 861,1112 872,1109 880,1113 878,1121 869,1123 870,1132 863,1127",
+      "center": [
+        868,
+        1118
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu177",
+        "eu180"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Greece"
+    },
+    {
+      "id": "eu177",
+      "name": "Peloponnisos",
+      "points": "893,1119 901,1131 895,1134 887,1128 896,1155 886,1146 883,1156 876,1141 871,1148 867,1145 865,1137 873,1130 869,1123 878,1121 880,1113 890,1119 894,1116 893,1119",
+      "center": [
+        882,
+        1133
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu176",
+        "eu178"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Greece"
+    },
+    {
+      "id": "eu178",
+      "name": "Attiki",
+      "points": "911,1110 912,1126 903,1116 894,1116 911,1110",
+      "center": [
+        907,
+        1116
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu177",
+        "eu180"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Greece"
+    },
+    {
+      "id": "eu179",
+      "name": "Voreio Aigaio",
+      "points": "955,1026 961,1034 955,1037 951,1050 933,1043 908,1049 913,1044 905,1033 921,1029 935,1037 947,1036 952,1033 950,1026 955,1026",
+      "center": [
+        933,
+        1039
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu160",
+        "eu161",
+        "eu180"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Greece"
+    },
+    {
+      "id": "eu180",
+      "name": "Ayion Oros",
+      "points": "892,1094 883,1096 903,1105 907,1109 903,1114 881,1106 871,1108 873,1099 865,1100 861,1089 849,1094 835,1076 840,1077 841,1069 848,1066 854,1047 902,1033 913,1044 905,1050 908,1057 919,1065 906,1060 911,1070 901,1062 906,1070 899,1069 898,1063 890,1059 891,1053 884,1057 884,1067 899,1088 893,1091 896,1089 891,1084 892,1094",
+      "center": [
+        876,
+        1071
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu160",
+        "eu176",
+        "eu178",
+        "eu179",
+        "eu181",
+        "eu182"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Greece"
+    },
+    {
+      "id": "eu181",
+      "name": "Albania",
+      "points": "823,1020 822,1014 830,1002 845,1014 845,1037 855,1053 839,1077 822,1058 827,1024 823,1020",
+      "center": [
+        836,
+        1040
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu180",
+        "eu182",
+        "eu183"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Albania"
+    },
+    {
+      "id": "eu182",
+      "name": "Macedonia",
+      "points": "866,1012 879,1009 888,1018 891,1035 865,1047 849,1046 845,1037 846,1022 866,1012",
+      "center": [
+        867,
+        1029
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu160",
+        "eu164",
+        "eu180",
+        "eu181"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Macedonia"
+    },
+    {
+      "id": "eu183",
+      "name": "Montenegro",
+      "points": "820,979 842,996 836,999 837,1004 829,1002 822,1014 823,1022 806,1005 806,993 817,985 816,978 820,979",
+      "center": [
+        821,
+        998
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu164",
+        "eu174",
+        "eu181"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Montenegro"
+    },
+    {
+      "id": "eu184",
+      "name": "Transcarpathia",
+      "points": "876,843 884,826 902,836 906,825 920,823 920,813 925,814 935,835 942,836 941,846 930,854 928,865 921,859 895,854 890,859 876,843",
+      "center": [
+        911,
+        841
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu158",
+        "eu173",
+        "eu191",
+        "eu31",
+        "eu63"
+      ],
+      "basePopulation": 3400000,
+      "baseEconomy": 10,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Ukraine"
+    },
+    {
+      "id": "eu185",
+      "name": "Chernivtsi",
+      "points": "991,927 997,926 1005,913 1005,900 1027,901 1024,890 1017,887 1017,876 1009,873 1010,861 1003,857 1007,853 1046,851 1058,854 1060,863 1065,864 1081,856 1084,879 1080,889 1062,893 1058,878 1061,895 1053,895 1056,890 1052,891 1052,895 1040,898 1029,917 1020,923 1018,917 1019,934 1012,928 998,933 991,927",
+      "center": [
+        1038,
+        883
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu156",
+        "eu186",
+        "eu187",
+        "eu206"
+      ],
+      "basePopulation": 3400000,
+      "baseEconomy": 10,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Ukraine"
+    },
+    {
+      "id": "eu186",
+      "name": "Kherson",
+      "points": "1123,909 1119,911 1126,903 1123,899 1116,908 1119,920 1098,907 1092,911 1086,907 1072,911 1058,904 1064,902 1060,898 1070,900 1075,895 1066,897 1062,893 1081,889 1083,869 1118,870 1117,854 1132,853 1162,872 1155,880 1160,886 1153,895 1151,891 1134,896 1123,909",
+      "center": [
+        1114,
+        886
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu185",
+        "eu187"
+      ],
+      "basePopulation": 3400000,
+      "baseEconomy": 10,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Ukraine"
+    },
+    {
+      "id": "eu187",
+      "name": "Dnipropetrovs'k",
+      "points": "1192,861 1182,869 1179,884 1169,883 1164,889 1158,889 1155,880 1162,872 1150,861 1140,861 1138,855 1117,854 1118,870 1088,871 1081,865 1083,856 1092,850 1090,842 1097,838 1093,834 1105,836 1108,826 1118,823 1138,829 1144,842 1152,839 1152,835 1158,835 1168,822 1175,821 1180,797 1199,803 1211,813 1217,812 1217,821 1208,828 1216,832 1208,840 1214,849 1210,862 1192,861",
+      "center": [
+        1159,
+        844
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu185",
+        "eu186",
+        "eu188",
+        "eu197",
+        "eu198"
+      ],
+      "basePopulation": 3400000,
+      "baseEconomy": 10,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Ukraine"
+    },
+    {
+      "id": "eu188",
+      "name": "Kharkiv",
+      "points": "1064,792 1087,783 1105,783 1110,796 1136,787 1150,793 1165,786 1178,804 1174,822 1168,822 1161,833 1152,835 1152,839 1145,842 1138,829 1123,824 1108,826 1105,836 1078,821 1078,830 1069,826 1065,831 1038,835 1036,841 1024,844 1019,822 1042,818 1048,804 1057,804 1064,792",
+      "center": [
+        1105,
+        812
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu187",
+        "eu189",
+        "eu197"
+      ],
+      "basePopulation": 3400000,
+      "baseEconomy": 10,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Ukraine"
+    },
+    {
+      "id": "eu189",
+      "name": "Sumy",
+      "points": "1019,755 1028,755 1035,762 1035,751 1043,737 1065,738 1070,729 1097,728 1109,746 1102,749 1104,762 1121,763 1133,789 1110,796 1105,783 1069,787 1057,804 1048,804 1042,818 1021,824 1015,818 1014,805 1020,796 1014,787 1017,778 1011,762 1019,755",
+      "center": [
+        1064,
+        772
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu188",
+        "eu190",
+        "eu193",
+        "eu196",
+        "eu197"
+      ],
+      "basePopulation": 3400000,
+      "baseEconomy": 10,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Ukraine"
+    },
+    {
+      "id": "eu190",
+      "name": "Kiev City",
+      "points": "992,750 1001,757 1008,751 1013,758 1017,778 1014,787 1020,796 1014,810 1006,811 1003,803 981,805 980,792 970,782 953,795 948,791 937,799 934,796 932,783 946,780 951,770 946,758 941,759 940,741 971,746 982,755 992,750",
+      "center": [
+        980,
+        775
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu189",
+        "eu191",
+        "eu192",
+        "eu193"
+      ],
+      "basePopulation": 3400000,
+      "baseEconomy": 10,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Ukraine"
+    },
+    {
+      "id": "eu191",
+      "name": "Volyn",
+      "points": "952,792 954,794 970,782 980,792 985,824 977,825 973,841 963,840 960,844 944,839 939,832 935,835 922,813 917,820 919,823 905,826 902,836 892,833 886,824 888,809 913,783 910,775 914,774 903,751 911,752 918,743 943,742 941,759 946,758 951,770 946,780 933,783 931,791 937,799 939,794 952,792",
+      "center": [
+        936,
+        799
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu184",
+        "eu190",
+        "eu192",
+        "eu31",
+        "eu38"
+      ],
+      "basePopulation": 3400000,
+      "baseEconomy": 10,
+      "isPort": false,
+      "resource": "grain",
+      "land": "Ukraine"
+    },
+    {
+      "id": "eu192",
+      "name": "Brest",
+      "points": "937,741 918,743 904,754 904,736 895,730 910,715 921,716 924,709 936,713 944,695 956,696 957,712 971,718 970,726 978,732 978,751 937,741",
+      "center": [
+        940,
+        727
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu190",
+        "eu191",
+        "eu193",
+        "eu195",
+        "eu34",
+        "eu38"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Belarus"
+    },
+    {
+      "id": "eu193",
+      "name": "Gomel",
+      "points": "1053,735 1039,742 1035,762 1028,755 1012,758 1008,750 1001,757 991,750 981,755 978,732 973,728 978,722 993,724 1009,709 1020,710 1021,697 1029,700 1042,698 1051,704 1055,715 1058,736 1053,735",
+      "center": [
+        1019,
+        730
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu189",
+        "eu190",
+        "eu192",
+        "eu194",
+        "eu195",
+        "eu196"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Belarus"
+    },
+    {
+      "id": "eu194",
+      "name": "Mogilev",
+      "points": "1047,661 1059,674 1058,683 1072,685 1076,697 1065,705 1021,697 1020,710 1009,709 1000,718 993,715 997,703 989,699 996,699 999,688 1005,691 1014,685 1015,667 1047,661",
+      "center": [
+        1034,
+        688
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu193",
+        "eu195",
+        "eu196",
+        "eu202"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Belarus"
+    },
+    {
+      "id": "eu195",
+      "name": "Vitebsk",
+      "points": "1014,669 1014,685 1005,691 999,688 996,699 989,699 997,703 993,724 978,722 971,726 971,718 957,712 956,696 943,696 936,713 924,709 921,716 910,715 901,678 918,680 939,666 940,671 945,671 940,666 945,648 964,634 958,632 961,620 968,616 979,617 988,605 1002,612 1013,611 1015,621 1029,615 1042,624 1044,643 1039,650 1047,661 1014,669",
+      "center": [
+        979,
+        665
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu192",
+        "eu193",
+        "eu194",
+        "eu202",
+        "eu203",
+        "eu204",
+        "eu34"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Belarus"
+    },
+    {
+      "id": "eu196",
+      "name": "Mordovia",
+      "points": "1217,699 1214,719 1228,732 1224,740 1211,741 1201,736 1177,743 1172,738 1165,741 1145,728 1132,731 1130,726 1118,728 1108,744 1097,728 1070,729 1068,736 1061,738 1049,707 1052,702 1065,705 1076,697 1091,677 1096,658 1108,662 1108,654 1116,653 1127,635 1141,637 1147,633 1156,636 1163,649 1170,653 1175,649 1186,655 1189,668 1194,663 1192,656 1200,655 1219,632 1252,640 1252,682 1241,683 1237,694 1228,690 1217,699",
+      "center": [
+        1159,
+        690
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu189",
+        "eu193",
+        "eu194",
+        "eu197",
+        "eu202"
+      ],
+      "basePopulation": 9000000,
+      "baseEconomy": 14,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Russia"
+    },
+    {
+      "id": "eu197",
+      "name": "Penza",
+      "points": "1131,789 1121,763 1104,762 1102,749 1109,747 1107,741 1118,728 1130,726 1132,731 1145,728 1164,741 1172,738 1175,743 1190,736 1224,740 1228,730 1214,719 1217,698 1228,690 1237,694 1241,683 1252,682 1252,764 1237,776 1243,782 1243,788 1232,808 1211,813 1182,797 1177,802 1165,786 1150,793 1141,787 1131,789",
+      "center": [
+        1192,
+        757
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu187",
+        "eu188",
+        "eu189",
+        "eu196",
+        "eu198"
+      ],
+      "basePopulation": 9000000,
+      "baseEconomy": 14,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Russia"
+    },
+    {
+      "id": "eu198",
+      "name": "Orenburg",
+      "points": "1216,978 1214,982 1191,959 1150,935 1157,932 1151,931 1154,928 1159,933 1171,932 1169,923 1175,912 1177,918 1180,909 1187,912 1171,894 1187,895 1185,889 1203,882 1197,877 1186,882 1192,877 1181,882 1182,869 1193,861 1210,862 1214,849 1208,840 1216,832 1208,828 1217,821 1218,810 1231,808 1240,797 1243,782 1237,776 1252,763 1252,914 1237,914 1239,919 1230,925 1234,934 1246,941 1241,948 1247,960 1242,967 1231,963 1228,979 1216,978",
+      "center": [
+        1218,
+        893
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu187",
+        "eu197",
+        "eu199"
+      ],
+      "basePopulation": 9000000,
+      "baseEconomy": 14,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Russia"
+    },
+    {
+      "id": "eu199",
+      "name": "Astrakhan'",
+      "points": "1252,988 1228,979 1231,963 1242,967 1247,960 1241,948 1246,941 1234,934 1230,925 1241,913 1252,914 1252,988",
+      "center": [
+        1243,
+        950
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu198"
+      ],
+      "basePopulation": 9000000,
+      "baseEconomy": 14,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Russia"
+    },
+    {
+      "id": "eu200",
+      "name": "Khanty-Mansiy",
+      "points": "1003,67 1013,50 1027,43 1027,32 1041,38 1041,23 1051,27 1049,33 1059,29 1057,22 1065,23 1064,14 1084,27 1079,35 1066,31 1065,26 1063,36 1072,38 1067,43 1083,41 1078,50 1092,43 1086,52 1092,55 1083,62 1082,69 1094,49 1123,57 1126,51 1171,81 1184,100 1191,103 1189,98 1205,114 1212,116 1209,109 1213,112 1223,130 1227,127 1234,134 1236,155 1241,161 1237,177 1216,201 1187,212 1130,197 1116,186 1110,190 1111,184 1102,183 1103,178 1100,183 1092,176 1091,180 1078,168 1081,163 1070,160 1060,160 1068,161 1073,167 1071,173 1088,185 1074,188 1069,198 1060,198 1054,184 1013,185 1008,168 1025,134 1012,114 1000,108 995,91 1002,75 995,72 1003,67",
+      "center": [
+        1111,
+        125
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu134",
+        "eu201"
+      ],
+      "basePopulation": 9000000,
+      "baseEconomy": 14,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Russia"
+    },
+    {
+      "id": "eu201",
+      "name": "Petersburg",
+      "points": "1227,555 1226,543 1237,527 1234,521 1218,520 1207,507 1194,506 1194,513 1177,514 1170,523 1160,509 1155,510 1145,522 1134,510 1125,513 1115,500 1101,498 1092,490 1081,488 1075,499 1062,489 1054,490 1052,501 1049,505 1044,501 1038,513 1028,513 1027,523 1021,524 1005,511 981,505 990,491 988,475 994,479 996,472 1003,475 1009,466 1029,471 1022,460 1007,460 999,452 995,445 1000,449 1000,438 983,446 1042,376 1055,351 1025,316 1036,301 1035,295 1026,287 1027,271 1021,270 1017,261 1022,255 1017,250 1019,232 1027,229 1013,185 1054,184 1061,198 1069,198 1074,188 1093,191 1095,198 1088,200 1110,210 1119,228 1114,224 1114,240 1106,243 1115,256 1119,267 1115,271 1120,272 1115,280 1126,292 1131,287 1135,290 1144,304 1166,314 1178,304 1177,291 1172,286 1160,288 1149,273 1147,264 1154,263 1154,254 1184,268 1178,270 1177,276 1185,269 1206,281 1213,278 1212,275 1224,281 1224,271 1210,245 1210,236 1252,196 1252,554 1245,549 1244,559 1224,566 1222,558 1227,555",
+      "center": [
+        1133,
+        375
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu132",
+        "eu133",
+        "eu134",
+        "eu200",
+        "eu202",
+        "eu205"
+      ],
+      "basePopulation": 9000000,
+      "baseEconomy": 14,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Russia"
+    },
+    {
+      "id": "eu202",
+      "name": "Mariy-El",
+      "points": "1043,640 1042,624 1034,617 1024,615 1015,621 1013,611 1002,612 990,605 989,591 985,582 980,581 984,565 974,555 983,545 976,513 981,505 1005,511 1021,524 1027,523 1028,513 1038,513 1044,501 1049,505 1052,501 1054,490 1062,489 1075,499 1081,488 1092,490 1101,498 1115,500 1125,513 1134,510 1145,522 1155,510 1160,509 1170,523 1177,514 1194,513 1198,506 1207,507 1218,520 1232,519 1237,527 1226,543 1223,566 1244,559 1245,549 1252,554 1252,642 1219,632 1200,655 1192,656 1194,663 1189,668 1186,655 1175,649 1170,653 1163,649 1156,636 1130,634 1116,653 1108,654 1108,662 1096,658 1091,677 1077,695 1072,685 1058,683 1059,674 1050,669 1047,656 1040,650 1043,640",
+      "center": [
+        1115,
+        579
+      ],
+      "terrain": "forest",
+      "neighbors": [
+        "eu194",
+        "eu195",
+        "eu196",
+        "eu201",
+        "eu204",
+        "eu205"
+      ],
+      "basePopulation": 9000000,
+      "baseEconomy": 14,
+      "isPort": false,
+      "resource": "iron",
+      "land": "Russia"
+    },
+    {
+      "id": "eu203",
+      "name": "Lithuania",
+      "points": "886,660 889,648 884,641 859,635 855,607 867,599 890,596 913,601 927,596 960,621 958,632 964,634 945,649 940,665 944,671 939,667 926,677 903,679 899,670 886,660",
+      "center": [
+        909,
+        632
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu195",
+        "eu204",
+        "eu34",
+        "eu35"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Lithuania"
+    },
+    {
+      "id": "eu204",
+      "name": "Latvia",
+      "points": "959,621 927,596 913,601 875,596 855,607 856,582 868,555 884,550 904,577 918,567 917,545 932,538 949,546 958,556 977,557 984,565 980,581 985,582 990,603 979,617 959,621",
+      "center": [
+        928,
+        580
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu195",
+        "eu202",
+        "eu203",
+        "eu205"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Latvia"
+    },
+    {
+      "id": "eu205",
+      "name": "Estonia",
+      "points": "969,555 958,556 935,538 917,545 921,527 913,531 907,527 902,497 918,486 939,485 940,480 968,487 987,486 990,490 976,512 983,545 975,557 969,555",
+      "center": [
+        947,
+        516
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu201",
+        "eu202",
+        "eu204"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Estonia"
+    },
+    {
+      "id": "eu206",
+      "name": "Moldova",
+      "points": "961,849 978,843 1010,860 1008,871 1016,878 1027,901 1005,900 1005,911 996,926 988,924 992,900 988,886 961,849",
+      "center": [
+        995,
+        879
+      ],
+      "terrain": "plain",
+      "neighbors": [
+        "eu156",
+        "eu157",
+        "eu185"
+      ],
+      "basePopulation": 800000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Moldova"
+    },
+    {
+      "id": "eu207",
+      "name": "Manisa",
+      "points": "1071,1161 1063,1152 1038,1144 1033,1159 1019,1162 1008,1156 1008,1149 1003,1151 996,1144 988,1151 989,1146 975,1149 993,1140 973,1142 980,1135 972,1133 968,1125 973,1118 954,1111 959,1107 956,1101 962,1110 971,1106 963,1100 969,1096 964,1089 974,1082 985,1085 990,1092 1004,1091 1007,1100 1019,1096 1023,1100 1033,1088 1037,1091 1049,1086 1052,1091 1072,1093 1084,1088 1091,1102 1099,1098 1099,1093 1108,1096 1116,1084 1123,1122 1132,1123 1144,1106 1148,1109 1143,1129 1152,1135 1147,1142 1151,1159 1146,1159 1142,1169 1137,1167 1135,1157 1143,1149 1139,1143 1126,1152 1112,1146 1095,1161 1071,1161",
+      "center": [
+        1054,
+        1124
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu208",
+        "eu209",
+        "eu210"
+      ],
+      "basePopulation": 1400000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Turkey"
+    },
+    {
+      "id": "eu208",
+      "name": "Kayseri",
+      "points": "1169,1148 1156,1141 1151,1145 1147,1142 1152,1135 1143,1129 1146,1106 1131,1118 1132,1123 1123,1122 1124,1113 1118,1108 1120,1092 1135,1085 1154,1089 1153,1103 1159,1103 1167,1099 1169,1093 1183,1089 1190,1092 1196,1082 1212,1079 1231,1079 1252,1088 1252,1137 1228,1139 1200,1149 1181,1143 1169,1148",
+      "center": [
+        1193,
+        1113
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu207",
+        "eu209"
+      ],
+      "basePopulation": 1400000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Turkey"
+    },
+    {
+      "id": "eu209",
+      "name": "Erzincan",
+      "points": "1181,1091 1169,1093 1167,1099 1159,1103 1153,1103 1154,1089 1135,1085 1120,1092 1102,1073 1104,1058 1098,1041 1089,1044 1080,1040 1082,1029 1070,1035 1065,1028 1088,1018 1114,1020 1120,1016 1125,1025 1140,1026 1146,1037 1153,1034 1183,1046 1204,1041 1217,1045 1243,1031 1252,1031 1252,1088 1218,1079 1196,1082 1190,1092 1181,1091",
+      "center": [
+        1165,
+        1058
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu207",
+        "eu208",
+        "eu210"
+      ],
+      "basePopulation": 1400000,
+      "baseEconomy": 8,
+      "isPort": false,
+      "resource": "none",
+      "land": "Turkey"
+    },
+    {
+      "id": "eu210",
+      "name": "Çankiri",
+      "points": "981,1061 982,1055 986,1059 1007,1059 1002,1055 1005,1053 1023,1051 1011,1048 1006,1043 1009,1038 1048,1041 1064,1029 1070,1035 1082,1029 1080,1040 1090,1045 1097,1041 1102,1049 1102,1072 1114,1082 1113,1090 1107,1097 1099,1093 1099,1098 1091,1102 1084,1088 1072,1093 1052,1091 1049,1086 1037,1091 1033,1088 1023,1100 1019,1096 1007,1100 999,1089 990,1092 985,1085 974,1082 964,1089 961,1086 967,1079 950,1081 952,1069 963,1058 981,1061",
+      "center": [
+        1041,
+        1068
+      ],
+      "terrain": "steppe",
+      "neighbors": [
+        "eu207",
+        "eu209"
+      ],
+      "basePopulation": 1400000,
+      "baseEconomy": 8,
+      "isPort": true,
+      "resource": "none",
+      "land": "Turkey"
+    }
+  ]
+}

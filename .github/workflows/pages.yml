@@ -1,10 +1,14 @@
-# Baut das Spiel bei jedem Push auf main und veröffentlicht es über GitHub Pages.
+# Veröffentlicht den Ordner "site" über GitHub Pages.
+#
+# Absichtlich ohne Bauschritt: "site" liegt fertig gebaut im Repository.
+# So kann die Veröffentlichung nicht an npm, an einer Abhängigkeit oder an
+# einer Werkzeugversion scheitern - der Link für Mitspieler bleibt stehen.
+# Gebaut wird vorher von Hand mit "npm run bauen".
 name: Seite veröffentlichen
 
 on:
   push:
     branches: [main]
-  # Erlaubt das Auslösen von Hand im Reiter "Actions".
   workflow_dispatch:
 
 permissions:
@@ -12,45 +16,28 @@ permissions:
   pages: write
   id-token: write
 
-# Es läuft immer nur eine Veröffentlichung gleichzeitig.
 concurrency:
   group: pages
   cancel-in-progress: true
 
 jobs:
-  bauen:
+  veroeffentlichen:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
     steps:
       - name: Quelltext holen
         uses: actions/checkout@v4
 
-      - name: Node einrichten
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: npm
-
-      - name: Abhängigkeiten installieren
-        run: npm ci
-
-      - name: Typen prüfen und bauen
-        run: npm run build
-
       - name: Pages vorbereiten
         uses: actions/configure-pages@v5
 
-      - name: Baubergebnis hochladen
+      - name: Ordner hochladen
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site
 
-  veroeffentlichen:
-    needs: bauen
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Auf GitHub Pages veröffentlichen
-        id: deployment
+      - name: Veröffentlichen
+        id: pages
         uses: actions/deploy-pages@v4

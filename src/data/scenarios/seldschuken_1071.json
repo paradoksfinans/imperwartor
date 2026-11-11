@@ -1,0 +1,471 @@
+{
+  "id": "seldschuken_1071",
+  "name": "Die Seldschuken - 1071",
+  "description": "Oghusische Turkvölker unter dem Haus Seldschuk beherrschen Persien und stoßen nach Anatolien vor. Byzanz steht vor der Entscheidung bei Manzikert.",
+  "mapId": "vorderasien",
+  "startYear": 1071,
+  "endYear": 1300,
+  "monthsPerTurn": 12,
+  "sandbox": false,
+  "provinceOverrides": {},
+  "countries": [
+    {
+      "id": "seldschuken",
+      "name": "Großseldschukisches Reich",
+      "color": "#41b0c9",
+      "pattern": "solid",
+      "emblem": "S",
+      "ruler": "Alp Arslan",
+      "government": "monarchy",
+      "personality": "expansionist",
+      "capital": "vo16",
+      "provinces": [
+        "vo14",
+        "vo15",
+        "vo16",
+        "vo17",
+        "vo18",
+        "vo19",
+        "vo20",
+        "vo21",
+        "vo22",
+        "vo23",
+        "vo24",
+        "vo25",
+        "vo26",
+        "vo27",
+        "vo28",
+        "vo29",
+        "vo30",
+        "vo31",
+        "vo38",
+        "vo39",
+        "vo40",
+        "vo41",
+        "vo42",
+        "vo43",
+        "vo44",
+        "vo45",
+        "vo46",
+        "vo47",
+        "vo48",
+        "vo49",
+        "vo50",
+        "vo51",
+        "vo52",
+        "vo53",
+        "vo54"
+      ],
+      "gold": 900,
+      "stability": 58,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "vo14": 13,
+        "vo15": 1,
+        "vo16": 1,
+        "vo17": 1,
+        "vo18": 1,
+        "vo19": 1,
+        "vo20": 1,
+        "vo21": 1,
+        "vo22": 1,
+        "vo23": 1,
+        "vo24": 1,
+        "vo25": 1,
+        "vo26": 1,
+        "vo27": 1,
+        "vo28": 1,
+        "vo29": 1,
+        "vo30": 1,
+        "vo31": 1,
+        "vo40": 1,
+        "vo41": 1,
+        "vo42": 1,
+        "vo43": 1,
+        "vo44": 1,
+        "vo45": 1,
+        "vo46": 1,
+        "vo47": 1,
+        "vo48": 1,
+        "vo49": 1,
+        "vo50": 1,
+        "vo51": 1,
+        "vo52": 1,
+        "vo53": 1
+      },
+      "traits": {
+        "military": 1.35,
+        "economy": 1.05,
+        "defense": 1,
+        "research": 1.05,
+        "trade": 1.1
+      },
+      "description": "Oghusische Turkvölker unter dem Haus Seldschuk: berittene Bogenschützen und persische Verwaltung."
+    },
+    {
+      "id": "byzanz",
+      "name": "Byzantinisches Reich",
+      "color": "#9b7fd4",
+      "pattern": "solid",
+      "emblem": "B",
+      "ruler": "Romanos IV. Diogenes",
+      "government": "empire",
+      "personality": "defensive",
+      "capital": "vo13",
+      "provinces": [
+        "vo00",
+        "vo01",
+        "vo02",
+        "vo03",
+        "vo04",
+        "vo05",
+        "vo06",
+        "vo07",
+        "vo08",
+        "vo09",
+        "vo10",
+        "vo11",
+        "vo12",
+        "vo13",
+        "vo63",
+        "vo64",
+        "vo65",
+        "vo66",
+        "vo67",
+        "vo68"
+      ],
+      "gold": 620,
+      "stability": 42,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "vo00": 9,
+        "vo01": 2,
+        "vo02": 2,
+        "vo03": 1,
+        "vo04": 1,
+        "vo05": 1,
+        "vo06": 1,
+        "vo07": 1,
+        "vo08": 1,
+        "vo09": 1,
+        "vo10": 1,
+        "vo11": 1,
+        "vo12": 1,
+        "vo13": 1,
+        "vo63": 1,
+        "vo64": 1,
+        "vo65": 1,
+        "vo66": 1,
+        "vo67": 1,
+        "vo68": 1
+      },
+      "traits": {
+        "military": 0.95,
+        "economy": 1.1,
+        "defense": 1.25,
+        "research": 1.15,
+        "trade": 1.1
+      },
+      "description": "Anatolien ist die Rekrutierungsbasis des Reiches - und steht 1071 bei Manzikert auf dem Spiel."
+    },
+    {
+      "id": "fatimiden",
+      "name": "Fatimidisches Kalifat",
+      "color": "#5aa06a",
+      "pattern": "solid",
+      "emblem": "F",
+      "ruler": "al-Mustansir",
+      "government": "theocracy",
+      "personality": "defensive",
+      "capital": "vo59",
+      "provinces": [
+        "vo55",
+        "vo56",
+        "vo57",
+        "vo58",
+        "vo59",
+        "vo60"
+      ],
+      "gold": 700,
+      "stability": 40,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "vo58": 7,
+        "vo59": 3,
+        "vo60": 3,
+        "vo55": 3,
+        "vo56": 3,
+        "vo57": 3
+      },
+      "traits": {
+        "military": 0.95,
+        "economy": 1.2,
+        "defense": 1.05,
+        "research": 1.1,
+        "trade": 1.25
+      },
+      "description": "Schiitisches Gegenkalifat in Kairo, geschwächt durch Hungersnot."
+    },
+    {
+      "id": "karachaniden",
+      "name": "Karachanidenreich",
+      "color": "#c98a41",
+      "pattern": "solid",
+      "emblem": "Q",
+      "ruler": "Ibrahim Tamghach Khan",
+      "government": "monarchy",
+      "personality": "opportunistic",
+      "capital": "vo69",
+      "provinces": [
+        "vo69",
+        "vo70",
+        "vo71",
+        "vo72"
+      ],
+      "gold": 340,
+      "stability": 52,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "vo69": 5,
+        "vo70": 4,
+        "vo71": 4,
+        "vo72": 3
+      },
+      "traits": {
+        "military": 1.2,
+        "economy": 0.95,
+        "defense": 1,
+        "research": 1,
+        "trade": 1.2
+      },
+      "description": "Erste türkische Dynastie, die den Islam annahm. Herrin über die Städte der Seidenstraße."
+    },
+    {
+      "id": "ghaznawiden",
+      "name": "Ghaznawiden",
+      "color": "#c2564a",
+      "pattern": "solid",
+      "emblem": "G",
+      "ruler": "Ibrahim von Ghazna",
+      "government": "monarchy",
+      "personality": "aggressive",
+      "capital": "vo76",
+      "provinces": [
+        "vo73",
+        "vo74",
+        "vo75",
+        "vo76"
+      ],
+      "gold": 520,
+      "stability": 50,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "vo73": 6,
+        "vo74": 5,
+        "vo75": 5,
+        "vo76": 4
+      },
+      "traits": {
+        "military": 1.2,
+        "economy": 1.05,
+        "defense": 1,
+        "research": 1,
+        "trade": 1.05
+      },
+      "description": "Aus türkischen Militärsklaven hervorgegangen, nach Indien ausgreifend."
+    },
+    {
+      "id": "georgien",
+      "name": "Königreich Georgien",
+      "color": "#7fb04a",
+      "pattern": "solid",
+      "emblem": "T",
+      "ruler": "Bagrat IV.",
+      "government": "monarchy",
+      "personality": "defensive",
+      "capital": "vo37",
+      "provinces": [
+        "vo36",
+        "vo37"
+      ],
+      "gold": 260,
+      "stability": 50,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "vo37": 4,
+        "vo36": 8
+      },
+      "traits": {
+        "military": 1.05,
+        "economy": 0.9,
+        "defense": 1.3,
+        "research": 0.95,
+        "trade": 0.95
+      },
+      "description": "Christliches Königreich im Kaukasus zwischen allen Fronten."
+    },
+    {
+      "id": "araber",
+      "name": "Arabische Emirate",
+      "color": "#b5762f",
+      "pattern": "solid",
+      "emblem": "A",
+      "ruler": "Rat der Emire",
+      "government": "monarchy",
+      "personality": "isolationist",
+      "capital": "vo33",
+      "provinces": [
+        "vo32",
+        "vo33",
+        "vo34",
+        "vo35",
+        "vo61",
+        "vo62"
+      ],
+      "gold": 300,
+      "stability": 46,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "vo32": 4,
+        "vo61": 2,
+        "vo62": 2,
+        "vo33": 2,
+        "vo34": 2,
+        "vo35": 2
+      },
+      "traits": {
+        "military": 1,
+        "economy": 0.9,
+        "defense": 1.05,
+        "research": 0.9,
+        "trade": 1.15
+      },
+      "description": "Lokale Herrscher zwischen Kalifat und Steppe."
+    }
+  ],
+  "relations": [
+    {
+      "a": "seldschuken",
+      "b": "byzanz",
+      "value": -70
+    },
+    {
+      "a": "seldschuken",
+      "b": "fatimiden",
+      "value": -45
+    },
+    {
+      "a": "byzanz",
+      "b": "georgien",
+      "value": 40
+    },
+    {
+      "a": "seldschuken",
+      "b": "karachaniden",
+      "value": 30
+    },
+    {
+      "a": "ghaznawiden",
+      "b": "seldschuken",
+      "value": -40
+    }
+  ],
+  "alliances": [],
+  "wars": [
+    {
+      "sideA": [
+        "seldschuken"
+      ],
+      "sideB": [
+        "byzanz"
+      ]
+    }
+  ],
+  "events": [
+    "mit_pest",
+    "mit_kreuzzug",
+    "mit_haeresie",
+    "mit_handelsweg",
+    "mit_thronstreit",
+    "mit_burgenbau",
+    "mit_steppenreiter",
+    "mit_gelehrtenhaus",
+    "mit_hungerjahr",
+    "harvest_failure",
+    "drought",
+    "succession_dispute",
+    "epidemic_returns",
+    "mercenary_offer",
+    "tax_revolt"
+  ],
+  "victoryConditions": [
+    {
+      "type": "provinces",
+      "value": 56,
+      "description": "Beherrsche 56 der 77 Gebiete."
+    },
+    {
+      "type": "capitals",
+      "value": 3,
+      "targets": [
+        "vo14",
+        "vo00",
+        "vo58",
+        "vo69",
+        "vo73",
+        "vo37",
+        "vo32"
+      ],
+      "description": "Erobere drei fremde Hauptstädte."
+    }
+  ]
+}

@@ -1,348 +1,2563 @@
 [
   {
     "id": "economic_crisis",
-    "name": "Leere Staatskasse",
-    "description": "Beamte und Soldaten warten seit Wochen auf ihren Sold. In den Städten wird offen über den Hof gespottet.",
-    "icon": "coin",
-    "category": "economy",
-    "probability": 0.4,
-    "once": false,
-    "conditions": { "goldBelow": 220, "minTurn": 3 },
+    "name": "Wirtschaftskrise",
+    "description": "Die Börsen brechen ein, Betriebe entlassen, die Steuereinnahmen fallen weg. Der Finanzrat verlangt eine Entscheidung.",
+    "icon": "!",
+    "probability": 0.1,
+    "repeatable": true,
+    "conditions": {
+      "goldBelow": 400,
+      "minTurn": 3
+    },
     "choices": [
-      { "text": "Ausgaben kürzen", "effects": { "gold": 220, "stability": -8 }, "resultText": "Die Kasse erholt sich, doch die Bevölkerung ist unzufrieden." },
-      { "text": "Sonderabgabe erheben", "effects": { "gold": 480, "stability": -16, "unrest": 10 }, "resultText": "Die Abgabe füllt die Kasse und erzeugt offenen Unmut.", "followUp": "tax_revolt" },
-      { "text": "Kronschatz verpfänden", "effects": { "gold": 650, "prestige": -10 }, "resultText": "Händler strecken das Geld vor - zu einem hohen Preis an Ansehen." }
-    ]
-  },
-  {
-    "id": "tax_revolt",
-    "name": "Steueraufstand",
-    "description": "Die Sonderabgabe hat Bauern und Zünfte gegen den Hof aufgebracht. In mehreren Gebieten verweigern sie die Zahlung.",
-    "icon": "fire",
-    "category": "politics",
-    "probability": 1,
-    "once": false,
-    "chainOnly": true,
-    "conditions": {},
-    "choices": [
-      { "text": "Mit Truppen durchgreifen", "effects": { "unrest": -20, "stability": -6, "army": -8 }, "resultText": "Die Unruhen werden niedergeschlagen, aber der Hass bleibt." },
-      { "text": "Abgabe zurücknehmen", "effects": { "gold": -300, "stability": 10, "unrest": -25 }, "resultText": "Der Hof gibt nach. Die Ruhe kehrt zurück." }
+      {
+        "text": "Ausgaben kürzen",
+        "effects": {
+          "gold": 250,
+          "stability": -8
+        }
+      },
+      {
+        "text": "Neue Schulden aufnehmen",
+        "effects": {
+          "gold": 900,
+          "stability": -2,
+          "warExhaustion": 4
+        }
+      },
+      {
+        "text": "Krise aussitzen",
+        "effects": {
+          "stability": -4,
+          "unrest": 6
+        }
+      }
     ]
   },
   {
     "id": "good_harvest",
     "name": "Reiche Ernte",
-    "description": "Ein außergewöhnlich gutes Jahr füllt die Speicher des ganzen Landes.",
-    "icon": "wheat",
-    "category": "nature",
-    "probability": 0.3,
-    "once": false,
-    "conditions": { "minTurn": 2 },
+    "description": "Ein außergewöhnlich guter Sommer füllt die Speicher. Die Landbevoelkerung erwartet, dass etwas davon bei ihr bleibt.",
+    "icon": "+",
+    "probability": 0.12,
+    "repeatable": true,
+    "conditions": {},
     "choices": [
-      { "text": "Überschuss verkaufen", "effects": { "gold": 360 }, "resultText": "Händler zahlen gute Preise für den Überschuss." },
-      { "text": "Speicher füllen", "effects": { "resources": { "grain": 30 } }, "resultText": "Die Vorratslager sind bis unter das Dach gefüllt." },
-      { "text": "An das Volk verteilen", "effects": { "stability": 12, "population": 600 }, "resultText": "Die Bevölkerung dankt es mit Zufriedenheit und Zuwachs." }
-    ]
-  },
-  {
-    "id": "border_incident",
-    "name": "Grenzzwischenfall",
-    "description": "An der Grenze kommt es zu einem Gefecht zwischen Patrouillen. Beide Seiten beschuldigen einander.",
-    "icon": "sword",
-    "category": "military",
-    "probability": 0.3,
-    "once": false,
-    "conditions": { "minTurn": 3 },
-    "choices": [
-      { "text": "Scharf reagieren", "effects": { "relations": -12, "stability": 6, "politicalPower": 2 }, "resultText": "Die harte Linie stärkt das Ansehen im Inneren und schadet den Beziehungen." },
-      { "text": "Diplomatisch beilegen", "effects": { "relations": 9, "stability": -4 }, "resultText": "Der Konflikt wird beigelegt, im Land gilt das als Schwäche." },
-      { "text": "Anspruch anmelden", "effects": { "politicalPower": -6, "relations": -18 }, "resultText": "Der Hof erhebt öffentlich Anspruch auf das Grenzland." }
-    ]
-  },
-  {
-    "id": "scientific_breakthrough",
-    "name": "Wissenschaftlicher Durchbruch",
-    "description": "Gelehrte des Landes melden eine unerwartete Entdeckung.",
-    "icon": "book",
-    "category": "culture",
-    "probability": 0.24,
-    "once": false,
-    "conditions": { "minTurn": 4 },
-    "choices": [
-      { "text": "Forschung fördern", "effects": { "research": 60, "gold": -140 }, "resultText": "Die Entdeckung wird sofort weiterentwickelt." },
-      { "text": "Für das Militär nutzen", "effects": { "research": 25, "army": 14 }, "resultText": "Neue Ausrüstung erreicht die Truppen in der Hauptstadt." },
-      { "text": "Geheim halten", "effects": { "research": 35, "politicalPower": 3 }, "resultText": "Nur der engste Kreis erfährt davon." }
-    ]
-  },
-  {
-    "id": "war_weariness",
-    "name": "Kriegsmüdigkeit",
-    "description": "Der andauernde Krieg belastet die Bevölkerung spürbar. Die Rekrutierungslisten werden länger, die Zustimmung kleiner.",
-    "icon": "fire",
-    "category": "military",
-    "probability": 0.42,
-    "once": false,
-    "conditions": { "atWar": true, "minTurn": 4 },
-    "choices": [
-      { "text": "Propaganda verstärken", "effects": { "gold": -180, "warExhaustion": -12, "stability": 5 }, "resultText": "Die Stimmung stabilisiert sich vorerst." },
-      { "text": "Truppen teilweise entlassen", "effects": { "army": -12, "warExhaustion": -20, "stability": 7 }, "resultText": "Die Heimkehrer beruhigen das Land, die Armee schrumpft." },
-      { "text": "Krieg fortsetzen", "effects": { "stability": -10, "warExhaustion": 6, "politicalPower": 2 }, "resultText": "Der Krieg geht weiter, der Unmut wächst." }
+      {
+        "text": "Überschuss verkaufen",
+        "effects": {
+          "gold": 420,
+          "stability": -2
+        }
+      },
+      {
+        "text": "Speicher für das Volk öffnen",
+        "effects": {
+          "stability": 7,
+          "populationPct": 2
+        }
+      }
     ]
   },
   {
     "id": "plague",
     "name": "Seuche",
-    "description": "Eine Krankheit breitet sich in den dicht besiedelten Gebieten aus. Die Ärzte sind ratlos.",
-    "icon": "skull",
-    "category": "nature",
-    "probability": 0.18,
-    "once": false,
-    "conditions": { "minTurn": 7 },
+    "description": "Eine Krankheit breitet sich entlang der Handelswege aus. Ärzte fordern die Sperrung der Straßen.",
+    "icon": "x",
+    "probability": 0.07,
+    "repeatable": true,
+    "conditions": {
+      "minTurn": 5
+    },
     "choices": [
-      { "text": "Gebiete abriegeln", "effects": { "gold": -260, "population": -400, "stability": -5 }, "resultText": "Die Ausbreitung wird eingedämmt, der Handel leidet." },
-      { "text": "Ärzte bezahlen", "effects": { "gold": -480, "population": -150, "stability": 4 }, "resultText": "Teuer, aber wirksam. Das Volk rechnet es dem Hof hoch an." },
-      { "text": "Nichts unternehmen", "effects": { "population": -1200, "stability": -14 }, "resultText": "Die Seuche fordert viele Opfer." }
+      {
+        "text": "Handelswege sperren",
+        "effects": {
+          "gold": -300,
+          "populationPct": -2,
+          "stability": -3
+        }
+      },
+      {
+        "text": "Wirtschaft weiterlaufen lassen",
+        "effects": {
+          "populationPct": -6,
+          "stability": -8,
+          "unrest": 8
+        }
+      }
     ]
   },
   {
-    "id": "resource_find",
-    "name": "Ressourcenfund",
-    "description": "In einer Grenzregion wird ein ergiebiges Vorkommen entdeckt.",
-    "icon": "gem",
-    "category": "economy",
-    "probability": 0.22,
-    "once": true,
-    "conditions": { "minTurn": 5 },
+    "id": "scientific_breakthrough",
+    "name": "Wissenschaftlicher Durchbruch",
+    "description": "Ein Forscherteam meldet einen unerwarteten Erfolg. Die Ergebnisse lassen sich veröffentlichen oder unter Verschluss halten.",
+    "icon": "*",
+    "probability": 0.1,
+    "repeatable": true,
+    "conditions": {
+      "minTurn": 4
+    },
     "choices": [
-      { "text": "Sofort ausbeuten", "effects": { "gold": 560, "unrest": 12 }, "resultText": "Der schnelle Abbau bringt viel Gold, überlastet aber die Region." },
-      { "text": "Geordnet erschließen", "effects": { "resources": { "iron": 25, "luxury": 15 }, "stability": 3 }, "resultText": "Der Abbau läuft nachhaltig an." }
+      {
+        "text": "Ergebnisse veröffentlichen",
+        "effects": {
+          "researchPoints": 200,
+          "stability": 4,
+          "relationsAll": 4
+        }
+      },
+      {
+        "text": "Militärisch nutzen",
+        "effects": {
+          "researchPoints": 320,
+          "relationsAll": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "border_incident",
+    "name": "Grenzzwischenfall",
+    "description": "An der Grenze fällt ein Schuss. Beide Seiten behaupten, nicht zuerst geschossen zu haben.",
+    "icon": "/",
+    "probability": 0.11,
+    "repeatable": true,
+    "conditions": {
+      "minTurn": 2
+    },
+    "choices": [
+      {
+        "text": "Vorfall herunterspielen",
+        "effects": {
+          "stability": -3,
+          "relationsAll": 6
+        }
+      },
+      {
+        "text": "Scharfe Note überreichen",
+        "effects": {
+          "politicalPower": 10,
+          "relationsAll": -8,
+          "stability": 3
+        }
+      }
     ]
   },
   {
     "id": "general_ambition",
-    "name": "Ehrgeiziger Feldherr",
-    "description": "Ein siegreicher Feldherr sammelt Anhänger um sich. Am Hof spricht man bereits von einem Rivalen des Herrschers.",
-    "icon": "sword",
-    "category": "politics",
-    "probability": 0.25,
-    "once": false,
-    "conditions": { "minTurn": 8, "stabilityBelow": 55 },
+    "name": "Ehrgeiziger General",
+    "description": "Ein populärer Befehlshaber fordert öffentlich mehr Einfluss. Der Hof ist gespalten.",
+    "icon": "^",
+    "probability": 0.08,
+    "repeatable": true,
+    "conditions": {
+      "armyAbove": 40,
+      "stabilityBelow": 60
+    },
     "choices": [
-      { "text": "Mit Gold und Titeln binden", "effects": { "gold": -400, "stability": 5 }, "resultText": "Der Feldherr bleibt loyal - vorerst." },
-      { "text": "Absetzen", "effects": { "stability": -8, "army": -10, "politicalPower": 4 }, "resultText": "Der Hof setzt sich durch, das Heer verliert einen fähigen Kopf." },
-      { "text": "Gewähren lassen", "effects": { "stability": -14, "prestige": 5 }, "resultText": "Der Feldherr gewinnt weiter an Einfluss.", "followUp": "coup_attempt" }
+      {
+        "text": "Befördern",
+        "effects": {
+          "stability": -5,
+          "politicalPower": -8,
+          "armyPct": 8
+        }
+      },
+      {
+        "text": "Absetzen",
+        "effects": {
+          "stability": 4,
+          "armyPct": -6,
+          "unrest": 5
+        }
+      }
     ]
   },
   {
-    "id": "coup_attempt",
-    "name": "Putschversuch",
-    "description": "Der Feldherr marschiert mit seinen treuesten Verbänden auf die Hauptstadt.",
-    "icon": "fire",
-    "category": "politics",
-    "probability": 1,
-    "once": false,
-    "chainOnly": true,
-    "conditions": {},
+    "id": "war_weariness",
+    "name": "Kriegsmüdigkeit",
+    "description": "Die Verlustlisten werden länger. In den Städten wird über den Frieden gesprochen, noch leise.",
+    "icon": "-",
+    "probability": 0.14,
+    "repeatable": true,
+    "conditions": {
+      "atWar": true,
+      "minTurn": 4
+    },
     "choices": [
-      { "text": "Garde aufbieten", "effects": { "gold": -500, "army": -18, "stability": -6 }, "resultText": "Der Putsch wird blutig niedergeschlagen." },
-      { "text": "Verhandeln und Macht teilen", "effects": { "stability": 4, "politicalPower": -10, "prestige": -12 }, "resultText": "Der Herrscher bleibt - als Erster unter Gleichen." }
+      {
+        "text": "Zensur verschärfen",
+        "effects": {
+          "stability": -2,
+          "unrest": 8,
+          "politicalPower": -5
+        }
+      },
+      {
+        "text": "Soldzahlung erhöhen",
+        "effects": {
+          "gold": -400,
+          "stability": 5,
+          "warExhaustion": -8
+        }
+      }
     ]
   },
   {
-    "id": "religious_dispute",
-    "name": "Glaubensstreit",
-    "description": "Prediger im Land widersprechen der offiziellen Lehre. Der Streit greift auf die Städte über.",
-    "icon": "temple",
-    "category": "culture",
-    "probability": 0.26,
-    "once": false,
-    "conditions": { "minTurn": 6 },
+    "id": "resource_find",
+    "name": "Rohstofffund",
+    "description": "Vermesser melden ein ergiebiges Vorkommen. Die Erschließung kostet Geld, der Ertrag kommt später.",
+    "icon": "o",
+    "probability": 0.09,
+    "repeatable": true,
+    "conditions": {
+      "minTurn": 3
+    },
     "choices": [
-      { "text": "Lehre durchsetzen", "effects": { "unrest": 14, "stability": 6, "politicalPower": 3 }, "resultText": "Die Einheit ist gewahrt, der Widerstand geht in den Untergrund." },
-      { "text": "Duldung gewähren", "effects": { "unrest": -12, "stability": -4, "gold": 180 }, "resultText": "Die Händler der Minderheit kehren zurück." }
+      {
+        "text": "Sofort erschließen",
+        "effects": {
+          "gold": -250,
+          "researchPoints": 80,
+          "stability": 2
+        }
+      },
+      {
+        "text": "Konzession verkaufen",
+        "effects": {
+          "gold": 500,
+          "stability": -3
+        }
+      }
     ]
   },
   {
-    "id": "foreign_scholars",
-    "name": "Ausländische Gelehrte",
-    "description": "Eine Gruppe vertriebener Gelehrter bittet um Aufnahme an eurem Hof.",
-    "icon": "book",
-    "category": "culture",
-    "probability": 0.22,
-    "once": false,
-    "conditions": { "minTurn": 5 },
+    "id": "unrest_protest",
+    "name": "Proteste in den Städten",
+    "description": "Zehntausende versammeln sich vor den Verwaltungsgebaeuden. Die Polizei fragt nach Anweisungen.",
+    "icon": "!",
+    "probability": 0.13,
+    "repeatable": true,
+    "conditions": {
+      "stabilityBelow": 45
+    },
     "choices": [
-      { "text": "Aufnehmen und ausstatten", "effects": { "gold": -260, "research": 70, "prestige": 6 }, "resultText": "Der Hof wird zum Anziehungspunkt für Wissen." },
-      { "text": "Abweisen", "effects": { "stability": 3, "relations": -5 }, "resultText": "Die konservativen Kreise sind zufrieden." }
+      {
+        "text": "Zugeständnisse machen",
+        "effects": {
+          "gold": -350,
+          "stability": 10,
+          "unrest": -12
+        }
+      },
+      {
+        "text": "Platz räumen lassen",
+        "effects": {
+          "stability": -6,
+          "unrest": 14,
+          "politicalPower": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "foreign_investment",
+    "name": "Ausländisches Kapital",
+    "description": "Ein Konsortium bietet Kredite zu guten Bedingungen. Die Bedingungen stehen im Kleingedruckten.",
+    "icon": "$",
+    "probability": 0.09,
+    "repeatable": true,
+    "conditions": {
+      "goldBelow": 900,
+      "minTurn": 4
+    },
+    "choices": [
+      {
+        "text": "Annehmen",
+        "effects": {
+          "gold": 700,
+          "relationsAll": 4,
+          "stability": -3
+        }
+      },
+      {
+        "text": "Ablehnen",
+        "effects": {
+          "stability": 3,
+          "politicalPower": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "harvest_failure",
+    "name": "Missernte",
+    "icon": "!",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Ein nasser Sommer verdirbt die Ernte. In den Städten steigen die Brotpreise, auf dem Land bleibt die Saat aus.",
+    "conditions": {
+      "minTurn": 4
+    },
+    "choices": [
+      {
+        "text": "Staatliche Speicher öffnen",
+        "effects": {
+          "gold": -320,
+          "stability": 4,
+          "unrest": -8
+        }
+      },
+      {
+        "text": "Getreide teuer einkaufen",
+        "effects": {
+          "gold": -600,
+          "unrest": -12,
+          "populationPct": 1
+        }
+      },
+      {
+        "text": "Preise freigeben",
+        "effects": {
+          "gold": 180,
+          "unrest": 14,
+          "stability": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "officer_plot",
+    "name": "Verschwörung im Offizierskorps",
+    "icon": "!",
+    "probability": 0.07,
+    "repeatable": true,
+    "description": "Ein Kreis hoher Offiziere trifft sich ohne Wissen der Regierung. Der Geheimdienst legt Namen vor.",
+    "conditions": {
+      "minTurn": 6,
+      "stabilityBelow": 55
+    },
+    "choices": [
+      {
+        "text": "Anführer verhaften",
+        "effects": {
+          "stability": 6,
+          "politicalPower": -15,
+          "armyPct": -8
+        }
+      },
+      {
+        "text": "Stillhalten und beobachten",
+        "effects": {
+          "stability": -5,
+          "politicalPower": 5
+        }
+      },
+      {
+        "text": "Forderungen erfüllen",
+        "effects": {
+          "gold": -450,
+          "armyPct": 6,
+          "politicalPower": -10
+        }
+      }
+    ]
+  },
+  {
+    "id": "railway_project",
+    "name": "Eisenbahnprojekt",
+    "icon": "+",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Ingenieure legen Pläne für eine Hauptstrecke quer durch das Land vor. Die Kosten sind erheblich, der Nutzen langfristig.",
+    "conditions": {
+      "minTurn": 5,
+      "goldAbove": 700
+    },
+    "choices": [
+      {
+        "text": "Strecke bauen lassen",
+        "effects": {
+          "gold": -700,
+          "researchPoints": 120,
+          "stability": 3
+        }
+      },
+      {
+        "text": "Privat finanzieren lassen",
+        "effects": {
+          "gold": -150,
+          "researchPoints": 50,
+          "politicalPower": -8
+        }
+      },
+      {
+        "text": "Pläne zurückstellen",
+        "effects": {
+          "stability": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "border_refugees",
+    "name": "Flüchtlinge an der Grenze",
+    "icon": "!",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "Aus dem Nachbarland ziehen Tausende über die Grenze. Die Grenzprovinzen sind überfordert.",
+    "conditions": {
+      "minTurn": 4,
+      "atWar": true
+    },
+    "choices": [
+      {
+        "text": "Aufnehmen und versorgen",
+        "effects": {
+          "gold": -380,
+          "populationPct": 3,
+          "unrest": 5,
+          "relationsAll": 4
+        }
+      },
+      {
+        "text": "Grenze schließen",
+        "effects": {
+          "stability": 3,
+          "relationsAll": -8
+        }
+      },
+      {
+        "text": "Weiterziehen lassen",
+        "effects": {
+          "unrest": 3,
+          "relationsAll": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "great_fair",
+    "name": "Landesausstellung",
+    "icon": "+",
+    "probability": 0.08,
+    "repeatable": true,
+    "description": "Eine große Ausstellung soll den Wohlstand des Landes zeigen. Gesandte aus allen Nachbarländern haben zugesagt.",
+    "conditions": {
+      "minTurn": 6,
+      "stabilityAbove": 55
+    },
+    "choices": [
+      {
+        "text": "Gross aufziehen",
+        "effects": {
+          "gold": -500,
+          "stability": 6,
+          "relationsAll": 10,
+          "politicalPower": 10
+        }
+      },
+      {
+        "text": "Bescheiden ausrichten",
+        "effects": {
+          "gold": -150,
+          "stability": 2,
+          "relationsAll": 4
+        }
+      },
+      {
+        "text": "Absagen",
+        "effects": {
+          "relationsAll": -5,
+          "politicalPower": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "mine_collapse",
+    "name": "Grubenunglück",
+    "icon": "!",
+    "probability": 0.08,
+    "repeatable": true,
+    "description": "In einem Bergwerk bricht ein Stollen ein. Die Zahl der Verschütteten ist unklar, die Empörung gross.",
+    "conditions": {
+      "minTurn": 3
+    },
+    "choices": [
+      {
+        "text": "Rettung um jeden Preis",
+        "effects": {
+          "gold": -300,
+          "stability": 5,
+          "unrest": -6
+        }
+      },
+      {
+        "text": "Untersuchung einleiten",
+        "effects": {
+          "gold": -120,
+          "unrest": 2,
+          "politicalPower": 4
+        }
+      },
+      {
+        "text": "Betrieb sofort fortsetzen",
+        "effects": {
+          "gold": 200,
+          "unrest": 12,
+          "stability": -7
+        }
+      }
+    ]
+  },
+  {
+    "id": "foreign_agitators",
+    "name": "Fremde Agitatoren",
+    "icon": "!",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "In den Fabrikstädten verteilen Unbekannte Flugblätter gegen die Regierung. Die Spur führt ins Ausland.",
+    "conditions": {
+      "minTurn": 5,
+      "stabilityBelow": 60
+    },
+    "choices": [
+      {
+        "text": "Ausweisen und Presse zensieren",
+        "effects": {
+          "unrest": -10,
+          "stability": -3,
+          "relationsAll": -6
+        }
+      },
+      {
+        "text": "Öffentlich widerlegen",
+        "effects": {
+          "gold": -180,
+          "unrest": -5,
+          "politicalPower": 5
+        }
+      },
+      {
+        "text": "Ignorieren",
+        "effects": {
+          "unrest": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "royal_wedding",
+    "name": "Fürstliche Hochzeit",
+    "icon": "+",
+    "probability": 0.07,
+    "repeatable": true,
+    "description": "Eine Verbindung ins Ausland wird angetragen. Das Volk feiert gern, der Hof rechnet nach.",
+    "conditions": {
+      "minTurn": 4
+    },
+    "choices": [
+      {
+        "text": "Prunkvoll feiern",
+        "effects": {
+          "gold": -400,
+          "stability": 7,
+          "relationsAll": 12
+        }
+      },
+      {
+        "text": "Nüchtern vollziehen",
+        "effects": {
+          "gold": -80,
+          "stability": 2,
+          "relationsAll": 6
+        }
+      },
+      {
+        "text": "Antrag ablehnen",
+        "effects": {
+          "politicalPower": 6,
+          "relationsAll": -10
+        }
+      }
+    ]
+  },
+  {
+    "id": "veteran_demands",
+    "name": "Forderungen der Veteranen",
+    "icon": "!",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "Heimgekehrte Soldaten verlangen Sold, Land und Versorgung. Vor dem Regierungssitz stehen Hunderte.",
+    "conditions": {
+      "minTurn": 8,
+      "armyAbove": 40
+    },
+    "choices": [
+      {
+        "text": "Vollständig auszahlen",
+        "effects": {
+          "gold": -650,
+          "stability": 6,
+          "warExhaustion": -8
+        }
+      },
+      {
+        "text": "Land statt Geld geben",
+        "effects": {
+          "unrest": 4,
+          "stability": 3,
+          "populationPct": 1
+        }
+      },
+      {
+        "text": "Vertrösten",
+        "effects": {
+          "unrest": 10,
+          "warExhaustion": 6,
+          "stability": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "naval_incident",
+    "name": "Zwischenfall zur See",
+    "icon": "!",
+    "probability": 0.08,
+    "repeatable": true,
+    "description": "Ein Handelsschiff unter eigener Flagge wird aufgebracht. Die Zeitungen fordern eine Antwort.",
+    "conditions": {
+      "minTurn": 5
+    },
+    "choices": [
+      {
+        "text": "Flotte entsenden",
+        "effects": {
+          "gold": -250,
+          "politicalPower": 8,
+          "relationsAll": -12,
+          "stability": 3
+        }
+      },
+      {
+        "text": "Auf dem Verhandlungsweg klären",
+        "effects": {
+          "politicalPower": -5,
+          "relationsAll": 6
+        }
+      },
+      {
+        "text": "Vorfall herunterspielen",
+        "effects": {
+          "stability": -4,
+          "unrest": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "census",
+    "name": "Volkszählung",
+    "icon": "+",
+    "probability": 0.07,
+    "repeatable": true,
+    "description": "Zum ersten Mal seit Jahrzehnten soll die Bevölkerung vollständig erfasst werden. Die Verwaltung wittert Mehreinnahmen.",
+    "conditions": {
+      "minTurn": 6
+    },
+    "choices": [
+      {
+        "text": "Gründlich durchführen",
+        "effects": {
+          "gold": -200,
+          "politicalPower": 12,
+          "stability": 2
+        }
+      },
+      {
+        "text": "Nur Steuerpflichtige erfassen",
+        "effects": {
+          "gold": 250,
+          "unrest": 6
+        }
+      },
+      {
+        "text": "Verschieben",
+        "effects": {
+          "politicalPower": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "epidemic_returns",
+    "name": "Fieber in den Städten",
+    "icon": "!",
+    "probability": 0.07,
+    "repeatable": true,
+    "description": "In den Armenvierteln bricht ein Fieber aus. Die Ärzte streiten über die Ursache.",
+    "conditions": {
+      "minTurn": 6
+    },
+    "choices": [
+      {
+        "text": "Viertel abriegeln",
+        "effects": {
+          "gold": -260,
+          "populationPct": -1,
+          "unrest": 8,
+          "stability": 2
+        }
+      },
+      {
+        "text": "Ärzte und Mittel bezahlen",
+        "effects": {
+          "gold": -520,
+          "populationPct": -1,
+          "stability": 4
+        }
+      },
+      {
+        "text": "Laufen lassen",
+        "effects": {
+          "populationPct": -4,
+          "unrest": 12,
+          "stability": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": "tech_espionage",
+    "name": "Angebot eines Überläufers",
+    "icon": "+",
+    "probability": 0.07,
+    "repeatable": true,
+    "description": "Ein fremder Ingenieur bietet Konstruktionspläne an. Er verlangt Geld und Schutz.",
+    "conditions": {
+      "minTurn": 7
+    },
+    "choices": [
+      {
+        "text": "Kaufen und schweigen",
+        "effects": {
+          "gold": -420,
+          "researchPoints": 260,
+          "relationsAll": -6
+        }
+      },
+      {
+        "text": "Ausliefern",
+        "effects": {
+          "relationsAll": 10,
+          "politicalPower": 5
+        }
+      },
+      {
+        "text": "Abweisen",
+        "effects": {}
+      }
+    ]
+  },
+  {
+    "id": "tax_revolt",
+    "name": "Steuerstreik",
+    "icon": "!",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "Ganze Landkreise verweigern die Zahlung. Die Steuereintreiber kehren mit leeren Händen zurueck.",
+    "conditions": {
+      "minTurn": 5,
+      "stabilityBelow": 50
+    },
+    "choices": [
+      {
+        "text": "Militär einsetzen",
+        "effects": {
+          "unrest": -14,
+          "stability": -6,
+          "armyPct": -3,
+          "gold": 300
+        }
+      },
+      {
+        "text": "Steuern vorübergehend senken",
+        "effects": {
+          "gold": -350,
+          "unrest": -10,
+          "stability": 4
+        }
+      },
+      {
+        "text": "Verhandeln lassen",
+        "effects": {
+          "gold": -120,
+          "unrest": -5,
+          "politicalPower": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "alliance_pressure",
+    "name": "Druck der Verbündeten",
+    "icon": "!",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Die Verbündeten verlangen größere Beiträge - Truppen, Geld oder wenigstens ein klares Bekenntnis.",
+    "conditions": {
+      "minTurn": 6,
+      "atWar": true
+    },
+    "choices": [
+      {
+        "text": "Truppen stellen",
+        "effects": {
+          "armyPct": -10,
+          "relationsAll": 12,
+          "warExhaustion": 5
+        }
+      },
+      {
+        "text": "Geld zahlen",
+        "effects": {
+          "gold": -550,
+          "relationsAll": 8
+        }
+      },
+      {
+        "text": "Ablehnen",
+        "effects": {
+          "relationsAll": -15,
+          "politicalPower": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "new_harbour",
+    "name": "Hafenausbau",
+    "icon": "+",
+    "probability": 0.08,
+    "repeatable": true,
+    "description": "Reeder bieten an, den Hafen auf eigene Kosten zu erweitern - gegen dauerhafte Zollvorteile.",
+    "conditions": {
+      "minTurn": 5
+    },
+    "choices": [
+      {
+        "text": "Zugeständnisse machen",
+        "effects": {
+          "gold": -100,
+          "stability": 3,
+          "politicalPower": -6,
+          "researchPoints": 60
+        }
+      },
+      {
+        "text": "Selbst ausbauen",
+        "effects": {
+          "gold": -620,
+          "stability": 4,
+          "politicalPower": 6
+        }
+      },
+      {
+        "text": "Angebot ablehnen",
+        "effects": {
+          "relationsAll": -4
+        }
+      }
+    ]
+  },
+  {
+    "id": "drought",
+    "name": "Dürre",
+    "icon": "!",
+    "probability": 0.08,
+    "repeatable": true,
+    "description": "Zwei Monate ohne Regen. Die Flüsse führen Niedrigwasser, das Vieh verendet.",
+    "conditions": {
+      "minTurn": 4
+    },
+    "choices": [
+      {
+        "text": "Wasserbau finanzieren",
+        "effects": {
+          "gold": -450,
+          "stability": 3,
+          "unrest": -6
+        }
+      },
+      {
+        "text": "Vorräte verteilen",
+        "effects": {
+          "gold": -200,
+          "unrest": -4
+        }
+      },
+      {
+        "text": "Nichts unternehmen",
+        "effects": {
+          "populationPct": -2,
+          "unrest": 10,
+          "stability": -5
+        }
+      }
+    ]
+  },
+  {
+    "id": "press_scandal",
+    "name": "Skandal in der Presse",
+    "icon": "!",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Eine Zeitung deckt Bestechung in der Verwaltung auf. Die Belege wirken echt.",
+    "conditions": {
+      "minTurn": 5
+    },
+    "choices": [
+      {
+        "text": "Schuldige entlassen",
+        "effects": {
+          "stability": 4,
+          "politicalPower": -8
+        }
+      },
+      {
+        "text": "Zeitung verbieten",
+        "effects": {
+          "unrest": 10,
+          "stability": -4,
+          "politicalPower": 5
+        }
+      },
+      {
+        "text": "Aussitzen",
+        "effects": {
+          "stability": -6,
+          "unrest": 5
+        }
+      }
     ]
   },
   {
     "id": "mercenary_offer",
-    "name": "Söldnerangebot",
-    "description": "Ein Söldnerführer bietet seine erfahrene Truppe an - gegen sofortige Bezahlung.",
-    "icon": "sword",
-    "category": "military",
-    "probability": 0.3,
-    "once": false,
-    "conditions": { "minTurn": 3, "goldAbove": 600 },
+    "name": "Angebot einer Söldnerkompanie",
+    "icon": "+",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Eine erfahrene Söldnerkompanie bietet ihre Dienste an. Sie ist teuer und sofort verfügbar.",
+    "conditions": {
+      "minTurn": 4,
+      "goldAbove": 600
+    },
     "choices": [
-      { "text": "Anwerben", "effects": { "gold": -520, "army": 26 }, "resultText": "Die Söldner treffen in der Hauptstadt ein." },
-      { "text": "Ablehnen", "effects": { "politicalPower": 1 }, "resultText": "Der Hof bleibt bei den eigenen Aufgeboten." },
-      { "text": "An einen Rivalen verweisen", "effects": { "relations": -8, "gold": 120 }, "resultText": "Die Söldner ziehen weiter - mit einer Empfehlung und einer Rechnung." }
+      {
+        "text": "Anwerben",
+        "effects": {
+          "gold": -580,
+          "armyPct": 18,
+          "stability": -2
+        }
+      },
+      {
+        "text": "Kleinen Verband nehmen",
+        "effects": {
+          "gold": -240,
+          "armyPct": 7
+        }
+      },
+      {
+        "text": "Dankend ablehnen",
+        "effects": {
+          "politicalPower": 3
+        }
+      }
     ]
   },
   {
-    "id": "trade_boom",
-    "name": "Handelsblüte",
-    "description": "Neue Routen bringen ungewöhnlich viele Händler in eure Häfen.",
-    "icon": "coin",
-    "category": "economy",
-    "probability": 0.26,
-    "once": false,
-    "conditions": { "minTurn": 4 },
+    "id": "peace_movement",
+    "name": "Friedensbewegung",
+    "icon": "!",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "In mehreren Städten wird gegen den Krieg demonstriert. Die Kundgebungen werden größer.",
+    "conditions": {
+      "minTurn": 8,
+      "atWar": true
+    },
     "choices": [
-      { "text": "Zölle erheben", "effects": { "gold": 420, "relations": -6 }, "resultText": "Die Staatskasse profitiert, die Nachbarn murren." },
-      { "text": "Freien Handel gewähren", "effects": { "gold": 180, "relations": 10, "resources": { "luxury": 12 } }, "resultText": "Der gute Ruf eurer Häfen verbreitet sich." }
+      {
+        "text": "Versammlungen verbieten",
+        "effects": {
+          "unrest": 10,
+          "warExhaustion": -6,
+          "stability": -4
+        }
+      },
+      {
+        "text": "Anhörung zulassen",
+        "effects": {
+          "warExhaustion": -3,
+          "stability": 3,
+          "politicalPower": -6
+        }
+      },
+      {
+        "text": "Gewähren lassen",
+        "effects": {
+          "warExhaustion": 8,
+          "unrest": 4,
+          "stability": 2
+        }
+      }
     ]
   },
   {
-    "id": "succession_doubt",
-    "name": "Zweifel an der Thronfolge",
-    "description": "Es gibt keinen unumstrittenen Erben. Die großen Häuser bringen sich in Stellung.",
-    "icon": "crown",
-    "category": "politics",
-    "probability": 0.2,
-    "once": false,
-    "conditions": { "minTurn": 10 },
+    "id": "university_founded",
+    "name": "Gründung einer Hochschule",
+    "icon": "+",
+    "probability": 0.08,
+    "repeatable": true,
+    "description": "Gelehrte bitten um eine Stiftung für eine neue Hochschule. Der Ertrag zeigt sich erst in Jahren.",
+    "conditions": {
+      "minTurn": 6,
+      "goldAbove": 500
+    },
     "choices": [
-      { "text": "Nachfolge per Erlass regeln", "effects": { "politicalPower": -12, "stability": 10 }, "resultText": "Der Hof schafft Klarheit." },
-      { "text": "Die Häuser entscheiden lassen", "effects": { "stability": -10, "politicalPower": 6 }, "resultText": "Die Adelsfamilien gewinnen an Einfluss." }
+      {
+        "text": "Großzügig stiften",
+        "effects": {
+          "gold": -520,
+          "researchPoints": 200,
+          "stability": 3
+        }
+      },
+      {
+        "text": "Bescheiden fördern",
+        "effects": {
+          "gold": -180,
+          "researchPoints": 70
+        }
+      },
+      {
+        "text": "Gesuch ablehnen",
+        "effects": {
+          "politicalPower": 2,
+          "stability": -2
+        }
+      }
     ]
   },
   {
-    "id": "fortress_sabotage",
-    "name": "Sabotage an den Mauern",
-    "description": "In einer Grenzfestung wurden Vorräte vernichtet und Tore beschädigt.",
-    "icon": "shield",
-    "category": "military",
-    "probability": 0.22,
-    "once": false,
-    "conditions": { "minTurn": 6, "atWar": true },
+    "id": "succession_dispute",
+    "name": "Streit um die Nachfolge",
+    "icon": "!",
+    "probability": 0.06,
+    "repeatable": true,
+    "description": "Die Frage der Nachfolge ist ungeklärt. Zwei Lager im Staatsrat stehen sich unversöhnlich gegenüber.",
+    "conditions": {
+      "minTurn": 10,
+      "stabilityBelow": 60
+    },
     "choices": [
-      { "text": "Sofort instand setzen", "effects": { "gold": -300, "resources": { "iron": -8 } }, "resultText": "Die Festung ist wieder einsatzbereit." },
-      { "text": "Spione jagen", "effects": { "politicalPower": -5, "stability": 4 }, "resultText": "Mehrere Agenten werden gefasst." }
+      {
+        "text": "Machtwort sprechen",
+        "effects": {
+          "stability": 5,
+          "politicalPower": -12,
+          "unrest": 6
+        }
+      },
+      {
+        "text": "Kompromiss aushandeln",
+        "effects": {
+          "gold": -300,
+          "stability": 3,
+          "politicalPower": -4
+        }
+      },
+      {
+        "text": "Entscheidung vertagen",
+        "effects": {
+          "stability": -7,
+          "unrest": 8
+        }
+      }
     ]
   },
   {
-    "id": "population_boom",
-    "name": "Bevölkerungszuwachs",
-    "description": "Milde Winter und gute Ernten lassen die Dörfer wachsen.",
-    "icon": "wheat",
-    "category": "nature",
-    "probability": 0.24,
-    "once": false,
-    "conditions": { "minTurn": 5, "stabilityAbove": 55 },
+    "id": "hist_sarajevo",
+    "name": "Attentat von Sarajevo",
+    "icon": "!",
+    "probability": 0.9,
+    "repeatable": false,
+    "description": "Am 28. Juni 1914 erschießt Gavrilo Princip in Sarajevo den österreichisch-ungarischen Thronfolger Franz Ferdinand und dessen Frau Sophie. In Wien wird ein Ultimatum an Serbien vorbereitet.",
+    "conditions": {
+      "minYear": 1914,
+      "maxYear": 1914
+    },
     "choices": [
-      { "text": "Neue Siedlungen fördern", "effects": { "gold": -200, "population": 1400 }, "resultText": "Neue Höfe entstehen am Rand der Wälder." },
-      { "text": "Überschuss ausheben", "effects": { "army": 18, "population": -400 }, "resultText": "Die jungen Männer ziehen in die Kasernen." }
+      {
+        "text": "Auf ein Ultimatum drängen",
+        "effects": {
+          "politicalPower": 10,
+          "relationsAll": -20,
+          "stability": 3
+        }
+      },
+      {
+        "text": "Internationale Untersuchung fordern",
+        "effects": {
+          "politicalPower": -5,
+          "relationsAll": 8
+        }
+      },
+      {
+        "text": "Zurückhaltung üben",
+        "effects": {
+          "stability": -4,
+          "relationsAll": 12,
+          "politicalPower": -8
+        }
+      }
     ]
   },
   {
-    "id": "vassal_unrest",
-    "name": "Unruhe im Vasallenstaat",
-    "description": "Euer Vasall beklagt zu hohe Tribute und zu wenig Schutz.",
-    "icon": "crown",
-    "category": "politics",
-    "probability": 0.3,
-    "once": false,
-    "conditions": { "hasVassal": true, "minTurn": 5 },
+    "id": "hist_mobilisation",
+    "name": "Mobilmachung",
+    "icon": "!",
+    "probability": 0.85,
+    "repeatable": false,
+    "description": "Die Generalstäbe drängen: Wer zuletzt mobilisiert, kommt zu spät. Die Eisenbahnpläne liegen seit Jahren fertig in den Schubladen.",
+    "conditions": {
+      "minYear": 1914,
+      "maxYear": 1915
+    },
     "choices": [
-      { "text": "Tribut senken", "effects": { "gold": -260, "relations": 16 }, "resultText": "Der Vasall ist besänftigt." },
-      { "text": "Auf Gehorsam bestehen", "effects": { "relations": -14, "politicalPower": 3 }, "resultText": "Der Vasall fügt sich - widerwillig." }
+      {
+        "text": "Allgemeine Mobilmachung",
+        "effects": {
+          "armyPct": 25,
+          "gold": -600,
+          "warExhaustion": 6,
+          "relationsAll": -15
+        }
+      },
+      {
+        "text": "Nur Grenztruppen verstärken",
+        "effects": {
+          "armyPct": 10,
+          "gold": -250,
+          "warExhaustion": 2
+        }
+      },
+      {
+        "text": "Abwarten",
+        "effects": {
+          "relationsAll": 6,
+          "stability": -5
+        }
+      }
     ]
   },
   {
-    "id": "coalition_warning",
-    "name": "Warnung der Nachbarn",
-    "description": "Mehrere Höfe äussern offen Sorge vor eurer wachsenden Macht.",
-    "icon": "flag",
-    "category": "politics",
-    "probability": 0.3,
-    "once": false,
-    "conditions": { "minTurn": 8, "minTerritories": 8 },
+    "id": "hist_marne",
+    "name": "Schlacht an der Marne",
+    "icon": "!",
+    "probability": 0.7,
+    "repeatable": false,
+    "description": "Im September 1914 wird der deutsche Vormarsch vor Paris gestoppt. Der Plan eines kurzen Feldzugs ist gescheitert, die Front erstarrt in Gräben.",
+    "conditions": {
+      "minYear": 1914,
+      "maxYear": 1915,
+      "atWar": true
+    },
     "choices": [
-      { "text": "Beschwichtigen", "effects": { "gold": -350, "relations": 14 }, "resultText": "Geschenke und Zusicherungen beruhigen die Höfe." },
-      { "text": "Stärke demonstrieren", "effects": { "relations": -12, "stability": 6, "prestige": 8 }, "resultText": "Eure Truppen paradieren an den Grenzen." }
+      {
+        "text": "Stellungen ausbauen",
+        "effects": {
+          "gold": -400,
+          "stability": 3,
+          "armyPct": -4
+        }
+      },
+      {
+        "text": "Erneut angreifen",
+        "effects": {
+          "armyPct": -14,
+          "warExhaustion": 10,
+          "politicalPower": 6
+        }
+      },
+      {
+        "text": "Truppen an andere Front verlegen",
+        "effects": {
+          "armyPct": -6,
+          "politicalPower": 4
+        }
+      }
     ]
   },
   {
-    "id": "famine",
-    "name": "Hungersnot",
-    "description": "Missernten und Krieg leeren die Speicher. In den Städten wird Brot zugeteilt.",
-    "icon": "skull",
-    "category": "nature",
-    "probability": 0.22,
-    "once": false,
-    "conditions": { "minTurn": 6, "stabilityBelow": 50 },
+    "id": "hist_trench",
+    "name": "Stellungskrieg",
+    "icon": "!",
+    "probability": 0.5,
+    "repeatable": true,
+    "description": "Die Front bewegt sich seit Monaten kaum. Stacheldraht, Maschinengewehre und Artillerie machen jeden Angriff teuer. Die Verluste steigen ohne Geländegewinn.",
+    "conditions": {
+      "minYear": 1915,
+      "maxYear": 1918,
+      "atWar": true
+    },
     "choices": [
-      { "text": "Getreide einkaufen", "effects": { "gold": -420, "resources": { "grain": 20 }, "stability": 5 }, "resultText": "Die Lage entspannt sich." },
-      { "text": "Rationen kürzen", "effects": { "population": -800, "unrest": 18 }, "resultText": "Die Not trifft vor allem die Ärmsten." }
+      {
+        "text": "Materialschlacht führen",
+        "effects": {
+          "gold": -500,
+          "armyPct": -8,
+          "warExhaustion": 8
+        }
+      },
+      {
+        "text": "Front halten und sparen",
+        "effects": {
+          "gold": 200,
+          "warExhaustion": 3,
+          "stability": -2
+        }
+      },
+      {
+        "text": "Sturmtruppen ausbilden",
+        "effects": {
+          "gold": -350,
+          "researchPoints": 140,
+          "armyPct": -3
+        }
+      }
     ]
   },
   {
-    "id": "spy_caught",
-    "name": "Fremder Agent gefasst",
-    "description": "Die Wache fasst einen ausländischen Agenten mit Plänen eurer Festungen.",
-    "icon": "eye",
-    "category": "politics",
-    "probability": 0.24,
-    "once": false,
-    "conditions": { "minTurn": 6 },
+    "id": "hist_gas",
+    "name": "Einsatz von Giftgas",
+    "icon": "!",
+    "probability": 0.6,
+    "repeatable": false,
+    "description": "Im April 1915 wird bei Ypern erstmals Chlorgas in großem Umfang eingesetzt. Der militärische Gewinn ist begrenzt, die Empörung im Ausland gross.",
+    "conditions": {
+      "minYear": 1915,
+      "maxYear": 1917,
+      "atWar": true
+    },
     "choices": [
-      { "text": "Öffentlich hinrichten", "effects": { "relations": -16, "stability": 5, "politicalPower": 2 }, "resultText": "Ein deutliches Zeichen an alle Höfe." },
-      { "text": "Still austauschen", "effects": { "relations": 8, "politicalPower": 4 }, "resultText": "Ein diskreter Handel bringt euch einen eigenen Mann zurück." }
+      {
+        "text": "Einsatz befehlen",
+        "effects": {
+          "armyPct": 6,
+          "relationsAll": -25,
+          "stability": -6,
+          "warExhaustion": 6
+        }
+      },
+      {
+        "text": "Nur Schutzmasken beschaffen",
+        "effects": {
+          "gold": -300,
+          "armyPct": 3,
+          "relationsAll": 5
+        }
+      },
+      {
+        "text": "Öffentlich ächten",
+        "effects": {
+          "relationsAll": 15,
+          "politicalPower": 8,
+          "armyPct": -2
+        }
+      }
     ]
   },
   {
-    "id": "master_builder",
-    "name": "Baumeister am Hof",
-    "description": "Ein berühmter Baumeister bietet seine Dienste an.",
-    "icon": "hammer",
-    "category": "economy",
-    "probability": 0.2,
-    "once": true,
-    "conditions": { "minTurn": 8, "goldAbove": 800 },
+    "id": "hist_italy_enters",
+    "name": "Italien tritt in den Krieg ein",
+    "icon": "!",
+    "probability": 0.7,
+    "repeatable": false,
+    "description": "Im Mai 1915 erklärt Italien Österreich-Ungarn den Krieg. Der Londoner Vertrag hatte Gebietsgewinne zugesagt; eine neue Front entsteht am Isonzo.",
+    "conditions": {
+      "minYear": 1915,
+      "maxYear": 1916
+    },
     "choices": [
-      { "text": "Anstellen", "effects": { "gold": -600, "prestige": 12, "politicalPower": 5 }, "resultText": "Seine Pläne beschleunigen alle künftigen Bauten." },
-      { "text": "Höflich ablehnen", "effects": { "gold": 0 }, "resultText": "Der Baumeister zieht weiter." }
+      {
+        "text": "Alpenfront verstärken",
+        "effects": {
+          "gold": -450,
+          "armyPct": 8,
+          "warExhaustion": 4
+        }
+      },
+      {
+        "text": "Diplomatisch gegensteuern",
+        "effects": {
+          "gold": -300,
+          "politicalPower": -8,
+          "relationsAll": 10
+        }
+      },
+      {
+        "text": "Front vorerst schwach lassen",
+        "effects": {
+          "stability": -5,
+          "warExhaustion": 5
+        }
+      }
     ]
   },
   {
-    "id": "winter_storm",
-    "name": "Schwerer Winter",
-    "description": "Ein ungewöhnlich harter Winter legt Wege und Häfen lahm.",
-    "icon": "snow",
-    "category": "nature",
-    "probability": 0.26,
-    "once": false,
-    "conditions": { "minTurn": 4 },
+    "id": "hist_verdun",
+    "name": "Verdun",
+    "icon": "!",
+    "probability": 0.75,
+    "repeatable": false,
+    "description": "Von Februar bis Dezember 1916 tobt bei Verdun eine der verlustreichsten Schlachten des Krieges. Beide Seiten verlieren Hunderttausende, die Front verschiebt sich kaum.",
+    "conditions": {
+      "minYear": 1916,
+      "maxYear": 1917,
+      "atWar": true
+    },
     "choices": [
-      { "text": "Vorräte freigeben", "effects": { "resources": { "grain": -12 }, "stability": 6 }, "resultText": "Die Speicher retten viele Dörfer." },
-      { "text": "Truppen einquartieren", "effects": { "army": -8, "gold": 160 }, "resultText": "Die Armee überwintert in den Dörfern - nicht alle kehren zurück." }
+      {
+        "text": "Um jeden Preis halten",
+        "effects": {
+          "armyPct": -16,
+          "stability": 5,
+          "warExhaustion": 14,
+          "politicalPower": 8
+        }
+      },
+      {
+        "text": "Geordnet zurückgehen",
+        "effects": {
+          "armyPct": -6,
+          "stability": -8,
+          "warExhaustion": 6
+        }
+      },
+      {
+        "text": "Truppen regelmäßig ablösen",
+        "effects": {
+          "gold": -400,
+          "armyPct": -10,
+          "warExhaustion": 9,
+          "stability": 2
+        }
+      }
     ]
   },
   {
-    "id": "triumph",
+    "id": "hist_jutland",
+    "name": "Seeschlacht im Skagerrak",
+    "icon": "!",
+    "probability": 0.6,
+    "repeatable": false,
+    "description": "Ende Mai 1916 treffen die britische und die deutsche Hochseeflotte aufeinander. Beide Seiten reklamieren den Sieg; die Seeblockade bleibt bestehen.",
+    "conditions": {
+      "minYear": 1916,
+      "maxYear": 1917,
+      "atWar": true
+    },
+    "choices": [
+      {
+        "text": "Flotte erneut auslaufen lassen",
+        "effects": {
+          "gold": -500,
+          "politicalPower": 10,
+          "relationsAll": -8
+        }
+      },
+      {
+        "text": "Auf U-Boote setzen",
+        "effects": {
+          "gold": -350,
+          "researchPoints": 160,
+          "relationsAll": -12
+        }
+      },
+      {
+        "text": "Flotte im Hafen halten",
+        "effects": {
+          "gold": 150,
+          "stability": -4,
+          "politicalPower": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "hist_uboat",
+    "name": "Uneingeschränkter U-Boot-Krieg",
+    "icon": "!",
+    "probability": 0.7,
+    "repeatable": false,
+    "description": "Anfang 1917 wird der uneingeschränkte U-Boot-Krieg erklärt. Er soll die Versorgung der Gegner abschneiden - und bringt neutrale Mächte gegen das eigene Land auf.",
+    "conditions": {
+      "minYear": 1917,
+      "maxYear": 1917,
+      "atWar": true
+    },
+    "choices": [
+      {
+        "text": "Erklären",
+        "effects": {
+          "gold": 400,
+          "relationsAll": -30,
+          "warExhaustion": 8
+        }
+      },
+      {
+        "text": "Nur bewaffnete Schiffe angreifen",
+        "effects": {
+          "gold": 150,
+          "relationsAll": -10
+        }
+      },
+      {
+        "text": "Darauf verzichten",
+        "effects": {
+          "relationsAll": 12,
+          "gold": -200,
+          "politicalPower": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "hist_usa",
+    "name": "Kriegseintritt der Vereinigten Staaten",
+    "icon": "!",
+    "probability": 0.75,
+    "repeatable": false,
+    "description": "Im April 1917 erklären die USA dem Deutschen Reich den Krieg. Ihre wirtschaftliche Kraft wird die Kräfteverhältnisse binnen eines Jahres verschieben.",
+    "conditions": {
+      "minYear": 1917,
+      "maxYear": 1918
+    },
+    "choices": [
+      {
+        "text": "Entscheidung vor ihrer Ankunft suchen",
+        "effects": {
+          "armyPct": -12,
+          "warExhaustion": 12,
+          "politicalPower": 10
+        }
+      },
+      {
+        "text": "Verteidigung vorbereiten",
+        "effects": {
+          "gold": -500,
+          "stability": 4,
+          "armyPct": 4
+        }
+      },
+      {
+        "text": "Friedensfühler ausstrecken",
+        "effects": {
+          "politicalPower": -10,
+          "relationsAll": 15,
+          "warExhaustion": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "hist_russian_revolution",
+    "name": "Revolution in Russland",
+    "icon": "!",
+    "probability": 0.8,
+    "repeatable": false,
+    "description": "1917 stürzt in Russland zunächst die Monarchie, im Oktober übernehmen die Bolschewiki die Macht. Die Ostfront löst sich auf.",
+    "conditions": {
+      "minYear": 1917,
+      "maxYear": 1918
+    },
+    "choices": [
+      {
+        "text": "Truppen nach Westen verlegen",
+        "effects": {
+          "armyPct": 12,
+          "warExhaustion": 4
+        }
+      },
+      {
+        "text": "Separatfrieden anstreben",
+        "effects": {
+          "politicalPower": -12,
+          "warExhaustion": -12,
+          "relationsAll": 8
+        }
+      },
+      {
+        "text": "Lage abwarten",
+        "effects": {
+          "stability": -4,
+          "warExhaustion": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "hist_flu",
+    "name": "Grippewelle von 1918",
+    "icon": "!",
+    "probability": 0.85,
+    "repeatable": false,
+    "description": "Eine weltweite Grippewelle erfasst 1918 Front und Heimat. Sie fordert mehr Opfer als die Kämpfe des Jahres und trifft besonders junge Erwachsene.",
+    "conditions": {
+      "minYear": 1918,
+      "maxYear": 1919
+    },
+    "choices": [
+      {
+        "text": "Lazarette ausbauen",
+        "effects": {
+          "gold": -600,
+          "populationPct": -2,
+          "stability": 3,
+          "armyPct": -5
+        }
+      },
+      {
+        "text": "Truppenbewegungen einschränken",
+        "effects": {
+          "populationPct": -2,
+          "armyPct": -8,
+          "warExhaustion": 4
+        }
+      },
+      {
+        "text": "Meldungen unterdrücken",
+        "effects": {
+          "populationPct": -5,
+          "unrest": 12,
+          "stability": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": "hist_home_front",
+    "name": "Steckrübenwinter",
+    "icon": "!",
+    "probability": 0.7,
+    "repeatable": true,
+    "description": "Die Seeblockade und der Arbeitskräftemangel treffen die Versorgung. In den Städten stehen Menschen stundenlang nach Brot an, Kohle fehlt.",
+    "conditions": {
+      "minYear": 1916,
+      "maxYear": 1918,
+      "atWar": true
+    },
+    "choices": [
+      {
+        "text": "Lebensmittel rationieren",
+        "effects": {
+          "stability": 2,
+          "unrest": 6,
+          "gold": 100
+        }
+      },
+      {
+        "text": "Im Ausland teuer einkaufen",
+        "effects": {
+          "gold": -700,
+          "unrest": -8,
+          "stability": 4
+        }
+      },
+      {
+        "text": "Nichts ändern",
+        "effects": {
+          "unrest": 16,
+          "stability": -10,
+          "populationPct": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "hist_armistice",
+    "name": "Waffenstillstandsverhandlungen",
+    "icon": "!",
+    "probability": 0.8,
+    "repeatable": false,
+    "description": "Im Herbst 1918 sind die Reserven erschöpft und die Verbündeten brechen weg. In Compiegne wird über einen Waffenstillstand verhandelt.",
+    "conditions": {
+      "minYear": 1918,
+      "maxYear": 1919,
+      "atWar": true
+    },
+    "choices": [
+      {
+        "text": "Bedingungen annehmen",
+        "effects": {
+          "warExhaustion": -30,
+          "stability": -6,
+          "politicalPower": -15,
+          "relationsAll": 20
+        }
+      },
+      {
+        "text": "Weiterkämpfen",
+        "effects": {
+          "armyPct": -15,
+          "warExhaustion": 15,
+          "unrest": 14,
+          "stability": -10
+        }
+      },
+      {
+        "text": "Hinhaltend verhandeln",
+        "effects": {
+          "warExhaustion": -8,
+          "politicalPower": -5,
+          "relationsAll": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "ant_seuche",
+    "name": "Seuche im Heerlager",
+    "icon": "!",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "Im Feldlager bricht eine Krankheit aus. Ärzte kennen die Ursache nicht; die Priester sprechen von einem Zeichen der Götter.",
+    "conditions": {
+      "minTurn": 3
+    },
+    "choices": [
+      {
+        "text": "Lager verlegen",
+        "effects": {
+          "gold": -200,
+          "armyPct": -5,
+          "stability": 2
+        }
+      },
+      {
+        "text": "Opfer darbringen lassen",
+        "effects": {
+          "gold": -120,
+          "stability": 5,
+          "armyPct": -8
+        }
+      },
+      {
+        "text": "Feldzug fortsetzen",
+        "effects": {
+          "armyPct": -14,
+          "warExhaustion": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "ant_orakel",
+    "name": "Spruch des Orakels",
+    "icon": "+",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Eine Gesandtschaft kehrt vom Orakel zurueck. Der Spruch ist wie immer mehrdeutig - und wird von beiden Parteien im Rat für sich beansprucht.",
+    "conditions": {
+      "minTurn": 2
+    },
+    "choices": [
+      {
+        "text": "Als Aufruf zum Krieg deuten",
+        "effects": {
+          "politicalPower": 10,
+          "stability": 4,
+          "relationsAll": -10
+        }
+      },
+      {
+        "text": "Als Mahnung zur Vorsicht deuten",
+        "effects": {
+          "stability": 6,
+          "politicalPower": -4
+        }
+      },
+      {
+        "text": "Spruch geheim halten",
+        "effects": {
+          "politicalPower": 6,
+          "stability": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "ant_getreideflotte",
+    "name": "Die Getreideflotte",
+    "icon": "+",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "Die jährliche Getreidefahrt steht an. Ohne sie hungert die Hauptstadt, mit ihr füllen sich die Speicher und die Kassen der Händler.",
+    "conditions": {
+      "minTurn": 3
+    },
+    "choices": [
+      {
+        "text": "Flotte mit Kriegsschiffen sichern",
+        "effects": {
+          "gold": -250,
+          "stability": 6,
+          "unrest": -8
+        }
+      },
+      {
+        "text": "Händlern überlassen",
+        "effects": {
+          "gold": 200,
+          "unrest": 5
+        }
+      },
+      {
+        "text": "Getreide beschlagnahmen",
+        "effects": {
+          "gold": 450,
+          "unrest": 12,
+          "stability": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "ant_soeldner",
+    "name": "Söldner fordern Sold",
+    "icon": "!",
+    "probability": 0.11,
+    "repeatable": true,
+    "description": "Die angeworbenen Verbände haben seit Monaten kein Geld gesehen. Vor dem Zelt des Feldherrn sammeln sich bewaffnete Männer.",
+    "conditions": {
+      "minTurn": 4,
+      "goldBelow": 500
+    },
+    "choices": [
+      {
+        "text": "Auszahlen, koste es was es wolle",
+        "effects": {
+          "gold": -500,
+          "stability": 4
+        }
+      },
+      {
+        "text": "Beute versprechen",
+        "effects": {
+          "armyPct": 5,
+          "unrest": 8,
+          "warExhaustion": 5
+        }
+      },
+      {
+        "text": "Rädelsführer hinrichten",
+        "effects": {
+          "armyPct": -10,
+          "stability": -5,
+          "politicalPower": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "ant_triumph",
     "name": "Triumphzug",
-    "description": "Nach den jüngsten Erfolgen fordert die Hauptstadt einen großen Festzug.",
-    "icon": "crown",
-    "category": "military",
-    "probability": 0.28,
-    "once": false,
-    "conditions": { "minTurn": 6, "stabilityAbove": 60, "minTerritories": 6 },
+    "icon": "+",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Der siegreiche Feldherr zieht in die Hauptstadt ein. Das Volk jubelt - und im Rat fragt man sich, wem die Truppen künftig gehorchen.",
+    "conditions": {
+      "minTurn": 6,
+      "armyAbove": 30
+    },
     "choices": [
-      { "text": "Großen Triumph feiern", "effects": { "gold": -340, "stability": 10, "prestige": 14 }, "resultText": "Die Straßen sind voll. Das Ansehen des Herrschers wächst." },
-      { "text": "Bescheiden bleiben", "effects": { "gold": 0, "politicalPower": 4 }, "resultText": "Der Hof spart - und wirkt umso ernsthafter." }
+      {
+        "text": "Prunkvoll ausrichten",
+        "effects": {
+          "gold": -350,
+          "stability": 8,
+          "politicalPower": -8
+        }
+      },
+      {
+        "text": "Schlicht halten",
+        "effects": {
+          "gold": -80,
+          "stability": 3
+        }
+      },
+      {
+        "text": "Verweigern",
+        "effects": {
+          "politicalPower": 8,
+          "stability": -6,
+          "unrest": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "ant_sklavenaufstand",
+    "name": "Aufstand der Unfreien",
+    "icon": "!",
+    "probability": 0.08,
+    "repeatable": true,
+    "description": "Auf den Gütern erheben sich die Unfreien. Die Erhebung greift auf mehrere Landstriche über.",
+    "conditions": {
+      "minTurn": 8,
+      "stabilityBelow": 60
+    },
+    "choices": [
+      {
+        "text": "Legionen einsetzen",
+        "effects": {
+          "armyPct": -8,
+          "unrest": -14,
+          "stability": -3
+        }
+      },
+      {
+        "text": "Zugeständnisse machen",
+        "effects": {
+          "gold": -350,
+          "unrest": -10,
+          "stability": 4,
+          "politicalPower": -6
+        }
+      },
+      {
+        "text": "Aussitzen",
+        "effects": {
+          "unrest": 16,
+          "populationPct": -2,
+          "stability": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": "ant_reiterueberfall",
+    "name": "Reiter aus der Steppe",
+    "icon": "!",
+    "probability": 0.11,
+    "repeatable": true,
+    "description": "Berittene Verbände überfallen die Grenzsiedlungen, plündern und sind verschwunden, ehe die Truppen eintreffen.",
+    "conditions": {
+      "minTurn": 3
+    },
+    "choices": [
+      {
+        "text": "Grenzwall errichten",
+        "effects": {
+          "gold": -450,
+          "stability": 4,
+          "unrest": -5
+        }
+      },
+      {
+        "text": "Strafexpedition entsenden",
+        "effects": {
+          "armyPct": -7,
+          "politicalPower": 6,
+          "relationsAll": -8
+        }
+      },
+      {
+        "text": "Tribut zahlen",
+        "effects": {
+          "gold": -300,
+          "stability": -4,
+          "relationsAll": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "ant_strassenbau",
+    "name": "Heerstraße",
+    "icon": "+",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Der Bau einer gepflasterten Straße soll Truppen und Nachrichten schneller bewegen. Sie kostet Jahre an Arbeit.",
+    "conditions": {
+      "minTurn": 5,
+      "goldAbove": 500
+    },
+    "choices": [
+      {
+        "text": "Bauen lassen",
+        "effects": {
+          "gold": -550,
+          "researchPoints": 140,
+          "stability": 3
+        }
+      },
+      {
+        "text": "Von Unfreien bauen lassen",
+        "effects": {
+          "gold": -200,
+          "researchPoints": 100,
+          "unrest": 8
+        }
+      },
+      {
+        "text": "Verschieben",
+        "effects": {
+          "politicalPower": -3
+        }
+      }
+    ]
+  },
+  {
+    "id": "mit_pest",
+    "name": "Der Schwarze Tod",
+    "icon": "!",
+    "probability": 0.5,
+    "repeatable": false,
+    "description": "Eine Pestwelle zieht entlang der Handelswege. In manchen Städten stirbt ein Drittel der Einwohner; Äcker bleiben unbestellt.",
+    "conditions": {
+      "minYear": 1330,
+      "maxYear": 1400
+    },
+    "choices": [
+      {
+        "text": "Häfen und Tore sperren",
+        "effects": {
+          "gold": -400,
+          "populationPct": -12,
+          "unrest": 10,
+          "stability": 3
+        }
+      },
+      {
+        "text": "Kranke versorgen lassen",
+        "effects": {
+          "gold": -600,
+          "populationPct": -16,
+          "stability": 6
+        }
+      },
+      {
+        "text": "Nichts unternehmen",
+        "effects": {
+          "populationPct": -25,
+          "unrest": 20,
+          "stability": -12
+        }
+      }
+    ]
+  },
+  {
+    "id": "mit_kreuzzug",
+    "name": "Aufruf zum Kreuzzug",
+    "icon": "!",
+    "probability": 0.5,
+    "repeatable": false,
+    "description": "Ein Aufruf zur bewaffneten Wallfahrt ins Heilige Land geht durch die Lande. Ritter und Bauern brechen auf, viele ohne Vorbereitung.",
+    "conditions": {
+      "minYear": 1095,
+      "maxYear": 1300
+    },
+    "choices": [
+      {
+        "text": "Zug führen",
+        "effects": {
+          "gold": -700,
+          "armyPct": -15,
+          "stability": 8,
+          "politicalPower": 15,
+          "relationsAll": -15
+        }
+      },
+      {
+        "text": "Geld statt Männer geben",
+        "effects": {
+          "gold": -400,
+          "politicalPower": 6,
+          "stability": 3
+        }
+      },
+      {
+        "text": "Fernbleiben",
+        "effects": {
+          "politicalPower": -10,
+          "stability": -5,
+          "relationsAll": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": "mit_haeresie",
+    "name": "Ketzerei im Land",
+    "icon": "!",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Eine Lehre verbreitet sich, die die Geistlichkeit als Irrglauben verurteilt. Ihre Anhänger wachsen, besonders in den Städten.",
+    "conditions": {
+      "minTurn": 6
+    },
+    "choices": [
+      {
+        "text": "Verfolgen lassen",
+        "effects": {
+          "unrest": 12,
+          "stability": 4,
+          "populationPct": -1,
+          "politicalPower": 6
+        }
+      },
+      {
+        "text": "Streitgespräch ansetzen",
+        "effects": {
+          "gold": -150,
+          "unrest": -4,
+          "researchPoints": 80
+        }
+      },
+      {
+        "text": "Gewähren lassen",
+        "effects": {
+          "stability": -6,
+          "unrest": 5,
+          "researchPoints": 60
+        }
+      }
+    ]
+  },
+  {
+    "id": "mit_handelsweg",
+    "name": "Neue Karawanenstraße",
+    "icon": "+",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "Händler melden eine sicherere Route durch die Steppe. Wer die Zölle kontrolliert, verdient an jedem Ballen Seide.",
+    "conditions": {
+      "minTurn": 4
+    },
+    "choices": [
+      {
+        "text": "Karawansereien bauen",
+        "effects": {
+          "gold": -400,
+          "stability": 3,
+          "relationsAll": 8
+        }
+      },
+      {
+        "text": "Hohe Zölle erheben",
+        "effects": {
+          "gold": 500,
+          "relationsAll": -10
+        }
+      },
+      {
+        "text": "Route den Nomaden überlassen",
+        "effects": {
+          "relationsAll": 12,
+          "gold": -50
+        }
+      }
+    ]
+  },
+  {
+    "id": "mit_thronstreit",
+    "name": "Streit um den Thron",
+    "icon": "!",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Zwei Zweige des Hauses erheben Anspruch auf die Herrschaft. Die Großen des Reiches wählen Seiten.",
+    "conditions": {
+      "minTurn": 8,
+      "stabilityBelow": 58
+    },
+    "choices": [
+      {
+        "text": "Mit Waffengewalt entscheiden",
+        "effects": {
+          "armyPct": -10,
+          "stability": 5,
+          "unrest": 10,
+          "politicalPower": 8
+        }
+      },
+      {
+        "text": "Reich teilen",
+        "effects": {
+          "stability": 3,
+          "politicalPower": -15,
+          "gold": -300
+        }
+      },
+      {
+        "text": "Verhandeln lassen",
+        "effects": {
+          "gold": -400,
+          "stability": 2,
+          "politicalPower": -6
+        }
+      }
+    ]
+  },
+  {
+    "id": "mit_burgenbau",
+    "name": "Burgenbau",
+    "icon": "+",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "Die Grenzherren verlangen Mittel für steinerne Burgen. Wer sie baut, sichert das Land - und stärkt die Herren.",
+    "conditions": {
+      "minTurn": 4,
+      "goldAbove": 450
+    },
+    "choices": [
+      {
+        "text": "Aus der Krongasse bezahlen",
+        "effects": {
+          "gold": -500,
+          "stability": 5,
+          "politicalPower": 5
+        }
+      },
+      {
+        "text": "Den Herren überlassen",
+        "effects": {
+          "stability": 3,
+          "politicalPower": -10
+        }
+      },
+      {
+        "text": "Ablehnen",
+        "effects": {
+          "unrest": 6,
+          "politicalPower": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "mit_steppenreiter",
+    "name": "Heerzug aus der Steppe",
+    "icon": "!",
+    "probability": 0.12,
+    "repeatable": true,
+    "description": "Ein großer Reiterverband zieht heran. Boten berichten von einer Beweglichkeit, gegen die schwere Reiterei nichts ausrichtet.",
+    "conditions": {
+      "minTurn": 3
+    },
+    "choices": [
+      {
+        "text": "Offene Feldschlacht suchen",
+        "effects": {
+          "armyPct": -16,
+          "politicalPower": 8,
+          "stability": -3
+        }
+      },
+      {
+        "text": "In die Burgen zurückziehen",
+        "effects": {
+          "populationPct": -3,
+          "unrest": 10,
+          "armyPct": -4
+        }
+      },
+      {
+        "text": "Tribut und Geiseln stellen",
+        "effects": {
+          "gold": -550,
+          "stability": -5,
+          "relationsAll": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "mit_gelehrtenhaus",
+    "name": "Haus der Weisheit",
+    "icon": "+",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Gelehrte bitten um eine Stiftung für eine Bibliothek und Übersetzerwerkstatt. Griechische und indische Schriften warten auf Übertragung.",
+    "conditions": {
+      "minTurn": 5,
+      "goldAbove": 500
+    },
+    "choices": [
+      {
+        "text": "Großzügig stiften",
+        "effects": {
+          "gold": -550,
+          "researchPoints": 240,
+          "stability": 3
+        }
+      },
+      {
+        "text": "Bescheiden fördern",
+        "effects": {
+          "gold": -200,
+          "researchPoints": 90
+        }
+      },
+      {
+        "text": "Mittel anderweitig verwenden",
+        "effects": {
+          "politicalPower": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "mit_hungerjahr",
+    "name": "Hungerjahr",
+    "icon": "!",
+    "probability": 0.11,
+    "repeatable": true,
+    "description": "Ein kalter Sommer lässt das Korn nicht reifen. Auf den Märkten verdreifachen sich die Preise.",
+    "conditions": {
+      "minTurn": 3
+    },
+    "choices": [
+      {
+        "text": "Klosterspeicher öffnen",
+        "effects": {
+          "gold": -350,
+          "unrest": -10,
+          "stability": 4
+        }
+      },
+      {
+        "text": "Getreide einführen",
+        "effects": {
+          "gold": -550,
+          "unrest": -6,
+          "populationPct": -1
+        }
+      },
+      {
+        "text": "Dem Lauf der Dinge überlassen",
+        "effects": {
+          "populationPct": -4,
+          "unrest": 15,
+          "stability": -8
+        }
+      }
+    ]
+  },
+  {
+    "id": "neu_buchdruck",
+    "name": "Die Druckerpresse",
+    "icon": "+",
+    "probability": 0.6,
+    "repeatable": false,
+    "description": "Mit beweglichen Lettern lassen sich Schriften vervielfältigen. Wissen verbreitet sich schneller - und Streitschriften ebenso.",
+    "conditions": {
+      "minYear": 1450,
+      "maxYear": 1600
+    },
+    "choices": [
+      {
+        "text": "Druckereien fördern",
+        "effects": {
+          "gold": -350,
+          "researchPoints": 280,
+          "stability": -3,
+          "unrest": 5
+        }
+      },
+      {
+        "text": "Druck unter Aufsicht stellen",
+        "effects": {
+          "gold": -150,
+          "researchPoints": 120,
+          "politicalPower": 6
+        }
+      },
+      {
+        "text": "Presse verbieten",
+        "effects": {
+          "stability": 4,
+          "researchPoints": -60,
+          "unrest": 8
+        }
+      }
+    ]
+  },
+  {
+    "id": "neu_reformation",
+    "name": "Kirchenspaltung",
+    "icon": "!",
+    "probability": 0.55,
+    "repeatable": false,
+    "description": "Thesen gegen den Ablasshandel spalten die Christenheit. Fürsten und Städte wählen Seiten, aus dem Glaubensstreit wird Politik.",
+    "conditions": {
+      "minYear": 1517,
+      "maxYear": 1620
+    },
+    "choices": [
+      {
+        "text": "Der neuen Lehre folgen",
+        "effects": {
+          "gold": 500,
+          "stability": -8,
+          "unrest": 12,
+          "relationsAll": -15,
+          "politicalPower": 10
+        }
+      },
+      {
+        "text": "Beim alten Glauben bleiben",
+        "effects": {
+          "stability": 4,
+          "unrest": 8,
+          "relationsAll": 8
+        }
+      },
+      {
+        "text": "Beide dulden",
+        "effects": {
+          "stability": -4,
+          "unrest": -6,
+          "politicalPower": -8,
+          "researchPoints": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "neu_seeweg",
+    "name": "Ein neuer Seeweg",
+    "icon": "+",
+    "probability": 0.5,
+    "repeatable": false,
+    "description": "Kapitäne melden eine Route um das Kap. Der Gewürzhandel muss nicht länger über die Landwege des Ostens laufen.",
+    "conditions": {
+      "minYear": 1490,
+      "maxYear": 1600
+    },
+    "choices": [
+      {
+        "text": "Flotte ausrüsten",
+        "effects": {
+          "gold": -700,
+          "researchPoints": 180,
+          "relationsAll": -8
+        }
+      },
+      {
+        "text": "Handelsgesellschaft gründen lassen",
+        "effects": {
+          "gold": -250,
+          "politicalPower": -6,
+          "researchPoints": 90
+        }
+      },
+      {
+        "text": "Beim Landweg bleiben",
+        "effects": {
+          "gold": 150,
+          "relationsAll": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "neu_silber",
+    "name": "Silber aus Übersee",
+    "icon": "+",
+    "probability": 0.12,
+    "repeatable": true,
+    "description": "Eine Flotte bringt Edelmetall aus den neuen Besitzungen. Die Kassen füllen sich - und die Preise steigen im ganzen Land.",
+    "conditions": {
+      "minTurn": 6
+    },
+    "choices": [
+      {
+        "text": "In die Kriegskasse legen",
+        "effects": {
+          "gold": 900,
+          "unrest": 8,
+          "stability": -3
+        }
+      },
+      {
+        "text": "Schulden tilgen",
+        "effects": {
+          "gold": 600,
+          "stability": 5
+        }
+      },
+      {
+        "text": "In Manufakturen anlegen",
+        "effects": {
+          "gold": 300,
+          "researchPoints": 150,
+          "stability": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "neu_stehendes_heer",
+    "name": "Ein stehendes Heer",
+    "icon": "+",
+    "probability": 0.11,
+    "repeatable": true,
+    "description": "Statt Söldner für jeden Feldzug neu anzuwerben, soll eine dauerhafte Truppe aufgestellt werden - teuer, aber verlässlich.",
+    "conditions": {
+      "minTurn": 5,
+      "goldAbove": 700
+    },
+    "choices": [
+      {
+        "text": "Regimenter aufstellen",
+        "effects": {
+          "gold": -800,
+          "armyPct": 20,
+          "stability": 3,
+          "politicalPower": 8
+        }
+      },
+      {
+        "text": "Nur eine Garde aufstellen",
+        "effects": {
+          "gold": -300,
+          "armyPct": 8,
+          "stability": 2
+        }
+      },
+      {
+        "text": "Weiter auf Söldner setzen",
+        "effects": {
+          "gold": 100,
+          "stability": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "neu_kolonie",
+    "name": "Eine Niederlassung in Übersee",
+    "icon": "+",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "Kaufleute wollen einen Stützpunkt an fremder Küste gründen. Sie bitten um Schutzbriefe und Schiffe.",
+    "conditions": {
+      "minTurn": 6
+    },
+    "choices": [
+      {
+        "text": "Krone übernimmt die Gründung",
+        "effects": {
+          "gold": -600,
+          "politicalPower": 10,
+          "relationsAll": -6
+        }
+      },
+      {
+        "text": "Gesellschaft gewähren lassen",
+        "effects": {
+          "gold": -150,
+          "politicalPower": -5
+        }
+      },
+      {
+        "text": "Gesuch ablehnen",
+        "effects": {
+          "relationsAll": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "neu_bauernkrieg",
+    "name": "Erhebung der Bauern",
+    "icon": "!",
+    "probability": 0.09,
+    "repeatable": true,
+    "description": "Auf dem Land erheben sich die Bauern gegen Abgaben und Frondienste. Sie berufen sich auf das göttliche Recht.",
+    "conditions": {
+      "minTurn": 6,
+      "stabilityBelow": 58
+    },
+    "choices": [
+      {
+        "text": "Niederschlagen",
+        "effects": {
+          "armyPct": -6,
+          "unrest": -16,
+          "populationPct": -2,
+          "stability": -4
+        }
+      },
+      {
+        "text": "Beschwerden prüfen lassen",
+        "effects": {
+          "gold": -350,
+          "unrest": -10,
+          "stability": 4,
+          "politicalPower": -6
+        }
+      },
+      {
+        "text": "Abwarten",
+        "effects": {
+          "unrest": 18,
+          "stability": -10
+        }
+      }
+    ]
+  },
+  {
+    "id": "neu_sternwarte",
+    "name": "Eine Sternwarte",
+    "icon": "+",
+    "probability": 0.1,
+    "repeatable": true,
+    "description": "Ein Gelehrter bittet um Mittel für Instrumente und einen Turm. Seine Berechnungen widersprechen der überlieferten Lehre.",
+    "conditions": {
+      "minTurn": 5,
+      "goldAbove": 500
+    },
+    "choices": [
+      {
+        "text": "Bauen und schützen",
+        "effects": {
+          "gold": -450,
+          "researchPoints": 260,
+          "stability": -3
+        }
+      },
+      {
+        "text": "Still fördern",
+        "effects": {
+          "gold": -200,
+          "researchPoints": 130
+        }
+      },
+      {
+        "text": "Ablehnen",
+        "effects": {
+          "stability": 3,
+          "researchPoints": -40
+        }
+      }
     ]
   }
 ]

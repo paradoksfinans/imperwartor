@@ -2,15 +2,69 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
-    />
-    <meta name="theme-color" content="#0d1117" />
-    <title>Empire Tactics</title>
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#0c1319" />
+    <meta name="description"
+      content="imperWARtor - rundenbasiertes Strategiespiel auf der Landkarte." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>imperWARtor</title>
+    <style>
+      /* Grundfarben sofort, damit nie eine schwarze Flaeche entsteht. */
+      html, body { margin:0; min-height:100vh; min-height:100dvh;
+        background:#0c1319; color:#e8eef4;
+        font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif; }
+      #boot { padding:28px; max-width:680px; line-height:1.6; }
+      #boot h1 { font-size:20px; margin:0 0 10px; color:#d6a84e; }
+      #boot pre { white-space:pre-wrap; word-break:break-word; font-size:12px;
+        background:#141e27; border:1px solid #2b3a46; border-radius:8px;
+        padding:12px; color:#a7b8c6; }
+      .boot-punkt { display:inline-block; width:9px; height:9px; border-radius:50%;
+        background:#d6a84e; margin-right:5px; animation:boot-blink 1.1s infinite; }
+      .boot-punkt:nth-child(2){animation-delay:.18s} .boot-punkt:nth-child(3){animation-delay:.36s}
+      @keyframes boot-blink { 0%,100%{opacity:.25} 50%{opacity:1} }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="boot">
+      <h1>imperWARtor</h1>
+      <p><span class="boot-punkt"></span><span class="boot-punkt"></span><span class="boot-punkt"></span>
+        Wird geladen &hellip;</p>
+    </div>
+    <div id="app"></div>
+    <noscript>imperWARtor benoetigt JavaScript.</noscript>
+    <script>
+      /* Startueberwachung in altem JavaScript: laeuft auch dann, wenn der
+         Hauptcode nicht startet, und macht einen Fehler sichtbar statt
+         als schwarze Flaeche enden zu lassen. */
+      (function () {
+        var meldungen = [];
+        function zeige(text) {
+          var b = document.getElementById('boot');
+          if (!b) return;
+          b.innerHTML = '';
+          var h = document.createElement('h1'); h.textContent = 'Start fehlgeschlagen';
+          var p = document.createElement('pre'); p.textContent = text;
+          b.appendChild(h); b.appendChild(p);
+        }
+        window.addEventListener('error', function (e) {
+          meldungen.push('Fehler: ' + (e.message || '?') + (e.lineno ? ' (Zeile ' + e.lineno + ')' : ''));
+          zeige(meldungen.join('\n'));
+        });
+        window.addEventListener('unhandledrejection', function (e) {
+          meldungen.push('Abgelehnt: ' + (e.reason && e.reason.message ? e.reason.message : String(e.reason)));
+          zeige(meldungen.join('\n'));
+        });
+        window.setTimeout(function () {
+          var app = document.getElementById('app');
+          if (app && app.children.length > 0) return;
+          meldungen.push('Das Skript hat die Oberflaeche nicht aufgebaut.');
+          meldungen.push('Skript ausgefuehrt: ' + (window.__etLief ? 'ja' : 'nein'));
+          zeige(meldungen.join('\n'));
+        }, 5000);
+      })();
+    </script>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

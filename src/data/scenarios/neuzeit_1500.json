@@ -1,0 +1,461 @@
+{
+  "id": "neuzeit_1500",
+  "name": "Frühe Neuzeit - 1500",
+  "description": "Seewege nach Indien und Amerika sind offen, die Osmanen stehen an der Donau, und in Persien entsteht das Reich der Safawiden. Hinweis: Die Gebiete folgen heutigen Staatsgrenzen.",
+  "mapId": "welt",
+  "startYear": 1500,
+  "endYear": 1750,
+  "monthsPerTurn": 12,
+  "sandbox": false,
+  "provinceOverrides": {},
+  "countries": [
+    {
+      "id": "osmanen",
+      "name": "Osmanisches Reich",
+      "color": "#b5762f",
+      "pattern": "solid",
+      "emblem": "O",
+      "ruler": "Bayezid II.",
+      "government": "empire",
+      "personality": "expansionist",
+      "capital": "we126",
+      "provinces": [
+        "we108",
+        "we120",
+        "we126",
+        "we14",
+        "we17",
+        "we47",
+        "we61",
+        "we64"
+      ],
+      "gold": 1200,
+      "stability": 62,
+      "politicalPower": 30,
+      "tech": {
+        "military": 3,
+        "economy": 3,
+        "administration": 3,
+        "logistics": 2,
+        "defense": 3
+      },
+      "armies": {
+        "we126": 16,
+        "we47": 4,
+        "we17": 4,
+        "we108": 4,
+        "we14": 3,
+        "we120": 3,
+        "we61": 3,
+        "we64": 3
+      },
+      "traits": {
+        "military": 1.3,
+        "economy": 1.15,
+        "defense": 1.1,
+        "research": 1.1,
+        "trade": 1.2
+      },
+      "description": "Konstantinopel ist gefallen, die Janitscharen sind Europas erste stehende Truppe. Das Reich reicht von der Donau bis zum Euphrat."
+    },
+    {
+      "id": "safawiden",
+      "name": "Safawidenreich",
+      "color": "#41b0c9",
+      "pattern": "solid",
+      "emblem": "S",
+      "ruler": "Schah Ismail I.",
+      "government": "theocracy",
+      "personality": "aggressive",
+      "capital": "we58",
+      "provinces": [
+        "we04",
+        "we07",
+        "we58",
+        "we59"
+      ],
+      "gold": 700,
+      "stability": 54,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we58": 10,
+        "we07": 6,
+        "we59": 5,
+        "we04": 5
+      },
+      "traits": {
+        "military": 1.2,
+        "economy": 1,
+        "defense": 1.05,
+        "research": 1.05,
+        "trade": 1.1
+      },
+      "description": "Neu gegründet, schiitisch und im Dauerkonflikt mit den Osmanen. Getragen von turkmenischen Reiterverbänden, den Kizilbasch."
+    },
+    {
+      "id": "spanien",
+      "name": "Spanien",
+      "color": "#c9a227",
+      "pattern": "solid",
+      "emblem": "E",
+      "ruler": "Ferdinand II. von Aragon",
+      "government": "monarchy",
+      "personality": "expansionist",
+      "capital": "we115",
+      "provinces": [
+        "we115",
+        "we30",
+        "we78"
+      ],
+      "gold": 1100,
+      "stability": 60,
+      "politicalPower": 30,
+      "tech": {
+        "military": 3,
+        "economy": 3,
+        "administration": 3,
+        "logistics": 2,
+        "defense": 3
+      },
+      "armies": {
+        "we115": 11,
+        "we78": 9,
+        "we30": 8
+      },
+      "traits": {
+        "military": 1.25,
+        "economy": 1.2,
+        "defense": 1.05,
+        "research": 1.1,
+        "trade": 1.3
+      },
+      "description": "Nach der Reconquista vereinigt und mit dem Silber der Neuen Welt im Rücken."
+    },
+    {
+      "id": "portugal",
+      "name": "Portugal",
+      "color": "#7fb04a",
+      "pattern": "solid",
+      "emblem": "P",
+      "ruler": "Manuel I.",
+      "government": "monarchy",
+      "personality": "economic",
+      "capital": "we101",
+      "provinces": [
+        "we02",
+        "we101",
+        "we16",
+        "we82"
+      ],
+      "gold": 900,
+      "stability": 64,
+      "politicalPower": 30,
+      "tech": {
+        "military": 3,
+        "economy": 3,
+        "administration": 3,
+        "logistics": 2,
+        "defense": 3
+      },
+      "armies": {
+        "we101": 6,
+        "we16": 3,
+        "we02": 3,
+        "we82": 2
+      },
+      "traits": {
+        "military": 1,
+        "economy": 1.25,
+        "defense": 1,
+        "research": 1.25,
+        "trade": 1.5
+      },
+      "description": "Beherrscht den Seeweg nach Indien. Klein an Land, gross auf dem Wasser."
+    },
+    {
+      "id": "frankreich",
+      "name": "Frankreich",
+      "color": "#4a7fd4",
+      "pattern": "solid",
+      "emblem": "F",
+      "ruler": "Ludwig XII.",
+      "government": "monarchy",
+      "personality": "aggressive",
+      "capital": "we42",
+      "provinces": [
+        "we10",
+        "we42"
+      ],
+      "gold": 800,
+      "stability": 58,
+      "politicalPower": 30,
+      "tech": {
+        "military": 3,
+        "economy": 3,
+        "administration": 3,
+        "logistics": 2,
+        "defense": 3
+      },
+      "armies": {
+        "we42": 10,
+        "we10": 16
+      },
+      "traits": {
+        "military": 1.2,
+        "economy": 1.1,
+        "defense": 1.1,
+        "research": 1.05,
+        "trade": 1.05
+      },
+      "description": "Aus dem Hundertjährigen Krieg gestärkt hervorgegangen, in Italien verwickelt."
+    },
+    {
+      "id": "hre",
+      "name": "Heiliges Römisches Reich",
+      "color": "#4a5a68",
+      "pattern": "solid",
+      "emblem": "H",
+      "ruler": "Maximilian I.",
+      "government": "feudal",
+      "personality": "diplomatic",
+      "capital": "we45",
+      "provinces": [
+        "we06",
+        "we119",
+        "we31",
+        "we45",
+        "we86"
+      ],
+      "gold": 750,
+      "stability": 50,
+      "politicalPower": 30,
+      "tech": {
+        "military": 3,
+        "economy": 3,
+        "administration": 3,
+        "logistics": 2,
+        "defense": 3
+      },
+      "armies": {
+        "we45": 10,
+        "we06": 4,
+        "we31": 4,
+        "we86": 3,
+        "we119": 3
+      },
+      "traits": {
+        "military": 1.1,
+        "economy": 1.15,
+        "defense": 1.15,
+        "research": 1.2,
+        "trade": 1.1
+      },
+      "description": "Ein Reich aus Hunderten Territorien, gehalten von Heiratspolitik."
+    },
+    {
+      "id": "moskau",
+      "name": "Großfürstentum Moskau",
+      "color": "#9b7fd4",
+      "pattern": "solid",
+      "emblem": "M",
+      "ruler": "Iwan III.",
+      "government": "monarchy",
+      "personality": "expansionist",
+      "capital": "we103",
+      "provinces": [
+        "we09",
+        "we103"
+      ],
+      "gold": 520,
+      "stability": 56,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we103": 9,
+        "we09": 13
+      },
+      "traits": {
+        "military": 1.15,
+        "economy": 0.95,
+        "defense": 1.15,
+        "research": 0.95,
+        "trade": 0.95
+      },
+      "description": "Hat das Tatarenjoch abgeschuettelt und sammelt die russischen Länder."
+    },
+    {
+      "id": "mogul_timuriden",
+      "name": "Timuriden",
+      "color": "#c98a41",
+      "pattern": "solid",
+      "emblem": "T",
+      "ruler": "Babur",
+      "government": "monarchy",
+      "personality": "opportunistic",
+      "capital": "we134",
+      "provinces": [
+        "we00",
+        "we121",
+        "we127",
+        "we134"
+      ],
+      "gold": 400,
+      "stability": 44,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we134": 7,
+        "we00": 4,
+        "we121": 4,
+        "we127": 3
+      },
+      "traits": {
+        "military": 1.2,
+        "economy": 1,
+        "defense": 0.95,
+        "research": 1.1,
+        "trade": 1.1
+      },
+      "description": "Nachfahren Timurs, turko-mongolischer Herkunft. Aus ihnen geht das Mogulreich in Indien hervor."
+    },
+    {
+      "id": "ming",
+      "name": "Ming-Reich",
+      "color": "#d9a441",
+      "pattern": "solid",
+      "emblem": "C",
+      "ruler": "Hongzhi-Kaiser",
+      "government": "empire",
+      "personality": "isolationist",
+      "capital": "we25",
+      "provinces": [
+        "we136",
+        "we25",
+        "we91"
+      ],
+      "gold": 1800,
+      "stability": 64,
+      "politicalPower": 30,
+      "tech": {
+        "military": 3,
+        "economy": 3,
+        "administration": 3,
+        "logistics": 2,
+        "defense": 3
+      },
+      "armies": {
+        "we25": 14,
+        "we91": 10,
+        "we136": 10
+      },
+      "traits": {
+        "military": 1.05,
+        "economy": 1.3,
+        "defense": 1.25,
+        "research": 1.2,
+        "trade": 1
+      },
+      "description": "Nach den Schatzflotten wieder nach innen gewandt. Reich, gross und auf Abwehr bedacht."
+    },
+    {
+      "id": "usbeken",
+      "name": "Usbekisches Khanat",
+      "color": "#8d8f96",
+      "pattern": "solid",
+      "emblem": "U",
+      "ruler": "Muhammad Schaibani",
+      "government": "tribal",
+      "personality": "aggressive",
+      "capital": "we65",
+      "provinces": [
+        "we65",
+        "we67"
+      ],
+      "gold": 300,
+      "stability": 48,
+      "politicalPower": 30,
+      "tech": {
+        "military": 2,
+        "economy": 2,
+        "administration": 2,
+        "logistics": 1,
+        "defense": 2
+      },
+      "armies": {
+        "we65": 7,
+        "we67": 11
+      },
+      "traits": {
+        "military": 1.3,
+        "economy": 0.8,
+        "defense": 0.9,
+        "research": 0.85,
+        "trade": 0.95
+      },
+      "description": "Turkvolk, das die Timuriden aus Transoxanien verdrängt."
+    }
+  ],
+  "relations": [],
+  "alliances": [],
+  "wars": [],
+  "events": [
+    "neu_buchdruck",
+    "neu_reformation",
+    "neu_seeweg",
+    "neu_silber",
+    "neu_stehendes_heer",
+    "neu_kolonie",
+    "neu_bauernkrieg",
+    "neu_sternwarte",
+    "harvest_failure",
+    "epidemic_returns",
+    "press_scandal",
+    "tax_revolt",
+    "mercenary_offer",
+    "new_harbour",
+    "university_founded"
+  ],
+  "victoryConditions": [
+    {
+      "type": "provinces",
+      "value": 45,
+      "description": "Beherrsche 45 der 140 Gebiete."
+    },
+    {
+      "type": "capitals",
+      "value": 3,
+      "targets": [
+        "we126",
+        "we58",
+        "we115",
+        "we101",
+        "we42",
+        "we45",
+        "we103",
+        "we134",
+        "we25",
+        "we65"
+      ],
+      "description": "Erobere drei fremde Hauptstädte."
+    }
+  ]
+}
