@@ -9,6 +9,7 @@
 import type { Difficulty, GameState } from '../core/types';
 import { scenarios, getMap } from '../data/index';
 import { listSaves } from '../core/save';
+import { umrissPfad, umrissPunkte } from '../core/koordinaten';
 import { esc } from './dom';
 import { wappenSvg } from './heraldry';
 import { landVorschau } from './panels';
@@ -103,13 +104,12 @@ function szenarioBild(sc: any): string {
   }
 
   // Enger Ausschnitt, damit das Land die Kachel füllt.
+  const teiler = karte.ringTeiler ?? 8;
   let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
   for (const p of karte.provinces) {
-    for (const paar of p.points.split(' ')) {
-      const k = paar.indexOf(',');
-      if (k < 0) continue;
-      const x = +paar.slice(0, k); const y = +paar.slice(k + 1);
-      if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
+    const z = umrissPunkte(p, teiler);
+    for (let i = 0; i < z.length; i += 2) {
+      const x = z[i]; const y = z[i + 1];
       if (x < minX) minX = x; if (x > maxX) maxX = x;
       if (y < minY) minY = y; if (y > maxY) maxY = y;
     }
@@ -119,7 +119,7 @@ function szenarioBild(sc: any): string {
 
   const flaechen = karte.provinces.map((p) => {
     const farbe = besitzer.get(p.id) ?? '#3a4752';
-    return `<polygon points="${p.points}" fill="${farbe}"/>`;
+    return `<path d="${umrissPfad(p, teiler)}" fill="${farbe}" fill-rule="evenodd"/>`;
   }).join('');
 
   return `<svg class="szenario-bild" viewBox="${minX - luft} ${minY - luft}

@@ -124,6 +124,7 @@ export function createNewGame(opts: NewGameOptions): GameState {
     scenarioName: scenario.name,
     mapId: karte.id,
     viewBox: karte.viewBox,
+    ringTeiler: karte.ringTeiler,
     seaLinks: (karte.seaLinks ?? []) as Array<[string, string]>,
 
     turn: 1,
@@ -178,6 +179,7 @@ export function createNewGame(opts: NewGameOptions): GameState {
       id: mp.id,
       name: mp.name,
       points: mp.points,
+      rings: mp.rings,
       center: mp.center,
       terrain: mp.terrain,
       neighbors: mp.neighbors.filter((n) => karte.provinces.some((q) => q.id === n)),

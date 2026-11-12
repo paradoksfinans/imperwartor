@@ -23,8 +23,18 @@ export type ResourceId =
 export interface MapProvince {
   id: string;
   name: string;
-  /** SVG-Polygonpunkte, Format "x,y x,y ..." */
-  points: string;
+  /**
+   * Umriss in alter Form: "x,y x,y ...".
+   *
+   * Nur noch bei der erfundenen Karte Aurelia und bei den wenigen Gebieten,
+   * fuer die sich keine echte Verwaltungseinheit finden liess.
+   */
+  points?: string;
+  /**
+   * Umriss in kompakter Form - ein Eintrag je Ring (Festland, Inseln,
+   * Binnenloecher). Siehe core/koordinaten.ts.
+   */
+  rings?: string[];
   center: [number, number];
   terrain: TerrainId;
   neighbors: string[];
@@ -41,6 +51,8 @@ export interface GameMap {
   name: string;
   description: string;
   viewBox: string;
+  /** Gittereinheiten je Zeichenflaecheneinheit in "rings". */
+  ringTeiler?: number;
   seaLinks: Array<[string, string]>;
   provinces: MapProvince[];
 }
@@ -126,7 +138,8 @@ export type BuildingId =
 export interface Province {
   id: string;
   name: string;
-  points: string;
+  points?: string;
+  rings?: string[];
   center: [number, number];
   terrain: TerrainId;
   neighbors: string[];
@@ -494,6 +507,8 @@ export interface GameState {
   scenarioName: string;
   mapId: string;
   viewBox: string;
+  /** Gittereinheiten je Zeichenflaecheneinheit in "rings". */
+  ringTeiler?: number;
   seaLinks: Array<[string, string]>;
 
   turn: number;

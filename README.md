@@ -19,7 +19,8 @@ woran es lag.
 
 - **10 Szenarien** aus allen Zeitaltern – von der Antike über das Seldschukenreich
   und die Mongolen bis Europa 1914, dazu eine Weltkarte und drei frei erfundene
-- **Echte Landkarten** aus Natural-Earth-Daten, in 200–700 Gebiete zerlegt
+- **Echte Landkarten** aus Natural-Earth-Daten: feine Küstenlinien und
+  Staatsgrenzen, die echten Verwaltungsgrenzen folgen
 - **Wirtschaft**: Steuern, Verwaltungskosten, Bauwerke, Versorgung, Unruhe
 - **Diplomatie**: Bündnisse, Vasallen, Handelsverträge, Kriegserklärungen
 - **Verdeckte Mittel**: Spionage, Aufwiegelung, Bestechung – mit Entdeckungsrisiko
@@ -57,6 +58,31 @@ src/ui/       Oberfläche: Karte, Tafeln, Bildschirme, Einstieg
 tools/        Karten erzeugen, Symbole zeichnen, Web-Fassung bauen
 test/         Simulationen über viele Runden und Browserprüfungen
 ```
+
+## Die Karten
+
+Die Umrisse stammen aus [Natural Earth](https://www.naturalearthdata.com/)
+(10 m für die Regionalkarten, Staatsgrenzen für die Weltkarte). `tools/karten.mjs`
+ordnet jedem Spielgebiet die gleichnamige Verwaltungseinheit zu, verteilt die
+übrigen Einheiten auf das jeweils nächste Gebiet und baut daraus Umrisse, die
+sich ihre Kanten teilen. Dadurch sind auch die Innengrenzen echte
+Verwaltungsgrenzen, und das Spiel kann Staatsgrenzen als Linien zeichnen statt
+sie über einen Bildfilter anzudeuten.
+
+Die Daten holt man sich einmal:
+
+```bash
+mkdir -p ../ne-daten && cd ../ne-daten
+for f in ne_10m_admin_1_states_provinces ne_10m_admin_0_countries; do
+  curl -LO "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/$f.geojson"
+done
+cd - && node tools/karten.mjs ../ne-daten
+```
+
+Die Punkte liegen als Unterschiede zum Vorgänger auf einem festen Gitter
+(`src/core/koordinaten.ts`): rund zwei Zeichen je Punkt statt zwölf.
+`npx tsx test/koordinaten.mjs` prüft, dass Kodierer und Dekodierer
+zueinander passen.
 
 Kein Framework, keine Laufzeitabhängigkeiten: TypeScript, von esbuild zu einer
 Datei gebündelt. Die Karte ist SVG.

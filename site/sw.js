@@ -7,7 +7,7 @@
  * nächsten Besuch die neue Fassung, ohne offline auf dem Trockenen zu sitzen.
  */
 
-const LAGER = 'imperwartor-202611112338';
+const LAGER = 'imperwartor-202611120021';
 const DATEIEN = [
   './',
   './index.html',

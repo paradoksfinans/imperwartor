@@ -146,7 +146,7 @@ console.log('\nSchreibtisch 1440x900');
   await seite.locator('[data-starten]').click();
   await seite.waitForTimeout(1400);
   // Die Karte gilt als da, wenn wirklich Gebietsflaechen gezeichnet sind.
-  const gebiete = await seite.locator('svg polygon').count();
+  const gebiete = await seite.locator("svg path[data-province]").count();
   melde(gebiete > 50, `Karte gezeichnet (${gebiete} Flaechen)`);
   melde(konsole.length === 0, `Partie ohne Fehler${konsole.length ? ': ' + konsole[0] : ''}`);
   await seite.screenshot({ path: '/tmp/seite-desktop.png' });

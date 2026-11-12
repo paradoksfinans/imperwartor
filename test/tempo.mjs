@@ -162,7 +162,7 @@ await tippe('[data-neues-spiel]');
 await seite.waitForTimeout(500);
 await tippe('[data-starten]');
 await seite.waitForTimeout(2500);
-console.log('  Karte steht,', await seite.locator('svg polygon').count(), 'Flächen');
+console.log('  Karte steht,', await seite.locator('svg path[data-province]').count(), 'Gebiete');
 await tippe('[data-einstieg-aus]');
 await seite.waitForTimeout(400);
 

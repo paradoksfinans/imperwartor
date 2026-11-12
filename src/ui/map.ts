@@ -13,6 +13,8 @@
  */
 
 import type { GameState, Province } from '../core/types';
+import { umrissPfad, umrissPunkte } from '../core/koordinaten';
+import { baueGrenzlinien, type Grenzlinie } from './grenzen';
 import {
   TERRAIN, areAllied, areAtWar, getRelation, regimentsTotal,
 } from '../core/rules';
@@ -154,7 +156,7 @@ export class MapView {
   /** Letzter bekannter Besitzer je Gebiet - erkennt Eroberungen. */
   private letzterBesitz = new Map<string, string | null>();
 
-  private flaechen = new Map<string, SVGPolygonElement>();
+  private flaechen = new Map<string, SVGPathElement>();
   private beschriftungen = new Map<string, SVGGElement>();
   /**
    * Zuletzt geschriebene Darstellung je Gebiet.
@@ -174,6 +176,8 @@ export class MapView {
   private ziehWeg = 0;
 
   private state: GameState;
+  /** Gittereinheiten je Zeichenflaecheneinheit - siehe core/koordinaten.ts. */
+  private teiler = 8;
   private filter: MapFilterId = 'political';
   private ausgewaehlt: string | null = null;
   private hervorgehoben = new Set<string>();
@@ -196,17 +200,22 @@ export class MapView {
    * ResizeObserver ohnehin.
    */
   private masse: { width: number; height: number; left: number; top: number } | null = null;
+  /** Küsten- und Grenzlinien der Karte - einmal beim Laden gebaut. */
+  private grenzLinien: Grenzlinie[] = [];
   /** Zuletzt gezeichneter Stand der Beschriftung. */
   private beschriftungStand = '';
 
   constructor(state: GameState, cb: MapCallbacks) {
     this.state = state;
+    this.teiler = state.ringTeiler ?? 8;
     this.kartenId = state.mapId;
     this.cb = cb;
     this.element = document.createElement('div');
     this.element.className = 'karte';
     this.baueGeruest();
     this.baueFlaechen();
+    this.grenzLinien = baueGrenzlinien(state);
+    this.zeichneKueste();
     this.zeichne();
 
     /* Im Konstruktor steht das Element noch nicht im Dokument und hat
@@ -405,7 +414,7 @@ export class MapView {
     // des Landes nach - nicht jede Gebietsgrenze.
     this.kuestenEbene = document.createElementNS(ns, 'g');
     this.kuestenEbene.setAttribute('pointer-events', 'none');
-    this.kuestenEbene.setAttribute('filter', 'url(#küste)');
+
     welt.appendChild(this.kuestenEbene);
 
     this.flaechenEbene = document.createElementNS(ns, 'g');
@@ -440,12 +449,9 @@ export class MapView {
   private berechneSichtfeld(): void {
     let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
     for (const pid of this.state.provinceOrder) {
-      for (const paar of this.state.provinces[pid].points.split(' ')) {
-        const k = paar.indexOf(',');
-        if (k < 0) continue;
-        const x = +paar.slice(0, k);
-        const y = +paar.slice(k + 1);
-        if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
+      const z = umrissPunkte(this.state.provinces[pid], this.teiler);
+      for (let i = 0; i < z.length; i += 2) {
+        const x = z[i]; const y = z[i + 1];
         if (x < minX) minX = x;
         if (x > maxX) maxX = x;
         if (y < minY) minY = y;
@@ -470,8 +476,14 @@ export class MapView {
     const ns = 'http://www.w3.org/2000/svg';
     for (const pid of this.state.provinceOrder) {
       const p = this.state.provinces[pid];
-      const poly = document.createElementNS(ns, 'polygon');
-      poly.setAttribute('points', p.points);
+      /* Ein <path> statt eines <polygon>: Die Gebiete bestehen jetzt oft
+         aus mehreren Ringen - Festland, vorgelagerte Inseln, gelegentlich
+         ein eingeschlossener Nachbar. Mit der Regel "evenodd" werden
+         Innenringe zu Loechern. */
+      const d = umrissPfad(p, this.teiler);
+      const poly = document.createElementNS(ns, 'path');
+      poly.setAttribute('d', d);
+      poly.setAttribute('fill-rule', 'evenodd');
       poly.setAttribute('data-province', pid);
       poly.classList.add('gebiet');
       poly.addEventListener('click', () => {
@@ -483,17 +495,11 @@ export class MapView {
 
       // Dieselbe Form noch einmal für den Küstensaum. Sie ist rein dekorativ,
       // nimmt keine Klicks an und ändert sich nie wieder.
-      const saum = document.createElementNS(ns, 'polygon');
-      saum.setAttribute('points', p.points);
-      saum.setAttribute('fill', '#000');
-      this.kuestenEbene.appendChild(saum);
-
       // Kantenlaenge für die Beschriftungsdichte merken
       let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-      for (const paar of p.points.split(' ')) {
-        const k = paar.indexOf(',');
-        if (k < 0) continue;
-        const x = +paar.slice(0, k); const y = +paar.slice(k + 1);
+      const z = umrissPunkte(p, this.teiler);
+      for (let i = 0; i < z.length; i += 2) {
+        const x = z[i]; const y = z[i + 1];
         if (x < minX) minX = x; if (x > maxX) maxX = x;
         if (y < minY) minY = y; if (y > maxY) maxY = y;
       }
@@ -633,10 +639,18 @@ export class MapView {
       this.inBewegung = true;
       this.kuestenEbene.style.display = 'none';
       this.grenzEbene.style.display = 'none';
+      /* Die reine Verzierung kommt beim Schieben mit weg: Reliefschatten
+         und Musterfüllungen kosten je Bild so viel wie die Flächen selbst
+         und fehlen für den Bruchteil einer Sekunde niemandem.
+         (will-change: transform habe ich hier ausprobiert - es machte das
+         Schieben langsamer statt schneller, weil die Karte zu groß ist, um
+         sie am Stück als Bild abzulegen.) */
+      this.kennzeichenEbene.style.display = 'none';
     }
     window.clearTimeout(this.ruheUhr);
     this.ruheUhr = window.setTimeout(() => {
       this.inBewegung = false;
+      this.kennzeichenEbene.style.display = '';
       this.kuestenEbene.style.display = '';
       this.grenzEbene.style.display = '';
       // Schriftgroessen sitzen jetzt wieder richtig.
@@ -684,14 +698,12 @@ export class MapView {
     // Umgrenzung aller Gebiete - in Koordinaten der Zeichenflaeche
     let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
     for (const id of nurGebiete ?? this.state.provinceOrder) {
-      const punkte = this.state.provinces[id]?.points;
-      if (!punkte) continue;
-      for (const paar of punkte.split(' ')) {
-        const k = paar.indexOf(',');
-        if (k < 0) continue;
-        const x = +paar.slice(0, k);
-        const y = +paar.slice(k + 1);
-        if (Number.isNaN(x) || Number.isNaN(y)) continue;
+      const prov = this.state.provinces[id];
+      if (!prov) continue;
+      const z = umrissPunkte(prov, this.teiler);
+      for (let i = 0; i < z.length; i += 2) {
+        const x = z[i];
+        const y = z[i + 1];
         if (x < minX) minX = x;
         if (x > maxX) maxX = x;
         if (y < minY) minY = y;
@@ -852,31 +864,53 @@ export class MapView {
     if (stand === this.grenzStand) return;
     this.grenzStand = stand;
 
-    const ns = 'http://www.w3.org/2000/svg';
-    this.grenzEbene.textContent = '';
-
-    const nachLand = new Map<string, string[]>();
-    for (const pid of s.provinceOrder) {
-      const besitzer = s.provinces[pid].ownerId;
-      if (!besitzer) continue;
-      const liste = nachLand.get(besitzer);
-      if (liste) liste.push(pid);
-      else nachLand.set(besitzer, [pid]);
+    /* Eine Linie ist Staatsgrenze, wenn ihre beiden Seiten verschiedenen
+       Ländern gehören - oder wenn auf der anderen Seite das Meer liegt. Mehr
+       ist dazu nicht zu sagen; den Rest erledigt der Zeichenstift. */
+    let eigene = '';
+    let fremde = '';
+    for (const l of this.grenzLinien) {
+      const besitzerA = s.provinces[l.a]?.ownerId ?? null;
+      const besitzerB = l.b ? s.provinces[l.b]?.ownerId ?? null : null;
+      if (besitzerA === besitzerB) continue;
+      if (besitzerA === s.playerCountryId || besitzerB === s.playerCountryId) eigene += l.d;
+      else if (besitzerA || besitzerB) fremde += l.d;
     }
 
-    for (const [landId, gebiete] of nachLand) {
-      const gruppe = document.createElementNS(ns, 'g');
-      gruppe.setAttribute(
-        'filter',
-        landId === s.playerCountryId ? 'url(#eigengrenze)' : 'url(#staatsgrenze)',
-      );
-      for (const pid of gebiete) {
-        const form = document.createElementNS(ns, 'polygon');
-        form.setAttribute('points', s.provinces[pid].points);
-        form.setAttribute('fill', '#000');
-        gruppe.appendChild(form);
-      }
-      this.grenzEbene.appendChild(gruppe);
+    const ns = 'http://www.w3.org/2000/svg';
+    this.grenzEbene.textContent = '';
+    const linie = (d: string, klasse: string): void => {
+      if (!d) return;
+      const pfad = document.createElementNS(ns, 'path');
+      pfad.setAttribute('d', d);
+      pfad.setAttribute('class', klasse);
+      pfad.setAttribute('fill', 'none');
+      this.grenzEbene.appendChild(pfad);
+    };
+    linie(fremde, 'staatsgrenze');
+    linie(eigene, 'eigengrenze');
+  }
+
+  /**
+   * Zeichnet die Küstenlinie.
+   *
+   * Sie ändert sich nie, wird also genau einmal gebaut. Der weiche Saum
+   * entsteht aus drei übereinanderliegenden Strichen von außen nach innen
+   * statt aus einem Weichzeichner - das sieht fast gleich aus und kostet
+   * einen Bruchteil.
+   */
+  private zeichneKueste(): void {
+    const ns = 'http://www.w3.org/2000/svg';
+    let d = '';
+    for (const l of this.grenzLinien) if (l.b === null) d += l.d;
+    if (!d) return;
+    this.kuestenEbene.textContent = '';
+    for (const stufe of ['kueste-weit', 'kueste-mittel', 'kueste-nah']) {
+      const pfad = document.createElementNS(ns, 'path');
+      pfad.setAttribute('d', d);
+      pfad.setAttribute('class', stufe);
+      pfad.setAttribute('fill', 'none');
+      this.kuestenEbene.appendChild(pfad);
     }
   }
 
@@ -891,8 +925,9 @@ export class MapView {
     const p = this.state.provinces[pid];
     if (!p) return;
     const ns = 'http://www.w3.org/2000/svg';
-    const blitz = document.createElementNS(ns, 'polygon');
-    blitz.setAttribute('points', p.points);
+    const blitz = document.createElementNS(ns, 'path');
+    blitz.setAttribute('d', umrissPfad(p, this.teiler));
+    blitz.setAttribute('fill-rule', 'evenodd');
     blitz.setAttribute('class', 'eroberungs-blitz');
     const farbe = neuerBesitzer === this.state.playerCountryId
       ? '#ffd98a'
@@ -918,8 +953,9 @@ export class MapView {
       // Hoehenschattierung: macht Gebirge und Huegel sichtbar
       const relief = TERRAIN[p.terrain]?.relief ?? 0;
       if (relief > 0.15) {
-        const schatten = document.createElementNS(ns, 'polygon');
-        schatten.setAttribute('points', p.points);
+        const schatten = document.createElementNS(ns, 'path');
+        schatten.setAttribute('d', umrissPfad(p, this.teiler));
+        schatten.setAttribute('fill-rule', 'evenodd');
         schatten.setAttribute('fill', 'url(#relief)');
         schatten.setAttribute('opacity', String(Math.min(0.85, relief)));
         this.kennzeichenEbene.appendChild(schatten);
@@ -934,8 +970,9 @@ export class MapView {
         else if (areAllied(s, spieler, p.ownerId)) muster = 'p-bund';
       }
       if (muster && (this.filter === 'political' || this.filter === 'diplomatic')) {
-        const m = document.createElementNS(ns, 'polygon');
-        m.setAttribute('points', p.points);
+        const m = document.createElementNS(ns, 'path');
+        m.setAttribute('d', umrissPfad(p, this.teiler));
+        m.setAttribute('fill-rule', 'evenodd');
         m.setAttribute('fill', `url(#${muster})`);
         this.kennzeichenEbene.appendChild(m);
       }
