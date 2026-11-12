@@ -752,7 +752,7 @@ function einstellungenPanel(s: GameState, k: PanelKontext): string {
       </div>`)}
     ${block('Partie', `
       <div class="reihe">
-        <button class="small" data-hilfe>Spielhilfe</button>
+        <button class="small" data-hilfe>Handbuch</button>
         <button class="small gefahr" data-beenden>Zum Hauptmenü</button>
       </div>`)}
     ${block('Dieses Spiel', `

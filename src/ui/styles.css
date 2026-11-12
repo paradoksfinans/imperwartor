@@ -1289,3 +1289,141 @@ select {
 }
 .staatsgrenze { stroke: rgba(232, 242, 250, .5); stroke-width: 1.3; }
 .eigengrenze  { stroke: #e8c87a; stroke-width: 2.1; }
+
+/* ------------------------------------------------------------------ */
+/* Handbuch                                                            */
+/*                                                                     */
+/* Zwei Spalten am Rechner: links die Kapitel, rechts der Text. Am     */
+/* Telefon ist dafür kein Platz - dort wird zwischen Liste und Kapitel */
+/* umgeschaltet, gesteuert über die Klasse "zeigt-liste".              */
+/* ------------------------------------------------------------------ */
+
+.modal.handbuch {
+  width: min(1080px, 100vw - 24px);
+  height: min(860px, 100vh - 24px);
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.hb-kopf {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; padding: 18px 22px 14px;
+  border-bottom: 1px solid var(--linie, rgba(255, 255, 255, .1));
+  flex: 0 0 auto;
+}
+.hb-kopf h2 { margin: 2px 0 0; }
+
+.hb-koerper {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.hb-liste {
+  overflow-y: auto;
+  padding: 12px 10px 24px;
+  border-right: 1px solid var(--linie, rgba(255, 255, 255, .1));
+  -webkit-overflow-scrolling: touch;
+}
+.hb-gruppe { margin-bottom: 14px; }
+.hb-gruppe-titel {
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold, #d6a84e); padding: 6px 10px 4px; opacity: .85;
+}
+.hb-eintrag {
+  display: block; width: 100%; text-align: left;
+  background: none; border: 0; border-radius: 9px;
+  padding: 8px 10px; cursor: pointer; color: inherit;
+}
+.hb-eintrag:hover { background: rgba(255, 255, 255, .06); }
+.hb-eintrag.aktiv { background: rgba(214, 168, 78, .14); }
+.hb-eintrag-titel { display: block; font-weight: 600; font-size: 14px; }
+.hb-eintrag-frage {
+  display: block; font-size: 11.5px; line-height: 1.4; opacity: .62;
+  margin-top: 2px;
+}
+.hb-eintrag.aktiv .hb-eintrag-titel { color: var(--gold, #d6a84e); }
+
+.hb-inhalt {
+  overflow-y: auto; padding: 20px 26px 28px;
+  -webkit-overflow-scrolling: touch;
+  font-size: 14.5px; line-height: 1.62;
+}
+.hb-inhalt h4 {
+  margin: 24px 0 8px; font-size: 16px;
+  color: var(--gold, #d6a84e); font-weight: 600;
+}
+.hb-inhalt h4:first-of-type { margin-top: 6px; }
+.hb-inhalt p { margin: 0 0 11px; }
+.hb-frage {
+  font-style: italic; opacity: .72; margin: 0 0 16px !important;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--linie, rgba(255, 255, 255, .08));
+}
+
+.hb-merke {
+  margin: 16px 0; padding: 12px 15px;
+  background: rgba(214, 168, 78, .1);
+  border-left: 3px solid var(--gold, #d6a84e);
+  border-radius: 0 9px 9px 0;
+  font-size: 14px; line-height: 1.55;
+}
+
+.hb-begriffe { margin: 6px 0 14px; }
+.hb-begriffe dt {
+  font-weight: 600; margin-top: 9px; color: var(--hell, #e7eef5);
+}
+.hb-begriffe dd { margin: 1px 0 0; padding-left: 0; opacity: .82; }
+
+.hb-tabelle-rahmen { overflow-x: auto; margin: 10px 0 16px; }
+.hb-tabelle { width: 100%; border-collapse: collapse; font-size: 13.2px; }
+.hb-tabelle th {
+  text-align: left; font-size: 11px; letter-spacing: .07em;
+  text-transform: uppercase; opacity: .62; font-weight: 600;
+  padding: 5px 10px 5px 0; white-space: nowrap;
+  border-bottom: 1px solid var(--linie, rgba(255, 255, 255, .14));
+}
+.hb-tabelle td {
+  padding: 6px 10px 6px 0; vertical-align: top;
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
+}
+.hb-tabelle td:first-child { white-space: nowrap; }
+.hb-tabelle kbd {
+  font-family: inherit; font-size: 12px;
+  background: rgba(255, 255, 255, .1); border-radius: 4px;
+  padding: 1px 6px; border: 1px solid rgba(255, 255, 255, .14);
+}
+
+.hb-blaettern {
+  display: flex; justify-content: space-between; gap: 10px;
+  margin-top: 26px; padding-top: 14px;
+  border-top: 1px solid var(--linie, rgba(255, 255, 255, .1));
+}
+
+/* Am Rechner ist die Liste immer da - der Zurück-Knopf wäre sinnlos. */
+.hb-zur-liste { display: none; margin-bottom: 12px; }
+
+@media (max-width: 899px) {
+  .modal.handbuch { width: 100vw; height: 100vh; border-radius: 0; }
+  .hb-koerper { grid-template-columns: 1fr; }
+  .hb-liste { border-right: 0; display: none; }
+  .hb-zur-liste { display: inline-block; }
+  /* In der Übersicht die Liste statt des Kapitels. */
+  .modal.handbuch.zeigt-liste .hb-liste { display: block; }
+  .modal.handbuch.zeigt-liste .hb-inhalt { display: none; }
+  .hb-inhalt { padding: 16px 16px 24px; }
+  .hb-kopf { padding: 14px 16px 12px; }
+}
+
+/* Platz für die Einstiegskarte.
+   Sie sitzt bei offenem Blatt oben am Rand. Ohne diese Regel reicht das
+   Blatt bis dorthin hinauf und verdeckt die Karte samt ihrem Knopf - der
+   Einstieg bliebe genau dort stehen, wo er gebraucht wird. */
+body.einstieg-laeuft .sheet { max-height: 56dvh; }
+@media (min-width: 901px) {
+  body.einstieg-laeuft .sheet { max-height: 84dvh; }
+}

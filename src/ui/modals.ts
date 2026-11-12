@@ -267,36 +267,3 @@ export function spielendeModal(s: GameState): string {
 /* Hilfe                                                               */
 /* ------------------------------------------------------------------ */
 
-export function hilfeModal(): string {
-  const punkt = (titel: string, text: string) =>
-    `<div class="hilfe-punkt"><b>${esc(titel)}</b><p>${esc(text)}</p></div>`;
-
-  return `
-    <div class="modal gross">
-      <div class="modal-kopf">
-        <div class="block-titel">Spielhilfe</div>
-        <h2>So spielst du</h2>
-      </div>
-      ${punkt('Gebiet wählen',
-    'Tippe ein Gebiet auf der Karte an. Unten erscheinen seine Werte und alle Aktionen, die dort möglich sind.')}
-      ${punkt('Aktionspunkte',
-    'Jede Runde hast du eine begrenzte Zahl Aktionen. Verlegen, Angreifen, Ausheben und Bauen kosten je einen Punkt. Sind sie aufgebraucht, beende die Runde.')}
-      ${punkt('Truppengattungen',
-    'Fußvolk hält Stellungen, Reiterei wirkt in der Ebene, Bogen und Geschütze wirken vor dem Zusammenstoß, Belagerungsgerät bricht Mauern. Eine gemischte Aufstellung ist stärker als eine einseitige.')}
-      ${punkt('Befestigungen',
-    'Gut befestigte Gebiete lassen sich nicht im Sturm nehmen. Ohne Belagerungsgerät beginnt eine Belagerung, die mehrere Runden dauert.')}
-      ${punkt('Generäle',
-    'Ein General in einem Gebiet verstärkt Angriff oder Abwehr und gewinnt mit jeder Schlacht Erfahrung. Setze ihn dort ein, wo entschieden wird.')}
-      ${punkt('Versorgung',
-    'Gebiete ohne Verbindung zur Hauptstadt verlieren Versorgung. Schlecht versorgte Truppen kämpfen deutlich schwächer.')}
-      ${punkt('Unruhe',
-    'Frisch erobertes Land ist unruhig. Ab etwa 55 Prozent kann es abfallen. Befestigungen, Verwaltung und niedrige Steuern beruhigen.')}
-      ${punkt('Diplomatie',
-    'Einfluss ist die Währung der Diplomatie. Ohne Kriegserklärung gibt es keinen Angriff auf fremdes Land. Bündnispartner ziehen mit in den Krieg.')}
-      ${punkt('Frieden',
-    'Was du im Frieden fordern kannst, hängt vom Kriegsfortschritt ab. Wer vorne liegt, darf Gebiete verlangen.')}
-      <div class="modal-fuß">
-        <button class="haupt" data-modal-schliessen>Verstanden</button>
-      </div>
-    </div>`;
-}

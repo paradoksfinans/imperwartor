@@ -39,15 +39,17 @@ import { scenarios } from './data/index';
 import { MapView, MAP_FILTERS, type MapFilterId, type SelectionMode } from './ui/map';
 import { PANEL_TABS, gebietsAnsicht, kopfleiste, panelInhalt, type PanelId } from './ui/panels';
 import {
-  ereignisModal, friedensModal, hilfeModal, kampfberichtModal, spielendeModal,
+  ereignisModal, friedensModal, kampfberichtModal, spielendeModal,
 } from './ui/modals';
+import { handbuchModal } from './ui/handbuch';
 import { aufbauGeruest, hauptmenue, type SetupAuswahl } from './ui/screens';
 import { esc } from './ui/dom';
 import { spieleTon, setzeTon } from './ui/sound';
 import {
   einstiegAbbrechen, einstiegErledigt, einstiegEreignis, einstiegHtml,
-  einstiegStarten, einstiegWeiter,
+  einstiegLaeuft, einstiegStarten, einstiegWeiter,
 } from './ui/einstieg';
+import type { EinstiegEreignis } from './ui/einstieg';
 
 /* ------------------------------------------------------------------ */
 /* Anwendungszustand                                                   */
@@ -81,6 +83,9 @@ interface AppZustand {
 
   /* Ueberlagerungen */
   modal: string | null;
+  /** Offenes Handbuchkapitel; "liste" zeigt am Telefon die Übersicht. */
+  handbuchKapitel: string;
+  handbuchListe: boolean;
   offenerBericht: BattleReport | null;
   meldung: { text: string; art: 'ok' | 'fehler' } | null;
   spielendeGezeigt: boolean;
@@ -104,6 +109,8 @@ const app: AppZustand = {
   tonAn: true,
   sheetOffen: null,
   modal: null,
+  handbuchKapitel: 'ueberblick',
+  handbuchListe: true,
   offenerBericht: null,
   meldung: null,
   spielendeGezeigt: false,
@@ -345,6 +352,11 @@ function zeichneSpiel(): void {
      offenen Blatt wandert er stattdessen nach oben: Die Schritte drei bis
      fünf erklären gerade das, was im Blatt steht - er darf dort nicht
      verschwinden, aber auch nichts verdecken. */
+  /* Solange der Einstieg läuft, bekommt das Blatt weniger Höhe: Sonst
+     liegt die Einstiegskarte über genau den Knöpfen, die sie zu drücken
+     verlangt - und der Spieler kommt an der Stelle nicht weiter, an der
+     er die Führung am nötigsten braucht. */
+  document.body.classList.toggle('einstieg-laeuft', einstiegLaeuft() && !app.modal);
   setzeTeil('t-einstieg', app.modal ? '' : einstiegHtml(!!app.sheetOffen));
   setzeTeil('t-modal', modalHuelle());
 
@@ -565,7 +577,25 @@ wurzel.addEventListener('click', (ereignis) => {
     } else melde('Dieser Spielstand ist nicht lesbar.', 'fehler');
     return;
   }
-  if (ziel.closest('[data-hilfe]')) { app.modal = hilfeModal(); zeichne(); return; }
+  if (ziel.closest('[data-hilfe]')) {
+    // Am Telefon zuerst die Kapitelübersicht, am Rechner gleich das Kapitel:
+    // dort steht die Liste ohnehin daneben.
+    app.handbuchListe = window.innerWidth < 900;
+    app.modal = handbuchModal(app.handbuchKapitel, app.handbuchListe);
+    zeichne(); return;
+  }
+  const hbKapitel = ziel.closest<HTMLElement>('[data-handbuch-kapitel]');
+  if (hbKapitel) {
+    app.handbuchKapitel = attr(hbKapitel, 'data-handbuch-kapitel') ?? 'ueberblick';
+    app.handbuchListe = false;
+    app.modal = handbuchModal(app.handbuchKapitel, false);
+    zeichne(); return;
+  }
+  if (ziel.closest('[data-handbuch-liste]')) {
+    app.handbuchListe = true;
+    app.modal = handbuchModal(app.handbuchKapitel, true);
+    zeichne(); return;
+  }
 
   /* ---- Aufbau ---- */
   const szenario = attr(ziel, 'data-szenario');
@@ -672,7 +702,10 @@ wurzel.addEventListener('click', (ereignis) => {
 
   const panel = attr(ziel, 'data-panel');
   if (panel) {
-    if (panel === 'ziele') einstiegEreignis('panel-ziele');
+    // Der Einstieg verlangt, einzelne Tafeln einmal zu öffnen. Statt für
+    // jede eine eigene Abfrage: Die Kennung der Tafel ist die Kennung des
+    // Schritts.
+    einstiegEreignis(`panel-${panel}` as EinstiegEreignis);
     const neu = panel as PanelId;
     if (istKompakt()) {
       app.panel = neu; app.sheetOffen = 'panel';

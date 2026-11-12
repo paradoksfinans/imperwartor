@@ -90,7 +90,9 @@ interface Bauplan {
   feld?: TechFieldId;
 }
 
-const PLAENE: Bauplan[] = [
+/** Die Vorlagen für Zielvorgaben. Nach außen gegeben, damit das Handbuch
+    sie auflisten kann, statt sie abzuschreiben. */
+export const PLAENE: Bauplan[] = [
   {
     kind: 'provinces', name: 'Das Reich mehren',
     beschreibung: 'Beherrsche %z% Gebiete.',

@@ -54,7 +54,7 @@ export function hauptmenue(): string {
 
         <div class="aktions-reihe mittig gross">
           <button class="haupt gross" data-neues-spiel>Neues Spiel</button>
-          ${staende.length ? '' : '<button data-hilfe>Spielhilfe</button>'}
+          <button data-hilfe>Handbuch</button>
         </div>
 
         ${staende.length ? `
@@ -62,10 +62,7 @@ export function hauptmenue(): string {
             <span class="schritt-nr">Gespeichert</span>
             <h2>Fortsetzen</h2>
           </div>
-          <div class="wahl-gitter">${fortsetzen}</div>
-          <div class="aktions-reihe mittig">
-            <button data-hilfe>Spielhilfe</button>
-          </div>` : ''}
+          <div class="wahl-gitter">${fortsetzen}</div>` : ''}
 
         <div class="menue-fuß">
           <span class="leise-text">Version 1.0 &middot; läuft vollständig im Browser,

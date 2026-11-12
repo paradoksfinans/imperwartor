@@ -21,9 +21,11 @@ export type EinstiegEreignis =
   | 'rekrutiert'
   | 'angriff-gestartet'
   | 'bewegt'
-  | 'panel-ziele'
   | 'runde-beendet'
-  | 'ausbau';
+  | 'ausbau'
+  /* Eine Meldung je Tafel: Die Kennung der Tafel ist die des Schritts,
+     damit nicht für jede neue Tafel eine eigene Abfrage nötig wird. */
+  | `panel-${string}`;
 
 export interface EinstiegSchritt {
   id: string;
@@ -45,6 +47,15 @@ const SCHRITTE: EinstiegSchritt[] = [
     weiter: 'Verstanden',
   },
   {
+    id: 'karte',
+    titel: 'Was die Karte dir sagt',
+    text: 'Die Farbe eines Gebiets ist die seines Besitzers. Schrägstreifen '
+      + 'bedeuten Krieg, Punkte ein Bündnis, ein Gitter einen Vasallen. Der '
+      + 'dunkle Kreis mit einer Zahl ist die Truppenstärke, der Stern die '
+      + 'Hauptstadt.',
+    weiter: 'Weiter',
+  },
+  {
     id: 'gebiet',
     titel: 'Ein Gebiet wählen',
     text: 'Tippe eines deiner Gebiete an - also eines innerhalb der goldenen '
@@ -52,28 +63,77 @@ const SCHRITTE: EinstiegSchritt[] = [
     durch: 'eigenes-gebiet-gewaehlt',
   },
   {
+    id: 'gebietswerte',
+    titel: 'Was dort steht',
+    text: 'Bevölkerung und Wirtschaftsleistung bestimmen, was das Gebiet '
+      + 'einbringt. Das Gelände entscheidet mit, wer hier gewinnt. Die Unruhe '
+      + 'sagt dir, ob die Bevölkerung zu dir hält - über 55 Prozent kann ein '
+      + 'Gebiet abfallen.',
+    weiter: 'Weiter',
+  },
+  {
     id: 'rekrutieren',
     titel: 'Truppen ausheben',
     text: 'Jedes Gebiet stellt Soldaten. Wähle unten eine Gattung und hebe '
-      + 'Truppen aus. Fußvolk ist billig und hält Gelände, Reiterei ist '
-      + 'schnell, Artillerie bricht Befestigungen.',
+      + 'Truppen aus. Fußvolk ist billig und hält Gelände, Reiterei ist in '
+      + 'der Ebene überlegen und im Gebirge fast wertlos.',
     durch: 'rekrutiert',
+    weiter: 'Später',
+  },
+  {
+    id: 'bauen',
+    titel: 'Etwas bauen',
+    text: 'Im selben Blatt kannst du bauen. Ein Markt hebt die Wirtschafts'
+      + 'leistung, Straßen tragen die Versorgung weiter, eine Festung macht '
+      + 'das Gebiet schwer zu nehmen. Bauwerke brauchen mehrere Runden.',
+    durch: 'ausbau',
     weiter: 'Später',
   },
   {
     id: 'angriff',
     titel: 'Angreifen oder verlegen',
-    text: 'Mit "Angreifen" werden erreichbare feindliche Gebiete rot '
-      + 'hervorgehoben, mit "Verlegen" eigene grün. Vor jedem Angriff siehst '
-      + 'du die Rechnung - ohne Zufall, aber mit allen Faktoren.',
+    text: 'Mit "Verlegen" werden erreichbare eigene Gebiete grün '
+      + 'hervorgehoben, mit "Angreifen" feindliche rot. Vor jedem Angriff '
+      + 'siehst du die vollständige Rechnung - ohne verborgenen Zufall. '
+      + 'Ist "Angreifen" grau, führst du noch keinen Krieg: Ohne '
+      + 'Kriegserklärung gibt es keinen Angriff.',
     durch: 'angriff-gestartet',
+    weiter: 'Später',
+  },
+  {
+    id: 'wirtschaft',
+    titel: 'Die Bilanz',
+    text: 'Öffne "Wirtschaft". Dort steht, woher dein Gold kommt und wohin es '
+      + 'geht. Merke dir eine Zahl: Die Verwaltungskosten wachsen schneller '
+      + 'als die Einnahmen. Wer immer weiter erobert, geht an den eigenen '
+      + 'Eroberungen zugrunde.',
+    durch: 'panel-wirtschaft',
+    weiter: 'Später',
+  },
+  {
+    id: 'forschung',
+    titel: 'Forschung lenken',
+    text: 'Unter "Forschung" legst du fest, wohin deine Punkte fließen. '
+      + 'Kriegswesen schaltet neue Truppengattungen frei, Verwaltung senkt '
+      + 'die Kosten des ganzen Reiches und gibt dir mehr Aktionen je Runde.',
+    durch: 'panel-forschung',
+    weiter: 'Später',
+  },
+  {
+    id: 'diplomatie',
+    titel: 'Mit den Nachbarn reden',
+    text: 'Unter "Diplomatie" verhandelst du. Einfluss ist dabei die Währung, '
+      + 'und er ist knapp. Wichtig: Ohne Kriegserklärung gibt es keinen '
+      + 'Angriff auf fremdes Land.',
+    durch: 'panel-diplomatie',
     weiter: 'Später',
   },
   {
     id: 'ziele',
     titel: 'Wohin die Reise geht',
-    text: 'Unter "Ziele" stehen drei Vorgaben mit Belohnung. Sie zeigen dir, '
-      + 'was sich als Nächstes lohnt. Öffne sie einmal.',
+    text: 'Unter "Ziele" stehen drei Vorgaben mit Belohnung. Sie sind kein '
+      + 'Zwang - sie zeigen dir, was sich als Nächstes lohnt, wenn du nicht '
+      + 'weißt, wo du anfangen sollst. Öffne sie einmal.',
     durch: 'panel-ziele',
     weiter: 'Später',
   },
@@ -88,8 +148,8 @@ const SCHRITTE: EinstiegSchritt[] = [
     id: 'fertig',
     titel: 'Das war die Schleife',
     text: 'Mehr ist es im Kern nicht: wirtschaften, aufbauen, verhandeln, '
-      + 'zuschlagen, Runde beenden. Alles Weitere - Diplomatie, Forschung, '
-      + 'Spionage, Vasallen - findest du in der Leiste. Viel Erfolg.',
+      + 'zuschlagen, Runde beenden. Alles Übrige steht im Handbuch - unter '
+      + '"Mehr" findest du es, mit einem Kapitel zu jeder Regel. Viel Erfolg.',
     weiter: 'Losspielen',
   },
 ];

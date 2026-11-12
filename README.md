@@ -17,10 +17,8 @@ Schlachtanimationen: Jeder Kampf ist eine offengelegte Rechnung, die du vorher
 abschätzen und hinterher nachlesen kannst. Wer verliert, kann nachvollziehen,
 woran es lag.
 
-- **14 Szenarien** aus allen Zeitaltern – Antike, Kalifat, Seldschuken,
-  Kreuzzüge 1099, Mongolen, Frühe Neuzeit, Dreißigjähriger Krieg 1618,
-  Napoleon 1805, Europa 1914, Zweiter Weltkrieg 1939, dazu eine Weltkarte
-  und drei frei erfundene
+- **10 Szenarien** aus allen Zeitaltern – von der Antike über das Seldschukenreich
+  und die Mongolen bis Europa 1914, dazu eine Weltkarte und drei frei erfundene
 - **Echte Landkarten** aus Natural-Earth-Daten: feine Küstenlinien und
   Staatsgrenzen, die echten Verwaltungsgrenzen folgen
 - **Wirtschaft**: Steuern, Verwaltungskosten, Bauwerke, Versorgung, Unruhe
@@ -30,7 +28,8 @@ woran es lag.
   und mit Thronwechseln
 - **Ziele**: drei laufende Vorgaben mit Belohnung, die zeigen, was sich lohnt
 - **Historische Ereignisse**, an Jahr und Lage gebunden
-- **Geführter Einstieg** über eine volle Runde
+- **Geführter Einstieg** in 13 Schritten, der auf echte Handlungen reagiert
+- **Handbuch** mit 23 Kapiteln, dessen Zahlen aus dem Regelwerk gelesen werden
 
 ## Bauen
 
