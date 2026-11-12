@@ -1,554 +1,564 @@
 {
-  "id": "aurelia_brand",
-  "name": "Aurelia - Flächenbrand",
-  "description": "Zwei Bündnisse stehen sich bewaffnet gegenüber, die Kassen sind knapp und an drei Grenzen wird bereits geschossen.",
-  "mapId": "aurelia",
-  "startYear": 1912,
-  "endYear": 1945,
-  "monthsPerTurn": 3,
-  "sandbox": false,
-  "provinceOverrides": {},
-  "countries": [
-    {
-      "id": "nordreich",
-      "name": "Nordreich",
-      "color": "#4a7fd4",
-      "pattern": "solid",
-      "emblem": "N",
-      "ruler": "Feldherr Ivar Halden",
-      "government": "empire",
-      "personality": "aggressive",
-      "capital": "a47",
-      "provinces": [
-        "a15",
-        "a19",
-        "a23",
-        "a47"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a15": 11,
-        "a19": 12,
-        "a23": 12,
-        "a47": 18
-      },
-      "traits": {
-        "military": 1.22,
-        "economy": 0.85,
-        "defense": 1,
-        "research": 0.95,
-        "trade": 0.85
-      },
-      "description": "Mobilisiert und selbstbewusst. Die Generalität regiert faktisch mit."
-    },
-    {
-      "id": "westmark",
-      "name": "Westmark",
-      "color": "#c2564a",
-      "pattern": "diagonal",
-      "emblem": "W",
-      "ruler": "Kanzlerin Adelheid Vorn",
-      "government": "republic",
-      "personality": "diplomatic",
-      "capital": "a17",
-      "provinces": [
-        "a03",
-        "a04",
-        "a07",
-        "a17",
-        "a21",
-        "a37"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a03": 12,
-        "a04": 10,
-        "a07": 10,
-        "a17": 18,
-        "a21": 10,
-        "a37": 12
-      },
-      "traits": {
-        "military": 0.95,
-        "economy": 1.15,
-        "defense": 1.05,
-        "research": 1.1,
-        "trade": 1.15
-      },
-      "description": "Handelsrepublik mit starker Verwaltung und vorsichtiger Außenpolitik."
-    },
-    {
-      "id": "ostbund",
-      "name": "Ostbund",
-      "color": "#58a37f",
-      "pattern": "dots",
-      "emblem": "O",
-      "ruler": "Marschall Piotr Rusz",
-      "government": "military",
-      "personality": "defensive",
-      "capital": "a36",
-      "provinces": [
-        "a09",
-        "a12",
-        "a25",
-        "a35",
-        "a36"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a09": 12,
-        "a12": 9,
-        "a25": 8,
-        "a35": 10,
-        "a36": 18
-      },
-      "traits": {
-        "military": 1.1,
-        "economy": 0.9,
-        "defense": 1.25,
-        "research": 0.9,
-        "trade": 0.85
-      },
-      "description": "Ein Verteidigungsbündnis, das zum Staat wurde. Festungen statt Flotten."
-    },
-    {
-      "id": "suedallianz",
-      "name": "Südallianz",
-      "color": "#d9a441",
-      "pattern": "cross",
-      "emblem": "S",
-      "ruler": "Konsul Marek Talvi",
-      "government": "federation",
-      "personality": "economic",
-      "capital": "a10",
-      "provinces": [
-        "a01",
-        "a10",
-        "a20",
-        "a24",
-        "a44",
-        "a46"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a01": 11,
-        "a10": 18,
-        "a20": 7,
-        "a24": 12,
-        "a44": 7,
-        "a46": 11
-      },
-      "traits": {
-        "military": 0.9,
-        "economy": 1.2,
-        "defense": 0.95,
-        "research": 1.05,
-        "trade": 1.2
-      },
-      "description": "Lockerer Staatenbund. Reich, uneinig und auf Ausgleich angewiesen."
-    },
-    {
-      "id": "zentralrepublik",
-      "name": "Zentralrepublik",
-      "color": "#9b7fd4",
-      "pattern": "vertical",
-      "emblem": "Z",
-      "ruler": "Präsidentin Iva Kern",
-      "government": "democracy",
-      "personality": "opportunistic",
-      "capital": "a13",
-      "provinces": [
-        "a05",
-        "a08",
-        "a13",
-        "a14",
-        "a39"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a05": 6,
-        "a08": 7,
-        "a13": 18,
-        "a14": 9,
-        "a39": 7
-      },
-      "traits": {
-        "military": 1,
-        "economy": 1.05,
-        "defense": 1,
-        "research": 1.15,
-        "trade": 1
-      },
-      "description": "Junge Republik in der Mitte des Kontinents - von allen Seiten umgeben."
-    },
-    {
-      "id": "kuestenliga",
-      "name": "Küstenliga",
-      "color": "#41b0c9",
-      "pattern": "horizontal",
-      "emblem": "K",
-      "ruler": "Großreederin Sena Marlow",
-      "government": "republic",
-      "personality": "economic",
-      "capital": "a42",
-      "provinces": [
-        "a26",
-        "a30",
-        "a40",
-        "a42"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a26": 7,
-        "a30": 9,
-        "a40": 9,
-        "a42": 18
-      },
-      "traits": {
-        "military": 0.85,
-        "economy": 1.25,
-        "defense": 0.9,
-        "research": 1.1,
-        "trade": 1.35
-      },
-      "description": "Ein Bund von Hafenstädten. Die Flotte zählt mehr als das Heer."
-    },
-    {
-      "id": "hochtal",
-      "name": "Hochtal",
-      "color": "#8d8f96",
-      "pattern": "solid",
-      "emblem": "H",
-      "ruler": "Landammann Rudi Stauffer",
-      "government": "feudal",
-      "personality": "isolationist",
-      "capital": "a31",
-      "provinces": [
-        "a06",
-        "a31",
-        "a41",
-        "a43",
-        "a45"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a06": 6,
-        "a31": 18,
-        "a41": 8,
-        "a43": 11,
-        "a45": 11
-      },
-      "traits": {
-        "military": 0.95,
-        "economy": 0.9,
-        "defense": 1.4,
-        "research": 0.9,
-        "trade": 0.8
-      },
-      "description": "Bergkantone, schwer zu erobern und wenig an Eroberung interessiert."
-    },
-    {
-      "id": "steppenkhanat",
-      "name": "Steppenkhanat",
-      "color": "#c98a41",
-      "pattern": "diagonal",
-      "emblem": "T",
-      "ruler": "Khan Berke Altan",
-      "government": "tribal",
-      "personality": "expansionist",
-      "capital": "a18",
-      "provinces": [
-        "a18",
-        "a22",
-        "a27",
-        "a33",
-        "a34",
-        "a38"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a18": 18,
-        "a22": 10,
-        "a27": 12,
-        "a33": 12,
-        "a34": 10,
-        "a38": 10
-      },
-      "traits": {
-        "military": 1.3,
-        "economy": 0.75,
-        "defense": 0.85,
-        "research": 0.8,
-        "trade": 0.9
-      },
-      "description": "Reiterverbände ohne feste Grenzen. Schnell im Angriff, schwach im Halten."
-    },
-    {
-      "id": "sonnenreich",
-      "name": "Sonnenreich",
-      "color": "#d4645f",
-      "pattern": "dots",
-      "emblem": "R",
-      "ruler": "Hohepriester Alim Nasr",
-      "government": "theocracy",
-      "personality": "defensive",
-      "capital": "a02",
-      "provinces": [
-        "a02",
-        "a11",
-        "a16",
-        "a28"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a02": 18,
-        "a11": 8,
-        "a16": 12,
-        "a28": 10
-      },
-      "traits": {
-        "military": 1,
-        "economy": 0.95,
-        "defense": 1.15,
-        "research": 0.85,
-        "trade": 1
-      },
-      "description": "Wüstenreich mit geistlicher Führung. Stabil, solange der Glaube trägt."
-    },
-    {
-      "id": "freistaedte",
-      "name": "Freistädte",
-      "color": "#7fb04a",
-      "pattern": "cross",
-      "emblem": "F",
-      "ruler": "Bürgermeisterrat",
-      "government": "republic",
-      "personality": "erratic",
-      "capital": "a48",
-      "provinces": [
-        "a00",
-        "a29",
-        "a32",
-        "a48"
-      ],
-      "gold": 380,
-      "stability": 54,
-      "politicalPower": 20,
-      "tech": {
-        "military": 4,
-        "economy": 2,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "a00": 12,
-        "a29": 6,
-        "a32": 10,
-        "a48": 18
-      },
-      "traits": {
-        "military": 0.8,
-        "economy": 1.1,
-        "defense": 1,
-        "research": 1.2,
-        "trade": 1.15
-      },
-      "description": "Ein Zweckbündnis unabhängiger Städte mit wechselnden Mehrheiten."
-    }
-  ],
-  "relations": [
-    {
-      "a": "nordreich",
-      "b": "ostbund",
-      "value": 70
-    },
-    {
-      "a": "nordreich",
-      "b": "steppenkhanat",
-      "value": 45
-    },
-    {
-      "a": "westmark",
-      "b": "zentralrepublik",
-      "value": 65
-    },
-    {
-      "a": "westmark",
-      "b": "kuestenliga",
-      "value": 60
-    },
-    {
-      "a": "nordreich",
-      "b": "westmark",
-      "value": -80
-    },
-    {
-      "a": "ostbund",
-      "b": "zentralrepublik",
-      "value": -60
-    },
-    {
-      "a": "steppenkhanat",
-      "b": "kuestenliga",
-      "value": -45
-    },
-    {
-      "a": "suedallianz",
-      "b": "sonnenreich",
-      "value": 30
-    },
-    {
-      "a": "hochtal",
-      "b": "freistaedte",
-      "value": 35
-    },
-    {
-      "a": "freistaedte",
-      "b": "steppenkhanat",
-      "value": -30
-    }
-  ],
-  "alliances": [
-    {
-      "id": "nordpakt",
-      "name": "Nordpakt",
-      "leaderId": "nordreich",
-      "memberIds": [
-        "nordreich",
-        "ostbund",
-        "steppenkhanat"
-      ]
-    },
-    {
-      "id": "westbund",
-      "name": "Westbund",
-      "leaderId": "westmark",
-      "memberIds": [
-        "westmark",
-        "zentralrepublik",
-        "kuestenliga"
-      ]
-    }
-  ],
-  "wars": [
-    {
-      "sideA": [
-        "nordreich",
-        "ostbund",
-        "steppenkhanat"
-      ],
-      "sideB": [
-        "westmark",
-        "zentralrepublik",
-        "kuestenliga"
-      ]
-    }
-  ],
-  "events": [],
-  "victoryConditions": [
-    {
-      "type": "provinces",
-      "value": 16,
-      "description": "Beherrsche 16 der 49 Gebiete."
-    },
-    {
-      "type": "capitals",
-      "value": 3,
-      "targets": [
-        "a47",
-        "a17",
-        "a36",
-        "a10",
-        "a13",
-        "a42",
-        "a31",
-        "a18",
-        "a02",
-        "a48"
-      ],
-      "description": "Erobere drei fremde Hauptstädte."
-    }
-  ]
+ "id": "aurelia_brand",
+ "name": "Aurelia - Flächenbrand",
+ "description": "Zwei Bündnisse stehen sich bewaffnet gegenüber, die Kassen sind knapp und an drei Grenzen wird bereits geschossen.",
+ "mapId": "aurelia",
+ "startYear": 1912,
+ "endYear": 1945,
+ "monthsPerTurn": 3,
+ "sandbox": false,
+ "provinceOverrides": {},
+ "countries": [
+  {
+   "id": "nordreich",
+   "name": "Nordreich",
+   "color": "#4a7fd4",
+   "pattern": "solid",
+   "emblem": "N",
+   "ruler": "Feldherr Ivar Halden",
+   "government": "empire",
+   "personality": "aggressive",
+   "capital": "a47",
+   "provinces": [
+    "a15",
+    "a19",
+    "a23",
+    "a47"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a15": 11,
+    "a19": 12,
+    "a23": 12,
+    "a47": 18
+   },
+   "traits": {
+    "military": 1.22,
+    "economy": 0.85,
+    "defense": 1,
+    "research": 0.95,
+    "trade": 0.85
+   },
+   "description": "Mobilisiert und selbstbewusst. Die Generalität regiert faktisch mit.",
+   "flag": "au_nordreich"
+  },
+  {
+   "id": "westmark",
+   "name": "Westmark",
+   "color": "#c2564a",
+   "pattern": "diagonal",
+   "emblem": "W",
+   "ruler": "Kanzlerin Adelheid Vorn",
+   "government": "republic",
+   "personality": "diplomatic",
+   "capital": "a17",
+   "provinces": [
+    "a03",
+    "a04",
+    "a07",
+    "a17",
+    "a21",
+    "a37"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a03": 12,
+    "a04": 10,
+    "a07": 10,
+    "a17": 18,
+    "a21": 10,
+    "a37": 12
+   },
+   "traits": {
+    "military": 0.95,
+    "economy": 1.15,
+    "defense": 1.05,
+    "research": 1.1,
+    "trade": 1.15
+   },
+   "description": "Handelsrepublik mit starker Verwaltung und vorsichtiger Außenpolitik.",
+   "flag": "au_westmark"
+  },
+  {
+   "id": "ostbund",
+   "name": "Ostbund",
+   "color": "#58a37f",
+   "pattern": "dots",
+   "emblem": "O",
+   "ruler": "Marschall Piotr Rusz",
+   "government": "military",
+   "personality": "defensive",
+   "capital": "a36",
+   "provinces": [
+    "a09",
+    "a12",
+    "a25",
+    "a35",
+    "a36"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a09": 12,
+    "a12": 9,
+    "a25": 8,
+    "a35": 10,
+    "a36": 18
+   },
+   "traits": {
+    "military": 1.1,
+    "economy": 0.9,
+    "defense": 1.25,
+    "research": 0.9,
+    "trade": 0.85
+   },
+   "description": "Ein Verteidigungsbündnis, das zum Staat wurde. Festungen statt Flotten.",
+   "flag": "au_ostbund"
+  },
+  {
+   "id": "suedallianz",
+   "name": "Südallianz",
+   "color": "#d9a441",
+   "pattern": "cross",
+   "emblem": "S",
+   "ruler": "Konsul Marek Talvi",
+   "government": "federation",
+   "personality": "economic",
+   "capital": "a10",
+   "provinces": [
+    "a01",
+    "a10",
+    "a20",
+    "a24",
+    "a44",
+    "a46"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a01": 11,
+    "a10": 18,
+    "a20": 7,
+    "a24": 12,
+    "a44": 7,
+    "a46": 11
+   },
+   "traits": {
+    "military": 0.9,
+    "economy": 1.2,
+    "defense": 0.95,
+    "research": 1.05,
+    "trade": 1.2
+   },
+   "description": "Lockerer Staatenbund. Reich, uneinig und auf Ausgleich angewiesen.",
+   "flag": "au_suedallianz"
+  },
+  {
+   "id": "zentralrepublik",
+   "name": "Zentralrepublik",
+   "color": "#9b7fd4",
+   "pattern": "vertical",
+   "emblem": "Z",
+   "ruler": "Präsidentin Iva Kern",
+   "government": "democracy",
+   "personality": "opportunistic",
+   "capital": "a13",
+   "provinces": [
+    "a05",
+    "a08",
+    "a13",
+    "a14",
+    "a39"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a05": 6,
+    "a08": 7,
+    "a13": 18,
+    "a14": 9,
+    "a39": 7
+   },
+   "traits": {
+    "military": 1,
+    "economy": 1.05,
+    "defense": 1,
+    "research": 1.15,
+    "trade": 1
+   },
+   "description": "Junge Republik in der Mitte des Kontinents - von allen Seiten umgeben.",
+   "flag": "au_zentralrepublik"
+  },
+  {
+   "id": "kuestenliga",
+   "name": "Küstenliga",
+   "color": "#41b0c9",
+   "pattern": "horizontal",
+   "emblem": "K",
+   "ruler": "Großreederin Sena Marlow",
+   "government": "republic",
+   "personality": "economic",
+   "capital": "a42",
+   "provinces": [
+    "a26",
+    "a30",
+    "a40",
+    "a42"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a26": 7,
+    "a30": 9,
+    "a40": 9,
+    "a42": 18
+   },
+   "traits": {
+    "military": 0.85,
+    "economy": 1.25,
+    "defense": 0.9,
+    "research": 1.1,
+    "trade": 1.35
+   },
+   "description": "Ein Bund von Hafenstädten. Die Flotte zählt mehr als das Heer.",
+   "flag": "au_kuestenliga"
+  },
+  {
+   "id": "hochtal",
+   "name": "Hochtal",
+   "color": "#8d8f96",
+   "pattern": "solid",
+   "emblem": "H",
+   "ruler": "Landammann Rudi Stauffer",
+   "government": "feudal",
+   "personality": "isolationist",
+   "capital": "a31",
+   "provinces": [
+    "a06",
+    "a31",
+    "a41",
+    "a43",
+    "a45"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a06": 6,
+    "a31": 18,
+    "a41": 8,
+    "a43": 11,
+    "a45": 11
+   },
+   "traits": {
+    "military": 0.95,
+    "economy": 0.9,
+    "defense": 1.4,
+    "research": 0.9,
+    "trade": 0.8
+   },
+   "description": "Bergkantone, schwer zu erobern und wenig an Eroberung interessiert.",
+   "flag": "au_hochtal"
+  },
+  {
+   "id": "steppenkhanat",
+   "name": "Steppenkhanat",
+   "color": "#c98a41",
+   "pattern": "diagonal",
+   "emblem": "T",
+   "ruler": "Khan Berke Altan",
+   "government": "tribal",
+   "personality": "expansionist",
+   "capital": "a18",
+   "provinces": [
+    "a18",
+    "a22",
+    "a27",
+    "a33",
+    "a34",
+    "a38"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a18": 18,
+    "a22": 10,
+    "a27": 12,
+    "a33": 12,
+    "a34": 10,
+    "a38": 10
+   },
+   "traits": {
+    "military": 1.3,
+    "economy": 0.75,
+    "defense": 0.85,
+    "research": 0.8,
+    "trade": 0.9
+   },
+   "description": "Reiterverbände ohne feste Grenzen. Schnell im Angriff, schwach im Halten.",
+   "flag": "au_steppenkhanat"
+  },
+  {
+   "id": "sonnenreich",
+   "name": "Sonnenreich",
+   "color": "#d4645f",
+   "pattern": "dots",
+   "emblem": "R",
+   "ruler": "Hohepriester Alim Nasr",
+   "government": "theocracy",
+   "personality": "defensive",
+   "capital": "a02",
+   "provinces": [
+    "a02",
+    "a11",
+    "a16",
+    "a28"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a02": 18,
+    "a11": 8,
+    "a16": 12,
+    "a28": 10
+   },
+   "traits": {
+    "military": 1,
+    "economy": 0.95,
+    "defense": 1.15,
+    "research": 0.85,
+    "trade": 1
+   },
+   "description": "Wüstenreich mit geistlicher Führung. Stabil, solange der Glaube trägt.",
+   "flag": "au_sonnenreich"
+  },
+  {
+   "id": "freistaedte",
+   "name": "Freistädte",
+   "color": "#7fb04a",
+   "pattern": "cross",
+   "emblem": "F",
+   "ruler": "Bürgermeisterrat",
+   "government": "republic",
+   "personality": "erratic",
+   "capital": "a48",
+   "provinces": [
+    "a00",
+    "a29",
+    "a32",
+    "a48"
+   ],
+   "gold": 380,
+   "stability": 54,
+   "politicalPower": 20,
+   "tech": {
+    "military": 4,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "a00": 12,
+    "a29": 6,
+    "a32": 10,
+    "a48": 18
+   },
+   "traits": {
+    "military": 0.8,
+    "economy": 1.1,
+    "defense": 1,
+    "research": 1.2,
+    "trade": 1.15
+   },
+   "description": "Ein Zweckbündnis unabhängiger Städte mit wechselnden Mehrheiten.",
+   "flag": "au_freistaedte"
+  }
+ ],
+ "relations": [
+  {
+   "a": "nordreich",
+   "b": "ostbund",
+   "value": 70
+  },
+  {
+   "a": "nordreich",
+   "b": "steppenkhanat",
+   "value": 45
+  },
+  {
+   "a": "westmark",
+   "b": "zentralrepublik",
+   "value": 65
+  },
+  {
+   "a": "westmark",
+   "b": "kuestenliga",
+   "value": 60
+  },
+  {
+   "a": "nordreich",
+   "b": "westmark",
+   "value": -80
+  },
+  {
+   "a": "ostbund",
+   "b": "zentralrepublik",
+   "value": -60
+  },
+  {
+   "a": "steppenkhanat",
+   "b": "kuestenliga",
+   "value": -45
+  },
+  {
+   "a": "suedallianz",
+   "b": "sonnenreich",
+   "value": 30
+  },
+  {
+   "a": "hochtal",
+   "b": "freistaedte",
+   "value": 35
+  },
+  {
+   "a": "freistaedte",
+   "b": "steppenkhanat",
+   "value": -30
+  }
+ ],
+ "alliances": [
+  {
+   "id": "nordpakt",
+   "name": "Nordpakt",
+   "leaderId": "nordreich",
+   "memberIds": [
+    "nordreich",
+    "ostbund",
+    "steppenkhanat"
+   ]
+  },
+  {
+   "id": "westbund",
+   "name": "Westbund",
+   "leaderId": "westmark",
+   "memberIds": [
+    "westmark",
+    "zentralrepublik",
+    "kuestenliga"
+   ]
+  }
+ ],
+ "wars": [
+  {
+   "sideA": [
+    "nordreich",
+    "ostbund",
+    "steppenkhanat"
+   ],
+   "sideB": [
+    "westmark",
+    "zentralrepublik",
+    "kuestenliga"
+   ]
+  }
+ ],
+ "events": [],
+ "victoryConditions": [
+  {
+   "type": "provinces",
+   "value": 16,
+   "description": "Beherrsche 16 der 49 Gebiete."
+  },
+  {
+   "type": "capitals",
+   "value": 3,
+   "targets": [
+    "a47",
+    "a17",
+    "a36",
+    "a10",
+    "a13",
+    "a42",
+    "a31",
+    "a18",
+    "a02",
+    "a48"
+   ],
+   "description": "Erobere drei fremde Hauptstädte."
+  }
+ ]
 }

@@ -29,7 +29,8 @@ import {
   formatDate, formatNumber, formatPercent, formatPopulation, formatSigned, jahrText,
 } from '../core/format';
 import { balken, esc, zeile } from './dom';
-import { abzeichenSvg, wappenSvg } from './heraldry';
+import { abzeichenSvg } from './heraldry';
+import { flaggeSvg } from './flaggen';
 import { balkenDiagramm, linienDiagramm } from './charts';
 import { AUTOSAVE_SLOT, MANUAL_SLOTS, listSaves, speicherIstDauerhaft } from '../core/save';
 
@@ -283,7 +284,7 @@ function diplomatiePanel(s: GameState, k: PanelKontext): string {
     detail = `
       <div class="karte-block">
         <div class="land-kopf">
-          ${wappenSvg(ziel.crest, ziel.color, 48, ziel.emblem)}
+          ${flaggeSvg(ziel.flag, ziel.color, 52, ziel.emblem)}
           <div>
             <h3>${esc(ziel.name)}</h3>
             <div class="leise-text">${esc(ziel.ruler)} &middot; ${esc(governmentOf(ziel).name)}</div>
@@ -605,7 +606,7 @@ function inneresPanel(s: GameState): string {
     ${r ? block('Herrscher', herrscherBlock) : ''}
     ${block('Regierung', `
       <div class="land-kopf">
-        ${wappenSvg(c.crest, c.color, 44, c.emblem)}
+        ${flaggeSvg(c.flag, c.color, 48, c.emblem)}
         <div><h3>${esc(reg.name)}</h3>
         <div class="leise-text">${esc(c.ruler)}</div></div>
       </div>
@@ -811,7 +812,7 @@ export function gebietsAnsicht(
 
   const kopf = `
     <div class="gebiets-kopf">
-      ${besitzer ? wappenSvg(besitzer.crest, besitzer.color, 38, besitzer.emblem)
+      ${besitzer ? flaggeSvg(besitzer.flag, besitzer.color, 42, besitzer.emblem)
     : '<span class="wappen-leer">—</span>'}
       <div class="gebiets-titel">
         <h3>${p.isCapital ? '★ ' : ''}${esc(p.name)}</h3>
@@ -822,7 +823,7 @@ export function gebietsAnsicht(
           ${besitzer && areAtWar(s, ich, besitzer.id) ? ' &middot; <b class="gefahr-text">im Krieg</b>' : ''}
         </div>
       </div>
-      <button class="ghost small" data-gebiet-schließen>Schließen</button>
+      <button class="ghost small" data-gebiet-schliessen>Schließen</button>
     </div>`;
 
   const kennzahlen = `
@@ -1025,7 +1026,7 @@ export function kopfleiste(s: GameState): string {
 
   return `
     <div class="kopf-land">
-      ${wappenSvg(c.crest, c.color, 34, c.emblem)}
+      ${flaggeSvg(c.flag, c.color, 38, c.emblem)}
       <div class="kopf-land-text">
         <b>${esc(c.name)}</b>
         <span class="leise-text">${esc(formatDate(s.year, s.turn, s.monthsPerTurn))}
@@ -1051,7 +1052,7 @@ export function landVorschau(s: GameState, c: Country): string {
   const g = provincesOf(s, c.id);
   return `
     <div class="land-kopf">
-      ${wappenSvg(c.crest, c.color, 54, c.emblem)}
+      ${flaggeSvg(c.flag, c.color, 58, c.emblem)}
       <div>
         <h3>${esc(c.name)}</h3>
         <div class="leise-text">${esc(c.ruler)} &middot; ${esc(GOVERNMENTS[c.government].name)}</div>

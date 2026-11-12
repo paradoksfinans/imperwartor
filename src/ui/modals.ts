@@ -10,7 +10,7 @@ import { TERRAIN, UNITS, UNIT_ORDER } from '../core/rules';
 import { formatNumber, jahrText } from '../core/format';
 import { esc, zeile } from './dom';
 import { heeresRing, kraftWaage } from './charts';
-import { wappenSvg } from './heraldry';
+import { flaggeSvg } from './flaggen';
 import { rangliste } from '../core/victory';
 import { GATTUNG_FARBEN } from './panels';
 
@@ -60,7 +60,7 @@ export function kampfberichtModal(s: GameState, b: BattleReport): string {
 
       <div class="kampf-gegenüber">
         <div class="kampf-seite">
-          ${angreifer ? wappenSvg(angreifer.crest, angreifer.color, 40, angreifer.emblem) : ''}
+          ${angreifer ? flaggeSvg(angreifer.flag, angreifer.color, 44, angreifer.emblem) : ''}
           <div class="block-titel">Angriff</div>
           ${heeresRing(ringTeile(b.attackerRegiments), 86)}
           ${truppenListe(b.attackerRegiments)}
@@ -70,7 +70,7 @@ export function kampfberichtModal(s: GameState, b: BattleReport): string {
           <div class="kampf-ergebnis ${b.attackerWon ? 'gut' : 'schlecht'}">${esc(ergebnisText)}</div>
         </div>
         <div class="kampf-seite">
-          ${verteidiger ? wappenSvg(verteidiger.crest, verteidiger.color, 40, verteidiger.emblem)
+          ${verteidiger ? flaggeSvg(verteidiger.flag, verteidiger.color, 44, verteidiger.emblem)
     : '<span class="wappen-leer">—</span>'}
           <div class="block-titel">Abwehr</div>
           ${heeresRing(ringTeile(b.defenderRegiments), 86)}
@@ -107,7 +107,7 @@ export function kampfberichtModal(s: GameState, b: BattleReport): string {
 
       <p class="leise-text">${esc(b.note)}</p>
       <div class="modal-fuß">
-        <button class="haupt" data-modal-schließen>Weiter</button>
+        <button class="haupt" data-modal-schliessen>Weiter</button>
       </div>
     </div>`;
 }
@@ -235,7 +235,7 @@ export function spielendeModal(s: GameState): string {
   return `
     <div class="modal gross">
       <div class="modal-kopf mittig">
-        ${wappenSvg(c.crest, c.color, 72, c.emblem)}
+        ${flaggeSvg(c.flag, c.color, 84, c.emblem)}
         <div class="block-titel">Runde ${s.turn} &middot; ${esc(jahrText(s.year))}</div>
         <h2 class="${gewonnen ? 'sieg' : 'niederlage'}">${gewonnen ? 'Sieg' : 'Niederlage'}</h2>
       </div>
@@ -257,7 +257,7 @@ export function spielendeModal(s: GameState): string {
       </div>
       <div class="modal-fuß">
         <button class="primaer" data-teilen="${esc(zusammenfassung)}">Ergebnis kopieren</button>
-        <button class="ghost" data-modal-schließen>Karte ansehen</button>
+        <button class="ghost" data-modal-schliessen>Karte ansehen</button>
         <button class="haupt" data-beenden>Hauptmenü</button>
       </div>
     </div>`;
@@ -296,7 +296,7 @@ export function hilfeModal(): string {
       ${punkt('Frieden',
     'Was du im Frieden fordern kannst, hängt vom Kriegsfortschritt ab. Wer vorne liegt, darf Gebiete verlangen.')}
       <div class="modal-fuß">
-        <button class="haupt" data-modal-schließen>Verstanden</button>
+        <button class="haupt" data-modal-schliessen>Verstanden</button>
       </div>
     </div>`;
 }

@@ -1,544 +1,554 @@
 {
-  "id": "welt_1914",
-  "name": "Welt 1914 - Großmächte",
-  "description": "Zehn Großmächte, 48 beherrschte und 92 herrenlose Gebiete. Vereinfachte Darstellung: Kolonien sind eigene Gebiete mit heutigen Grenzen.",
-  "mapId": "welt",
-  "startYear": 1914,
-  "endYear": 1960,
-  "monthsPerTurn": 6,
-  "sandbox": false,
-  "provinceOverrides": {},
-  "countries": [
-    {
-      "id": "britisches_empire",
-      "name": "Britisches Empire",
-      "color": "#a03b3b",
-      "pattern": "solid",
-      "emblem": "G",
-      "ruler": "König Georg V.",
-      "government": "monarchy",
-      "personality": "diplomatic",
-      "capital": "we131",
-      "provinces": [
-        "we05",
-        "we113",
-        "we117",
-        "we131",
-        "we21",
-        "we37",
-        "we46",
-        "we56",
-        "we66",
-        "we87",
-        "we90"
-      ],
-      "gold": 1600,
-      "stability": 66,
-      "politicalPower": 35,
-      "tech": {
-        "military": 4,
-        "economy": 5,
-        "administration": 5,
-        "logistics": 4,
-        "defense": 4
-      },
-      "armies": {
-        "we131": 20,
-        "we56": 2,
-        "we05": 2,
-        "we21": 2,
-        "we113": 2,
-        "we87": 2,
-        "we90": 2,
-        "we37": 2,
-        "we117": 2,
-        "we66": 2,
-        "we46": 2
-      },
-      "traits": {
-        "military": 1.05,
-        "economy": 1.3,
-        "defense": 1.05,
-        "research": 1.25,
-        "trade": 1.45
-      },
-      "description": "Das größte Reich der Erde, gehalten von der Flotte und vom Handel."
-    },
-    {
-      "id": "frankreich",
-      "name": "Frankreich",
-      "color": "#3f6fb5",
-      "pattern": "solid",
-      "emblem": "F",
-      "ruler": "Präsident Raymond Poincare",
-      "government": "republic",
-      "personality": "defensive",
-      "capital": "we42",
-      "provinces": [
-        "we01",
-        "we107",
-        "we136",
-        "we23",
-        "we42",
-        "we49",
-        "we73",
-        "we76",
-        "we81",
-        "we89"
-      ],
-      "gold": 1000,
-      "stability": 62,
-      "politicalPower": 35,
-      "tech": {
-        "military": 4,
-        "economy": 4,
-        "administration": 4,
-        "logistics": 4,
-        "defense": 5
-      },
-      "armies": {
-        "we42": 17,
-        "we01": 2,
-        "we76": 2,
-        "we89": 2,
-        "we23": 2,
-        "we73": 2,
-        "we136": 2,
-        "we107": 2,
-        "we49": 2,
-        "we81": 1
-      },
-      "traits": {
-        "military": 1.1,
-        "economy": 1.1,
-        "defense": 1.2,
-        "research": 1.15,
-        "trade": 1.1
-      },
-      "description": "Zweitgrößtes Kolonialreich, in Europa auf Verteidigung eingestellt."
-    },
-    {
-      "id": "deutsches_reich",
-      "name": "Deutsches Reich",
-      "color": "#4a5a68",
-      "pattern": "solid",
-      "emblem": "D",
-      "ruler": "Kaiser Wilhelm II.",
-      "government": "empire",
-      "personality": "aggressive",
-      "capital": "we45",
-      "provinces": [
-        "we100",
-        "we122",
-        "we20",
-        "we45",
-        "we84",
-        "we96"
-      ],
-      "gold": 1100,
-      "stability": 64,
-      "politicalPower": 35,
-      "tech": {
-        "military": 5,
-        "economy": 5,
-        "administration": 4,
-        "logistics": 5,
-        "defense": 4
-      },
-      "armies": {
-        "we45": 19,
-        "we100": 4,
-        "we84": 4,
-        "we122": 4,
-        "we20": 4,
-        "we96": 3
-      },
-      "traits": {
-        "military": 1.25,
-        "economy": 1.15,
-        "defense": 1.05,
-        "research": 1.2,
-        "trade": 0.95
-      },
-      "description": "Industriell stark, kolonial spät gekommen und darüber unzufrieden."
-    },
-    {
-      "id": "russisches_reich",
-      "name": "Russisches Reich",
-      "color": "#7a8f5a",
-      "pattern": "solid",
-      "emblem": "R",
-      "ruler": "Zar Nikolaus II.",
-      "government": "empire",
-      "personality": "expansionist",
-      "capital": "we103",
-      "provinces": [
-        "we09",
-        "we103",
-        "we121",
-        "we127",
-        "we129",
-        "we134",
-        "we41",
-        "we65",
-        "we67"
-      ],
-      "gold": 800,
-      "stability": 42,
-      "politicalPower": 35,
-      "tech": {
-        "military": 3,
-        "economy": 2,
-        "administration": 2,
-        "logistics": 2,
-        "defense": 3
-      },
-      "armies": {
-        "we103": 18,
-        "we65": 3,
-        "we134": 3,
-        "we127": 2,
-        "we121": 2,
-        "we67": 2,
-        "we41": 2,
-        "we129": 2,
-        "we09": 2
-      },
-      "traits": {
-        "military": 1.1,
-        "economy": 0.8,
-        "defense": 1.15,
-        "research": 0.85,
-        "trade": 0.85
-      },
-      "description": "Ungeheurer Raum, schwache Industrie, brüchige innere Ordnung."
-    },
-    {
-      "id": "vereinigte_staaten",
-      "name": "Vereinigte Staaten",
-      "color": "#5f8fa0",
-      "pattern": "solid",
-      "emblem": "U",
-      "ruler": "Präsident Woodrow Wilson",
-      "government": "democracy",
-      "personality": "economic",
-      "capital": "we132",
-      "provinces": [
-        "we132"
-      ],
-      "gold": 1800,
-      "stability": 70,
-      "politicalPower": 35,
-      "tech": {
-        "military": 3,
-        "economy": 5,
-        "administration": 5,
-        "logistics": 5,
-        "defense": 3
-      },
-      "armies": {
-        "we132": 16
-      },
-      "traits": {
-        "military": 1,
-        "economy": 1.4,
-        "defense": 1.1,
-        "research": 1.3,
-        "trade": 1.3
-      },
-      "description": "Größte Wirtschaftskraft der Welt bei kleinem Heer. Hält sich aus europäischen Händeln heraus."
-    },
-    {
-      "id": "japan",
-      "name": "Japan",
-      "color": "#c4694a",
-      "pattern": "solid",
-      "emblem": "J",
-      "ruler": "Kaiser Taisho",
-      "government": "empire",
-      "personality": "expansionist",
-      "capital": "we63",
-      "provinces": [
-        "we63"
-      ],
-      "gold": 700,
-      "stability": 68,
-      "politicalPower": 35,
-      "tech": {
-        "military": 4,
-        "economy": 4,
-        "administration": 4,
-        "logistics": 3,
-        "defense": 4
-      },
-      "armies": {
-        "we63": 20
-      },
-      "traits": {
-        "military": 1.2,
-        "economy": 1.1,
-        "defense": 1.1,
-        "research": 1.15,
-        "trade": 1.1
-      },
-      "description": "Aufsteigende Macht in Ostasien, nach Siegen über China und Russland."
-    },
-    {
-      "id": "oesterreich_ungarn",
-      "name": "Österreich-Ungarn",
-      "color": "#c9a227",
-      "pattern": "solid",
-      "emblem": "A",
-      "ruler": "Kaiser Franz Joseph I.",
-      "government": "monarchy",
-      "personality": "defensive",
-      "capital": "we102",
-      "provinces": [
-        "we102"
-      ],
-      "gold": 620,
-      "stability": 48,
-      "politicalPower": 35,
-      "tech": {
-        "military": 3,
-        "economy": 3,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "we102": 22
-      },
-      "traits": {
-        "military": 0.95,
-        "economy": 0.95,
-        "defense": 1.1,
-        "research": 1,
-        "trade": 0.95
-      },
-      "description": "Vielvölkerstaat unter Spannung. Auf dieser Karte stark vereinfacht dargestellt."
-    },
-    {
-      "id": "osmanisches_reich",
-      "name": "Osmanisches Reich",
-      "color": "#b5762f",
-      "pattern": "solid",
-      "emblem": "O",
-      "ruler": "Sultan Mehmed V.",
-      "government": "empire",
-      "personality": "defensive",
-      "capital": "we126",
-      "provinces": [
-        "we106",
-        "we120",
-        "we126",
-        "we137",
-        "we59"
-      ],
-      "gold": 450,
-      "stability": 44,
-      "politicalPower": 35,
-      "tech": {
-        "military": 2,
-        "economy": 2,
-        "administration": 2,
-        "logistics": 2,
-        "defense": 3
-      },
-      "armies": {
-        "we126": 9,
-        "we59": 3,
-        "we120": 2,
-        "we106": 2,
-        "we137": 2
-      },
-      "traits": {
-        "military": 0.9,
-        "economy": 0.8,
-        "defense": 1.15,
-        "research": 0.8,
-        "trade": 0.95
-      },
-      "description": "Weit ausgedehnt, schwach verwaltet, strategisch entscheidend."
-    },
-    {
-      "id": "china",
-      "name": "China",
-      "color": "#8f7fa0",
-      "pattern": "solid",
-      "emblem": "C",
-      "ruler": "Präsident Yuan Shikai",
-      "government": "republic",
-      "personality": "isolationist",
-      "capital": "we25",
-      "provinces": [
-        "we25",
-        "we80"
-      ],
-      "gold": 500,
-      "stability": 36,
-      "politicalPower": 35,
-      "tech": {
-        "military": 2,
-        "economy": 2,
-        "administration": 1,
-        "logistics": 1,
-        "defense": 2
-      },
-      "armies": {
-        "we25": 12,
-        "we80": 12
-      },
-      "traits": {
-        "military": 0.85,
-        "economy": 0.9,
-        "defense": 1.1,
-        "research": 0.8,
-        "trade": 0.9
-      },
-      "description": "Junge Republik nach dem Sturz der Monarchie, innerlich zerrissen."
-    },
-    {
-      "id": "italien",
-      "name": "Italien",
-      "color": "#5aa06a",
-      "pattern": "solid",
-      "emblem": "I",
-      "ruler": "König Viktor Emanuel III.",
-      "government": "monarchy",
-      "personality": "opportunistic",
-      "capital": "we62",
-      "provinces": [
-        "we62",
-        "we71"
-      ],
-      "gold": 560,
-      "stability": 55,
-      "politicalPower": 35,
-      "tech": {
-        "military": 3,
-        "economy": 3,
-        "administration": 3,
-        "logistics": 3,
-        "defense": 3
-      },
-      "armies": {
-        "we62": 9,
-        "we71": 9
-      },
-      "traits": {
-        "military": 0.95,
-        "economy": 1,
-        "defense": 1,
-        "research": 1,
-        "trade": 1.1
-      },
-      "description": "Sucht Anschluss an den Kreis der Großmächte."
-    }
-  ],
-  "relations": [
-    {
-      "a": "deutsches_reich",
-      "b": "oesterreich_ungarn",
-      "value": 75
-    },
-    {
-      "a": "deutsches_reich",
-      "b": "osmanisches_reich",
-      "value": 45
-    },
-    {
-      "a": "frankreich",
-      "b": "russisches_reich",
-      "value": 70
-    },
-    {
-      "a": "frankreich",
-      "b": "britisches_empire",
-      "value": 65
-    },
-    {
-      "a": "britisches_empire",
-      "b": "japan",
-      "value": 45
-    },
-    {
-      "a": "deutsches_reich",
-      "b": "frankreich",
-      "value": -75
-    },
-    {
-      "a": "deutsches_reich",
-      "b": "britisches_empire",
-      "value": -60
-    },
-    {
-      "a": "russisches_reich",
-      "b": "japan",
-      "value": -55
-    },
-    {
-      "a": "russisches_reich",
-      "b": "osmanisches_reich",
-      "value": -50
-    },
-    {
-      "a": "japan",
-      "b": "china",
-      "value": -60
-    },
-    {
-      "a": "vereinigte_staaten",
-      "b": "britisches_empire",
-      "value": 35
-    }
-  ],
-  "alliances": [
-    {
-      "id": "mittelmaechte",
-      "name": "Mittelmächte",
-      "leaderId": "deutsches_reich",
-      "memberIds": [
-        "deutsches_reich",
-        "oesterreich_ungarn",
-        "osmanisches_reich"
-      ]
-    },
-    {
-      "id": "entente",
-      "name": "Entente",
-      "leaderId": "britisches_empire",
-      "memberIds": [
-        "britisches_empire",
-        "frankreich",
-        "russisches_reich"
-      ]
-    }
-  ],
-  "wars": [],
-  "events": [],
-  "victoryConditions": [
-    {
-      "type": "provinces",
-      "value": 30,
-      "description": "Beherrsche 30 der 93 Gebiete."
-    },
-    {
-      "type": "capitals",
-      "value": 3,
-      "targets": [
-        "we131",
-        "we42",
-        "we45",
-        "we103",
-        "we132",
-        "we63",
-        "we102",
-        "we126",
-        "we25",
-        "we62"
-      ],
-      "description": "Erobere drei Hauptstädte anderer Großmächte."
-    }
-  ]
+ "id": "welt_1914",
+ "name": "Welt 1914 - Großmächte",
+ "description": "Zehn Großmächte, 48 beherrschte und 92 herrenlose Gebiete. Vereinfachte Darstellung: Kolonien sind eigene Gebiete mit heutigen Grenzen.",
+ "mapId": "welt",
+ "startYear": 1914,
+ "endYear": 1960,
+ "monthsPerTurn": 6,
+ "sandbox": false,
+ "provinceOverrides": {},
+ "countries": [
+  {
+   "id": "britisches_empire",
+   "name": "Britisches Empire",
+   "color": "#a03b3b",
+   "pattern": "solid",
+   "emblem": "G",
+   "ruler": "König Georg V.",
+   "government": "monarchy",
+   "personality": "diplomatic",
+   "capital": "we131",
+   "provinces": [
+    "we05",
+    "we113",
+    "we117",
+    "we131",
+    "we21",
+    "we37",
+    "we46",
+    "we56",
+    "we66",
+    "we87",
+    "we90"
+   ],
+   "gold": 1600,
+   "stability": 66,
+   "politicalPower": 35,
+   "tech": {
+    "military": 4,
+    "economy": 5,
+    "administration": 5,
+    "logistics": 4,
+    "defense": 4
+   },
+   "armies": {
+    "we131": 20,
+    "we56": 2,
+    "we05": 2,
+    "we21": 2,
+    "we113": 2,
+    "we87": 2,
+    "we90": 2,
+    "we37": 2,
+    "we117": 2,
+    "we66": 2,
+    "we46": 2
+   },
+   "traits": {
+    "military": 1.05,
+    "economy": 1.3,
+    "defense": 1.05,
+    "research": 1.25,
+    "trade": 1.45
+   },
+   "description": "Das größte Reich der Erde, gehalten von der Flotte und vom Handel.",
+   "flag": "gb_union"
+  },
+  {
+   "id": "frankreich",
+   "name": "Frankreich",
+   "color": "#3f6fb5",
+   "pattern": "solid",
+   "emblem": "F",
+   "ruler": "Präsident Raymond Poincare",
+   "government": "republic",
+   "personality": "defensive",
+   "capital": "we42",
+   "provinces": [
+    "we01",
+    "we107",
+    "we136",
+    "we23",
+    "we42",
+    "we49",
+    "we73",
+    "we76",
+    "we81",
+    "we89"
+   ],
+   "gold": 1000,
+   "stability": 62,
+   "politicalPower": 35,
+   "tech": {
+    "military": 4,
+    "economy": 4,
+    "administration": 4,
+    "logistics": 4,
+    "defense": 5
+   },
+   "armies": {
+    "we42": 17,
+    "we01": 2,
+    "we76": 2,
+    "we89": 2,
+    "we23": 2,
+    "we73": 2,
+    "we136": 2,
+    "we107": 2,
+    "we49": 2,
+    "we81": 1
+   },
+   "traits": {
+    "military": 1.1,
+    "economy": 1.1,
+    "defense": 1.2,
+    "research": 1.15,
+    "trade": 1.1
+   },
+   "description": "Zweitgrößtes Kolonialreich, in Europa auf Verteidigung eingestellt.",
+   "flag": "fr_trikolore"
+  },
+  {
+   "id": "deutsches_reich",
+   "name": "Deutsches Reich",
+   "color": "#4a5a68",
+   "pattern": "solid",
+   "emblem": "D",
+   "ruler": "Kaiser Wilhelm II.",
+   "government": "empire",
+   "personality": "aggressive",
+   "capital": "we45",
+   "provinces": [
+    "we100",
+    "we122",
+    "we20",
+    "we45",
+    "we84",
+    "we96"
+   ],
+   "gold": 1100,
+   "stability": 64,
+   "politicalPower": 35,
+   "tech": {
+    "military": 5,
+    "economy": 5,
+    "administration": 4,
+    "logistics": 5,
+    "defense": 4
+   },
+   "armies": {
+    "we45": 19,
+    "we100": 4,
+    "we84": 4,
+    "we122": 4,
+    "we20": 4,
+    "we96": 3
+   },
+   "traits": {
+    "military": 1.25,
+    "economy": 1.15,
+    "defense": 1.05,
+    "research": 1.2,
+    "trade": 0.95
+   },
+   "description": "Industriell stark, kolonial spät gekommen und darüber unzufrieden.",
+   "flag": "de_kaiserreich"
+  },
+  {
+   "id": "russisches_reich",
+   "name": "Russisches Reich",
+   "color": "#7a8f5a",
+   "pattern": "solid",
+   "emblem": "R",
+   "ruler": "Zar Nikolaus II.",
+   "government": "empire",
+   "personality": "expansionist",
+   "capital": "we103",
+   "provinces": [
+    "we09",
+    "we103",
+    "we121",
+    "we127",
+    "we129",
+    "we134",
+    "we41",
+    "we65",
+    "we67"
+   ],
+   "gold": 800,
+   "stability": 42,
+   "politicalPower": 35,
+   "tech": {
+    "military": 3,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 3
+   },
+   "armies": {
+    "we103": 18,
+    "we65": 3,
+    "we134": 3,
+    "we127": 2,
+    "we121": 2,
+    "we67": 2,
+    "we41": 2,
+    "we129": 2,
+    "we09": 2
+   },
+   "traits": {
+    "military": 1.1,
+    "economy": 0.8,
+    "defense": 1.15,
+    "research": 0.85,
+    "trade": 0.85
+   },
+   "description": "Ungeheurer Raum, schwache Industrie, brüchige innere Ordnung.",
+   "flag": "ru_kaiserreich"
+  },
+  {
+   "id": "vereinigte_staaten",
+   "name": "Vereinigte Staaten",
+   "color": "#5f8fa0",
+   "pattern": "solid",
+   "emblem": "U",
+   "ruler": "Präsident Woodrow Wilson",
+   "government": "democracy",
+   "personality": "economic",
+   "capital": "we132",
+   "provinces": [
+    "we132"
+   ],
+   "gold": 1800,
+   "stability": 70,
+   "politicalPower": 35,
+   "tech": {
+    "military": 3,
+    "economy": 5,
+    "administration": 5,
+    "logistics": 5,
+    "defense": 3
+   },
+   "armies": {
+    "we132": 16
+   },
+   "traits": {
+    "military": 1,
+    "economy": 1.4,
+    "defense": 1.1,
+    "research": 1.3,
+    "trade": 1.3
+   },
+   "description": "Größte Wirtschaftskraft der Welt bei kleinem Heer. Hält sich aus europäischen Händeln heraus.",
+   "flag": "us_sternenbanner"
+  },
+  {
+   "id": "japan",
+   "name": "Japan",
+   "color": "#c4694a",
+   "pattern": "solid",
+   "emblem": "J",
+   "ruler": "Kaiser Taisho",
+   "government": "empire",
+   "personality": "expansionist",
+   "capital": "we63",
+   "provinces": [
+    "we63"
+   ],
+   "gold": 700,
+   "stability": 68,
+   "politicalPower": 35,
+   "tech": {
+    "military": 4,
+    "economy": 4,
+    "administration": 4,
+    "logistics": 3,
+    "defense": 4
+   },
+   "armies": {
+    "we63": 20
+   },
+   "traits": {
+    "military": 1.2,
+    "economy": 1.1,
+    "defense": 1.1,
+    "research": 1.15,
+    "trade": 1.1
+   },
+   "description": "Aufsteigende Macht in Ostasien, nach Siegen über China und Russland.",
+   "flag": "jp_japan"
+  },
+  {
+   "id": "oesterreich_ungarn",
+   "name": "Österreich-Ungarn",
+   "color": "#c9a227",
+   "pattern": "solid",
+   "emblem": "A",
+   "ruler": "Kaiser Franz Joseph I.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "we102",
+   "provinces": [
+    "we102"
+   ],
+   "gold": 620,
+   "stability": 48,
+   "politicalPower": 35,
+   "tech": {
+    "military": 3,
+    "economy": 3,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "we102": 22
+   },
+   "traits": {
+    "military": 0.95,
+    "economy": 0.95,
+    "defense": 1.1,
+    "research": 1,
+    "trade": 0.95
+   },
+   "description": "Vielvölkerstaat unter Spannung. Auf dieser Karte stark vereinfacht dargestellt.",
+   "flag": "at_ungarn"
+  },
+  {
+   "id": "osmanisches_reich",
+   "name": "Osmanisches Reich",
+   "color": "#b5762f",
+   "pattern": "solid",
+   "emblem": "O",
+   "ruler": "Sultan Mehmed V.",
+   "government": "empire",
+   "personality": "defensive",
+   "capital": "we126",
+   "provinces": [
+    "we106",
+    "we120",
+    "we126",
+    "we137",
+    "we59"
+   ],
+   "gold": 450,
+   "stability": 44,
+   "politicalPower": 35,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 3
+   },
+   "armies": {
+    "we126": 9,
+    "we59": 3,
+    "we120": 2,
+    "we106": 2,
+    "we137": 2
+   },
+   "traits": {
+    "military": 0.9,
+    "economy": 0.8,
+    "defense": 1.15,
+    "research": 0.8,
+    "trade": 0.95
+   },
+   "description": "Weit ausgedehnt, schwach verwaltet, strategisch entscheidend.",
+   "flag": "tr_osmanen"
+  },
+  {
+   "id": "china",
+   "name": "China",
+   "color": "#8f7fa0",
+   "pattern": "solid",
+   "emblem": "C",
+   "ruler": "Präsident Yuan Shikai",
+   "government": "republic",
+   "personality": "isolationist",
+   "capital": "we25",
+   "provinces": [
+    "we25",
+    "we80"
+   ],
+   "gold": 500,
+   "stability": 36,
+   "politicalPower": 35,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 1,
+    "logistics": 1,
+    "defense": 2
+   },
+   "armies": {
+    "we25": 12,
+    "we80": 12
+   },
+   "traits": {
+    "military": 0.85,
+    "economy": 0.9,
+    "defense": 1.1,
+    "research": 0.8,
+    "trade": 0.9
+   },
+   "description": "Junge Republik nach dem Sturz der Monarchie, innerlich zerrissen.",
+   "flag": "cn_fuenffarben"
+  },
+  {
+   "id": "italien",
+   "name": "Italien",
+   "color": "#5aa06a",
+   "pattern": "solid",
+   "emblem": "I",
+   "ruler": "König Viktor Emanuel III.",
+   "government": "monarchy",
+   "personality": "opportunistic",
+   "capital": "we62",
+   "provinces": [
+    "we62",
+    "we71"
+   ],
+   "gold": 560,
+   "stability": 55,
+   "politicalPower": 35,
+   "tech": {
+    "military": 3,
+    "economy": 3,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "we62": 9,
+    "we71": 9
+   },
+   "traits": {
+    "military": 0.95,
+    "economy": 1,
+    "defense": 1,
+    "research": 1,
+    "trade": 1.1
+   },
+   "description": "Sucht Anschluss an den Kreis der Großmächte.",
+   "flag": "it_trikolore"
+  }
+ ],
+ "relations": [
+  {
+   "a": "deutsches_reich",
+   "b": "oesterreich_ungarn",
+   "value": 75
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "osmanisches_reich",
+   "value": 45
+  },
+  {
+   "a": "frankreich",
+   "b": "russisches_reich",
+   "value": 70
+  },
+  {
+   "a": "frankreich",
+   "b": "britisches_empire",
+   "value": 65
+  },
+  {
+   "a": "britisches_empire",
+   "b": "japan",
+   "value": 45
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "frankreich",
+   "value": -75
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "britisches_empire",
+   "value": -60
+  },
+  {
+   "a": "russisches_reich",
+   "b": "japan",
+   "value": -55
+  },
+  {
+   "a": "russisches_reich",
+   "b": "osmanisches_reich",
+   "value": -50
+  },
+  {
+   "a": "japan",
+   "b": "china",
+   "value": -60
+  },
+  {
+   "a": "vereinigte_staaten",
+   "b": "britisches_empire",
+   "value": 35
+  }
+ ],
+ "alliances": [
+  {
+   "id": "mittelmaechte",
+   "name": "Mittelmächte",
+   "leaderId": "deutsches_reich",
+   "memberIds": [
+    "deutsches_reich",
+    "oesterreich_ungarn",
+    "osmanisches_reich"
+   ]
+  },
+  {
+   "id": "entente",
+   "name": "Entente",
+   "leaderId": "britisches_empire",
+   "memberIds": [
+    "britisches_empire",
+    "frankreich",
+    "russisches_reich"
+   ]
+  }
+ ],
+ "wars": [],
+ "events": [],
+ "victoryConditions": [
+  {
+   "type": "provinces",
+   "value": 30,
+   "description": "Beherrsche 30 der 93 Gebiete."
+  },
+  {
+   "type": "capitals",
+   "value": 3,
+   "targets": [
+    "we131",
+    "we42",
+    "we45",
+    "we103",
+    "we132",
+    "we63",
+    "we102",
+    "we126",
+    "we25",
+    "we62"
+   ],
+   "description": "Erobere drei Hauptstädte anderer Großmächte."
+  }
+ ]
 }

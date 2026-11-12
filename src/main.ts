@@ -298,11 +298,23 @@ function zeichneSpiel(): void {
     <button data-panel="${esc(t.id)}" aria-pressed="${app.panel === t.id}">
       <span class="schienen-zeichen">${t.zeichen}</span>${esc(t.label)}</button>`).join('');
 
-  const gebietsHtml = app.gewaehltesGebiet ? gebietsAnsichtHtml() : '';
-  const panelHtml = app.panel ? panelInhalt(app.panel, s, {
-    diploZiel: app.diploZiel, kriegsziel: app.kriegsziel,
-    thema: app.thema, tonAn: app.tonAn,
-  }) : '';
+  /* Beide Seiten sind teuer: Die Gebietsansicht rechnet den Haushalt des
+     Gebiets durch, die Tafel je nach Reiter die Finanzen des ganzen
+     Reiches. Gebraucht wird aber selten beides - am Telefon zeigt das Blatt
+     entweder das eine oder das andere. Vorher wurden beide bei jedem
+     Tippen gebaut und eines davon weggeworfen. Jetzt entsteht nur, was
+     auch zu sehen ist; das Zwischenergebnis hält es für einen zweiten
+     Abruf im selben Durchgang fest. */
+  let gebietsZwischen: string | null = null;
+  const gebietsHtml = (): string => (gebietsZwischen
+    ??= app.gewaehltesGebiet ? gebietsAnsichtHtml() : '');
+  let panelZwischen: string | null = null;
+  const panelHtml = (): string => (panelZwischen ??= app.panel
+    ? panelInhalt(app.panel, s, {
+      diploZiel: app.diploZiel, kriegsziel: app.kriegsziel,
+      thema: app.thema, tonAn: app.tonAn,
+    })
+    : '');
 
   setzeTeil('t-kopf', kopfleiste(s));
   setzeTeil('t-filter', filterLeiste);
@@ -318,15 +330,15 @@ function zeichneSpiel(): void {
   zeigeTeil('t-pult', !!app.panel);
   if (!kompakt && app.panel) {
     setzeTeil('t-pult-titel', esc(PANEL_TABS.find((t) => t.id === app.panel)?.label ?? ''));
-    setzeTeil('t-pult-koerper', panelHtml);
+    setzeTeil('t-pult-koerper', panelHtml());
   }
   zeigeTeil('t-gebietsleiste', !!app.gewaehltesGebiet);
-  if (!kompakt && app.gewaehltesGebiet) setzeTeil('t-gebietsleiste', gebietsHtml);
+  if (!kompakt && app.gewaehltesGebiet) setzeTeil('t-gebietsleiste', gebietsHtml());
 
   zeigeTeil('t-blatt', !!app.sheetOffen);
   zeigeTeil('t-blatt-schleier', !!app.sheetOffen);
   if (app.sheetOffen) {
-    setzeTeil('t-blatt-koerper', app.sheetOffen === 'gebiet' ? gebietsHtml : panelHtml);
+    setzeTeil('t-blatt-koerper', app.sheetOffen === 'gebiet' ? gebietsHtml() : panelHtml());
   }
 
   /* Bei einem offenen Fenster tritt der Einstieg ganz zurück. Bei einem
@@ -898,6 +910,10 @@ window.addEventListener('keydown', (e) => {
   if ((e.target as HTMLElement)?.tagName === 'INPUT') return;
   if (e.key === 'Escape') {
     if (app.modal && !app.spiel.pendingEvent) { app.modal = null; zeichne(); }
+    // Das Blatt liegt über allem anderen - es muss zuerst weichen. Sonst
+    // bliebe auf dem Telefon ein leeres Blatt stehen, während darunter
+    // schon die Auswahl aufgehoben ist.
+    else if (app.sheetOffen) { app.sheetOffen = null; zeichne(); }
     else if (app.modus !== 'none') { setzeModus('none'); aktualisiereKartenAuswahl(); zeichne(); }
     else if (app.gewaehltesGebiet) { app.gewaehltesGebiet = null; zeichne(); }
     return;

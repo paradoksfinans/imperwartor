@@ -57,6 +57,21 @@
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
+/* Ohne diese Zeile wartet Safari auf dem iPhone nach jeder Berührung rund
+   300 Millisekunden ab, ob ein zweiter Tipp folgt - der Doppeltipp zum
+   Hineinzoomen. Erst danach meldet es den Klick. Das ist die Verzögerung,
+   die sich anfühlt wie eine schlechte Verbindung, und sie trifft jeden
+   einzelnen Knopf im Spiel.
+   "manipulation" heißt: Wischen und Kneifen bleiben erlaubt, nur der
+   Doppeltipp-Zoom entfällt - und damit das Warten darauf.
+   Die Karte und ihre Gebiete stehen bewusst nicht in dieser Liste: Dort
+   gilt "none", weil sie Verschieben und Zoomen selbst ausführt - und "none"
+   schaltet das Warten ebenfalls ab. */
+button, a, label, summary, select, input, textarea,
+[role="button"], [role="tab"], .wahl {
+  touch-action: manipulation;
+}
+
 html, body {
   margin: 0;
   min-height: 100vh;

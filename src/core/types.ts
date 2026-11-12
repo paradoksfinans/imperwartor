@@ -239,6 +239,16 @@ export interface Country {
   emblem: string;
   /** Wappenkennung - steuert den prozeduralen Wappengenerator. */
   crest: number;
+  /**
+   * Kennung der Flagge in src/ui/flaggen.ts.
+   *
+   * Sie steht beim Land im Szenario und nicht bei der Länderkennung, weil
+   * dasselbe Land zu verschiedenen Zeiten verschiedene Flaggen führt:
+   * Frankreich 1500 die Lilien, Frankreich 1914 die Trikolore.
+   * Fehlt sie, zeigt die Oberfläche ein Feld in der Landesfarbe mit dem
+   * Anfangsbuchstaben - ein ehrlicher Platzhalter statt einer Erfindung.
+   */
+  flag?: string;
   ruler: string;
   government: GovernmentId;
   personality: PersonalityId;

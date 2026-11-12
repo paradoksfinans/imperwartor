@@ -133,6 +133,10 @@ export class MapView {
   private welt!: SVGGElement;
   private flaechenEbene!: SVGGElement;
   private kennzeichenEbene!: SVGGElement;
+  private reliefEbene!: SVGGElement;
+  /** Je Gebiet die Musterfläche, damit nur Geändertes angefasst wird. */
+  private musterFlaechen = new Map<string, SVGPathElement>();
+  private musterStand = new Map<string, string>();
   private pfeilEbene!: SVGGElement;
   private beschriftungEbene!: SVGGElement;
   /** Alle Landflächen als eine Gruppe - erzeugt den Küstensaum. */
@@ -204,6 +208,8 @@ export class MapView {
   private grenzLinien: Grenzlinie[] = [];
   /** Zuletzt gezeichneter Stand der Beschriftung. */
   private beschriftungStand = '';
+  /** Je Gebiet der Stand seiner Beschriftung - für das gezielte Auffrischen. */
+  private beschriftungsStaende = new Map<string, string>();
 
   constructor(state: GameState, cb: MapCallbacks) {
     this.state = state;
@@ -418,6 +424,12 @@ export class MapView {
     welt.appendChild(this.kuestenEbene);
 
     this.flaechenEbene = document.createElementNS(ns, 'g');
+    /* Zwei getrennte Ebenen, weil sie sich verschieden oft ändern:
+       Das Relief hängt allein am Gelände und steht ein für alle Mal fest.
+       Die Muster hängen an Krieg, Vasallentum und Belagerung und ändern
+       sich gelegentlich - aber fast nie alle auf einmal. */
+    this.reliefEbene = document.createElementNS(ns, 'g');
+    this.reliefEbene.setAttribute('pointer-events', 'none');
     this.kennzeichenEbene = document.createElementNS(ns, 'g');
     this.kennzeichenEbene.setAttribute('pointer-events', 'none');
     this.pfeilEbene = document.createElementNS(ns, 'g');
@@ -431,6 +443,7 @@ export class MapView {
     this.blitzEbene.setAttribute('pointer-events', 'none');
 
     welt.appendChild(this.flaechenEbene);
+    welt.appendChild(this.reliefEbene);
     welt.appendChild(this.kennzeichenEbene);
     welt.appendChild(this.grenzEbene);
     welt.appendChild(this.blitzEbene);
@@ -505,6 +518,9 @@ export class MapView {
       }
       this.breiten.set(pid, Number.isFinite(minX) ? Math.min(maxX - minX, maxY - minY) : 0);
     }
+
+    // Jetzt stehen alle Umrisse - das Relief kann sie übernehmen.
+    this.baueRelief();
   }
 
   /* ---------------- Bedienung: Verschieben und Zoomen ---------------- */
@@ -520,9 +536,17 @@ export class MapView {
       if (this.zeiger.size === 1) {
         this.letzteMitte = { x: e.clientX, y: e.clientY };
         this.ziehWeg = 0;
-        // Einmal je Geste die Lage neu bestimmen: Die Flaeche kann sich seit
-        // dem letzten Mal verschoben haben, etwa weil eine Tafel aufging.
-        this.masse = null;
+        /* Einmal je Geste die Lage neu bestimmen: Die Fläche kann sich seit
+           dem letzten Mal verschoben haben, etwa weil eine Tafel aufging.
+           Gemessen wird sofort, nicht später beim Zeichnen. Hier ist der
+           Umbruch des Browsers noch gültig, die Messung also fast umsonst;
+           mitten im Zeichnen - nach dem Austausch von HTML - müsste er
+           dafür alles neu durchrechnen. Genau das hat bisher bei jedem
+           Fingertipp einen zusätzlichen Umbruch erzwungen. */
+        const r = this.element.getBoundingClientRect();
+        this.masse = r.width >= 2 && r.height >= 2
+          ? { width: r.width, height: r.height, left: r.left, top: r.top }
+          : null;
       }
     });
 
@@ -646,11 +670,13 @@ export class MapView {
          Schieben langsamer statt schneller, weil die Karte zu groß ist, um
          sie am Stück als Bild abzulegen.) */
       this.kennzeichenEbene.style.display = 'none';
+      this.reliefEbene.style.display = 'none';
     }
     window.clearTimeout(this.ruheUhr);
     this.ruheUhr = window.setTimeout(() => {
       this.inBewegung = false;
       this.kennzeichenEbene.style.display = '';
+      this.reliefEbene.style.display = '';
       this.kuestenEbene.style.display = '';
       this.grenzEbene.style.display = '';
       // Schriftgroessen sitzen jetzt wieder richtig.
@@ -941,27 +967,49 @@ export class MapView {
   }
 
   /** Schattierung, Muster für Krieg/Bündnis/Vasall, Hauptstadtzeichen. */
+  /**
+   * Höhenschattierung. Hängt allein am Gelände und wird deshalb genau
+   * einmal gebaut - beim Aufbau der Karte.
+   *
+   * Vorher entstand sie bei jedem Neuzeichnen neu, also auch bei jedem
+   * Tippen auf ein Gebiet: zweihundert Pfade erzeugen, zweihundert Umrisse
+   * aus der gepackten Form zurückrechnen. Das war der größte Einzelposten
+   * im Ruckeln und hat dabei jedes Mal dasselbe Bild ergeben.
+   */
+  private baueRelief(): void {
+    const ns = 'http://www.w3.org/2000/svg';
+    this.reliefEbene.textContent = '';
+    for (const pid of this.state.provinceOrder) {
+      const p = this.state.provinces[pid];
+      const relief = TERRAIN[p.terrain]?.relief ?? 0;
+      if (relief <= 0.15) continue;
+      const schatten = document.createElementNS(ns, 'path');
+      // Den Umriss von der fertigen Fläche übernehmen statt neu zu rechnen.
+      schatten.setAttribute('d', this.flaechen.get(pid)?.getAttribute('d')
+        ?? umrissPfad(p, this.teiler));
+      schatten.setAttribute('fill-rule', 'evenodd');
+      schatten.setAttribute('fill', 'url(#relief)');
+      schatten.setAttribute('opacity', String(Math.min(0.85, relief)));
+      this.reliefEbene.appendChild(schatten);
+    }
+  }
+
+  /**
+   * Muster für die diplomatische Lage - Krieg, Vasall, Bündnis, Belagerung.
+   *
+   * Diese ändern sich im Spiel, aber selten und fast nie alle auf einmal.
+   * Deshalb bekommt jedes Gebiet eine eigene Fläche, die nur angefasst
+   * wird, wenn sich ihr Muster wirklich geändert hat.
+   */
   private zeichneKennzeichen(): void {
     const ns = 'http://www.w3.org/2000/svg';
     const s = this.state;
     const spieler = s.playerCountryId;
-    this.kennzeichenEbene.textContent = '';
+    const zeigen = this.filter === 'political' || this.filter === 'diplomatic';
 
     for (const pid of s.provinceOrder) {
       const p = s.provinces[pid];
 
-      // Hoehenschattierung: macht Gebirge und Huegel sichtbar
-      const relief = TERRAIN[p.terrain]?.relief ?? 0;
-      if (relief > 0.15) {
-        const schatten = document.createElementNS(ns, 'path');
-        schatten.setAttribute('d', umrissPfad(p, this.teiler));
-        schatten.setAttribute('fill-rule', 'evenodd');
-        schatten.setAttribute('fill', 'url(#relief)');
-        schatten.setAttribute('opacity', String(Math.min(0.85, relief)));
-        this.kennzeichenEbene.appendChild(schatten);
-      }
-
-      // Muster für diplomatische Lage - zusaetzlich zur Farbe
       let muster: string | null = null;
       if (p.siege) muster = 'p-belagert';
       else if (p.ownerId && p.ownerId !== spieler) {
@@ -969,13 +1017,27 @@ export class MapView {
         else if (s.countries[p.ownerId].overlordId === spieler) muster = 'p-vasall';
         else if (areAllied(s, spieler, p.ownerId)) muster = 'p-bund';
       }
-      if (muster && (this.filter === 'political' || this.filter === 'diplomatic')) {
-        const m = document.createElementNS(ns, 'path');
-        m.setAttribute('d', umrissPfad(p, this.teiler));
-        m.setAttribute('fill-rule', 'evenodd');
-        m.setAttribute('fill', `url(#${muster})`);
-        this.kennzeichenEbene.appendChild(m);
+      if (!zeigen) muster = null;
+
+      const stand = muster ?? '';
+      if (this.musterStand.get(pid) === stand) continue;
+      this.musterStand.set(pid, stand);
+
+      let el = this.musterFlaechen.get(pid);
+      if (!muster) {
+        el?.remove();
+        this.musterFlaechen.delete(pid);
+        continue;
       }
+      if (!el) {
+        el = document.createElementNS(ns, 'path');
+        el.setAttribute('d', this.flaechen.get(pid)?.getAttribute('d')
+          ?? umrissPfad(p, this.teiler));
+        el.setAttribute('fill-rule', 'evenodd');
+        this.kennzeichenEbene.appendChild(el);
+        this.musterFlaechen.set(pid, el);
+      }
+      el.setAttribute('fill', `url(#${muster})`);
     }
   }
 
@@ -1010,22 +1072,22 @@ export class MapView {
        nichts - dann braucht die Ebene auch nicht neu gebaut zu werden.
        Die Zoomstufe wird grob gerundet: Zwischenschritte beim Zoomen
        verschieben die Schwellen nicht, sie skalieren nur. */
-    let stand = `${z}|${this.ausgewaehlt ?? ''}`;
-    for (const pid of s.provinceOrder) {
-      const p = s.provinces[pid];
-      stand += `;${p.ownerId ?? '-'}${regimentsTotal(p.regiments)}`;
-    }
-    if (stand === this.beschriftungStand) return;
-
     /* Während einer Geste gar nicht erst neu bauen. Die Schriften sitzen in
        der verschobenen Ebene und wachsen deshalb beim Zoomen einfach mit -
        etwas zu groß oder zu klein, aber ohne Ruckeln. Sobald der Finger
        loslässt, setzt bewegtJetzt() den richtigen Stand. */
     if (this.inBewegung) return;
-    this.beschriftungStand = stand;
 
-    this.beschriftungEbene.textContent = '';
-    this.beschriftungen.clear();
+    /* Die Zoomstufe betrifft alle Beschriftungen zugleich, denn die
+       Schriftgrößen werden gegen sie gerechnet. Ändert sie sich, ist ein
+       vollständiger Neuaufbau unvermeidlich - das passiert aber nur am
+       Ende einer Geste, nicht bei jedem Tippen. */
+    if (this.beschriftungStand !== String(z)) {
+      this.beschriftungStand = String(z);
+      this.beschriftungEbene.textContent = '';
+      this.beschriftungen.clear();
+      this.beschriftungsStaende.clear();
+    }
 
     for (const pid of s.provinceOrder) {
       const p = s.provinces[pid];
@@ -1041,6 +1103,18 @@ export class MapView {
         || breite > 30
         || (staerke >= 5 && breite > 20)
         || (staerke >= 12 && breite > 13);
+
+      /* Nur anfassen, was sich wirklich geändert hat.
+         Ein Tipp auf ein Gebiet ändert höchstens zwei Beschriftungen - die
+         des alten und die des neuen. Vorher wurden alle zweihundert
+         abgeräumt und neu gebaut, und das bei jedem einzelnen Tipp. */
+      const stand = `${zeigeName ? 1 : 0}${zeigeZahl ? 1 : 0}|${p.ownerId ?? '-'}`
+        + `|${staerke}|${p.siege ? Math.round(p.siege.progress) : ''}`;
+      if (this.beschriftungsStaende.get(pid) === stand) continue;
+      this.beschriftungsStaende.set(pid, stand);
+      this.beschriftungen.get(pid)?.remove();
+      this.beschriftungen.delete(pid);
+
       if (!zeigeName && !zeigeZahl) continue;
 
       const g = document.createElementNS(ns, 'g');

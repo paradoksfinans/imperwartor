@@ -12,6 +12,7 @@ import { listSaves } from '../core/save';
 import { umrissPfad, umrissPunkte } from '../core/koordinaten';
 import { esc } from './dom';
 import { wappenSvg } from './heraldry';
+import { flaggeSvg } from './flaggen';
 import { landVorschau } from './panels';
 import { jahrText } from '../core/format';
 
@@ -152,7 +153,7 @@ export function aufbauGeruest(wahl: SetupAuswahl, vorschau: GameState | null): s
     <button class="wahl land-wahl" data-land="${esc(c.id)}"
         aria-pressed="${wahl.countryId === c.id}">
       <span class="land-wahl-kopf">
-        ${wappenSvg(c.crest ?? 1, c.color, 30, c.emblem)}
+        ${flaggeSvg(c.flag, c.color, 34, c.emblem)}
         <h3>${esc(c.name)}</h3>
       </span>
       <p>${esc(c.description)}</p>

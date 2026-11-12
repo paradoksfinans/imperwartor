@@ -216,6 +216,7 @@ export function createNewGame(opts: NewGameOptions): GameState {
       color: sc.color,
       emblem: sc.emblem ?? sc.name.slice(0, 1),
       crest: 0, // wird unten gesetzt
+      flag: sc.flag,
       ruler: sc.ruler ?? 'Unbekannt',
       government: sc.government ?? 'monarchy',
       personality: sc.personality ?? 'opportunistic',
