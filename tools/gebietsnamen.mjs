@@ -30,10 +30,15 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const KARTE = path.join(import.meta.dirname, '..', 'src', 'data', 'maps', 'europadetail.json');
+const MAPS = path.join(import.meta.dirname, '..', 'src', 'data', 'maps');
 const NUR_PRUEFEN = process.argv.includes('--pruefen');
 
-const NAMEN = {
+/* Je Karte eine eigene Tabelle: Dieselbe Landschaft heißt in einer
+   Europakarte von 1914 anders als in einer Vorderasienkarte des
+   Hochmittelalters. */
+const TABELLEN = {};
+
+TABELLEN.europadetail = {
   /* --- Britische Inseln: Statistikkennungen zu Landschaften ------- */
   'North East': 'Northumberland',
   'North West': 'Lancashire',
@@ -251,49 +256,139 @@ const NAMEN = {
   'Bouvet Island': 'Finnmark',
 };
 
-const karte = JSON.parse(await readFile(KARTE, 'utf8'));
-const vorhanden = new Set(karte.provinces.map((p) => p.name));
 
-/* Das Werkzeug muss sich mehrfach aufrufen lassen: Nach dem ersten Lauf
-   trägt die Karte die neuen Namen, die alten gibt es dann nicht mehr. Ein
-   Eintrag gilt deshalb als in Ordnung, wenn entweder der alte Name noch da
-   ist (dann wird umbenannt) oder der neue bereits (dann ist nichts zu tun).
-   Erst wenn keines von beidem zutrifft, ist es ein echter Tippfehler. */
-let fehler = 0;
-for (const [alt, neu] of Object.entries(NAMEN)) {
-  if (!vorhanden.has(alt) && !vorhanden.has(neu)) {
-    console.log(`  FEHL "${alt}" steht in der Tabelle, aber weder alter noch neuer Name ist auf der Karte`);
-    fehler++;
+TABELLEN.vorderasien = {
+  /* Die Karte dient den Szenarien von 1071 und 1099. Die Namen stammen
+     aus heutigen Provinzen - "UNDOF" ist eine Pufferzone der Vereinten
+     Nationen, "F.C.T." ein pakistanisches Verwaltungskuerzel. Benannt
+     wird nach den Staedten und Landschaften, um die damals gekaempft
+     wurde. */
+  'North Kazakhstan': 'Kiptschakensteppe',
+  Qaraghandy: 'Steppe',
+  Atyrau: 'Saksin',
+  Zhambyl: 'Talas',
+  Pernik: 'Sofia',
+  Varna: 'Warna',
+  Georgia: 'Georgien',
+  Bukhoro: 'Buchara',
+  'Ionioi Nisoi': 'Ionische Inseln',
+  'Ayion Oros': 'Athos',
+  Sakarya: 'Nikomedia',
+  Çankiri: 'Ankyra',
+  Yozgat: 'Kappadokien',
+  Giresun: 'Trapezunt',
+  Bingöl: 'Erzurum',
+  Ardahan: 'Kars',
+  Armenia: 'Armenien',
+  Kəlbəcər: 'Gandscha',
+  Kürdəmir: 'Schirwan',
+  Tashauz: 'Chorasmien',
+  Tashkent: 'Taschkent',
+  Ferghana: 'Ferghana',
+  Attiki: 'Attika',
+  Manisa: 'Smyrna',
+  Aksaray: 'Ikonion',
+  Kayseri: 'Kaisareia',
+  Erzincan: 'Erzindschan',
+  Batman: 'Amida',
+  Ardebil: 'Ardabil',
+  Ahal: 'Nisa',
+  Chardzhou: 'Amul',
+  Surkhandarya: 'Termiz',
+  Dushanbe: 'Chuttal',
+  'Gorno-Badakhshan': 'Badachschan',
+  Denizli: 'Laodikeia',
+  Nigde: 'Tyana',
+  Mardin: 'Mardin',
+  Dihok: 'Mossul',
+  Gilan: 'Gilan',
+  Golestan: 'Gurgan',
+  Mary: 'Merw',
+  Kunar: 'Kabul',
+  Cyprus: 'Zypern',
+  'Homs (Hims)': 'Homs',
+  'Ar Raqqah': 'Raqqa',
+  'As-Sulaymaniyah': 'Schahrizor',
+  Lorestan: 'Luristan',
+  Tehran: 'Rayy',
+  Semnan: 'Semnan',
+  'South Khorasan': 'Chorasan',
+  Baghlan: 'Balch',
+  'F.C.T.': 'Peschawar',
+  Lebanon: 'Tripolis',
+  UNDOF: 'Hauran',
+  Baghdad: 'Bagdad',
+  Hirat: 'Herat',
+  Paktya: 'Ghazna',
+  'K.P.': 'Indus',
+  'Al Gharbiyah': 'Nildelta',
+  Israel: 'Jerusalem',
+  Jordan: 'Transjordanien',
+  'Al-Qādisiyyah': 'Kufa',
+  Maysan: 'Wasit',
+  Khuzestan: 'Chusistan',
+  Uruzgan: 'Kandahar',
+  Punjab: 'Pandschab',
+  'An-Najaf': 'Nadschaf',
+  Bushehr: 'Fars',
+  Hormozgan: 'Hormus',
+  'Al Hudud ash Shamaliyah': 'Nordarabien',
+  'Sistan and Baluchestan': 'Sistan',
+  Baluchistan: 'Belutschistan',
+  'Al Minya': 'Oberägypten',
+  Najran: 'Nadschran',
+};
+
+
+let fehlerGesamt = 0;
+
+for (const [karteId, NAMEN] of Object.entries(TABELLEN)) {
+  const datei = path.join(MAPS, karteId + '.json');
+  const karte = JSON.parse(await readFile(datei, 'utf8'));
+  const vorhanden = new Set(karte.provinces.map((p) => p.name));
+
+  /* Das Werkzeug muss sich mehrfach aufrufen lassen: Nach dem ersten Lauf
+     trägt die Karte die neuen Namen, die alten gibt es dann nicht mehr.
+     Ein Eintrag gilt deshalb als in Ordnung, wenn entweder der alte Name
+     noch da ist (dann wird umbenannt) oder der neue bereits (dann ist
+     nichts zu tun). Erst wenn keines von beidem zutrifft, ist es ein
+     echter Tippfehler. */
+  let fehler = 0;
+  for (const [alt, neu] of Object.entries(NAMEN)) {
+    if (!vorhanden.has(alt) && !vorhanden.has(neu)) {
+      console.log(`  FEHL ${karteId}: "${alt}" - weder alter noch neuer Name ist auf der Karte`);
+      fehler++;
+    }
   }
+
+  let geaendert = 0;
+  for (const p of karte.provinces) {
+    const neu = NAMEN[p.name];
+    if (neu && neu !== p.name) { p.name = neu; geaendert++; }
+  }
+
+  /* Zwei Gebiete mit demselben Namen sind auf der Karte nicht zu
+     unterscheiden - und in den Zielvorgaben erst recht nicht. */
+  const gezaehlt = new Map();
+  for (const p of karte.provinces) gezaehlt.set(p.name, (gezaehlt.get(p.name) ?? 0) + 1);
+  for (const [n, z] of gezaehlt) {
+    if (z > 1) { console.log(`  FEHL ${karteId}: "${n}" kommt ${z}-mal vor`); fehler++; }
+  }
+
+  /* Was danach noch modern oder nach Verwaltung aussieht, soll auffallen. */
+  const verdaechtig = karte.provinces.map((p) => p.name)
+    .filter((n) => /\b(City|Oblast|Region|Province|County|and the|North|South|East|West)\b|'|\./.test(n));
+  if (verdaechtig.length) {
+    console.log(`  Hinweis ${karteId}: ${verdaechtig.length} Name(n) wirken noch modern: ${verdaechtig.join(', ')}`);
+  }
+
+  if (!fehler && !NUR_PRUEFEN) {
+    await writeFile(datei, JSON.stringify(karte) + '\n', 'utf8');
+  }
+  console.log(fehler === 0
+    ? `  ok   ${karteId.padEnd(14)} ${geaendert} von ${karte.provinces.length} umbenannt${NUR_PRUEFEN ? ' (nur geprüft)' : ''}`
+    : `  ${fehler} Fehler in ${karteId} - nicht geschrieben.`);
+  fehlerGesamt += fehler;
 }
 
-let geaendert = 0;
-for (const p of karte.provinces) {
-  const neu = NAMEN[p.name];
-  if (neu && neu !== p.name) { p.name = neu; geaendert++; }
-}
-
-/* Zwei Gebiete mit demselben Namen sind auf der Karte nicht zu
-   unterscheiden - und in den Zielvorgaben erst recht nicht. */
-const gezaehlt = new Map();
-for (const p of karte.provinces) gezaehlt.set(p.name, (gezaehlt.get(p.name) ?? 0) + 1);
-for (const [n, z] of gezaehlt) {
-  if (z > 1) { console.log(`  FEHL "${n}" kommt ${z}-mal vor`); fehler++; }
-}
-
-/* Was danach noch englisch-modern aussieht, soll auffallen. */
-const verdaechtig = karte.provinces
-  .map((p) => p.name)
-  .filter((n) => /\b(City|Oblast|Region|Province|County|and the)\b|'/.test(n));
-if (verdaechtig.length) {
-  console.log(`\nHinweis: ${verdaechtig.length} Name(n) wirken noch modern:`);
-  console.log('  ' + verdaechtig.join(', '));
-}
-
-if (!fehler && !NUR_PRUEFEN) {
-  await writeFile(KARTE, JSON.stringify(karte) + '\n', 'utf8');
-}
-console.log(fehler === 0
-  ? `\nok  ${geaendert} von ${karte.provinces.length} Gebieten umbenannt${NUR_PRUEFEN ? ' (nur geprüft)' : ''}`
-  : `\n${fehler} Fehler - nichts geschrieben.`);
-process.exit(fehler === 0 ? 0 : 1);
+process.exit(fehlerGesamt === 0 ? 0 : 1);

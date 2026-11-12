@@ -39,6 +39,10 @@ type Teil =
   | { art: 'sonne'; farbe: string; strahlen?: number; r?: number; x?: number; y?: number }
   | { art: 'adler'; farbe: string; doppelt?: boolean; groesse?: number; x?: number; y?: number }
   | { art: 'lilie'; farbe: string; groesse?: number; x?: number; y?: number }
+  | { art: 'loewe'; farbe: string; groesse?: number; x?: number; y?: number }
+  | { art: 'rauten'; farben: string[] }
+  | { art: 'schluessel'; farbe: string; farben?: string[]; x?: number; y?: number }
+  | { art: 'hammer_sichel'; farbe: string; x?: number; y?: number }
   | { art: 'anker'; farbe: string; x?: number; y?: number }
   | { art: 'bogen'; farbe: string; x?: number; y?: number }
   | { art: 'rossschweif'; farbe: string; x?: number; y?: number }
@@ -192,6 +196,65 @@ function teilSvg(t: Teil): string {
 
     case 'lilie':
       return `<path d="${liliePfad(t.x ?? B / 2, t.y ?? H / 2, t.groesse ?? 14)}" fill="${t.farbe}"/>`;
+
+    case 'loewe': {
+      /* Der heraldische Löwe, aufgerichtet und nach links blickend - das
+         häufigste Wappentier Europas. Stark vereinfacht: In zwanzig Pixeln
+         Höhe zählt nur die Silhouette, Mähne und Pranken verlaufen ohnehin
+         zu einem Fleck. Erkennbar bleibt die aufgerichtete Haltung. */
+      const x = t.x ?? B / 2; const y = t.y ?? H / 2;
+      const g = (t.groesse ?? 20) / 20;
+      const p = (dx: number, dy: number) => `${(x + dx * g).toFixed(1)} ${(y + dy * g).toFixed(1)}`;
+      return `<path d="M${p(-5, 10)}L${p(-5, -2)}Q${p(-5, -9)} ${p(0, -9)}`
+        + `L${p(3, -9)}L${p(5, -11)}L${p(6, -8)}L${p(9, -8)}L${p(6, -5)}`
+        + `Q${p(4, 0)} ${p(2, 4)}L${p(4, 10)}L${p(1, 10)}L${p(0, 6)}`
+        + `L${p(-2, 10)}Z" fill="${t.farbe}" stroke="${t.farbe}"`
+        + ` stroke-width="${0.6 * g}" stroke-linejoin="round"/>`
+        + `<path d="M${p(-5, 2)}q${(-5 * g).toFixed(1)} ${(-4 * g).toFixed(1)}`
+        + ` ${(-1 * g).toFixed(1)} ${(-7 * g).toFixed(1)}" fill="none"`
+        + ` stroke="${t.farbe}" stroke-width="${1.6 * g}" stroke-linecap="round"/>`;
+    }
+
+    case 'rauten': {
+      /* Das bayerische Rautenmuster: schräg gestellte Karos in zwei
+         Farben. Gezeichnet als Streifenfolge in einem gedrehten Raster. */
+      const a = t.farben[0]; const b = t.farben[1];
+      const reihen: string[] = [];
+      const breite = 11;
+      for (let i = -4; i < 10; i++) {
+        reihen.push(`<rect x="${i * breite}" y="-20" width="${breite}" height="${H + 40}"`
+          + ` fill="${i % 2 ? b : a}" transform="rotate(28 ${B / 2} ${H / 2})"/>`);
+      }
+      return `<rect width="${B}" height="${H}" fill="${a}"/>` + reihen.join('');
+    }
+
+    case 'schluessel': {
+      /* Zwei gekreuzte Schlüssel - das Zeichen des Petrusamtes. */
+      const x = t.x ?? B / 2; const y = t.y ?? H / 2;
+      const schluessel = (winkel: number, farbe: string) =>
+        `<g transform="rotate(${winkel} ${x} ${y})" stroke="${farbe}" fill="none"`
+        + ` stroke-width="2.1" stroke-linecap="round">`
+        + `<line x1="${x}" y1="${y - 9}" x2="${x}" y2="${y + 8}"/>`
+        + `<circle cx="${x}" cy="${y - 11}" r="2.6"/>`
+        + `<line x1="${x}" y1="${y + 4}" x2="${x + 4}" y2="${y + 4}"/>`
+        + `<line x1="${x}" y1="${y + 8}" x2="${x + 3}" y2="${y + 8}"/></g>`;
+      return schluessel(-24, t.farben?.[0] ?? t.farbe)
+        + schluessel(24, t.farben?.[1] ?? t.farbe);
+    }
+
+    case 'hammer_sichel': {
+      /* Hammer und Sichel - das Staatswappen der Sowjetunion. Hier als
+         reines Hoheitszeichen auf der Flagge, wie es dort stand. */
+      const x = t.x ?? 17; const y = t.y ?? 13;
+      return `<g stroke="${t.farbe}" fill="none" stroke-linecap="round">`
+        // Sichel: ein offener Bogen mit Griff
+        + `<path d="M${x - 7} ${y + 6}a9 9 0 1 1 13 -7" stroke-width="2.4"/>`
+        + `<line x1="${x + 6}" y1="${y - 1}" x2="${x + 8}" y2="${y + 2}" stroke-width="2"/>`
+        // Hammer: Stiel und Kopf
+        + `<line x1="${x - 6}" y1="${y - 6}" x2="${x + 5}" y2="${y + 6}" stroke-width="2.4"/>`
+        + `<line x1="${x - 8}" y1="${y - 8}" x2="${x - 3}" y2="${y - 3}" stroke-width="4"/>`
+        + `</g>`;
+    }
 
     case 'anker': {
       const x = t.x ?? B / 2; const y = t.y ?? H / 2;
@@ -513,6 +576,90 @@ export const FLAGGEN: Record<string, Flagge> = {
   au_sonnenreich: f('Sonnenreich',
     { art: 'feld', farbe: '#c4552b' },
     { art: 'sonne', farbe: '#f7e3a8', strahlen: 16, r: 12 }),
+  /* ---- Kreuzfahrerstaaten, 1099 ----
+     Die drei Staaten führten die Zeichen ihrer Gründer, nicht die ihrer
+     Länder: Ein Kreuzfahrerstaat war zunächst nichts als das Gefolge
+     eines Fürsten. */
+  kz_jerusalem: f('Königreich Jerusalem',
+    { art: 'feld', farbe: '#f2efe4' },
+    // Das Jerusalemkreuz: ein Krückenkreuz mit vier kleinen Kreuzen.
+    { art: 'kreuz', farbe: '#d6a84e', dicke: 7 },
+    ...[[18, 11], [42, 11], [18, 29], [42, 29]].map((xy) => ({
+      art: 'stern' as const, farbe: '#d6a84e', zacken: 4, r: 3.4, x: xy[0], y: xy[1],
+    }))),
+  kz_antiochia: f('Fürstentum Antiochia',
+    { art: 'feld', farbe: '#c0392b' },
+    { art: 'kreuz', farbe: '#f2efe4', dicke: 8 }),
+  kz_edessa: f('Grafschaft Edessa',
+    { art: 'feld', farbe: '#6b4a8a' },
+    { art: 'kreuz', farbe: '#f2efe4', dicke: 6, links: 0.34 }),
+  danischmenden: f('Danischmenden',
+    { art: 'feld', farbe: '#d98c2b' },
+    { art: 'mond', farbe: '#2b2016', r: 10, x: 24, y: 20 },
+    { art: 'schwert', farbe: '#2b2016', x: 42, y: 20 }),
+
+  /* ---- Reich und Nachbarn, 1618 bis 1805 ---- */
+  boehmen_loewe: f('Böhmen',
+    { art: 'streifen', quer: true, farben: ['#f2efe4', '#c8102e'] },
+    { art: 'loewe', farbe: '#c8102e', groesse: 22 }),
+  bayern_rauten: f('Bayern',
+    { art: 'rauten', farben: ['#f2f4f7', '#4a7fc1'] }),
+  sachsen_rautenkranz: f('Sachsen',
+    { art: 'streifen', quer: true, farben: ['#16181a', '#e8c454'] },
+    // Der Rautenkranz: ein grüner Balken quer über das Wappen.
+    { art: 'kreuz', farbe: '#2e7d4f', dicke: 5, links: -1 }),
+  brandenburg_adler: f('Brandenburg',
+    { art: 'streifen', quer: true, farben: ['#f2f4f7', '#c8102e'] },
+    { art: 'adler', farbe: '#c8102e', doppelt: false, groesse: 21 }),
+  preussen_adler: f('Preußen',
+    { art: 'feld', farbe: '#f2f4f7' },
+    { art: 'adler', farbe: '#16181a', doppelt: false, groesse: 23 }),
+  pfalz_loewe: f('Kurpfalz',
+    { art: 'feld', farbe: '#16181a' },
+    { art: 'loewe', farbe: '#e8c454', groesse: 23 }),
+  wuerttemberg: f('Württemberg',
+    { art: 'streifen', quer: true, farben: ['#16181a', '#c8102e'] },
+    ...[14, 24, 34, 44].map((x) => ({
+      art: 'stern' as const, farbe: '#e8c454', zacken: 4, r: 3.2, x, y: 20,
+    }))),
+  niederlande_prinsenvlag: f('Prinsenvlag',
+    // Die Flagge der aufständischen Provinzen: oben Orange, nicht Rot -
+    // nach Wilhelm von Oranien. Das Rot kam erst im 17. Jahrhundert.
+    { art: 'streifen', quer: true, farben: ['#e07b2a', '#f2f2ef', '#1f3c88'] }),
+  polen_adler: f('Polen',
+    { art: 'streifen', quer: true, farben: ['#f2f2ef', '#c8102e'] },
+    { art: 'adler', farbe: '#c8102e', doppelt: false, groesse: 20 }),
+  venedig_markusloewe: f('Republik Venedig',
+    { art: 'feld', farbe: '#8c1d2e' },
+    { art: 'loewe', farbe: '#d6a84e', groesse: 24 },
+    { art: 'rand', farbe: '#d6a84e', dicke: 2 }),
+  kirchenstaat_schluessel: f('Kirchenstaat',
+    { art: 'streifen', farben: ['#e8c454', '#f2efe4'] },
+    { art: 'schluessel', farbe: '#9c7b2a', farben: ['#9c7b2a', '#b7babd'] }),
+  savoyen_kreuz: f('Savoyen',
+    { art: 'feld', farbe: '#c8102e' },
+    { art: 'kreuz', farbe: '#f2efe4', dicke: 8 }),
+  neapel_bourbonen: f('Königreich Neapel',
+    { art: 'feld', farbe: '#f2efe4' },
+    { art: 'lilie', farbe: '#1f3c88', groesse: 13, x: 22, y: 14 },
+    { art: 'lilie', farbe: '#1f3c88', groesse: 13, x: 38, y: 14 },
+    { art: 'lilie', farbe: '#1f3c88', groesse: 13, x: 30, y: 28 }),
+
+  /* ---- 1939 ---- */
+  su_hammer_sichel: f('Sowjetunion',
+    { art: 'feld', farbe: '#c8102e' },
+    { art: 'hammer_sichel', farbe: '#e8c454' },
+    { art: 'stern', farbe: '#e8c454', zacken: 5, r: 4.4, x: 17, y: 30 }),
+  jugoslawien: f('Jugoslawien',
+    { art: 'streifen', quer: true, farben: ['#1f3c88', '#f2f2ef', '#c8102e'] }),
+  tuerkei_mond: f('Türkei',
+    { art: 'feld', farbe: '#c8102e' },
+    { art: 'mond', farbe: '#f2f2ef', r: 9, x: 26, y: 20 },
+    { art: 'stern', farbe: '#f2f2ef', zacken: 5, r: 4.4, x: 38, y: 20 }),
+  finnland_kreuz: f('Finnland',
+    { art: 'feld', farbe: '#f4f7fa' },
+    { art: 'kreuz', farbe: '#1f4a8c', dicke: 8, links: 0.36 }),
+
   au_freistaedte: f('Freistädte',
     { art: 'feld', farbe: '#e8e2d2' },
     { art: 'streifen', quer: true, farben: ['#e8e2d2', '#2f4858', '#e8e2d2'], anteile: [2, 1, 2] },

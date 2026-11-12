@@ -1,0 +1,1298 @@
+{
+ "id": "weltkrieg_1939",
+ "name": "Zweiter Weltkrieg - 1939",
+ "description": "September 1939. Der Angriff auf Polen beginnt, und binnen zwei Tagen stehen Frankreich und Großbritannien im Krieg - während die Sowjetunion abwartet und von Osten her zugreift.",
+ "mapId": "europadetail",
+ "startYear": 1939,
+ "endYear": 1960,
+ "monthsPerTurn": 3,
+ "sandbox": false,
+ "provinceOverrides": {},
+ "countries": [
+  {
+   "id": "deutsches_reich",
+   "name": "Deutsches Reich",
+   "color": "#5a6672",
+   "pattern": "solid",
+   "emblem": "D",
+   "ruler": "Reichsregierung",
+   "government": "monarchy",
+   "personality": "aggressive",
+   "capital": "eu15",
+   "provinces": [
+    "eu15",
+    "eu08",
+    "eu36",
+    "eu37",
+    "eu09",
+    "eu04",
+    "eu11",
+    "eu10",
+    "eu05",
+    "eu06",
+    "eu12",
+    "eu02",
+    "eu03",
+    "eu07",
+    "eu01",
+    "eu13",
+    "eu00",
+    "eu14",
+    "eu32",
+    "eu29",
+    "eu33",
+    "eu39",
+    "eu35",
+    "eu53",
+    "eu45",
+    "eu46",
+    "eu52",
+    "eu51",
+    "eu49",
+    "eu48",
+    "eu50",
+    "eu47",
+    "eu54",
+    "eu59",
+    "eu58",
+    "eu55",
+    "eu57",
+    "eu56"
+   ],
+   "gold": 2600,
+   "stability": 62,
+   "politicalPower": 44,
+   "tech": {
+    "military": 5,
+    "economy": 4,
+    "administration": 4,
+    "logistics": 5,
+    "defense": 3
+   },
+   "armies": {
+    "eu15": 14,
+    "eu08": 1,
+    "eu36": 1,
+    "eu37": 1,
+    "eu09": 1,
+    "eu04": 1,
+    "eu11": 1,
+    "eu10": 1,
+    "eu05": 1,
+    "eu06": 12,
+    "eu12": 1,
+    "eu02": 1,
+    "eu03": 9,
+    "eu07": 1,
+    "eu01": 1,
+    "eu13": 1,
+    "eu00": 1,
+    "eu14": 1,
+    "eu32": 1,
+    "eu29": 22,
+    "eu33": 1,
+    "eu39": 16,
+    "eu35": 14,
+    "eu53": 1,
+    "eu45": 1,
+    "eu46": 1,
+    "eu52": 1,
+    "eu51": 1,
+    "eu49": 1,
+    "eu48": 1,
+    "eu50": 1,
+    "eu47": 1,
+    "eu54": 1,
+    "eu59": 1,
+    "eu58": 1,
+    "eu55": 1,
+    "eu57": 1,
+    "eu56": 1
+   },
+   "traits": {
+    "military": 1.5,
+    "economy": 1.15,
+    "defense": 1.05,
+    "research": 1.3,
+    "trade": 0.9
+   },
+   "description": "Beweglich geführte Panzerverbände und eine Luftwaffe, die mit dem Heer zusammenarbeitet. Die Rohstoffe fehlen: Öl, Erz und Gummi kommen aus dem Ausland.",
+   "flag": "de_kaiserreich"
+  },
+  {
+   "id": "sowjetunion",
+   "name": "Sowjetunion",
+   "color": "#a63d40",
+   "pattern": "solid",
+   "emblem": "SU",
+   "ruler": "Stalin",
+   "government": "republic",
+   "personality": "opportunist",
+   "capital": "eu201",
+   "provinces": [
+    "eu201",
+    "eu133",
+    "eu195",
+    "eu194",
+    "eu193",
+    "eu192",
+    "eu191",
+    "eu190",
+    "eu189",
+    "eu188",
+    "eu187",
+    "eu186",
+    "eu196",
+    "eu197",
+    "eu202",
+    "eu200",
+    "eu198",
+    "eu199"
+   ],
+   "gold": 2200,
+   "stability": 54,
+   "politicalPower": 40,
+   "tech": {
+    "military": 3,
+    "economy": 4,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 4
+   },
+   "armies": {
+    "eu201": 15,
+    "eu133": 8,
+    "eu195": 1,
+    "eu194": 1,
+    "eu193": 1,
+    "eu192": 18,
+    "eu191": 1,
+    "eu190": 14,
+    "eu189": 1,
+    "eu188": 10,
+    "eu187": 1,
+    "eu186": 1,
+    "eu196": 1,
+    "eu197": 1,
+    "eu202": 1,
+    "eu200": 1,
+    "eu198": 1,
+    "eu199": 1
+   },
+   "traits": {
+    "military": 1.2,
+    "economy": 1.3,
+    "defense": 1.5,
+    "research": 1.1,
+    "trade": 0.85
+   },
+   "description": "Riesige Industrie hinter dem Ural und ein Offizierskorps, das gerade erst dezimiert wurde. Wartet ab, wie weit Deutschland nach Westen geht.",
+   "flag": "su_hammer_sichel"
+  },
+  {
+   "id": "frankreich",
+   "name": "Frankreich",
+   "color": "#2b5fa8",
+   "pattern": "solid",
+   "emblem": "F",
+   "ruler": "Édouard Daladier",
+   "government": "republic",
+   "personality": "defensive",
+   "capital": "eu28",
+   "provinces": [
+    "eu28",
+    "eu25",
+    "eu24",
+    "eu23",
+    "eu27",
+    "eu16",
+    "eu17",
+    "eu22",
+    "eu19",
+    "eu20",
+    "eu21",
+    "eu18",
+    "eu26"
+   ],
+   "gold": 2000,
+   "stability": 50,
+   "politicalPower": 32,
+   "tech": {
+    "military": 4,
+    "economy": 4,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 5
+   },
+   "armies": {
+    "eu28": 12,
+    "eu25": 1,
+    "eu24": 1,
+    "eu23": 1,
+    "eu27": 1,
+    "eu16": 14,
+    "eu17": 20,
+    "eu22": 1,
+    "eu19": 1,
+    "eu20": 1,
+    "eu21": 1,
+    "eu18": 1,
+    "eu26": 1
+   },
+   "traits": {
+    "military": 1.15,
+    "economy": 1.2,
+    "defense": 1.6,
+    "research": 1.2,
+    "trade": 1.1
+   },
+   "description": "Das zahlenmässig stärkste Heer Westeuropas, hinter Beton eingegraben. Auf einen Abnutzungskrieg vorbereitet - und auf keinen anderen.",
+   "flag": "fr_trikolore"
+  },
+  {
+   "id": "grossbritannien",
+   "name": "Großbritannien",
+   "color": "#7a4a52",
+   "pattern": "solid",
+   "emblem": "GB",
+   "ruler": "Neville Chamberlain",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu101",
+   "provinces": [
+    "eu101",
+    "eu97",
+    "eu90",
+    "eu96",
+    "eu95",
+    "eu89",
+    "eu94",
+    "eu88",
+    "eu92",
+    "eu98",
+    "eu87",
+    "eu99",
+    "eu91",
+    "eu100",
+    "eu93",
+    "eu86"
+   ],
+   "gold": 3200,
+   "stability": 64,
+   "politicalPower": 38,
+   "tech": {
+    "military": 4,
+    "economy": 5,
+    "administration": 4,
+    "logistics": 5,
+    "defense": 5
+   },
+   "armies": {
+    "eu101": 10,
+    "eu97": 9,
+    "eu90": 1,
+    "eu96": 6,
+    "eu95": 1,
+    "eu89": 1,
+    "eu94": 1,
+    "eu88": 1,
+    "eu92": 1,
+    "eu98": 1,
+    "eu87": 1,
+    "eu99": 1,
+    "eu91": 1,
+    "eu100": 1,
+    "eu93": 1,
+    "eu86": 1
+   },
+   "traits": {
+    "military": 1.1,
+    "economy": 1.4,
+    "defense": 1.55,
+    "research": 1.45,
+    "trade": 1.5
+   },
+   "description": "Kleines Berufsheer, grösste Flotte der Welt und als Erste mit einer Radarkette. Kann belagert, aber kaum betreten werden.",
+   "flag": "gb_union"
+  },
+  {
+   "id": "italien",
+   "name": "Königreich Italien",
+   "color": "#1f7a4d",
+   "pattern": "solid",
+   "emblem": "I",
+   "ruler": "Benito Mussolini",
+   "government": "monarchy",
+   "personality": "opportunist",
+   "capital": "eu81",
+   "provinces": [
+    "eu81",
+    "eu68",
+    "eu67",
+    "eu66",
+    "eu70",
+    "eu73",
+    "eu74",
+    "eu69",
+    "eu71",
+    "eu82",
+    "eu85",
+    "eu72",
+    "eu75",
+    "eu76",
+    "eu80",
+    "eu77",
+    "eu78",
+    "eu79",
+    "eu83",
+    "eu84",
+    "eu167",
+    "eu181"
+   ],
+   "gold": 1400,
+   "stability": 48,
+   "politicalPower": 28,
+   "tech": {
+    "military": 2,
+    "economy": 3,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 3
+   },
+   "armies": {
+    "eu81": 11,
+    "eu68": 1,
+    "eu67": 1,
+    "eu66": 1,
+    "eu70": 1,
+    "eu73": 1,
+    "eu74": 1,
+    "eu69": 7,
+    "eu71": 1,
+    "eu82": 1,
+    "eu85": 1,
+    "eu72": 1,
+    "eu75": 1,
+    "eu76": 1,
+    "eu80": 1,
+    "eu77": 1,
+    "eu78": 1,
+    "eu79": 1,
+    "eu83": 5,
+    "eu84": 1,
+    "eu167": 1,
+    "eu181": 6
+   },
+   "traits": {
+    "military": 0.95,
+    "economy": 1.05,
+    "defense": 1.15,
+    "research": 1.1,
+    "trade": 1.1
+   },
+   "description": "Grosse Ansprüche, veraltetes Gerät und kein Öl. Bleibt zunächst draussen - Mussolini nennt es \"nichtkriegführend\".",
+   "flag": "it_trikolore"
+  },
+  {
+   "id": "polen",
+   "name": "Republik Polen",
+   "color": "#d1495b",
+   "pattern": "solid",
+   "emblem": "P",
+   "ruler": "Ignacy Mościcki",
+   "government": "republic",
+   "personality": "defensive",
+   "capital": "eu40",
+   "provinces": [
+    "eu40",
+    "eu42",
+    "eu43",
+    "eu41",
+    "eu44",
+    "eu38",
+    "eu34",
+    "eu30",
+    "eu31",
+    "eu203"
+   ],
+   "gold": 800,
+   "stability": 46,
+   "politicalPower": 22,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 3
+   },
+   "armies": {
+    "eu40": 13,
+    "eu42": 7,
+    "eu43": 9,
+    "eu41": 1,
+    "eu44": 1,
+    "eu38": 1,
+    "eu34": 1,
+    "eu30": 6,
+    "eu31": 1,
+    "eu203": 1
+   },
+   "traits": {
+    "military": 1.1,
+    "economy": 0.95,
+    "defense": 1.25,
+    "research": 1,
+    "trade": 0.95
+   },
+   "description": "Zwischen zwei Mächten, die sich gerade geeinigt haben. Das Heer ist tapfer, zahlenmässig ebenbürtig und an Panzern und Flugzeugen hoffnungslos unterlegen.",
+   "flag": "polen_adler"
+  },
+  {
+   "id": "spanien",
+   "name": "Spanien",
+   "color": "#d4a017",
+   "pattern": "solid",
+   "emblem": "E",
+   "ruler": "Francisco Franco",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu150",
+   "provinces": [
+    "eu150",
+    "eu142",
+    "eu149",
+    "eu137",
+    "eu138",
+    "eu143",
+    "eu140",
+    "eu144",
+    "eu139",
+    "eu141",
+    "eu145",
+    "eu146",
+    "eu136",
+    "eu148",
+    "eu135",
+    "eu147"
+   ],
+   "gold": 700,
+   "stability": 36,
+   "politicalPower": 20,
+   "tech": {
+    "military": 2,
+    "economy": 1,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 3
+   },
+   "armies": {
+    "eu150": 9,
+    "eu142": 1,
+    "eu149": 1,
+    "eu137": 1,
+    "eu138": 5,
+    "eu143": 1,
+    "eu140": 1,
+    "eu144": 1,
+    "eu139": 1,
+    "eu141": 1,
+    "eu145": 1,
+    "eu146": 1,
+    "eu136": 1,
+    "eu148": 1,
+    "eu135": 1,
+    "eu147": 1
+   },
+   "traits": {
+    "military": 1.05,
+    "economy": 0.8,
+    "defense": 1.25,
+    "research": 0.9,
+    "trade": 0.9
+   },
+   "description": "Der Bürgerkrieg ist fünf Monate vorbei, das Land ausgeblutet und hungrig. Franco sympathisiert mit der Achse und kann sich keinen Krieg leisten.",
+   "flag": "es_spanien"
+  },
+  {
+   "id": "portugal",
+   "name": "Portugal",
+   "color": "#2e8b57",
+   "pattern": "solid",
+   "emblem": "P",
+   "ruler": "António de Oliveira Salazar",
+   "government": "republic",
+   "personality": "defensive",
+   "capital": "eu153",
+   "provinces": [
+    "eu153",
+    "eu152",
+    "eu151"
+   ],
+   "gold": 800,
+   "stability": 58,
+   "politicalPower": 16,
+   "tech": {
+    "military": 1,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 2
+   },
+   "armies": {
+    "eu153": 6,
+    "eu152": 1,
+    "eu151": 3
+   },
+   "traits": {
+    "military": 0.85,
+    "economy": 1.05,
+    "defense": 1.15,
+    "research": 0.95,
+    "trade": 1.3
+   },
+   "description": "Neutral, aber mit Britannien verbündet seit 1373. Verkauft Wolfram an beide Seiten und überlässt am Ende die Azoren den Alliierten.",
+   "flag": "portugal_kreuz"
+  },
+  {
+   "id": "jugoslawien",
+   "name": "Königreich Jugoslawien",
+   "color": "#8e5a9b",
+   "pattern": "solid",
+   "emblem": "J",
+   "ruler": "Prinzregent Paul",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu166",
+   "provinces": [
+    "eu166",
+    "eu165",
+    "eu164",
+    "eu183",
+    "eu174",
+    "eu175",
+    "eu169",
+    "eu168",
+    "eu170",
+    "eu182",
+    "eu62"
+   ],
+   "gold": 600,
+   "stability": 42,
+   "politicalPower": 18,
+   "tech": {
+    "military": 1,
+    "economy": 2,
+    "administration": 1,
+    "logistics": 1,
+    "defense": 3
+   },
+   "armies": {
+    "eu166": 9,
+    "eu165": 1,
+    "eu164": 1,
+    "eu183": 1,
+    "eu174": 1,
+    "eu175": 1,
+    "eu169": 1,
+    "eu168": 1,
+    "eu170": 4,
+    "eu182": 1,
+    "eu62": 1
+   },
+   "traits": {
+    "military": 0.95,
+    "economy": 0.95,
+    "defense": 1.35,
+    "research": 0.95,
+    "trade": 1
+   },
+   "description": "Aus sechs Nationen zusammengesetzt und von innen zerrissen. Das Gebirge ist seine stärkste Waffe - und wird es bleiben.",
+   "flag": "jugoslawien"
+  },
+  {
+   "id": "rumaenien",
+   "name": "Königreich Rumänien",
+   "color": "#e07b39",
+   "pattern": "solid",
+   "emblem": "R",
+   "ruler": "Karl II.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu155",
+   "provinces": [
+    "eu155",
+    "eu156",
+    "eu157",
+    "eu159",
+    "eu158",
+    "eu154",
+    "eu206",
+    "eu185"
+   ],
+   "gold": 900,
+   "stability": 44,
+   "politicalPower": 20,
+   "tech": {
+    "military": 1,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 2
+   },
+   "armies": {
+    "eu155": 10,
+    "eu156": 5,
+    "eu157": 1,
+    "eu159": 1,
+    "eu158": 1,
+    "eu154": 1,
+    "eu206": 6,
+    "eu185": 1
+   },
+   "traits": {
+    "military": 0.95,
+    "economy": 1.15,
+    "defense": 1.1,
+    "research": 0.95,
+    "trade": 1.2
+   },
+   "description": "Sitzt auf den Ölfeldern von Ploiesti - dem einzigen grossen Ölvorkommen Europas. Jede Macht am Kontinent weiss das.",
+   "flag": "ro_rumaenien"
+  },
+  {
+   "id": "ungarn",
+   "name": "Königreich Ungarn",
+   "color": "#c8a227",
+   "pattern": "solid",
+   "emblem": "U",
+   "ruler": "Miklós Horthy",
+   "government": "monarchy",
+   "personality": "opportunist",
+   "capital": "eu65",
+   "provinces": [
+    "eu65",
+    "eu171",
+    "eu172",
+    "eu64",
+    "eu173",
+    "eu63",
+    "eu60",
+    "eu61",
+    "eu184"
+   ],
+   "gold": 700,
+   "stability": 50,
+   "politicalPower": 20,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 2
+   },
+   "armies": {
+    "eu65": 9,
+    "eu171": 1,
+    "eu172": 1,
+    "eu64": 1,
+    "eu173": 4,
+    "eu63": 1,
+    "eu60": 1,
+    "eu61": 1,
+    "eu184": 1
+   },
+   "traits": {
+    "military": 1.05,
+    "economy": 1.05,
+    "defense": 1.05,
+    "research": 1.05,
+    "trade": 1.05
+   },
+   "description": "Will die 1920 verlorenen Gebiete zurück und bekommt sie Stück für Stück - zum Preis, auf der Seite zu stehen, die sie verschenkt.",
+   "flag": "ungarn_arpaden"
+  },
+  {
+   "id": "griechenland",
+   "name": "Griechenland",
+   "color": "#5b9bd5",
+   "pattern": "solid",
+   "emblem": "GR",
+   "ruler": "Ioannis Metaxas",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu178",
+   "provinces": [
+    "eu178",
+    "eu177",
+    "eu179",
+    "eu180",
+    "eu176"
+   ],
+   "gold": 600,
+   "stability": 48,
+   "politicalPower": 16,
+   "tech": {
+    "military": 1,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 1,
+    "defense": 3
+   },
+   "armies": {
+    "eu178": 8,
+    "eu177": 4,
+    "eu179": 1,
+    "eu180": 1,
+    "eu176": 1
+   },
+   "traits": {
+    "military": 1,
+    "economy": 1,
+    "defense": 1.4,
+    "research": 0.95,
+    "trade": 1.15
+   },
+   "description": "Arm und bergig. Wird den italienischen Angriff zurückschlagen und erst der deutschen Hilfe weichen.",
+   "flag": "gr_griechenland"
+  },
+  {
+   "id": "bulgarien",
+   "name": "Zarentum Bulgarien",
+   "color": "#2e9b8f",
+   "pattern": "solid",
+   "emblem": "BG",
+   "ruler": "Boris III.",
+   "government": "monarchy",
+   "personality": "opportunist",
+   "capital": "eu160",
+   "provinces": [
+    "eu160",
+    "eu163",
+    "eu162",
+    "eu161"
+   ],
+   "gold": 500,
+   "stability": 50,
+   "politicalPower": 14,
+   "tech": {
+    "military": 1,
+    "economy": 1,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 2
+   },
+   "armies": {
+    "eu160": 7,
+    "eu163": 1,
+    "eu162": 3,
+    "eu161": 1
+   },
+   "traits": {
+    "military": 1,
+    "economy": 1,
+    "defense": 1.1,
+    "research": 0.95,
+    "trade": 1.05
+   },
+   "description": "Hat 1918 verloren und will dasselbe zurück wie Ungarn. Tritt der Achse bei, schickt aber kein Heer nach Osten.",
+   "flag": "bg_bulgarien"
+  },
+  {
+   "id": "tuerkei",
+   "name": "Türkei",
+   "color": "#b0453a",
+   "pattern": "solid",
+   "emblem": "T",
+   "ruler": "İsmet İnönü",
+   "government": "republic",
+   "personality": "defensive",
+   "capital": "eu210",
+   "provinces": [
+    "eu210",
+    "eu207",
+    "eu208",
+    "eu209"
+   ],
+   "gold": 800,
+   "stability": 56,
+   "politicalPower": 18,
+   "tech": {
+    "military": 1,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 3
+   },
+   "armies": {
+    "eu210": 9,
+    "eu207": 5,
+    "eu208": 1,
+    "eu209": 1
+   },
+   "traits": {
+    "military": 1,
+    "economy": 1,
+    "defense": 1.35,
+    "research": 1,
+    "trade": 1.15
+   },
+   "description": "Entschlossen, aus diesem Krieg herauszubleiben, und geschickt genug dafür. Kontrolliert die Meerengen und verkauft Chromerz an beide Seiten.",
+   "flag": "tuerkei_mond"
+  },
+  {
+   "id": "schweden",
+   "name": "Schweden",
+   "color": "#4a90d9",
+   "pattern": "solid",
+   "emblem": "S",
+   "ruler": "Per Albin Hansson",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu124",
+   "provinces": [
+    "eu124",
+    "eu120",
+    "eu123",
+    "eu125",
+    "eu122",
+    "eu121"
+   ],
+   "gold": 1200,
+   "stability": 66,
+   "politicalPower": 20,
+   "tech": {
+    "military": 2,
+    "economy": 4,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "eu124": 9,
+    "eu120": 1,
+    "eu123": 1,
+    "eu125": 4,
+    "eu122": 1,
+    "eu121": 1
+   },
+   "traits": {
+    "military": 1.05,
+    "economy": 1.35,
+    "defense": 1.3,
+    "research": 1.3,
+    "trade": 1.25
+   },
+   "description": "Neutral und unentbehrlich: Das schwedische Eisenerz hält die deutsche Rüstung am Laufen, und beide Seiten wissen, wo es verladen wird.",
+   "flag": "se_schweden"
+  },
+  {
+   "id": "finnland",
+   "name": "Finnland",
+   "color": "#c0c7cf",
+   "pattern": "solid",
+   "emblem": "FI",
+   "ruler": "Kyösti Kallio",
+   "government": "republic",
+   "personality": "defensive",
+   "capital": "eu131",
+   "provinces": [
+    "eu131",
+    "eu132",
+    "eu134"
+   ],
+   "gold": 600,
+   "stability": 60,
+   "politicalPower": 16,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 2,
+    "defense": 4
+   },
+   "armies": {
+    "eu131": 8,
+    "eu132": 1,
+    "eu134": 4
+   },
+   "traits": {
+    "military": 1.1,
+    "economy": 1,
+    "defense": 1.6,
+    "research": 1.05,
+    "trade": 1
+   },
+   "description": "Winzig gegen den Nachbarn im Osten, und auf genau diesen Krieg eingerichtet: Wald, Schnee und Schützen, die beides kennen.",
+   "flag": "finnland_kreuz"
+  },
+  {
+   "id": "norwegen_daenemark",
+   "name": "Norwegen und Dänemark",
+   "color": "#e8833a",
+   "pattern": "solid",
+   "emblem": "N",
+   "ruler": "Haakon VII.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu119",
+   "provinces": [
+    "eu119",
+    "eu118",
+    "eu117",
+    "eu130",
+    "eu129",
+    "eu128",
+    "eu127",
+    "eu126"
+   ],
+   "gold": 900,
+   "stability": 60,
+   "politicalPower": 16,
+   "tech": {
+    "military": 1,
+    "economy": 3,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 2
+   },
+   "armies": {
+    "eu119": 6,
+    "eu118": 1,
+    "eu117": 1,
+    "eu130": 1,
+    "eu129": 1,
+    "eu128": 1,
+    "eu127": 4,
+    "eu126": 1
+   },
+   "traits": {
+    "military": 0.85,
+    "economy": 1.25,
+    "defense": 1.1,
+    "research": 1.2,
+    "trade": 1.4
+   },
+   "description": "Neutral, kaum bewaffnet und an der Erzstrasse gelegen. Die lange norwegische Küste ist für jede Flotte ein Gewinn und für Norwegen nicht zu halten.",
+   "flag": "dk_daenemark"
+  },
+  {
+   "id": "niederlande_belgien",
+   "name": "Niederlande und Belgien",
+   "color": "#8fbf6f",
+   "pattern": "solid",
+   "emblem": "NL",
+   "ruler": "Wilhelmina",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu106",
+   "provinces": [
+    "eu106",
+    "eu108",
+    "eu107",
+    "eu112",
+    "eu109",
+    "eu110",
+    "eu111",
+    "eu105"
+   ],
+   "gold": 1600,
+   "stability": 62,
+   "politicalPower": 20,
+   "tech": {
+    "military": 2,
+    "economy": 4,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "eu106": 8,
+    "eu108": 1,
+    "eu107": 1,
+    "eu112": 1,
+    "eu109": 1,
+    "eu110": 1,
+    "eu111": 6,
+    "eu105": 4
+   },
+   "traits": {
+    "military": 0.9,
+    "economy": 1.35,
+    "defense": 1.25,
+    "research": 1.25,
+    "trade": 1.45
+   },
+   "description": "Zwei neutrale Staaten, die 1914 schon einmal im Weg lagen. Ihre Festungen sind modern - und genau dort, wo man sie vermutet.",
+   "flag": "nl_niederlande"
+  },
+  {
+   "id": "schweiz",
+   "name": "Schweiz",
+   "color": "#9c6b4f",
+   "pattern": "solid",
+   "emblem": "CH",
+   "ruler": "Bundesrat",
+   "government": "republic",
+   "personality": "defensive",
+   "capital": "eu115",
+   "provinces": [
+    "eu115",
+    "eu114",
+    "eu116",
+    "eu113"
+   ],
+   "gold": 1400,
+   "stability": 70,
+   "politicalPower": 16,
+   "tech": {
+    "military": 2,
+    "economy": 4,
+    "administration": 4,
+    "logistics": 2,
+    "defense": 5
+   },
+   "armies": {
+    "eu115": 9,
+    "eu114": 5,
+    "eu116": 1,
+    "eu113": 1
+   },
+   "traits": {
+    "military": 1.05,
+    "economy": 1.3,
+    "defense": 1.75,
+    "research": 1.3,
+    "trade": 1.3
+   },
+   "description": "Bewaffnete Neutralität: ein Heer aus der gesamten männlichen Bevölkerung und ein Rückzugsplan in die Alpen, der jede Besetzung teuer macht.",
+   "flag": "ch_schweiz"
+  }
+ ],
+ "relations": [
+  {
+   "a": "deutsches_reich",
+   "b": "polen",
+   "value": -95
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "frankreich",
+   "value": -85
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "grossbritannien",
+   "value": -85
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "sowjetunion",
+   "value": 25
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "italien",
+   "value": 70
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "ungarn",
+   "value": 45
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "bulgarien",
+   "value": 35
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "rumaenien",
+   "value": 20
+  },
+  {
+   "a": "deutsches_reich",
+   "b": "schweden",
+   "value": 15
+  },
+  {
+   "a": "sowjetunion",
+   "b": "polen",
+   "value": -70
+  },
+  {
+   "a": "sowjetunion",
+   "b": "finnland",
+   "value": -55
+  },
+  {
+   "a": "sowjetunion",
+   "b": "rumaenien",
+   "value": -50
+  },
+  {
+   "a": "sowjetunion",
+   "b": "grossbritannien",
+   "value": -40
+  },
+  {
+   "a": "frankreich",
+   "b": "grossbritannien",
+   "value": 80
+  },
+  {
+   "a": "frankreich",
+   "b": "polen",
+   "value": 65
+  },
+  {
+   "a": "grossbritannien",
+   "b": "polen",
+   "value": 65
+  },
+  {
+   "a": "grossbritannien",
+   "b": "portugal",
+   "value": 60
+  },
+  {
+   "a": "grossbritannien",
+   "b": "tuerkei",
+   "value": 35
+  },
+  {
+   "a": "italien",
+   "b": "griechenland",
+   "value": -45
+  },
+  {
+   "a": "italien",
+   "b": "jugoslawien",
+   "value": -40
+  },
+  {
+   "a": "italien",
+   "b": "frankreich",
+   "value": -50
+  },
+  {
+   "a": "ungarn",
+   "b": "rumaenien",
+   "value": -55
+  },
+  {
+   "a": "bulgarien",
+   "b": "griechenland",
+   "value": -40
+  },
+  {
+   "a": "bulgarien",
+   "b": "rumaenien",
+   "value": -45
+  },
+  {
+   "a": "jugoslawien",
+   "b": "ungarn",
+   "value": -35
+  },
+  {
+   "a": "spanien",
+   "b": "deutsches_reich",
+   "value": 30
+  },
+  {
+   "a": "finnland",
+   "b": "schweden",
+   "value": 45
+  }
+ ],
+ "alliances": [
+  {
+   "id": "achse",
+   "name": "Achse",
+   "leaderId": "deutsches_reich",
+   "memberIds": [
+    "deutsches_reich",
+    "italien"
+   ]
+  },
+  {
+   "id": "alliierte",
+   "name": "Alliierte",
+   "leaderId": "grossbritannien",
+   "memberIds": [
+    "grossbritannien",
+    "frankreich",
+    "polen"
+   ]
+  }
+ ],
+ "wars": [
+  {
+   "sideA": [
+    "deutsches_reich"
+   ],
+   "sideB": [
+    "polen"
+   ]
+  }
+ ],
+ "events": [
+  "wk2_aufmarsch",
+  "wk2_luftkrieg",
+  "wk2_nachschub",
+  "wk2_erzstrasse",
+  "wk2_winterkrieg",
+  "wk2_heimatfront",
+  "wk2_entschluesselung",
+  "economic_crisis",
+  "war_weariness",
+  "officer_plot",
+  "railway_project",
+  "harvest_failure",
+  "resource_find",
+  "tech_espionage",
+  "naval_incident",
+  "border_incident",
+  "unrest_protest",
+  "peace_movement",
+  "census",
+  "alliance_pressure",
+  "veteran_demands",
+  "scientific_breakthrough",
+  "foreign_investment",
+  "mine_collapse"
+ ],
+ "victoryConditions": [
+  {
+   "type": "provinces",
+   "value": 130,
+   "description": "Beherrsche 130 der 211 Gebiete."
+  },
+  {
+   "type": "capitals",
+   "value": 4,
+   "targets": [
+    "eu15",
+    "eu201",
+    "eu28",
+    "eu101",
+    "eu81",
+    "eu40",
+    "eu150",
+    "eu153",
+    "eu166",
+    "eu155",
+    "eu65",
+    "eu178",
+    "eu160",
+    "eu210",
+    "eu124",
+    "eu131",
+    "eu119",
+    "eu106",
+    "eu115"
+   ],
+   "description": "Erobere vier fremde Hauptstädte."
+  }
+ ]
+}

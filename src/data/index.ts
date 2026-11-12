@@ -14,6 +14,10 @@ import scKalifat from './scenarios/kalifat_750.json';
 import scMongolen from './scenarios/mongolen_1240.json';
 import scNeuzeit from './scenarios/neuzeit_1500.json';
 import scWelt1914 from './scenarios/welt_1914.json';
+import scKreuzzuege from './scenarios/kreuzzuege_1099.json';
+import scDreissig from './scenarios/dreissigjaehriger_1618.json';
+import scNapoleon from './scenarios/napoleon_1805.json';
+import scWeltkrieg1939 from './scenarios/weltkrieg_1939.json';
 import scAureliaAufbruch from './scenarios/aurelia_aufbruch.json';
 import scAureliaBrand from './scenarios/aurelia_brand.json';
 import scAureliaSandkasten from './scenarios/aurelia_sandkasten.json';
@@ -25,9 +29,12 @@ export const maps = [
 ] as unknown as GameMap[];
 
 /** Reihenfolge bestimmt die Anzeige im Auswahlbildschirm. */
+/* Reihenfolge wie im Auswahlbildschirm: erst die geschichtlichen
+   Szenarien von der Antike bis 1939, dann die erfundene Welt Aurelia. */
 export const scenarios = [
-  scEuropa1914, scAntike, scSeldschuken, scKalifat, scMongolen, scNeuzeit,
-  scWelt1914, scAureliaAufbruch, scAureliaBrand, scAureliaSandkasten,
+  scAntike, scKalifat, scSeldschuken, scKreuzzuege, scMongolen, scNeuzeit,
+  scDreissig, scNapoleon, scEuropa1914, scWelt1914, scWeltkrieg1939,
+  scAureliaAufbruch, scAureliaBrand, scAureliaSandkasten,
 ] as unknown as any[];
 
 export const eventDefinitions = eventsJson as unknown as GameEventDefinition[];

@@ -1,0 +1,1230 @@
+{
+ "id": "napoleon_1805",
+ "name": "Napoleon - 1805",
+ "description": "Die Dritte Koalition steht. Napoleons Heer verlässt den Ärmelkanal und marschiert nach Osten - gegen Österreich, Russland und ein Britannien, das zur See unerreichbar bleibt.",
+ "mapId": "europadetail",
+ "startYear": 1805,
+ "endYear": 1850,
+ "monthsPerTurn": 6,
+ "sandbox": false,
+ "provinceOverrides": {},
+ "countries": [
+  {
+   "id": "frankreich",
+   "name": "Kaiserreich Frankreich",
+   "color": "#2b5fa8",
+   "pattern": "solid",
+   "emblem": "F",
+   "ruler": "Napoleon I.",
+   "government": "monarchy",
+   "personality": "aggressive",
+   "capital": "eu28",
+   "provinces": [
+    "eu28",
+    "eu25",
+    "eu24",
+    "eu23",
+    "eu27",
+    "eu16",
+    "eu17",
+    "eu22",
+    "eu19",
+    "eu20",
+    "eu21",
+    "eu18",
+    "eu26",
+    "eu112",
+    "eu109",
+    "eu110",
+    "eu111",
+    "eu105",
+    "eu02",
+    "eu03",
+    "eu67",
+    "eu66",
+    "eu70",
+    "eu68",
+    "eu71"
+   ],
+   "gold": 2600,
+   "stability": 68,
+   "politicalPower": 46,
+   "tech": {
+    "military": 5,
+    "economy": 4,
+    "administration": 4,
+    "logistics": 5,
+    "defense": 3
+   },
+   "armies": {
+    "eu28": 20,
+    "eu25": 1,
+    "eu24": 1,
+    "eu23": 1,
+    "eu27": 1,
+    "eu16": 26,
+    "eu17": 14,
+    "eu22": 1,
+    "eu19": 1,
+    "eu20": 1,
+    "eu21": 1,
+    "eu18": 1,
+    "eu26": 1,
+    "eu112": 8,
+    "eu109": 1,
+    "eu110": 1,
+    "eu111": 1,
+    "eu105": 1,
+    "eu02": 1,
+    "eu03": 1,
+    "eu67": 1,
+    "eu66": 1,
+    "eu70": 1,
+    "eu68": 11,
+    "eu71": 1
+   },
+   "traits": {
+    "military": 1.55,
+    "economy": 1.2,
+    "defense": 1.05,
+    "research": 1.2,
+    "trade": 1.05
+   },
+   "description": "Die Grande Armée: Wehrpflicht, Korpsgliederung und Marschälle, die eigenständig führen. Kein Heer Europas bewegt sich annähernd so schnell.",
+   "flag": "fr_trikolore"
+  },
+  {
+   "id": "grossbritannien",
+   "name": "Großbritannien",
+   "color": "#a63d40",
+   "pattern": "solid",
+   "emblem": "GB",
+   "ruler": "Georg III.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu101",
+   "provinces": [
+    "eu101",
+    "eu97",
+    "eu90",
+    "eu96",
+    "eu95",
+    "eu89",
+    "eu94",
+    "eu88",
+    "eu92",
+    "eu98",
+    "eu87",
+    "eu99",
+    "eu91",
+    "eu100",
+    "eu93",
+    "eu86",
+    "eu102",
+    "eu103",
+    "eu104"
+   ],
+   "gold": 4200,
+   "stability": 70,
+   "politicalPower": 40,
+   "tech": {
+    "military": 3,
+    "economy": 5,
+    "administration": 4,
+    "logistics": 5,
+    "defense": 4
+   },
+   "armies": {
+    "eu101": 11,
+    "eu97": 8,
+    "eu90": 1,
+    "eu96": 1,
+    "eu95": 1,
+    "eu89": 1,
+    "eu94": 1,
+    "eu88": 1,
+    "eu92": 1,
+    "eu98": 1,
+    "eu87": 1,
+    "eu99": 1,
+    "eu91": 1,
+    "eu100": 1,
+    "eu93": 1,
+    "eu86": 5,
+    "eu102": 1,
+    "eu103": 1,
+    "eu104": 1
+   },
+   "traits": {
+    "military": 1.1,
+    "economy": 1.5,
+    "defense": 1.5,
+    "research": 1.35,
+    "trade": 1.6
+   },
+   "description": "Das kleinste Landheer und die grösste Flotte. Finanziert die Koalitionen mit Subsidien, weil es selbst nicht auf dem Festland kämpfen kann.",
+   "flag": "gb_union"
+  },
+  {
+   "id": "oesterreich",
+   "name": "Kaisertum Österreich",
+   "color": "#c8a227",
+   "pattern": "solid",
+   "emblem": "Ö",
+   "ruler": "Franz I.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu53",
+   "provinces": [
+    "eu53",
+    "eu45",
+    "eu46",
+    "eu52",
+    "eu51",
+    "eu170",
+    "eu49",
+    "eu69",
+    "eu48",
+    "eu47",
+    "eu50",
+    "eu167",
+    "eu74",
+    "eu73",
+    "eu54",
+    "eu59",
+    "eu58",
+    "eu55",
+    "eu57",
+    "eu56",
+    "eu171",
+    "eu172",
+    "eu65",
+    "eu60",
+    "eu61",
+    "eu173",
+    "eu64",
+    "eu63",
+    "eu62",
+    "eu154",
+    "eu159",
+    "eu158",
+    "eu169",
+    "eu168",
+    "eu30",
+    "eu31",
+    "eu185",
+    "eu184"
+   ],
+   "gold": 1900,
+   "stability": 54,
+   "politicalPower": 36,
+   "tech": {
+    "military": 3,
+    "economy": 3,
+    "administration": 3,
+    "logistics": 2,
+    "defense": 3
+   },
+   "armies": {
+    "eu53": 17,
+    "eu45": 1,
+    "eu46": 1,
+    "eu52": 1,
+    "eu51": 1,
+    "eu170": 1,
+    "eu49": 8,
+    "eu69": 1,
+    "eu48": 1,
+    "eu47": 1,
+    "eu50": 1,
+    "eu167": 1,
+    "eu74": 1,
+    "eu73": 12,
+    "eu54": 1,
+    "eu59": 1,
+    "eu58": 1,
+    "eu55": 1,
+    "eu57": 1,
+    "eu56": 1,
+    "eu171": 7,
+    "eu172": 1,
+    "eu65": 1,
+    "eu60": 1,
+    "eu61": 1,
+    "eu173": 1,
+    "eu64": 1,
+    "eu63": 1,
+    "eu62": 1,
+    "eu154": 1,
+    "eu159": 1,
+    "eu158": 1,
+    "eu169": 1,
+    "eu168": 1,
+    "eu30": 1,
+    "eu31": 1,
+    "eu185": 1,
+    "eu184": 1
+   },
+   "traits": {
+    "military": 1.15,
+    "economy": 1.1,
+    "defense": 1.2,
+    "research": 1.1,
+    "trade": 1.05
+   },
+   "description": "Vielvölkerreich mit einem Heer, das tapfer ist und langsam. Hat gegen Napoleon schon zweimal verloren und versucht es ein drittes Mal.",
+   "flag": "at_ungarn"
+  },
+  {
+   "id": "russland",
+   "name": "Russisches Kaiserreich",
+   "color": "#7a9e3f",
+   "pattern": "solid",
+   "emblem": "R",
+   "ruler": "Alexander I.",
+   "government": "monarchy",
+   "personality": "balanced",
+   "capital": "eu201",
+   "provinces": [
+    "eu201",
+    "eu133",
+    "eu205",
+    "eu204",
+    "eu203",
+    "eu195",
+    "eu194",
+    "eu193",
+    "eu192",
+    "eu191",
+    "eu190",
+    "eu189",
+    "eu188",
+    "eu187",
+    "eu186",
+    "eu196",
+    "eu197",
+    "eu202",
+    "eu200",
+    "eu198",
+    "eu199"
+   ],
+   "gold": 1700,
+   "stability": 58,
+   "politicalPower": 34,
+   "tech": {
+    "military": 3,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 4
+   },
+   "armies": {
+    "eu201": 14,
+    "eu133": 1,
+    "eu205": 1,
+    "eu204": 1,
+    "eu203": 13,
+    "eu195": 1,
+    "eu194": 1,
+    "eu193": 1,
+    "eu192": 1,
+    "eu191": 1,
+    "eu190": 9,
+    "eu189": 1,
+    "eu188": 6,
+    "eu187": 1,
+    "eu186": 1,
+    "eu196": 1,
+    "eu197": 1,
+    "eu202": 1,
+    "eu200": 1,
+    "eu198": 1,
+    "eu199": 1
+   },
+   "traits": {
+    "military": 1.25,
+    "economy": 1,
+    "defense": 1.45,
+    "research": 0.95,
+    "trade": 1
+   },
+   "description": "Unerschöpflich an Menschen und Raum, rückständig in allem anderen. Seine Stärke ist, dass es sich zurückziehen kann, ohne unterzugehen.",
+   "flag": "ru_kaiserreich"
+  },
+  {
+   "id": "preussen",
+   "name": "Preußen",
+   "color": "#36454f",
+   "pattern": "solid",
+   "emblem": "Pr",
+   "ruler": "Friedrich Wilhelm III.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu15",
+   "provinces": [
+    "eu15",
+    "eu08",
+    "eu36",
+    "eu37",
+    "eu39",
+    "eu35",
+    "eu43",
+    "eu42",
+    "eu40",
+    "eu41",
+    "eu44",
+    "eu32",
+    "eu29",
+    "eu33",
+    "eu06",
+    "eu05",
+    "eu10"
+   ],
+   "gold": 1300,
+   "stability": 60,
+   "politicalPower": 28,
+   "tech": {
+    "military": 3,
+    "economy": 3,
+    "administration": 4,
+    "logistics": 3,
+    "defense": 3
+   },
+   "armies": {
+    "eu15": 13,
+    "eu08": 1,
+    "eu36": 1,
+    "eu37": 1,
+    "eu39": 1,
+    "eu35": 1,
+    "eu43": 1,
+    "eu42": 1,
+    "eu40": 1,
+    "eu41": 1,
+    "eu44": 1,
+    "eu32": 7,
+    "eu29": 1,
+    "eu33": 1,
+    "eu06": 6,
+    "eu05": 1,
+    "eu10": 1
+   },
+   "traits": {
+    "military": 1.2,
+    "economy": 1.1,
+    "defense": 1.15,
+    "research": 1.15,
+    "trade": 1.05
+   },
+   "description": "Lebt vom Ruf Friedrichs des Großen und einem Heer, das sich seit vierzig Jahren nicht verändert hat. Hält sich neutral, solange es irgend geht.",
+   "flag": "preussen_adler"
+  },
+  {
+   "id": "bayern",
+   "name": "Kurfürstentum Bayern",
+   "color": "#4a90d9",
+   "pattern": "solid",
+   "emblem": "By",
+   "ruler": "Maximilian IV. Joseph",
+   "government": "monarchy",
+   "personality": "opportunist",
+   "capital": "eu01",
+   "provinces": [
+    "eu01"
+   ],
+   "gold": 900,
+   "stability": 58,
+   "politicalPower": 22,
+   "tech": {
+    "military": 3,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 2
+   },
+   "armies": {
+    "eu01": 10
+   },
+   "traits": {
+    "military": 1.2,
+    "economy": 1.1,
+    "defense": 1,
+    "research": 1.05,
+    "trade": 1.05
+   },
+   "description": "Napoleons wichtigster deutscher Verbündeter. Wird für seine Treue mit der Königswürde und österreichischem Land bezahlt werden.",
+   "flag": "bayern_rauten"
+  },
+  {
+   "id": "wuerttemberg_baden",
+   "name": "Württemberg und Baden",
+   "color": "#8fbf6f",
+   "pattern": "solid",
+   "emblem": "W",
+   "ruler": "Friedrich II. von Württemberg",
+   "government": "monarchy",
+   "personality": "opportunist",
+   "capital": "eu07",
+   "provinces": [
+    "eu07",
+    "eu12"
+   ],
+   "gold": 750,
+   "stability": 56,
+   "politicalPower": 18,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 3,
+    "logistics": 2,
+    "defense": 2
+   },
+   "armies": {
+    "eu07": 8,
+    "eu12": 4
+   },
+   "traits": {
+    "military": 1.1,
+    "economy": 1.1,
+    "defense": 1,
+    "research": 1.1,
+    "trade": 1.1
+   },
+   "description": "Südwestdeutsche Fürsten, die durch Napoleons Flurbereinigung ihr Gebiet vervielfacht haben - und wissen, wem sie es verdanken.",
+   "flag": "wuerttemberg"
+  },
+  {
+   "id": "sachsen",
+   "name": "Kurfürstentum Sachsen",
+   "color": "#2e8b57",
+   "pattern": "solid",
+   "emblem": "Sa",
+   "ruler": "Friedrich August III.",
+   "government": "monarchy",
+   "personality": "balanced",
+   "capital": "eu00",
+   "provinces": [
+    "eu00",
+    "eu13",
+    "eu14"
+   ],
+   "gold": 850,
+   "stability": 58,
+   "politicalPower": 20,
+   "tech": {
+    "military": 2,
+    "economy": 3,
+    "administration": 3,
+    "logistics": 2,
+    "defense": 2
+   },
+   "armies": {
+    "eu00": 9,
+    "eu13": 4,
+    "eu14": 1
+   },
+   "traits": {
+    "military": 1.05,
+    "economy": 1.25,
+    "defense": 1.05,
+    "research": 1.2,
+    "trade": 1.15
+   },
+   "description": "Wohlhabend, gebildet und militärisch zweitrangig. Liegt genau dort, wo preussische und französische Heere aufeinandertreffen werden.",
+   "flag": "sachsen_rautenkranz"
+  },
+  {
+   "id": "spanien",
+   "name": "Königreich Spanien",
+   "color": "#d4a017",
+   "pattern": "solid",
+   "emblem": "E",
+   "ruler": "Karl IV.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu150",
+   "provinces": [
+    "eu150",
+    "eu142",
+    "eu149",
+    "eu137",
+    "eu138",
+    "eu143",
+    "eu140",
+    "eu144",
+    "eu139",
+    "eu141",
+    "eu145",
+    "eu146",
+    "eu136",
+    "eu148",
+    "eu135",
+    "eu147"
+   ],
+   "gold": 1400,
+   "stability": 44,
+   "politicalPower": 24,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 3
+   },
+   "armies": {
+    "eu150": 10,
+    "eu142": 1,
+    "eu149": 1,
+    "eu137": 1,
+    "eu138": 5,
+    "eu143": 1,
+    "eu140": 5,
+    "eu144": 1,
+    "eu139": 1,
+    "eu141": 1,
+    "eu145": 1,
+    "eu146": 1,
+    "eu136": 1,
+    "eu148": 1,
+    "eu135": 1,
+    "eu147": 1
+   },
+   "traits": {
+    "military": 1,
+    "economy": 1.05,
+    "defense": 1.3,
+    "research": 0.95,
+    "trade": 1.2
+   },
+   "description": "Frankreichs unfreiwilliger Verbündeter. Die Flotte wird bei Trafalgar untergehen, und drei Jahre später steht ein französisches Heer im Land.",
+   "flag": "es_spanien"
+  },
+  {
+   "id": "portugal",
+   "name": "Portugal",
+   "color": "#1f7a4d",
+   "pattern": "solid",
+   "emblem": "P",
+   "ruler": "Johann VI.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu153",
+   "provinces": [
+    "eu153",
+    "eu152",
+    "eu151"
+   ],
+   "gold": 1000,
+   "stability": 52,
+   "politicalPower": 18,
+   "tech": {
+    "military": 1,
+    "economy": 3,
+    "administration": 2,
+    "logistics": 3,
+    "defense": 2
+   },
+   "armies": {
+    "eu153": 7,
+    "eu152": 3,
+    "eu151": 1
+   },
+   "traits": {
+    "military": 0.9,
+    "economy": 1.2,
+    "defense": 1.15,
+    "research": 1.05,
+    "trade": 1.4
+   },
+   "description": "Britanniens ältester Verbündeter und damit Napoleons Ziel. Der Hof hält schon Schiffe bereit, um nach Brasilien auszuweichen.",
+   "flag": "portugal_kreuz"
+  },
+  {
+   "id": "neapel",
+   "name": "Königreich Neapel",
+   "color": "#c0392b",
+   "pattern": "solid",
+   "emblem": "N",
+   "ruler": "Ferdinand IV.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu80",
+   "provinces": [
+    "eu80",
+    "eu77",
+    "eu79",
+    "eu78",
+    "eu76",
+    "eu83"
+   ],
+   "gold": 900,
+   "stability": 42,
+   "politicalPower": 18,
+   "tech": {
+    "military": 1,
+    "economy": 2,
+    "administration": 1,
+    "logistics": 2,
+    "defense": 2
+   },
+   "armies": {
+    "eu80": 8,
+    "eu77": 1,
+    "eu79": 1,
+    "eu78": 1,
+    "eu76": 1,
+    "eu83": 5
+   },
+   "traits": {
+    "military": 0.9,
+    "economy": 1.05,
+    "defense": 1.2,
+    "research": 0.95,
+    "trade": 1.15
+   },
+   "description": "Bourbonisch, britisch beschützt und militärisch kaum vorhanden. Sizilien ist unangreifbar, solange die Royal Navy davor liegt - das Festland nicht.",
+   "flag": "neapel_bourbonen"
+  },
+  {
+   "id": "kirchenstaat",
+   "name": "Kirchenstaat",
+   "color": "#e4d5a1",
+   "pattern": "solid",
+   "emblem": "K",
+   "ruler": "Pius VII.",
+   "government": "theocracy",
+   "personality": "defensive",
+   "capital": "eu81",
+   "provinces": [
+    "eu81",
+    "eu85",
+    "eu72",
+    "eu75",
+    "eu82"
+   ],
+   "gold": 800,
+   "stability": 50,
+   "politicalPower": 26,
+   "tech": {
+    "military": 1,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 1,
+    "defense": 1
+   },
+   "armies": {
+    "eu81": 6,
+    "eu85": 1,
+    "eu72": 1,
+    "eu75": 1,
+    "eu82": 3
+   },
+   "traits": {
+    "military": 0.8,
+    "economy": 1.1,
+    "defense": 1,
+    "research": 1.2,
+    "trade": 1.1
+   },
+   "description": "Hat Napoleon in Notre-Dame gekrönt und wird dafür drei Jahre später in Gefangenschaft genommen werden.",
+   "flag": "kirchenstaat_schluessel"
+  },
+  {
+   "id": "niederlande",
+   "name": "Batavische Republik",
+   "color": "#e8833a",
+   "pattern": "solid",
+   "emblem": "B",
+   "ruler": "Rutger Jan Schimmelpenninck",
+   "government": "republic",
+   "personality": "defensive",
+   "capital": "eu106",
+   "provinces": [
+    "eu106",
+    "eu108",
+    "eu107"
+   ],
+   "gold": 1100,
+   "stability": 46,
+   "politicalPower": 16,
+   "tech": {
+    "military": 2,
+    "economy": 4,
+    "administration": 3,
+    "logistics": 3,
+    "defense": 2
+   },
+   "armies": {
+    "eu106": 7,
+    "eu108": 1,
+    "eu107": 4
+   },
+   "traits": {
+    "military": 0.95,
+    "economy": 1.35,
+    "defense": 1.1,
+    "research": 1.2,
+    "trade": 1.4
+   },
+   "description": "Französischer Satellit mit republikanischer Fassade. Die Handelsflotte liegt in den Häfen, seit Britannien die See beherrscht.",
+   "flag": "nl_niederlande"
+  },
+  {
+   "id": "schweden",
+   "name": "Schweden",
+   "color": "#5b9bd5",
+   "pattern": "solid",
+   "emblem": "S",
+   "ruler": "Gustav IV. Adolf",
+   "government": "monarchy",
+   "personality": "aggressive",
+   "capital": "eu124",
+   "provinces": [
+    "eu124",
+    "eu120",
+    "eu123",
+    "eu125",
+    "eu122",
+    "eu131",
+    "eu132",
+    "eu134"
+   ],
+   "gold": 800,
+   "stability": 50,
+   "politicalPower": 20,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 3
+   },
+   "armies": {
+    "eu124": 9,
+    "eu120": 1,
+    "eu123": 1,
+    "eu125": 1,
+    "eu122": 1,
+    "eu131": 5,
+    "eu132": 1,
+    "eu134": 1
+   },
+   "traits": {
+    "military": 1.1,
+    "economy": 1,
+    "defense": 1.2,
+    "research": 1.05,
+    "trade": 1.05
+   },
+   "description": "Ein König, der Napoleon für den Antichrist hält und der Koalition beitritt, obwohl sein Land den Krieg nicht bezahlen kann.",
+   "flag": "se_schweden"
+  },
+  {
+   "id": "daenemark",
+   "name": "Dänemark-Norwegen",
+   "color": "#d1495b",
+   "pattern": "solid",
+   "emblem": "D",
+   "ruler": "Christian VII.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu119",
+   "provinces": [
+    "eu119",
+    "eu118",
+    "eu117",
+    "eu121",
+    "eu130",
+    "eu129",
+    "eu128",
+    "eu127",
+    "eu126",
+    "eu04"
+   ],
+   "gold": 1000,
+   "stability": 56,
+   "politicalPower": 20,
+   "tech": {
+    "military": 2,
+    "economy": 3,
+    "administration": 2,
+    "logistics": 3,
+    "defense": 2
+   },
+   "armies": {
+    "eu119": 9,
+    "eu118": 1,
+    "eu117": 1,
+    "eu121": 1,
+    "eu130": 1,
+    "eu129": 1,
+    "eu128": 1,
+    "eu127": 1,
+    "eu126": 1,
+    "eu04": 4
+   },
+   "traits": {
+    "military": 1,
+    "economy": 1.2,
+    "defense": 1.1,
+    "research": 1.05,
+    "trade": 1.3
+   },
+   "description": "Will neutral bleiben und am Handel beider Seiten verdienen. Britannien wird deswegen zweimal Kopenhagen beschiessen.",
+   "flag": "dk_daenemark"
+  },
+  {
+   "id": "osmanen",
+   "name": "Osmanisches Reich",
+   "color": "#2e9b8f",
+   "pattern": "solid",
+   "emblem": "O",
+   "ruler": "Selim III.",
+   "government": "monarchy",
+   "personality": "defensive",
+   "capital": "eu207",
+   "provinces": [
+    "eu207",
+    "eu210",
+    "eu208",
+    "eu209",
+    "eu166",
+    "eu165",
+    "eu160",
+    "eu163",
+    "eu155",
+    "eu162",
+    "eu161",
+    "eu182",
+    "eu181",
+    "eu174",
+    "eu175",
+    "eu164",
+    "eu183",
+    "eu177",
+    "eu178",
+    "eu179",
+    "eu180",
+    "eu176",
+    "eu156",
+    "eu157",
+    "eu206"
+   ],
+   "gold": 1500,
+   "stability": 42,
+   "politicalPower": 26,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 2,
+    "defense": 2
+   },
+   "armies": {
+    "eu207": 12,
+    "eu210": 1,
+    "eu208": 1,
+    "eu209": 1,
+    "eu166": 7,
+    "eu165": 1,
+    "eu160": 1,
+    "eu163": 1,
+    "eu155": 6,
+    "eu162": 1,
+    "eu161": 1,
+    "eu182": 1,
+    "eu181": 1,
+    "eu174": 1,
+    "eu175": 1,
+    "eu164": 1,
+    "eu183": 1,
+    "eu177": 1,
+    "eu178": 1,
+    "eu179": 1,
+    "eu180": 1,
+    "eu176": 1,
+    "eu156": 1,
+    "eu157": 1,
+    "eu206": 1
+   },
+   "traits": {
+    "military": 1.05,
+    "economy": 1.05,
+    "defense": 1.1,
+    "research": 1,
+    "trade": 1.2
+   },
+   "description": "Selim versucht ein Heer nach europäischem Muster aufzustellen. Die Janitscharen werden ihn dafür absetzen und umbringen.",
+   "flag": "tr_osmanen"
+  },
+  {
+   "id": "schweiz",
+   "name": "Helvetische Eidgenossenschaft",
+   "color": "#b0453a",
+   "pattern": "solid",
+   "emblem": "CH",
+   "ruler": "Louis dʼAffry",
+   "government": "republic",
+   "personality": "defensive",
+   "capital": "eu115",
+   "provinces": [
+    "eu115",
+    "eu114",
+    "eu116",
+    "eu113"
+   ],
+   "gold": 600,
+   "stability": 54,
+   "politicalPower": 14,
+   "tech": {
+    "military": 2,
+    "economy": 2,
+    "administration": 2,
+    "logistics": 1,
+    "defense": 4
+   },
+   "armies": {
+    "eu115": 7,
+    "eu114": 3,
+    "eu116": 1,
+    "eu113": 1
+   },
+   "traits": {
+    "military": 1.05,
+    "economy": 1.05,
+    "defense": 1.55,
+    "research": 1.05,
+    "trade": 1.05
+   },
+   "description": "Von Napoleon neu geordnet und an ihn gebunden. Liefert Söldner, hält die Alpenpässe und wird ansonsten in Ruhe gelassen.",
+   "flag": "ch_schweiz"
+  }
+ ],
+ "relations": [
+  {
+   "a": "frankreich",
+   "b": "grossbritannien",
+   "value": -95
+  },
+  {
+   "a": "frankreich",
+   "b": "oesterreich",
+   "value": -80
+  },
+  {
+   "a": "frankreich",
+   "b": "russland",
+   "value": -70
+  },
+  {
+   "a": "frankreich",
+   "b": "preussen",
+   "value": -20
+  },
+  {
+   "a": "frankreich",
+   "b": "bayern",
+   "value": 70
+  },
+  {
+   "a": "frankreich",
+   "b": "wuerttemberg_baden",
+   "value": 65
+  },
+  {
+   "a": "frankreich",
+   "b": "spanien",
+   "value": 55
+  },
+  {
+   "a": "frankreich",
+   "b": "niederlande",
+   "value": 70
+  },
+  {
+   "a": "frankreich",
+   "b": "schweiz",
+   "value": 60
+  },
+  {
+   "a": "frankreich",
+   "b": "neapel",
+   "value": -60
+  },
+  {
+   "a": "frankreich",
+   "b": "portugal",
+   "value": -45
+  },
+  {
+   "a": "grossbritannien",
+   "b": "portugal",
+   "value": 75
+  },
+  {
+   "a": "grossbritannien",
+   "b": "neapel",
+   "value": 55
+  },
+  {
+   "a": "grossbritannien",
+   "b": "oesterreich",
+   "value": 60
+  },
+  {
+   "a": "grossbritannien",
+   "b": "russland",
+   "value": 55
+  },
+  {
+   "a": "grossbritannien",
+   "b": "schweden",
+   "value": 50
+  },
+  {
+   "a": "grossbritannien",
+   "b": "daenemark",
+   "value": -35
+  },
+  {
+   "a": "oesterreich",
+   "b": "russland",
+   "value": 55
+  },
+  {
+   "a": "oesterreich",
+   "b": "bayern",
+   "value": -50
+  },
+  {
+   "a": "oesterreich",
+   "b": "osmanen",
+   "value": -35
+  },
+  {
+   "a": "russland",
+   "b": "osmanen",
+   "value": -50
+  },
+  {
+   "a": "russland",
+   "b": "schweden",
+   "value": -30
+  },
+  {
+   "a": "preussen",
+   "b": "oesterreich",
+   "value": -25
+  },
+  {
+   "a": "sachsen",
+   "b": "preussen",
+   "value": 20
+  }
+ ],
+ "alliances": [
+  {
+   "id": "dritte_koalition",
+   "name": "Dritte Koalition",
+   "leaderId": "grossbritannien",
+   "memberIds": [
+    "grossbritannien",
+    "oesterreich",
+    "russland",
+    "schweden",
+    "neapel"
+   ]
+  },
+  {
+   "id": "rheinbund",
+   "name": "Französisches Bündnissystem",
+   "leaderId": "frankreich",
+   "memberIds": [
+    "frankreich",
+    "bayern",
+    "wuerttemberg_baden",
+    "spanien",
+    "niederlande",
+    "schweiz"
+   ]
+  }
+ ],
+ "wars": [
+  {
+   "sideA": [
+    "frankreich",
+    "spanien"
+   ],
+   "sideB": [
+    "grossbritannien"
+   ]
+  },
+  {
+   "sideA": [
+    "frankreich"
+   ],
+   "sideB": [
+    "oesterreich",
+    "russland"
+   ]
+  }
+ ],
+ "events": [
+  "nap_kontinentalsperre",
+  "nap_levee",
+  "nap_guerilla",
+  "nap_marschall",
+  "nap_kaiserkroenung",
+  "nap_seeblockade",
+  "neu_stehendes_heer",
+  "economic_crisis",
+  "good_harvest",
+  "harvest_failure",
+  "war_weariness",
+  "officer_plot",
+  "mercenary_offer",
+  "tax_revolt",
+  "unrest_protest",
+  "foreign_agitators",
+  "veteran_demands",
+  "naval_incident",
+  "border_incident",
+  "succession_dispute",
+  "scientific_breakthrough",
+  "university_founded",
+  "peace_movement",
+  "alliance_pressure",
+  "census"
+ ],
+ "victoryConditions": [
+  {
+   "type": "provinces",
+   "value": 125,
+   "description": "Beherrsche 125 der 211 Gebiete."
+  },
+  {
+   "type": "capitals",
+   "value": 4,
+   "targets": [
+    "eu28",
+    "eu101",
+    "eu53",
+    "eu201",
+    "eu15",
+    "eu01",
+    "eu07",
+    "eu00",
+    "eu150",
+    "eu153",
+    "eu80",
+    "eu81",
+    "eu106",
+    "eu124",
+    "eu119",
+    "eu207",
+    "eu115"
+   ],
+   "description": "Erobere vier fremde Hauptstädte."
+  }
+ ]
+}
