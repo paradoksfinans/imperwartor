@@ -27,6 +27,8 @@ woran es lag.
 - **Herrscher** mit Eigenschaften, die Wirtschaft, Krieg und Diplomatie verschieben,
   und mit Thronwechseln
 - **Ziele**: drei laufende Vorgaben mit Belohnung, die zeigen, was sich lohnt
+- **Echte Flaggen**: 20 davon unverändert aus den Originalzeichnungen,
+  der Rest – untergegangene Reiche, mittelalterliche Banner – nachgezeichnet
 - **Historische Ereignisse**, an Jahr und Lage gebunden
 - **Geführter Einstieg** in 13 Schritten, der auf echte Handlungen reagiert
 - **Handbuch** mit 23 Kapiteln, dessen Zahlen aus dem Regelwerk gelesen werden

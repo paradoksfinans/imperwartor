@@ -28,6 +28,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { RUECKWAERTS } from './gebietsnamen-tabelle.mjs';
 import pkg from 'polygon-clipping';
 import {
   baueProStaat, baueVerzeichnis, feld, ladeEinheiten, schluessel,
@@ -37,6 +38,13 @@ const { union } = pkg;
 
 const NE = process.argv[2] ?? '/home/claude/ne-daten';
 const KARTEN = path.join(import.meta.dirname, '..', 'src', 'data', 'maps');
+
+/* Die Spielkarten tragen inzwischen deutsche und zeitgenoessische Namen -
+   "Picardie" statt "Hauts-de-France", "Kiew" statt "Kiev City". Die
+   Zuordnung zu den Rohdaten sucht aber nach dem Namen, unter dem die
+   Einheit dort gefuehrt wird. Ohne diesen Weg zurueck verlieren beim
+   naechsten Erzeugen genau die Gebiete ihren Umriss, die umbenannt
+   wurden - beim ersten Versuch waren das 92 von 211. */
 
 /**
  * Nachhilfe fuer Namen, die sich nicht von selbst finden.
@@ -74,8 +82,17 @@ function baueRegionen(merkmale) {
   return r;
 }
 
-function ordneZu(p, kram) {
+function ordneZu(p, kram, karteId) {
   const { proStaat, welt1, welt0, regionen } = kram;
+
+  /* Erst unter dem Namen suchen, unter dem die Einheit in den Rohdaten
+     steht. Findet sich dort nichts, geht es mit dem Spielnamen weiter -
+     fuer Gebiete, die nie umbenannt wurden. */
+  const roh = RUECKWAERTS[karteId]?.[p.name];
+  if (roh && roh !== p.name) {
+    const t = ordneZu({ ...p, name: roh }, kram, null);
+    if (t && t.length) return t;
+  }
 
   const hilfe = NACHHILFE[`${p.land}|${p.name}`];
   if (hilfe) {
@@ -204,8 +221,29 @@ function schwerpunktGrad(merkmale) {
 
 
 /** Flaechenschwerpunkt eines alten Umrisses auf der Zeichenflaeche. */
-function schwerpunktAlt(points) {
-  const pts = String(points ?? '').split(' ').map((paar) => {
+/**
+ * Wo lag das Gebiet auf der bisherigen Karte?
+ *
+ * Darauf stuetzt sich die Rueckrechnung der Abbildung. Frueher lag die
+ * Geometrie als Punktliste in "points" vor; seit der Umstellung auf
+ * gepackte Ringe steht sie in "rings", und "points" ist leer. Wer nur
+ * "points" liest, bekommt fuer fast jedes Gebiet nichts zurueck - die
+ * Ausgleichsrechnung haette dann kaum Paare und liefert eine Abbildung,
+ * die die halbe Karte verwuerfelt. Genau das ist passiert, als dieses
+ * Werkzeug zum ersten Mal auf sein eigenes Ergebnis angesetzt wurde.
+ *
+ * Jedes Gebiet traegt ohnehin seinen Mittelpunkt in "center" - der ist
+ * genau die gesuchte Lage auf der Zeichenflaeche und wird deshalb zuerst
+ * genommen. Die alte Punktliste bleibt als Rueckfallebene fuer Karten,
+ * die noch nicht umgestellt sind.
+ */
+function schwerpunktAlt(p) {
+  if (Array.isArray(p?.center) && p.center.length === 2
+      && p.center.every(Number.isFinite)) {
+    return { x: p.center[0], y: p.center[1] };
+  }
+
+  const pts = String(p?.points ?? '').split(' ').map((paar) => {
     const i = paar.indexOf(',');
     return i < 0 ? null : [+paar.slice(0, i), +paar.slice(i + 1)];
   }).filter((q) => q && Number.isFinite(q[0]) && Number.isFinite(q[1]));
@@ -228,24 +266,37 @@ function schwerpunktAlt(points) {
  * Altlasten der fruheren Erzeugung, deren echte Geometrie im Suedatlantik
  * beziehungsweise in Westsibirien liegt.
  */
-function passeAbbildungAn(paare) {
+function passeAbbildungAn(paare, nurArt) {
   /* Nicht jede Karte ist in Mercator gezeichnet. Die Weltkarte des Spiels
      folgt offenbar einer Abbildung, die den Breitengrad gerade abtraegt -
      bei Mercator lagen Kanada, Norwegen und die Vereinigten Staaten so weit
      daneben, dass sie als falsch zugeordnet ausgeschieden waeren. Deshalb
      werden beide Masse angepasst und das bessere genommen. */
   const mitMass = (mass) => passeEineAn(paare.map((q) => ({ ...q, m: mass(q) })));
+  /* Beide Masse muessen in derselben Einheit angepasst *und* angewandt
+     werden. Das war hier lange falsch: Angepasst wurde auf den Breitengrad
+     im Bogenmass, angewandt auf den in Grad. Der Restfehler sah dabei
+     glaenzend aus - er wird aus denselben Paaren gerechnet und ist deshalb
+     in sich stimmig -, waehrend die Umrisse um das Siebenundfunfzigfache
+     verzerrt herauskamen. Aufgefallen ist es erst, als "gerade" durch eine
+     groessere Zahl von Paaren knapp gewann und die halbe Karte verrutschte.
+     Beide Masse rechnen deshalb jetzt in Grad. */
   const kandidaten = [
     { name: 'mercator', mass: (q) => q.my, ab: null },
-    { name: 'gerade', mass: (q) => q.lat, ab: null },
+    { name: 'gerade', mass: (q) => q.latGrad, ab: null },
   ];
-  for (const k of kandidaten) k.ab = mitMass(k.mass);
-  kandidaten.sort((a, b) => a.ab.rest - b.ab.rest);
-  const sieger = kandidaten[0];
+  const erlaubt = nurArt ? kandidaten.filter((k) => k.name === nurArt) : kandidaten;
+  for (const k of erlaubt) k.ab = mitMass(k.mass);
+  if (process.env.ABBILDUNG_ZEIGEN) {
+    console.log('   Paare:', paare.length,
+      erlaubt.map((k) => `${k.name} Rest ${k.ab.rest.toFixed(2)}`).join(' | '));
+  }
+  erlaubt.sort((a, b) => a.ab.rest - b.ab.rest);
+  const sieger = erlaubt[0];
   const ab = sieger.ab;
   return {
     x: ab.x,
-    y: (lat) => ab.yRoh(sieger.mass({ my: mercY(lat), lat })),
+    y: (lat) => ab.yRoh(sieger.mass({ my: mercY(lat), lat, latGrad: lat })),
     yRoh: ab.yRoh,
     fehlerVon: (q) => Math.hypot(ab.x(q.lonGrad) - q.x, ab.yRoh(sieger.mass(q)) - q.y),
     art: sieger.name,
@@ -770,8 +821,10 @@ function verteileRest(zugeordnet, alleEinheiten, landVonGebiet, ab, hoechstAbsta
  * Schaerenkueste die halbe Datei.
  */
 /** Wie viele ganzzahlige Schritte auf eine Einheit der Zeichenflaeche
-    kommen. 8 heisst: Rasterfehler hoechstens ein Sechzehntel - deutlich
-    feiner als alles, was man je zu sehen bekommt. */
+    kommen. 16 heisst: Rasterfehler hoechstens ein Zweiunddreissigstel -
+    fein genug, dass auch beim starken Hineinzoomen keine Treppen
+    entstehen. Muss zur Toleranz unten passen: Ein feines Raster nuetzt
+    nichts, wenn das Vereinfachen die Punkte vorher wegwirft. */
 const TEILER = 8;
 
 const NUR = process.env.NUR_KARTE;
@@ -779,10 +832,23 @@ const TOL = process.env.TOLERANZ ? Number(process.env.TOLERANZ) : null;
 const GIT = process.env.GITTER ? Number(process.env.GITTER) : null;
 
 const EINSTELLUNG = {
-  europadetail: { toleranz: 0.12, gitter: 64, kleinsteInsel: 0.7 },
-  mittelmeer: { toleranz: 0.12, gitter: 64, kleinsteInsel: 0.7 },
-  vorderasien: { toleranz: 0.12, gitter: 64, kleinsteInsel: 0.7 },
-  welt: { toleranz: 0.35, gitter: 32, kleinsteInsel: 1.5 },
+/* "abbildung" legt fest, in welcher Projektion die Karte gezeichnet ist.
+   Sie raten zu lassen war ein Fehler: Die Restfehler beider Kandidaten
+   liegen dicht beieinander, und wenn der andere knapp gewinnt, verrutscht
+   die ganze Karte - ohne dass die Zahl es anzeigt. Die drei Regionalkarten
+   sind in Mercator gezeichnet und bleiben es. Nur die Weltkarte darf
+   waehlen, weil dort tatsaechlich der Breitengrad gerade abgetragen ist. */
+  europadetail: { toleranz: 0.04, gitter: 64, kleinsteInsel: 0.1, abbildung: 'mercator' },
+  mittelmeer: { toleranz: 0.04, gitter: 64, kleinsteInsel: 0.1, abbildung: 'mercator' },
+  vorderasien: { toleranz: 0.05, gitter: 64, kleinsteInsel: 0.12, abbildung: 'mercator' },
+  /* Die Weltkarte bleibt, wie sie ist. Beim Versuch, sie mit den feineren
+     Werten neu zu erzeugen, blieben von 140 Gebieten nur 2657 Stuetzpunkte
+     uebrig - ihre vorhandene Geometrie stammt noch aus der Zeit, in der
+     das gerade Breitenmass in Bogenmass angepasst und in Grad angewandt
+     wurde, und passt deshalb zu keiner der beiden sauberen Abbildungen.
+     Sie ist als Uebersicht gedacht und grob gewollt; das neu aufzurollen
+     lohnt erst, wenn jemand sie wirklich feiner braucht. */
+  welt: { toleranz: 0.35, gitter: 32, kleinsteInsel: 1.5, nichtErzeugen: true },
 };
 
 const { a1, a0 } = ladeEinheiten(NE);
@@ -795,6 +861,7 @@ const kram = {
 
 for (const [name, roh] of Object.entries(EINSTELLUNG)) {
   if (NUR && name !== NUR) continue;
+  if (roh.nichtErzeugen && NUR !== name) { console.log(`${name.padEnd(14)} uebersprungen (siehe Einstellung)`); continue; }
   const einst = { ...roh, ...(TOL === null ? {} : { toleranz: TOL }), ...(GIT === null ? {} : { gitter: GIT }) };
   const datei = path.join(KARTEN, name + '.json');
   const karte = JSON.parse(readFileSync(datei, 'utf8'));
@@ -803,7 +870,7 @@ for (const [name, roh] of Object.entries(EINSTELLUNG)) {
   const zugeordnet = new Map();
   const ohne = [];
   for (const p of karte.provinces) {
-    const t = ordneZu(p, kram);
+    const t = ordneZu(p, kram, name);
     if (t && t.length) zugeordnet.set(p.id, t);
     else ohne.push(p.id + ' ' + p.name);
   }
@@ -816,15 +883,16 @@ for (const [name, roh] of Object.entries(EINSTELLUNG)) {
     const t = zugeordnet.get(p.id);
     if (!t) continue;
     const neu = schwerpunktGrad(t);
-    const alt = schwerpunktAlt(p.points);
+    const alt = schwerpunktAlt(p);
     if (!neu || !alt) continue;
     altMitte.set(p.id, alt);
     paare.push({
       id: p.id, mx: neu.lon, my: neu.my, lat: neu.lat,
+      latGrad: (neu.lat * 180) / Math.PI,
       lonGrad: (neu.lon * 180) / Math.PI, x: alt.x, y: alt.y,
     });
   }
-  const ab = passeAbbildungAn(paare);
+  const ab = passeAbbildungAn(paare, einst.abbildung ?? null);
 
   /* 2b. Wer nach der Anpassung weit danebenliegt, ist falsch zugeordnet
          und behaelt seinen alten Umriss. */

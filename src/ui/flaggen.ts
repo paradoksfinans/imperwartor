@@ -23,12 +23,14 @@
  */
 
 /* Die Flagge wird immer in diesem Feld gezeichnet und danach skaliert. */
+import { ECHTE_FLAGGEN, ECHT_SKALIERUNG } from './flaggen-echt';
+
 const B = 60;
 const H = 40;
 
 type Teil =
   | { art: 'feld'; farbe: string }
-  | { art: 'streifen'; quer?: boolean; farben: string[]; anteile?: number[] }
+  | { art: 'streifen'; senkrecht?: boolean; farben: string[]; anteile?: number[] }
   | { art: 'kreuz'; farbe: string; dicke?: number; links?: number }
   | { art: 'schraegkreuz'; farbe: string; dicke?: number }
   | { art: 'rand'; farbe: string; dicke?: number }
@@ -42,7 +44,7 @@ type Teil =
   | { art: 'loewe'; farbe: string; groesse?: number; x?: number; y?: number }
   | { art: 'rauten'; farben: string[] }
   | { art: 'schluessel'; farbe: string; farben?: string[]; x?: number; y?: number }
-  | { art: 'hammer_sichel'; farbe: string; x?: number; y?: number }
+  | { art: 'hammer_sichel'; farbe: string; groesse?: number; x?: number; y?: number }
   | { art: 'anker'; farbe: string; x?: number; y?: number }
   | { art: 'bogen'; farbe: string; x?: number; y?: number }
   | { art: 'rossschweif'; farbe: string; x?: number; y?: number }
@@ -80,24 +82,57 @@ function sternPfad(x: number, y: number, r: number, zacken: number): string {
  * Pixeln Breite doch zum Fleck. Diese Form behält, was ihn erkennbar macht:
  * zwei Köpfe, ausgebreitete Schwingen, gefächerter Stoß.
  */
-function adlerPfad(x: number, y: number, g: number, doppelt: boolean): string {
-  const s = g / 10;
-  const koepfe = doppelt
-    ? `M${x - 2.6 * s} ${y - 2.6 * s}q-1.5 -1.7 -0.2 -2.9q1.4 -1.2 2.3 0.5l0.5 1.1`
-      + `M${x + 2.6 * s} ${y - 2.6 * s}q1.5 -1.7 0.2 -2.9q-1.4 -1.2 -2.3 0.5l-0.5 1.1`
-    : `M${x} ${y - 3.2 * s}q-1.6 -1.6 -0.2 -2.8q1.5 -1.2 2.4 0.6l0.3 1.2`;
-  return `${koepfe}`
-    + `M${x} ${y - 2.9 * s}`
-    + `C${x - 1.8 * s} ${y - 3.1 * s} ${x - 3.4 * s} ${y - 2.4 * s} ${x - 4.8 * s} ${y - 0.7 * s}`
-    + `C${x - 3.9 * s} ${y - 0.9 * s} ${x - 3.2 * s} ${y - 0.6 * s} ${x - 2.6 * s} ${y + 0.1 * s}`
-    + `C${x - 3.3 * s} ${y + 0.1 * s} ${x - 3.8 * s} ${y + 0.5 * s} ${x - 4.1 * s} ${y + 1.3 * s}`
-    + `C${x - 2.9 * s} ${y + 1 * s} ${x - 2 * s} ${y + 1.3 * s} ${x - 1.4 * s} ${y + 2 * s}`
-    + `L${x - 1.9 * s} ${y + 4.1 * s}L${x} ${y + 3.2 * s}L${x + 1.9 * s} ${y + 4.1 * s}`
-    + `L${x + 1.4 * s} ${y + 2 * s}`
-    + `C${x + 2 * s} ${y + 1.3 * s} ${x + 2.9 * s} ${y + 1 * s} ${x + 4.1 * s} ${y + 1.3 * s}`
-    + `C${x + 3.8 * s} ${y + 0.5 * s} ${x + 3.3 * s} ${y + 0.1 * s} ${x + 2.6 * s} ${y + 0.1 * s}`
-    + `C${x + 3.2 * s} ${y - 0.6 * s} ${x + 3.9 * s} ${y - 0.9 * s} ${x + 4.8 * s} ${y - 0.7 * s}`
-    + `C${x + 3.4 * s} ${y - 2.4 * s} ${x + 1.8 * s} ${y - 3.1 * s} ${x} ${y - 2.9 * s}Z`;
+/**
+ * Der heraldische Adler, mit ausgebreiteten Schwingen.
+ *
+ * Gezeichnet als Vieleck, nicht mit Kurven: Bei zwanzig bis vierzig Pixeln
+ * Hoehe verschluckt die Darstellung jede Feinheit, und weiche Kurven
+ * liefen zu einem Fleck zusammen. Was ein Adler sein soll, muss an dieser
+ * Groesse ueber die Silhouette erkennbar sein - weit ausgestellte
+ * Schwingen, schmaler Rumpf, gefaecherter Stoss.
+ *
+ * "g" ist die Gesamthoehe des Zeichens.
+ */
+/**
+ * Der heraldische Adler, mit ausgebreiteten Schwingen.
+ *
+ * Gezeichnet als Vieleck, nicht mit Kurven: Bei zwanzig bis vierzig Pixeln
+ * Hoehe verschluckt die Darstellung jede Feinheit, und weiche Kurven
+ * liefen zu einem Fleck zusammen. Was ein Adler sein soll, muss an dieser
+ * Groesse ueber die Silhouette erkennbar sein - weit ausgestellte
+ * Schwingen, schmaler Rumpf, gefaecherter Stoss.
+ *
+ * Liefert fertiges SVG und nicht nur eine Pfadangabe, weil die Koepfe
+ * Kreise sind: Ein Pfad kann keinen Kreis enthalten.
+ *
+ * "g" ist die Gesamthoehe des Zeichens.
+ */
+function adlerSvg(x: number, y: number, g: number, doppelt: boolean, farbe: string): string {
+  const s = g / 20;
+  const P = (dx: number, dy: number) => `${(x + dx * s).toFixed(2)} ${(y + dy * s).toFixed(2)}`;
+
+  /* Rumpf, Schwingen und Stoss in einem Zug - erst die linke Seite von
+     oben nach unten, dann die rechte zurueck. */
+  let d = `M${P(0, -4.6)}`
+    + `L${P(-2.1, -3.8)}L${P(-9.8, -7.4)}L${P(-9.4, -3.6)}L${P(-6.2, -1.6)}`
+    + `L${P(-8.4, 2.2)}L${P(-4.2, 1.4)}L${P(-2.5, 4.2)}`
+    + `L${P(-3.3, 8.6)}L${P(0, 6.4)}L${P(3.3, 8.6)}`
+    + `L${P(2.5, 4.2)}L${P(4.2, 1.4)}L${P(8.4, 2.2)}`
+    + `L${P(6.2, -1.6)}L${P(9.4, -3.6)}L${P(9.8, -7.4)}L${P(2.1, -3.8)}Z`;
+
+  const mitten = doppelt ? [[-3.4, -1], [3.4, 1]] : [[0, 1]];
+  let kreise = '';
+  for (const [mx, richtung] of mitten) {
+    kreise += `<circle cx="${(x + mx * s).toFixed(2)}" cy="${(y - 6.4 * s).toFixed(2)}"`
+      + ` r="${(2 * s).toFixed(2)}" fill="${farbe}"/>`;
+    // Schnabel, nach aussen gerichtet
+    d += `M${P(mx + richtung * 1.5, -7.2)}L${P(mx + richtung * 4.3, -6.3)}`
+      + `L${P(mx + richtung * 1.5, -5.2)}Z`;
+    // Hals zum Rumpf
+    d += `M${P(mx - 1.5, -6)}L${P(mx + 1.5, -6)}L${P(mx * 0.3 + 1.4, -3.4)}`
+      + `L${P(mx * 0.3 - 1.4, -3.4)}Z`;
+  }
+  return kreise + `<path d="${d}" fill="${farbe}"/>`;
 }
 
 function liliePfad(x: number, y: number, g: number): string {
@@ -113,7 +148,17 @@ function liliePfad(x: number, y: number, g: number): string {
     + `C${x - 1.1 * s} ${y - 1.6 * s} ${x - 1.1 * s} ${y - 3 * s} ${x} ${y - 5 * s}Z`;
 }
 
-function teilSvg(t: Teil): string {
+/**
+ * Zeichnet einen Baustein.
+ *
+ * "praefix" ist die Kennung der Flagge, zu der dieser Baustein gehoert.
+ * Sie wird allen Kennungen vorangestellt, die der Baustein selbst anlegt -
+ * etwa der Maske des Halbmonds. Ohne das leiteten sich solche Kennungen
+ * allein aus der Lage ab, und zwei Flaggen mit einem Mond an derselben
+ * Stelle bekamen dieselbe: Auf einer Seite mit mehreren Flaggen gewinnt
+ * dann die erste Maske, und die uebrigen Monde werden falsch gezeichnet.
+ */
+function teilSvg(t: Teil, praefix = 'f'): string {
   switch (t.art) {
     case 'feld':
       return `<rect width="${B}" height="${H}" fill="${t.farbe}"/>`;
@@ -124,10 +169,10 @@ function teilSvg(t: Teil): string {
       const summe = anteile.reduce((a, b) => a + b, 0);
       let laufend = 0;
       return t.farben.map((f, i) => {
-        const laenge = ((t.quer ? B : H) * anteile[i]) / summe;
+        const laenge = ((t.senkrecht ? B : H) * anteile[i]) / summe;
         const v = laufend;
         laufend += laenge;
-        return t.quer
+        return t.senkrecht
           ? `<rect x="${v.toFixed(2)}" y="0" width="${laenge.toFixed(2)}" height="${H}" fill="${f}"/>`
           : `<rect x="0" y="${v.toFixed(2)}" width="${B}" height="${laenge.toFixed(2)}" fill="${f}"/>`;
       }).join('');
@@ -164,7 +209,7 @@ function teilSvg(t: Teil): string {
       /* Der Halbmond entsteht aus zwei Kreisen: einem vollen und einem
          versetzten, der ihn ausstanzt. */
       const x = t.x ?? B / 2; const y = t.y ?? H / 2; const r = t.r ?? 9;
-      const id = `m${Math.round(x * 7 + y * 13 + r * 3)}`;
+      const id = `${praefix}-m${Math.round(x * 7 + y * 13 + r * 3)}`;
       return `<mask id="${id}"><rect width="${B}" height="${H}" fill="#000"/>`
         + `<circle cx="${x}" cy="${y}" r="${r}" fill="#fff"/>`
         + `<circle cx="${x + r * 0.34}" cy="${y}" r="${r * 0.82}" fill="#000"/></mask>`
@@ -191,28 +236,48 @@ function teilSvg(t: Teil): string {
     }
 
     case 'adler':
-      return `<path d="${adlerPfad(t.x ?? B / 2, t.y ?? H / 2, t.groesse ?? 26, t.doppelt ?? true)}"`
-        + ` fill="${t.farbe}" stroke="${t.farbe}" stroke-width="0.7" stroke-linejoin="round"/>`;
+      return adlerSvg(t.x ?? B / 2, t.y ?? H / 2, t.groesse ?? 26,
+        t.doppelt ?? true, t.farbe);
 
     case 'lilie':
       return `<path d="${liliePfad(t.x ?? B / 2, t.y ?? H / 2, t.groesse ?? 14)}" fill="${t.farbe}"/>`;
 
     case 'loewe': {
-      /* Der heraldische Löwe, aufgerichtet und nach links blickend - das
-         häufigste Wappentier Europas. Stark vereinfacht: In zwanzig Pixeln
-         Höhe zählt nur die Silhouette, Mähne und Pranken verlaufen ohnehin
-         zu einem Fleck. Erkennbar bleibt die aufgerichtete Haltung. */
+      /* Der aufgerichtete Loewe - das haeufigste Wappentier Europas.
+         Wieder als Vieleck und wieder mit Blick auf die Groesse: Was hier
+         zaehlt, sind vier Dinge, die man bei zwanzig Pixeln noch sieht -
+         die aufrechte Haltung, die erhobene Vorderpranke, der Buschel am
+         Schweif und der Kopf mit Maehne. Alles andere faellt weg. */
       const x = t.x ?? B / 2; const y = t.y ?? H / 2;
-      const g = (t.groesse ?? 20) / 20;
-      const p = (dx: number, dy: number) => `${(x + dx * g).toFixed(1)} ${(y + dy * g).toFixed(1)}`;
-      return `<path d="M${p(-5, 10)}L${p(-5, -2)}Q${p(-5, -9)} ${p(0, -9)}`
-        + `L${p(3, -9)}L${p(5, -11)}L${p(6, -8)}L${p(9, -8)}L${p(6, -5)}`
-        + `Q${p(4, 0)} ${p(2, 4)}L${p(4, 10)}L${p(1, 10)}L${p(0, 6)}`
-        + `L${p(-2, 10)}Z" fill="${t.farbe}" stroke="${t.farbe}"`
-        + ` stroke-width="${0.6 * g}" stroke-linejoin="round"/>`
-        + `<path d="M${p(-5, 2)}q${(-5 * g).toFixed(1)} ${(-4 * g).toFixed(1)}`
-        + ` ${(-1 * g).toFixed(1)} ${(-7 * g).toFixed(1)}" fill="none"`
-        + ` stroke="${t.farbe}" stroke-width="${1.6 * g}" stroke-linecap="round"/>`;
+      const s0 = (t.groesse ?? 22) / 22;
+      const P = (dx: number, dy: number) =>
+        `${(x + dx * s0).toFixed(2)} ${(y + dy * s0).toFixed(2)}`;
+
+      const koerper = `M${P(-0.6, -5.2)}`
+        // Ruecken hinunter zur Hinterhand
+        + `L${P(2.2, -3.4)}L${P(2.6, 1.2)}L${P(3.6, 5.6)}L${P(4.6, 9.4)}`
+        + `L${P(1.8, 9.4)}L${P(1.2, 6.2)}L${P(-0.6, 9.4)}L${P(-3.2, 9.4)}`
+        // Bauch und Brust wieder hinauf
+        + `L${P(-2.2, 5.2)}L${P(-2.6, 0.4)}L${P(-1.8, -2.6)}`
+        + `L${P(-3.4, -3.2)}L${P(-2.6, -5)}Z`;
+
+      // Kopf mit Maehne
+      const kopf = `<circle cx="${(x - 0.4 * s0).toFixed(2)}"`
+        + ` cy="${(y - 6.8 * s0).toFixed(2)}" r="${(2.6 * s0).toFixed(2)}" fill="${t.farbe}"/>`;
+      // Schnauze
+      const schnauze = `M${P(-2.8, -7.4)}L${P(-5.6, -6.6)}L${P(-2.8, -5.6)}Z`;
+      // Erhobene Vorderpranke
+      const pranke = `M${P(-1.8, -2.6)}L${P(-5.4, -4.2)}L${P(-6.4, -2.4)}`
+        + `L${P(-3.2, -0.6)}Z`;
+      // Schweif, geschwungen, mit Buschel
+      const schweif = `<path d="M${P(2.4, 2)}C${P(6.6, 1)} ${P(7.2, -3.6)} `
+        + `${P(5, -5.6)}" fill="none" stroke="${t.farbe}"`
+        + ` stroke-width="${(1.3 * s0).toFixed(2)}" stroke-linecap="round"/>`
+        + `<circle cx="${(x + 4.6 * s0).toFixed(2)}" cy="${(y - 6.2 * s0).toFixed(2)}"`
+        + ` r="${(1.5 * s0).toFixed(2)}" fill="${t.farbe}"/>`;
+
+      return schweif + kopf
+        + `<path d="${koerper}${schnauze}${pranke}" fill="${t.farbe}"/>`;
     }
 
     case 'rauten': {
@@ -243,17 +308,26 @@ function teilSvg(t: Teil): string {
     }
 
     case 'hammer_sichel': {
-      /* Hammer und Sichel - das Staatswappen der Sowjetunion. Hier als
-         reines Hoheitszeichen auf der Flagge, wie es dort stand. */
-      const x = t.x ?? 17; const y = t.y ?? 13;
-      return `<g stroke="${t.farbe}" fill="none" stroke-linecap="round">`
-        // Sichel: ein offener Bogen mit Griff
-        + `<path d="M${x - 7} ${y + 6}a9 9 0 1 1 13 -7" stroke-width="2.4"/>`
-        + `<line x1="${x + 6}" y1="${y - 1}" x2="${x + 8}" y2="${y + 2}" stroke-width="2"/>`
-        // Hammer: Stiel und Kopf
-        + `<line x1="${x - 6}" y1="${y - 6}" x2="${x + 5}" y2="${y + 6}" stroke-width="2.4"/>`
-        + `<line x1="${x - 8}" y1="${y - 8}" x2="${x - 3}" y2="${y - 3}" stroke-width="4"/>`
-        + `</g>`;
+      /* Hammer und Sichel. Die Sichel ist ein Kreisring, aus dem gut zwei
+         Drittel fehlen - als blosser Bogenstrich las sie sich wie ein
+         Haken. Der Hammer liegt schraeg darueber, Stiel und Kopf getrennt,
+         damit beides auch klein auseinanderzuhalten ist. */
+      const x = t.x ?? 21; const y = t.y ?? 20;
+      const s0 = (t.groesse ?? 22) / 22;
+      const r = 8 * s0;
+      const d = 2.4 * s0;
+      // Offener Ring: aussen im Uhrzeigersinn, innen zurueck.
+      const sichel = `M${(x - r).toFixed(2)} ${y.toFixed(2)}`
+        + `A${r.toFixed(2)} ${r.toFixed(2)} 0 1 1 ${(x + r * 0.72).toFixed(2)} ${(y + r * 0.69).toFixed(2)}`
+        + `L${(x + (r - d) * 0.72).toFixed(2)} ${(y + (r - d) * 0.69).toFixed(2)}`
+        + `A${(r - d).toFixed(2)} ${(r - d).toFixed(2)} 0 1 0 ${(x - r + d).toFixed(2)} ${y.toFixed(2)}Z`;
+      return `<path d="${sichel}" fill="${t.farbe}"/>`
+        + `<rect x="${(x - 0.9 * s0).toFixed(2)}" y="${(y - 7 * s0).toFixed(2)}"`
+        + ` width="${(1.8 * s0).toFixed(2)}" height="${(13 * s0).toFixed(2)}"`
+        + ` fill="${t.farbe}" transform="rotate(-42 ${x} ${y})" rx="${(0.6 * s0).toFixed(2)}"/>`
+        + `<rect x="${(x - 4.6 * s0).toFixed(2)}" y="${(y - 8.4 * s0).toFixed(2)}"`
+        + ` width="${(9.2 * s0).toFixed(2)}" height="${(3.4 * s0).toFixed(2)}"`
+        + ` fill="${t.farbe}" transform="rotate(-42 ${x} ${y})" rx="${(0.8 * s0).toFixed(2)}"/>`;
     }
 
     case 'anker': {
@@ -338,9 +412,13 @@ function teilSvg(t: Teil): string {
 /* ------------------------------------------------------------------ */
 
 const f = (name: string, ...teile: Teil[]): Flagge => ({ name, teile });
-const quer = (name: string, ...farben: string[]): Flagge =>
-  f(name, { art: 'streifen', quer: true, farben });
-const laengs = (name: string, ...farben: string[]): Flagge =>
+/* Die beiden Abkuerzungen hiessen einmal "quer" und "laengs" - und zwar
+   genau andersherum, als man es liest: "quer" erzeugte senkrechte
+   Streifen. Daran sind sieben Flaggen falsch herum gelandet. Jetzt heissen
+   sie, was sie tun. */
+const senkrecht = (name: string, ...farben: string[]): Flagge =>
+  f(name, { art: 'streifen', senkrecht: true, farben });
+const waagerecht = (name: string, ...farben: string[]): Flagge =>
   f(name, { art: 'streifen', farben });
 
 /** Union Jack - so weit vereinfacht, dass er bei 30 Pixeln noch stimmt. */
@@ -358,19 +436,19 @@ const doppeladlerGold: Teil[] = [
 
 export const FLAGGEN: Record<string, Flagge> = {
   /* --- 1914 ----------------------------------------------------- */
-  de_kaiserreich: laengs('Deutsches Reich', '#000', '#fff', '#d6202a'),
-  at_ungarn: laengs('Österreich-Ungarn', '#c8102e', '#fff', '#c8102e'),
-  ru_kaiserreich: laengs('Russisches Reich', '#fff', '#0039a6', '#d52b1e'),
-  fr_trikolore: quer('Frankreich', '#002395', '#fff', '#ed2939'),
+  de_kaiserreich: waagerecht('Deutsches Reich', '#000', '#fff', '#d6202a'),
+  at_ungarn: waagerecht('Österreich-Ungarn', '#c8102e', '#fff', '#c8102e'),
+  ru_kaiserreich: waagerecht('Russisches Reich', '#fff', '#0039a6', '#d52b1e'),
+  fr_trikolore: senkrecht('Frankreich', '#002395', '#fff', '#ed2939'),
   gb_union: unionJack,
-  it_trikolore: quer('Italien', '#009246', '#fff', '#ce2b37'),
+  it_trikolore: senkrecht('Italien', '#009246', '#fff', '#ce2b37'),
   tr_osmanen: f('Osmanisches Reich',
     { art: 'feld', farbe: '#d82b2b' },
     { art: 'mond', farbe: '#fff', r: 10, x: 24, y: 20 },
     { art: 'stern', farbe: '#fff', r: 5.5, x: 38, y: 20 }),
-  rs_serbien: laengs('Serbien', '#c6363c', '#0c4076', '#fff'),
-  ro_rumaenien: quer('Rumänien', '#002b7f', '#fcd116', '#ce1126'),
-  bg_bulgarien: laengs('Bulgarien', '#fff', '#00966e', '#d62612'),
+  rs_serbien: waagerecht('Serbien', '#c6363c', '#0c4076', '#fff'),
+  ro_rumaenien: senkrecht('Rumänien', '#002b7f', '#fcd116', '#ce1126'),
+  bg_bulgarien: waagerecht('Bulgarien', '#fff', '#00966e', '#d62612'),
   gr_griechenland: f('Griechenland',
     {
       art: 'streifen',
@@ -386,8 +464,8 @@ export const FLAGGEN: Record<string, Flagge> = {
   dk_daenemark: f('Dänemark',
     { art: 'feld', farbe: '#c8102e' },
     { art: 'kreuz', farbe: '#fff', dicke: 7, links: 0.37 }),
-  nl_niederlande: laengs('Niederlande', '#ae1c28', '#fff', '#21468b'),
-  be_belgien: quer('Belgien', '#141414', '#fae042', '#ed2939'),
+  nl_niederlande: waagerecht('Niederlande', '#ae1c28', '#fff', '#21468b'),
+  be_belgien: senkrecht('Belgien', '#141414', '#fae042', '#ed2939'),
   ch_schweiz: f('Schweiz',
     { art: 'feld', farbe: '#d52b1e' },
     { art: 'kreuz', farbe: '#fff', dicke: 9 }),
@@ -404,7 +482,7 @@ export const FLAGGEN: Record<string, Flagge> = {
   jp_japan: f('Japan',
     { art: 'feld', farbe: '#fff' },
     { art: 'scheibe', farbe: '#bc002d', r: 11 }),
-  cn_fuenffarben: laengs('China', '#de2910', '#ffde00', '#1e4c9a', '#fff', '#2b2b2b'),
+  cn_fuenffarben: waagerecht('China', '#de2910', '#ffde00', '#1e4c9a', '#fff', '#2b2b2b'),
 
   /* --- Antike --------------------------------------------------- */
   rom_spqr: f('Römische Republik',
@@ -413,7 +491,7 @@ export const FLAGGEN: Record<string, Flagge> = {
     { art: 'schrift', text: 'SPQR', farbe: '#e4c05a', groesse: 15 }),
   karthago_tanit: f('Karthago',
     { art: 'feld', farbe: '#f0e6d2' },
-    { art: 'streifen', quer: true, farben: ['#6b2d7a', '#f0e6d2'], anteile: [1, 4] },
+    { art: 'streifen', senkrecht: true, farben: ['#6b2d7a', '#f0e6d2'], anteile: [1, 4] },
     { art: 'scheibe', farbe: '#6b2d7a', r: 4, x: 36, y: 12 },
     { art: 'berg', farbe: '#6b2d7a' }),
   seleukiden_anker: f('Seleukidenreich',
@@ -512,7 +590,7 @@ export const FLAGGEN: Record<string, Flagge> = {
   ungarn_arpaden: f('Königreich Ungarn',
     {
       art: 'streifen',
-      quer: true,
+      senkrecht: true,
       farben: ['#c8102e', '#f0f0f0', '#c8102e', '#f0f0f0', '#c8102e', '#f0f0f0', '#c8102e', '#f0f0f0'],
     }),
 
@@ -554,7 +632,7 @@ export const FLAGGEN: Record<string, Flagge> = {
     { art: 'feld', farbe: '#2f4858' },
     { art: 'kreuz', farbe: '#e8e2d2', dicke: 7, links: 0.37 },
     { art: 'stern', farbe: '#e8c454', r: 5, x: 22, y: 20 }),
-  au_westmark: quer('Westmark', '#1f3f7a', '#e8e2d2', '#1f3f7a'),
+  au_westmark: senkrecht('Westmark', '#1f3f7a', '#e8e2d2', '#1f3f7a'),
   au_ostbund: f('Ostbund',
     { art: 'streifen', farben: ['#7a1f2b', '#e8c454'] },
     { art: 'stern', farbe: '#e8e2d2', zacken: 6, r: 7, x: 15, y: 13 }),
@@ -600,17 +678,22 @@ export const FLAGGEN: Record<string, Flagge> = {
 
   /* ---- Reich und Nachbarn, 1618 bis 1805 ---- */
   boehmen_loewe: f('Böhmen',
-    { art: 'streifen', quer: true, farben: ['#f2efe4', '#c8102e'] },
-    { art: 'loewe', farbe: '#c8102e', groesse: 22 }),
+    /* Silberner Loewe auf rotem Grund - das boehmische Wappen. Auf der
+       weiss-roten Streifenfahne verschwaende er in der roten Haelfte. */
+    { art: 'feld', farbe: '#c8102e' },
+    { art: 'loewe', farbe: '#f2efe4', groesse: 24 }),
   bayern_rauten: f('Bayern',
     { art: 'rauten', farben: ['#f2f4f7', '#4a7fc1'] }),
   sachsen_rautenkranz: f('Sachsen',
-    { art: 'streifen', quer: true, farben: ['#16181a', '#e8c454'] },
+    { art: 'streifen', farben: ['#16181a', '#e8c454'] },
     // Der Rautenkranz: ein grüner Balken quer über das Wappen.
     { art: 'kreuz', farbe: '#2e7d4f', dicke: 5, links: -1 }),
   brandenburg_adler: f('Brandenburg',
-    { art: 'streifen', quer: true, farben: ['#f2f4f7', '#c8102e'] },
-    { art: 'adler', farbe: '#c8102e', doppelt: false, groesse: 21 }),
+    /* Weisses Tuch mit rotem Adler - das Banner der Mark. Die weiss-rote
+       Streifenfahne kam erst spaeter; auf ihr verschwaende der rote Adler
+       in der roten Haelfte. */
+    { art: 'feld', farbe: '#f2f4f7' },
+    { art: 'adler', farbe: '#c8102e', doppelt: false, groesse: 24 }),
   preussen_adler: f('Preußen',
     { art: 'feld', farbe: '#f2f4f7' },
     { art: 'adler', farbe: '#16181a', doppelt: false, groesse: 23 }),
@@ -618,23 +701,25 @@ export const FLAGGEN: Record<string, Flagge> = {
     { art: 'feld', farbe: '#16181a' },
     { art: 'loewe', farbe: '#e8c454', groesse: 23 }),
   wuerttemberg: f('Württemberg',
-    { art: 'streifen', quer: true, farben: ['#16181a', '#c8102e'] },
+    { art: 'streifen', farben: ['#16181a', '#c8102e'] },
     ...[14, 24, 34, 44].map((x) => ({
       art: 'stern' as const, farbe: '#e8c454', zacken: 4, r: 3.2, x, y: 20,
     }))),
   niederlande_prinsenvlag: f('Prinsenvlag',
     // Die Flagge der aufständischen Provinzen: oben Orange, nicht Rot -
     // nach Wilhelm von Oranien. Das Rot kam erst im 17. Jahrhundert.
-    { art: 'streifen', quer: true, farben: ['#e07b2a', '#f2f2ef', '#1f3c88'] }),
-  polen_adler: f('Polen',
-    { art: 'streifen', quer: true, farben: ['#f2f2ef', '#c8102e'] },
-    { art: 'adler', farbe: '#c8102e', doppelt: false, groesse: 20 }),
+    { art: 'streifen', farben: ['#e07b2a', '#f2f2ef', '#1f3c88'] }),
+  polen_adler: f('Polen-Litauen',
+    /* Das Banner der Krone: weisser Adler auf rotem Tuch. */
+    { art: 'feld', farbe: '#c8102e' },
+    { art: 'adler', farbe: '#f2f2ef', doppelt: false, groesse: 24 }),
   venedig_markusloewe: f('Republik Venedig',
     { art: 'feld', farbe: '#8c1d2e' },
     { art: 'loewe', farbe: '#d6a84e', groesse: 24 },
     { art: 'rand', farbe: '#d6a84e', dicke: 2 }),
   kirchenstaat_schluessel: f('Kirchenstaat',
-    { art: 'streifen', farben: ['#e8c454', '#f2efe4'] },
+    // Senkrecht geteilt, Gelb am Mast - so seit 1808.
+    { art: 'streifen', senkrecht: true, farben: ['#e8c454', '#f2efe4'] },
     { art: 'schluessel', farbe: '#9c7b2a', farben: ['#9c7b2a', '#b7babd'] }),
   savoyen_kreuz: f('Savoyen',
     { art: 'feld', farbe: '#c8102e' },
@@ -651,7 +736,7 @@ export const FLAGGEN: Record<string, Flagge> = {
     { art: 'hammer_sichel', farbe: '#e8c454' },
     { art: 'stern', farbe: '#e8c454', zacken: 5, r: 4.4, x: 17, y: 30 }),
   jugoslawien: f('Jugoslawien',
-    { art: 'streifen', quer: true, farben: ['#1f3c88', '#f2f2ef', '#c8102e'] }),
+    { art: 'streifen', farben: ['#1f3c88', '#f2f2ef', '#c8102e'] }),
   tuerkei_mond: f('Türkei',
     { art: 'feld', farbe: '#c8102e' },
     { art: 'mond', farbe: '#f2f2ef', r: 9, x: 26, y: 20 },
@@ -660,9 +745,25 @@ export const FLAGGEN: Record<string, Flagge> = {
     { art: 'feld', farbe: '#f4f7fa' },
     { art: 'kreuz', farbe: '#1f4a8c', dicke: 8, links: 0.36 }),
 
+  /* ---- Fassungen, die es als echte Zeichnung gibt ----
+     Die Bausteine hier sind nur die Rueckfallebene: flaggeSvg nimmt die
+     echte Zeichnung, sobald es eine gibt. Sie stehen trotzdem in dieser
+     Liste, weil daran der Name haengt - und weil die Pruefwerkzeuge
+     wissen muessen, dass es die Kennung gibt. */
+  pl_polen: f('Polen',
+    { art: 'streifen', farben: ['#f2f2ef', '#c8102e'] }),
+  portugal_1911: f('Portugal',
+    { art: 'streifen', farben: ['#1f7a4d', '#c8102e'], anteile: [0.4, 0.6] }),
+  ungarn_trikolore: f('Ungarn',
+    { art: 'streifen', farben: ['#c8102e', '#f2f2ef', '#1f7a4d'] }),
+  norwegen: f('Norwegen',
+    { art: 'feld', farbe: '#c8102e' },
+    { art: 'kreuz', farbe: '#f2f2ef', dicke: 11, links: 0.36 },
+    { art: 'kreuz', farbe: '#1f3c88', dicke: 5, links: 0.36 }),
+
   au_freistaedte: f('Freistädte',
     { art: 'feld', farbe: '#e8e2d2' },
-    { art: 'streifen', quer: true, farben: ['#e8e2d2', '#2f4858', '#e8e2d2'], anteile: [2, 1, 2] },
+    { art: 'streifen', senkrecht: true, farben: ['#e8e2d2', '#2f4858', '#e8e2d2'], anteile: [2, 1, 2] },
     { art: 'scheibe', farbe: '#e8c454', r: 6 }),
 };
 
@@ -692,10 +793,16 @@ export function flaggeSvg(
      gleiche Flaggen sind unschädlich, weil auch der Inhalt gleich ist. */
   const kennung = `fl-${flagId ?? 'leer'}-${groesse}`;
 
-  const inhalt = flagge
-    ? flagge.teile.map(teilSvg).join('')
-    : teilSvg({ art: 'feld', farbe: ersatzFarbe })
-      + teilSvg({ art: 'schrift', text: buchstabe ?? '?', farbe: 'rgba(255,255,255,.85)', groesse: 20 });
+  /* Gibt es die Flagge als echte Zeichnung, hat die Vorrang. Nachgebaut
+     wird nur, wofuer es keine gibt: untergegangene Reiche, mittelalter-
+     liche Banner, erfundene Laender. */
+  const echt = flagId ? ECHTE_FLAGGEN[flagId] : undefined;
+  const inhalt = echt
+    ? `<g transform="${ECHT_SKALIERUNG}">${echt}</g>`
+    : flagge
+      ? flagge.teile.map((t) => teilSvg(t, kennung)).join('')
+      : teilSvg({ art: 'feld', farbe: ersatzFarbe }, kennung)
+        + teilSvg({ art: 'schrift', text: buchstabe ?? '?', farbe: 'rgba(255,255,255,.85)', groesse: 20 }, kennung);
 
   /* Ein feiner Rahmen und ein Hauch Schattierung - sonst verschwimmt eine
      weiße Flagge mit dem hellen Hintergrund. */
@@ -721,4 +828,14 @@ export function flaggeSvg(
 /** Name der Flagge - für Kurzinfos. */
 export function flaggeName(flagId: string | undefined): string | null {
   return (flagId && FLAGGEN[flagId]?.name) || null;
+}
+
+/* Fuer die Pruefung: Alle Flaggen nebeneinander zu sehen ist die einzige
+   Art, Fehler wie doppelte Kennungen oder ein leeres Feld zu bemerken -
+   einzeln sieht jede Flagge richtig aus. test/flaggen.mjs greift hierauf
+   zu. Im Spiel selbst wird nichts davon benutzt. */
+if (typeof window !== 'undefined') {
+  (window as unknown as Record<string, unknown>).__FLAGGEN__ = {
+    FLAGGEN, ECHTE_FLAGGEN, flaggeSvg,
+  };
 }
