@@ -273,17 +273,18 @@ function passeAbbildungAn(paare, nurArt) {
      daneben, dass sie als falsch zugeordnet ausgeschieden waeren. Deshalb
      werden beide Masse angepasst und das bessere genommen. */
   const mitMass = (mass) => passeEineAn(paare.map((q) => ({ ...q, m: mass(q) })));
-  /* Beide Masse muessen in derselben Einheit angepasst *und* angewandt
-     werden. Das war hier lange falsch: Angepasst wurde auf den Breitengrad
-     im Bogenmass, angewandt auf den in Grad. Der Restfehler sah dabei
-     glaenzend aus - er wird aus denselben Paaren gerechnet und ist deshalb
-     in sich stimmig -, waehrend die Umrisse um das Siebenundfunfzigfache
-     verzerrt herauskamen. Aufgefallen ist es erst, als "gerade" durch eine
-     groessere Zahl von Paaren knapp gewann und die halbe Karte verrutschte.
-     Beide Masse rechnen deshalb jetzt in Grad. */
+  /* Zwei Masse stehen zur Wahl: die Mercator-Hochachse und der
+     Breitengrad geradlinig abgetragen. Beide rechnen in Grad - "lat"
+     kommt als Grad aus schwerpunktGrad und wird in ab.y auch als Grad
+     wieder hineingegeben.
+     Welches Mass gilt, wird nicht geraten, sondern je Karte festgelegt
+     (siehe EINSTELLUNG). Die Restfehler beider liegen dicht beieinander,
+     und wenn das falsche knapp gewinnt, verrutscht die ganze Karte, ohne
+     dass die Zahl es anzeigt - genau so ist die Europakarte einmal
+     verwuerfelt worden. */
   const kandidaten = [
     { name: 'mercator', mass: (q) => q.my, ab: null },
-    { name: 'gerade', mass: (q) => q.latGrad, ab: null },
+    { name: 'gerade', mass: (q) => q.lat, ab: null },
   ];
   const erlaubt = nurArt ? kandidaten.filter((k) => k.name === nurArt) : kandidaten;
   for (const k of erlaubt) k.ab = mitMass(k.mass);
@@ -296,7 +297,7 @@ function passeAbbildungAn(paare, nurArt) {
   const ab = sieger.ab;
   return {
     x: ab.x,
-    y: (lat) => ab.yRoh(sieger.mass({ my: mercY(lat), lat, latGrad: lat })),
+    y: (lat) => ab.yRoh(sieger.mass({ my: mercY(lat), lat })),
     yRoh: ab.yRoh,
     fehlerVon: (q) => Math.hypot(ab.x(q.lonGrad) - q.x, ab.yRoh(sieger.mass(q)) - q.y),
     art: sieger.name,
@@ -841,14 +842,13 @@ const EINSTELLUNG = {
   europadetail: { toleranz: 0.04, gitter: 64, kleinsteInsel: 0.1, abbildung: 'mercator' },
   mittelmeer: { toleranz: 0.04, gitter: 64, kleinsteInsel: 0.1, abbildung: 'mercator' },
   vorderasien: { toleranz: 0.05, gitter: 64, kleinsteInsel: 0.12, abbildung: 'mercator' },
-  /* Die Weltkarte bleibt, wie sie ist. Beim Versuch, sie mit den feineren
-     Werten neu zu erzeugen, blieben von 140 Gebieten nur 2657 Stuetzpunkte
-     uebrig - ihre vorhandene Geometrie stammt noch aus der Zeit, in der
-     das gerade Breitenmass in Bogenmass angepasst und in Grad angewandt
-     wurde, und passt deshalb zu keiner der beiden sauberen Abbildungen.
-     Sie ist als Uebersicht gedacht und grob gewollt; das neu aufzurollen
-     lohnt erst, wenn jemand sie wirklich feiner braucht. */
-  welt: { toleranz: 0.35, gitter: 32, kleinsteInsel: 1.5, nichtErzeugen: true },
+  /* Die Weltkarte deckt 1800 Einheiten Breite ab, also mehr als die
+     Europakarte - die Toleranz muss trotzdem in derselben Groessenordnung
+     liegen, sonst bleiben je Land ein Dutzend Stuetzpunkte uebrig. Mit
+     0,35 war genau das der Fall. "aus Linien 0/140" ist hier normal und
+     kein Fehler: Auf der Weltkarte ist jedes Gebiet ein ganzer Staat, es
+     gibt also keine gemeinsamen Binnengrenzen zu teilen. */
+  welt: { toleranz: 0.12, gitter: 64, kleinsteInsel: 0.025, abbildung: 'gerade' },
 };
 
 const { a1, a0 } = ladeEinheiten(NE);
@@ -888,7 +888,6 @@ for (const [name, roh] of Object.entries(EINSTELLUNG)) {
     altMitte.set(p.id, alt);
     paare.push({
       id: p.id, mx: neu.lon, my: neu.my, lat: neu.lat,
-      latGrad: (neu.lat * 180) / Math.PI,
       lonGrad: (neu.lon * 180) / Math.PI, x: alt.x, y: alt.y,
     });
   }
@@ -933,6 +932,12 @@ for (const [name, roh] of Object.entries(EINSTELLUNG)) {
   const teile = [];
   for (const p of karte.provinces) {
     const t = zugeschnitten.get(p.id);
+    /* Hier faellt heraus, wem beim Zuschneiden keine einzige Einheit
+       geblieben ist. Auf der Weltkarte trifft das die Niederlande: Ihre
+       Flaeche wird offenbar von einem Nachbarn beansprucht. Der Fehler ist
+       aelter als die Feinheitsumstellung und betrifft ein Gebiet, das in
+       keinem Szenario bespielt wird - gemeldet wird er trotzdem, damit er
+       nicht in Vergessenheit geraet (Zeile "OHNE GEOMETRIE"). */
     if (!t) continue;
     const erwartet = altMitte.get(p.id);
     const eigene = [];

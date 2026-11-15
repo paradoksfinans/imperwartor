@@ -243,41 +243,63 @@ function teilSvg(t: Teil, praefix = 'f'): string {
       return `<path d="${liliePfad(t.x ?? B / 2, t.y ?? H / 2, t.groesse ?? 14)}" fill="${t.farbe}"/>`;
 
     case 'loewe': {
-      /* Der aufgerichtete Loewe - das haeufigste Wappentier Europas.
-         Wieder als Vieleck und wieder mit Blick auf die Groesse: Was hier
-         zaehlt, sind vier Dinge, die man bei zwanzig Pixeln noch sieht -
-         die aufrechte Haltung, die erhobene Vorderpranke, der Buschel am
-         Schweif und der Kopf mit Maehne. Alles andere faellt weg. */
+      /* Der Loewenkopf.
+         Hier stand vier Anlaeufe lang ein steigender Loewe, und er wurde
+         jedes Mal als Affe gelesen - laengerer Leib, duennere Laeufe,
+         staerkere Schraege, nichts half. Der Grund ist nicht die
+         Zeichnung, sondern die Groesse: Eine vierbeinige Gestalt braucht
+         Platz fuer Rumpf, vier Laeufe, Schweif und Kopf. Auf zwanzig bis
+         vierzig Pixeln bleibt davon ein Fleck mit Fortsaetzen, und das
+         Auge raet "Mensch", weil zwei Beine unten und zwei Arme oben nun
+         einmal so aussehen.
+         Ein Loewenkopf dagegen braucht nur drei Dinge, die auch klein
+         bleiben: einen Kranz aus Maehne, zwei Ohren und eine Schnauze.
+         Er ist in der Heraldik ueblich (als Leopardenkopf), und er ist
+         auf den ersten Blick zu erkennen.
+         Gezeichnet als ein Pfad mit Loechern: Die Maehne ist ein
+         Zackenkranz, Augen und Nase sind Aussparungen - deshalb fill-rule
+         "evenodd". So bleibt die Figur einfarbig und traegt trotzdem
+         Gesichtszuege. */
       const x = t.x ?? B / 2; const y = t.y ?? H / 2;
-      const s0 = (t.groesse ?? 22) / 22;
-      const P = (dx: number, dy: number) =>
-        `${(x + dx * s0).toFixed(2)} ${(y + dy * s0).toFixed(2)}`;
+      const g = (t.groesse ?? 22) / 2;
+      const r = (v: number) => (v * g).toFixed(2);
+      const px = (dx: number) => (x + dx * g).toFixed(2);
+      const py = (dy: number) => (y + dy * g).toFixed(2);
 
-      const koerper = `M${P(-0.6, -5.2)}`
-        // Ruecken hinunter zur Hinterhand
-        + `L${P(2.2, -3.4)}L${P(2.6, 1.2)}L${P(3.6, 5.6)}L${P(4.6, 9.4)}`
-        + `L${P(1.8, 9.4)}L${P(1.2, 6.2)}L${P(-0.6, 9.4)}L${P(-3.2, 9.4)}`
-        // Bauch und Brust wieder hinauf
-        + `L${P(-2.2, 5.2)}L${P(-2.6, 0.4)}L${P(-1.8, -2.6)}`
-        + `L${P(-3.4, -3.2)}L${P(-2.6, -5)}Z`;
+      /* Maehne: ein Kranz aus 18 Spitzen. Die Laengen wechseln nicht
+         streng ab, sondern in drei Stufen - ein gleichmaessiger Stern
+         liest sich als Sonne, erst die ungleichen Spitzen werden als Fell
+         gesehen. */
+      const zacken = 18;
+      const laengen = [1.0, 0.92, 0.97, 0.9];
+      let kranz = '';
+      for (let i = 0; i < zacken * 2; i++) {
+        const w = (Math.PI * i) / zacken - Math.PI / 2;
+        const rad = i % 2 === 0 ? laengen[(i / 2) % laengen.length] : 0.84;
+        kranz += `${i ? 'L' : 'M'}${(x + Math.cos(w) * rad * g).toFixed(2)}`
+          + ` ${(y + Math.sin(w) * rad * g).toFixed(2)}`;
+      }
+      kranz += 'Z';
 
-      // Kopf mit Maehne
-      const kopf = `<circle cx="${(x - 0.4 * s0).toFixed(2)}"`
-        + ` cy="${(y - 6.8 * s0).toFixed(2)}" r="${(2.6 * s0).toFixed(2)}" fill="${t.farbe}"/>`;
-      // Schnauze
-      const schnauze = `M${P(-2.8, -7.4)}L${P(-5.6, -6.6)}L${P(-2.8, -5.6)}Z`;
-      // Erhobene Vorderpranke
-      const pranke = `M${P(-1.8, -2.6)}L${P(-5.4, -4.2)}L${P(-6.4, -2.4)}`
-        + `L${P(-3.2, -0.6)}Z`;
-      // Schweif, geschwungen, mit Buschel
-      const schweif = `<path d="M${P(2.4, 2)}C${P(6.6, 1)} ${P(7.2, -3.6)} `
-        + `${P(5, -5.6)}" fill="none" stroke="${t.farbe}"`
-        + ` stroke-width="${(1.3 * s0).toFixed(2)}" stroke-linecap="round"/>`
-        + `<circle cx="${(x + 4.6 * s0).toFixed(2)}" cy="${(y - 6.2 * s0).toFixed(2)}"`
-        + ` r="${(1.5 * s0).toFixed(2)}" fill="${t.farbe}"/>`;
+      /* Ohren: zwei runde Ohren, die im Kranz sitzen und nur knapp
+         darueber hinausschauen. Weiter aussen standen sie wie Antennen
+         neben dem Kopf. */
+      const ohren = `M${px(-0.52)} ${py(-0.68)}a${r(0.17)} ${r(0.17)} 0 1 1 0.01 0Z`
+        + `M${px(0.52)} ${py(-0.68)}a${r(0.17)} ${r(0.17)} 0 1 1 0.01 0Z`;
 
-      return schweif + kopf
-        + `<path d="${koerper}${schnauze}${pranke}" fill="${t.farbe}"/>`;
+      /* Aussparungen: zwei Augen und eine Schnauze. Gegenlaeufig
+         gezeichnet, damit evenodd sie als Loecher nimmt. */
+      const auge = (dx: number) =>
+        `M${(x + dx * g).toFixed(2)} ${py(-0.18)}`
+        + `a${r(0.13)} ${r(0.17)} 0 1 0 0.01 0Z`;
+      /* Nur die Nase, kein Mund: Ein geschwungener Mund wurde zum
+         Laecheln, und damit aus dem Wappentier ein Comicgesicht. */
+      const schnauze = `M${px(0)} ${py(0.4)}`
+        + `L${px(0.17)} ${py(0.14)}`
+        + `L${px(-0.17)} ${py(0.14)}Z`;
+
+      return `<path d="${kranz}${ohren}${auge(-0.3)}${auge(0.3)}${schnauze}"`
+        + ` fill="${t.farbe}" fill-rule="evenodd"/>`;
     }
 
     case 'rauten': {
